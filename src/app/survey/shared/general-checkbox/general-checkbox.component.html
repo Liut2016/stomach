@@ -1,0 +1,14 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{conf.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <section >
+        <mat-checkbox  style="margin-left: 10px" *ngFor="let option of conf.options, index as i" [(ngModel)]="conf.key_value[i]._value" (ngModelChange)="answerChange()" [disabled]="edit_disabled">
+          {{option}}
+        </mat-checkbox>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>

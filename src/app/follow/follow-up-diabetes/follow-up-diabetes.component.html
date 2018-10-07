@@ -1,0 +1,54 @@
+<div>
+  <mat-card style="width: 97%">
+    <mat-card-header>
+      <mat-card style="width: 300px">
+        <mat-card-title style="margin-left: 30px" > <h4>患者姓名：张三</h4> </mat-card-title>
+      </mat-card>
+      <mat-card style="width: 300px; margin-left: 30px">
+        <mat-card-title style="margin-left: 30px"> <h4>患者性别：8</h4></mat-card-title>
+      </mat-card>
+      <mat-card style="width: 300px; margin-left: 30px">
+        <mat-card-title style="margin-left: 30px"> <h4>档案号：8</h4></mat-card-title>
+      </mat-card>
+      <mat-card style="width: 300px; margin-left: 30px">
+        <mat-card-title style="margin-left: 30px"> <h4>当前录入时间：2018年7月13日</h4></mat-card-title>
+      </mat-card>
+    </mat-card-header>
+  </mat-card>
+  <mat-card style="width: 97%">
+    <mat-card-content>
+      <div>
+        <br>
+        <br>
+        <mat-tab-group style="width: 100%" [color]="'accent'" [(selectedIndex)]="current">
+          <mat-tab *ngFor="let item of followList">
+            <ng-template mat-tab-label style="font-size: large; color: #232a37">{{item.step_description}}</ng-template>
+            <ng-template matTabContent>
+              <div *ngFor="let cmp of item.items">
+                <div [ngSwitch]="cmp.type">
+                  <app-dc-general-radio           *ngSwitchCase="'radio'"           [conf]="cmp"></app-dc-general-radio>
+                  <app-dc-general-input           *ngSwitchCase="'input'"           [conf]="cmp"></app-dc-general-input>
+                  <app-dc-general-table           *ngSwitchCase="'table'"           [conf]="cmp"></app-dc-general-table>
+                  <app-dc-general-selector        *ngSwitchCase="'selector'"        [conf]="cmp"></app-dc-general-selector>
+                  <app-dc-general-checkbox        *ngSwitchCase="'checkbox'"        [conf]="cmp"></app-dc-general-checkbox>
+                  <app-dc-general-date            *ngSwitchCase="'date'"            [conf]="cmp"></app-dc-general-date>
+                  <app-dc-general-date-year       *ngSwitchCase="'date-year'"       [conf]="cmp"></app-dc-general-date-year>
+                  <app-dc-general-date-year-month *ngSwitchCase="'date-year-month'" [conf]="cmp"></app-dc-general-date-year-month>
+                  <app-dc-general-card-group      *ngSwitchCase="'card-group'"      [conf]="cmp"></app-dc-general-card-group>
+                  <app-dc-general-address         *ngSwitchCase="'address'"         [conf]="cmp"></app-dc-general-address>
+                </div>
+              </div>
+              <div style="float: right; margin-right: 50px">
+                <button *ngIf="current > 0 && current <= 5 "style="margin: 5px;"    mat-raised-button color="accent"  (click)="pre()">上一步</button>
+                <button *ngIf="current >= 0 && current < 5 " style="margin: 5px;"   mat-raised-button color="warn"    (click)="next()">下一步</button>
+                <button *ngIf="current === 5" style="margin: 5px;"                  mat-raised-button color="primary" (click)="submit()">提交</button>
+                <button *ngIf="current >= 0 && current < 5" style="margin: 5px;"    mat-raised-button color="primary" (click)="out()">退出(不保存)</button>
+                <button *ngIf="current >= 0 && current < 5" style="margin: 5px;"    mat-raised-button color="primary" (click)="submit()">暂存</button>
+              </div>
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

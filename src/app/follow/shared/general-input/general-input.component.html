@@ -1,0 +1,17 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{conf.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <label *ngIf="conf.left_text" style="margin-right: 10px; font-size: medium">{{conf.left_text}}</label>
+      <mat-form-field appearance="standard" style="max-width: 250px">
+        <input *ngIf="!edit_disabled" matInput [(ngModel)]="conf.key_value._value"  (ngModelChange)="answerChange()" [formControl]="options.controls[conf.validType]"  >
+        <input *ngIf="edit_disabled" matInput [(ngModel)]="conf.key_value._value" disabled  >
+        <mat-error *ngIf="options.controls[conf.validType].invalid">{{getErrorMessage(conf.validType)}}</mat-error>
+        <!--<mat-label *ngIf="conf.right_text">{{conf.right_text}}</mat-label>-->
+      </mat-form-field>
+      <label *ngIf="conf.right_text" style="margin-left: 10px; font-size: medium">{{conf.right_text}}</label>
+    </mat-card-content>
+  </mat-card>
+</div>

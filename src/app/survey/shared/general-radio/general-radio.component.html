@@ -1,0 +1,14 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{conf.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group [(ngModel)]="conf.key_value._value"  (ngModelChange)="answerChange()" class="example-radio-group" [disabled]="edit_disabled">
+        <mat-radio-button class="example-radio-button" *ngFor="let option of conf.options" [value]="option">
+          {{option}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+</div>

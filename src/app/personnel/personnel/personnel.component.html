@@ -1,0 +1,130 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content> 
+                <mat-card-title>人员管理</mat-card-title>
+                <!-- <div class="bg-light p-10 p-r-20 p-l-20">
+                    <mat-form-field>
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                    </mat-form-field>
+                </div>     -->
+
+                <mat-form-field style="max-width: 200px; margin-right: 10px; left: 5px;">
+                  <input matInput placeholder="用户名" [(ngModel)]="filters.id" (ngModelChange)="filter()">
+                </mat-form-field>
+                <mat-form-field style="max-width: 200px; margin-right: 5px">
+                  <input matInput placeholder="姓名" [(ngModel)]="filters.name" (ngModelChange)="filter()">
+                </mat-form-field>
+          
+                
+
+                <mat-form-field style="max-width: 200px; margin-right: 5px">
+                    <mat-select [(ngModel)]="filters.role" (selectionChange)="filter()">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let role of roles2create" [value]="role">{{role}}</mat-option>
+                    </mat-select>
+                    <mat-label>角色</mat-label>
+                  </mat-form-field>
+                <mat-form-field style="max-width: 200px; margin-right: 5px">
+                    <input matInput placeholder="负责人" [(ngModel)]="filters.supervisor" (ngModelChange)="filter()">
+                </mat-form-field>
+                <mat-form-field style="max-width: 200px; margin-right: 5px">
+                    <input matInput placeholder="社区" [(ngModel)]="filters.community" (ngModelChange)="filter()">
+                </mat-form-field>
+          
+                  <!-- <mat-form-field style="max-width: 200px; margin-right: 30px">
+                    <mat-select >
+                      <mat-option>-- None --</mat-option>
+                      <mat-option value="option">Option</mat-option>
+                    </mat-select>
+                    <mat-label>负责医师</mat-label>
+                  </mat-form-field> -->
+                  <label>注册时间：</label>
+                  <mat-form-field style="max-width: 200px;">
+                    <input matInput [matDatepicker]="picker1" placeholder="开始日期" 
+                    (dateChange)="startDateSelected($event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 (closedStream)="startDateSelected($event)"></mat-datepicker>
+                  </mat-form-field>
+          
+                  <label style="margin-right: 10px; margin-left: 10px">~</label>
+          
+                  <mat-form-field style="max-width: 200px; margin-right: 30px">
+                    <input matInput [matDatepicker]="picker2" placeholder="结束日期" 
+                    (dateChange)="endDateSelected($event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                  </mat-form-field>
+          
+          
+                  
+                    
+
+                <div class="table-rasponsive">
+                    <mat-table [dataSource]="userList" matSort (matSortChange)="sortData($event)">
+
+                    <!-- ID Column
+                    <ng-container matColumnDef="id">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                    </ng-container> -->
+
+                    <!-- userName Column -->
+                    <ng-container matColumnDef="id">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> 用户名 </mat-header-cell>
+                      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> 姓名 </mat-header-cell>
+                      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+                    </ng-container>
+
+                    <!-- role Column -->
+                    <ng-container matColumnDef="role">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> 角色 </mat-header-cell>
+                      <mat-cell *matCellDef="let row"> {{roleDict[row.role]}} </mat-cell>
+                    </ng-container>
+
+                    <!-- supervisor Column -->
+                    <ng-container matColumnDef="supervisor">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> 负责人 </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.supervisor}} </mat-cell>
+                      </ng-container>
+
+                    <!-- community Column -->
+                    <ng-container matColumnDef="community">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> 社区 </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{communityDic[row.community]}} </mat-cell>
+                      </ng-container>
+                    <!-- dateSignUp Column -->
+                    <ng-container matColumnDef="dateSignUp">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> 注册时间 </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.dateSignUp}} </mat-cell>
+                      </ng-container>
+
+                    <ng-container matColumnDef="operation">
+                        <mat-header-cell *matHeaderCellDef> 操作 </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <!-- <a class="text-info">修改</a> &nbsp; -->
+                            <a class="text-info" (click)="deleteUser(row.id)" *ngIf="settings.user.role !== 'super' ||
+                             (settings.user.role === 'super' && row.supervisor === settings.user.id)">删除</a>
+                        </mat-cell>
+                      </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                  </mat-table>
+                  <button mat-mini-fab class="m-l-10 m-t-10" (click)="triggerManagement()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                  <mat-paginator [length]="paginatorConfig.length" [pageSize]="paginatorConfig.pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+                  (page)="pageChanged($event)"></mat-paginator>
+                  
+                </div>
+                
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

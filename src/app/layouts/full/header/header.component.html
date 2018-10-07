@@ -1,0 +1,23 @@
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+
+<button mat-icon-button class="m-r-5" [routerLink]="['/feedback']">
+    <mat-icon>email</mat-icon>
+    <div class="notify" *ngIf="setting.unreadEmailNumber > 0"> <span class="heartbit"></span> <span class="point"></span> </div>
+</button>
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/chronic/avatar.png" width="40" height="40" alt="user" class="profile-pic"> </button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <button mat-menu-item [routerLink]="['/setting']">
+        <mat-icon>settings</mat-icon> 设置 
+    </button>
+    <!-- <button mat-icon-button class="ml-xs overflow-visible" [routerLink]="['/setting']">
+        <mat-icon>settings</mat-icon>
+      </button> -->
+    <button mat-menu-item (click)="logout.logout()">
+        <mat-icon>exit_to_app</mat-icon> 登出
+    </button>
+</mat-menu>
+
+<label class="label label-{{role2labelDict[setting.user.role]}} m-l-10 m-r-10">{{roleDict[setting.user.role]}}</label>
+<label>{{setting.user.id}}</label>

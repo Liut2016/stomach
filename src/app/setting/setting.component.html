@@ -1,0 +1,81 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title>设置</mat-card-title>
+            </mat-card-header>
+            <mat-card-content> 
+                <!-- 系统设置 -->
+                <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>系统设置</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                      <p>
+                          布局设置: &nbsp;&nbsp;
+                          <mat-slide-toggle class="m-r-20" color="warn" (change)="settings.theme.dir = (settings.theme.dir == 'rtl' ? 'ltr' : 'rtl')">从右到左</mat-slide-toggle>
+                          <mat-slide-toggle class="m-r-20" color="warn" [(ngModel)]="settings.theme.boxed">盒式布局</mat-slide-toggle>
+                      </p>
+                      <p>
+                        主题设置: &nbsp;&nbsp;
+                        <mat-radio-group [(ngModel)]="selectedTheme" (change)="selectTheme($event)">
+                          <mat-radio-button class="m-r-20" *ngFor="let theme of themes" [value]="theme">
+                            {{themesDict[theme]}}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </p>
+                      
+                      <!-- <p>
+                          <mat-radio-button color="warn" [(ngModel)]="settings.theme.danger" (change)="settings.theme.green = settings.theme.blue = settings.theme.dark = settings.theme.defaultColor = false"
+                           class="text-danger">红色</mat-radio-button>
+                          <mat-radio-button color="warn" [(ngModel)]="settings.theme.green" (change)="settings.theme.danger = settings.theme.blue = settings.theme.danger = settings.theme.defaultColor = false" class="text-megna">茶绿色</mat-radio-button> 
+                          <mat-checkbox color="warn" [(ngModel)]="settings.theme.blue" (change)="settings.theme.green = settings.theme.danger = settings.theme.dark = settings.theme.defaultColor = false" style="color: #3949ab">蓝色</mat-checkbox> 
+                          <mat-checkbox color="warn" [(ngModel)]="settings.theme.dark" (change)="settings.theme.green = settings.theme.blue = settings.theme.danger = settings.theme.defaultColor = false">黑色</mat-checkbox>
+                          <mat-checkbox color="warn" [(ngModel)]="settings.theme.defaultColor" (change)="settings.theme.green = settings.theme.blue = settings.theme.danger = settings.theme.danger = settings.theme.dark = false" class="text-info">默认</mat-checkbox>
+                      </p> -->
+              
+                      <p>
+                          <button mat-raised-button color="primary" (click)="saveThemeSettings()">保存</button>
+                      </p>
+                  </mat-card-content>
+                </mat-card>
+                <!-- 密码修改 -->
+                <mat-card>
+                    <mat-card-header>
+                      <mat-card-title>密码修改</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content style="max-width: 500px;">
+                      <form [formGroup]="changePasswordForm">
+                          <mat-form-field appearance="outline">
+                              <mat-label>请输入旧密码</mat-label>
+                              <input matInput [type]="passwords.oldPassword.hide ? 'password' : 'text'">
+                              <mat-icon matSuffix (click)="passwords.oldPassword.hide = !passwords.oldPassword.hide">{{passwords.oldPassword.hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>请输入新密码</mat-label>
+                              <input matInput [type]="passwords.newPassword1.hide ? 'password' : 'text'"
+                              name="new_password" [formControl]="changePasswordForm.controls['new_password']">
+                              <mat-icon matSuffix (click)="passwords.newPassword1.hide = !passwords.newPassword1.hide">{{passwords.newPassword1.hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                              <!-- <mat-error *ngIf="true">两个新密码不匹配</mat-error> -->
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>请再次输入新密码</mat-label>
+                              <input matInput [type]="passwords.newPassword2.hide ? 'password' : 'text'"
+                              name="confirm_new_password" [formControl]="changePasswordForm.controls['confirm_new_password']">
+                              <mat-icon matSuffix (click)="passwords.newPassword2.hide = !passwords.newPassword2.hide">{{passwords.newPassword2.hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                              <mat-error *ngIf="!changePasswordForm.controls['confirm_new_password'].hasError('passwordMatch')" class="text-danger">
+                                  请输入两次相同的密码
+                              </mat-error>
+                            </mat-form-field>
+                          </form>
+                      <button mat-raised-button color="primary" (click)="changePassword()">确认</button>
+
+                      <!-- <mat-list>
+                        <mat-list-item></mat-list-item>
+                      </mat-list> -->
+                    </mat-card-content>
+                  </mat-card>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

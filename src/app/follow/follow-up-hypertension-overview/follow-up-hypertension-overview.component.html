@@ -1,0 +1,104 @@
+<script src="follow-up-hypertension-overview.component.ts"></script>
+<div>
+  <mat-card style="width: 97%">
+    <mat-card-header>
+      <mat-card-title ><h2 style="margin-left: 25px">高血压随访管理</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card>
+        <mat-form-field *ngIf="user.role !== 'doctor' && user.role !== 'patient' && user.role !== 'community'" style="max-width: 200px; margin-right: 30px">
+          <mat-select [(ngModel)]="communityName">
+            <mat-option>-- None --</mat-option>
+            <mat-option  *ngFor="let option of communityList" [value]="option">{{option}}</mat-option>
+          </mat-select>
+          <mat-label>所属社区</mat-label>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="user.role !== 'doctor' && user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
+          <mat-select [(ngModel)]="doctorName">
+            <mat-option>-- None --</mat-option>
+            <mat-option  *ngFor="let option of doctorList" [value]="option">{{option}}</mat-option>
+          </mat-select>
+          <mat-label>负责医师</mat-label>
+        </mat-form-field>
+
+        <label *ngIf="user.role !== 'patient'" style="margin-right: 5px">录入时间段：</label>
+
+        <mat-form-field *ngIf="user.role !== 'patient'" style="max-width: 200px;">
+          <input matInput [matDatepicker]="picker1" placeholder="选择一个日期" [(ngModel)]="startTime">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <label *ngIf="user.role !== 'patient'" style="margin-right: 10px; margin-left: 10px">~</label>
+
+        <mat-form-field *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
+          <input matInput [matDatepicker]="picker2" placeholder="选择一个日期" [(ngModel)]="endTime">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
+          <input matInput placeholder="患者姓名" [(ngModel)]="patientName">
+        </mat-form-field>
+
+        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
+          <input matInput placeholder="患者身份证号" [(ngModel)]="idNumber" >
+        </mat-form-field>
+        <button  *ngIf="user.role !== 'patient'" mat-raised-button color="primary" (click)="search()">查询</button>
+
+        <button  *ngIf="user.role !== 'patient'" mat-raised-button color="primary" style="margin-left: 20px" (click)="clear()">清空</button>
+
+      </mat-card>
+      <mat-card style="width: 100%; margin-top: 20px">
+        <table mat-table [dataSource]="PatientList" style="width: 100%;">
+          <ng-container matColumnDef="PID">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 病人ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.PID}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="PatientName">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 病人姓名 </th>
+            <td mat-cell *matCellDef="let element"> {{element.PatientName}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="DoctorName">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 负责医师 </th>
+            <td mat-cell *matCellDef="let element"> {{element.DoctorName}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Community">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 所属社区 </th>
+            <td mat-cell *matCellDef="let element"> {{element.Community}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="operate">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 操作 </th>
+            <td mat-cell *matCellDef="let element">
+              <span> <a [routerLink]="'../hypertensionFollowSingleview/' + element.PID" style="color: #1E88E5; font-size: medium;"><button mat-button color="accent">查看随访记录</button></a></span>
+              <!--<span> <a href="#" style="color: #1E88E5; font-size: medium">  删除 </a> </span>-->
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSize]="pageSize" [length]="listLenth"  [pageIndex]="pageIndex" showFirstLastButtons></mat-paginator>
+      </mat-card>
+      <!--<mat-card>-->
+        <!--<div style="margin-top: 5px">-->
+          <!--<button mat-fab style="margin: 15px;" routerLink="../hypertension">-->
+            <!--<mat-icon aria-label="add a new survey">add</mat-icon>-->
+          <!--</button>-->
+          <!--<button mat-fab>-->
+            <!--<mat-icon aria-label="add a new survey">file_download</mat-icon>-->
+          <!--</button>-->
+        <!--</div>-->
+
+      <!--</mat-card>-->
+    </mat-card-content>
+  </mat-card>
+</div>

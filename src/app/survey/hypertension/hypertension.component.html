@@ -1,0 +1,87 @@
+<!--<div>-->
+<!--<mat-card>-->
+<!--<mat-card-header>高血压患者信息录入</mat-card-header>-->
+<!--<mat-card-content>-->
+<!--<div>-->
+
+<!--<mat-horizontal-stepper (selectionChange)="jump()">-->
+
+<!--<mat-step  *ngFor="let item of surveyList, index as c" >-->
+<!--<form >-->
+<!--<ng-template matStepLabel >{{item.step_description}}</ng-template>-->
+
+<!--<div *ngIf="current === c">-->
+<!--<div *ngFor="let cmp of item.items">-->
+<!--<div [ngSwitch]="cmp.type">-->
+<!--<app-dc-general-radio           *ngSwitchCase="'radio'"           [conf]="cmp"></app-dc-general-radio>-->
+<!--<app-dc-general-input           *ngSwitchCase="'input'"           [conf]="cmp"></app-dc-general-input>-->
+<!--<app-dc-general-table           *ngSwitchCase="'table'"           [conf]="cmp"></app-dc-general-table>-->
+<!--<app-dc-general-selector        *ngSwitchCase="'selector'"        [conf]="cmp"></app-dc-general-selector>-->
+<!--<app-dc-general-checkbox        *ngSwitchCase="'checkbox'"        [conf]="cmp"></app-dc-general-checkbox>-->
+<!--<app-dc-general-date            *ngSwitchCase="'date'"            [conf]="cmp"></app-dc-general-date>-->
+<!--<app-dc-general-date-year       *ngSwitchCase="'date-year'"       [conf]="cmp"></app-dc-general-date-year>-->
+<!--<app-dc-general-date-year-month *ngSwitchCase="'date-year-month'" [conf]="cmp"></app-dc-general-date-year-month>-->
+<!--<app-dc-general-card-group      *ngSwitchCase="'card-group'"      [conf]="cmp"></app-dc-general-card-group>-->
+<!--<app-dc-general-address         *ngSwitchCase="'address'"         [conf]="cmp"></app-dc-general-address>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<button style="margin: 5px;" mat-raised-button color="accent" matStepperPrevious (click)="collectValueOfCurrentPage()">上一步</button>-->
+<!--<button style="margin: 5px;" mat-raised-button color="warn" matStepperNext (click)="next()">下一步</button>-->
+<!--<button style="margin: 5px;" mat-raised-button color="primary">提交</button>-->
+<!--</div>-->
+
+<!--</form>-->
+<!--</mat-step>-->
+
+<!--</mat-horizontal-stepper>-->
+
+<!--</div>-->
+<!--</mat-card-content>-->
+<!--</mat-card>-->
+<!--</div>-->
+
+<div>
+  <mat-card>
+    <mat-card-header><h3>高血压患者信息录入</h3></mat-card-header>
+    <mat-card-content>
+      <div>
+        <br>
+        <br>
+        <mat-tab-group style="width: 100%" [color]="'accent'" [(selectedIndex)]="current">
+          <mat-tab *ngFor="let item of surveyList">
+            <ng-template mat-tab-label style="font-size: large; color: #232a37">{{item.step_description}}</ng-template>
+            <ng-template matTabContent>
+              <div *ngFor="let cmp of item.items">
+                <div [ngSwitch]="cmp.type">
+                  <app-dc-general-radio           *ngSwitchCase="'radio'"           [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-radio>
+                  <app-dc-general-input           *ngSwitchCase="'input'"           [conf]="cmp" (onVoted)="onVoted($event)" [edit_disabled]="edit_disabled"></app-dc-general-input>
+                  <app-dc-general-table           *ngSwitchCase="'table'"           [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-table>
+                  <app-dc-general-selector        *ngSwitchCase="'selector'"        [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-selector>
+                  <app-dc-general-checkbox        *ngSwitchCase="'checkbox'"        [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-checkbox>
+                  <app-dc-general-date            *ngSwitchCase="'date'"            [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-date>
+                  <app-dc-general-date-year       *ngSwitchCase="'date-year'"       [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-date-year>
+                  <app-dc-general-date-year-month *ngSwitchCase="'date-year-month'" [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-date-year-month>
+                  <app-dc-general-card-group      *ngSwitchCase="'card-group'"      [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-card-group>
+                  <app-dc-general-address         *ngSwitchCase="'address'"         [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-general-address>
+                  <app-dc-dynamic-row-table       *ngSwitchCase="'dynamic-row-table'" [conf]="cmp" [edit_disabled]="edit_disabled"></app-dc-dynamic-row-table>
+                </div>
+              </div>
+              <div style="float: right; margin-right: 50px">
+                <button *ngIf="current > 0 && current <= 6 "style="margin: 5px;"    mat-raised-button color="accent"  (click)="pre()">上一步</button>
+                <button *ngIf="current >= 0 && current < 6 " style="margin: 5px;"   mat-raised-button color="warn"    (click)="next()">下一步</button>
+                <button *ngIf="current === 6 && user.role !== 'patient'" style="margin: 5px;"                  mat-raised-button color="primary" (click)="submit()">提交</button>
+                <button *ngIf="current >= 0 && current < 6 && user.role !== 'patient'" style="margin: 5px;"    mat-raised-button color="primary" (click)="out()">退出(不保存)</button>
+                <button *ngIf="current >= 0 && current <= 6 && user.role === 'patient'" style="margin: 5px;"    mat-raised-button color="primary" (click)="out()">退出</button>
+                <button *ngIf="current >= 0 && current < 6 && user.role !== 'patient'" style="margin: 5px;"    mat-raised-button color="primary" (click)="submit()">暂存</button>
+              </div>
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

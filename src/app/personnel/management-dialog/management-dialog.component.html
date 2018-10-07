@@ -1,0 +1,54 @@
+<h2>新建用户</h2>
+<mat-dialog-content>
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="用户名" [(ngModel)]="newUser.username" required>
+        </mat-form-field>
+      </p>
+      <p>
+          <mat-form-field>
+              <mat-label>请输入新密码</mat-label>
+            <input matInput [type]="pwdHide ? 'password' : 'text'" [(ngModel)]="newUser.password" required>
+            <mat-icon matSuffix (click)="pwdHide = !pwdHide">{{pwdHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field style="width: 50%">
+          <input matInput placeholder="姓" [(ngModel)]="newUser.lastName" required>
+        </mat-form-field>
+        <mat-form-field style="width: 50%">
+          <input matInput placeholder="名" [(ngModel)]="newUser.firstName" required>
+        </mat-form-field>
+      </p>
+      <!-- <p> 
+          <mat-form-field>
+              <input matInput placeholder="姓名" [(ngModel)]="newUser.name">
+            </mat-form-field>
+      </p> -->
+      <p>
+          <mat-form-field *ngIf="settings.user.role === 'super'">
+              <mat-select [(ngModel)]="newUser.community" [required]="settings.user.role === 'super'">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let community of communities" [value]="community.value">{{community.label}}</mat-option>
+              </mat-select>
+              <mat-label>社区</mat-label>
+            </mat-form-field>
+
+          <mat-form-field *ngIf="settings.user.role === 'doctor'">
+              <input matInput placeholder="身份证号" [(ngModel)]="newUser.idNumber" required>
+            </mat-form-field>
+      </p>
+
+      <p>
+          <mat-form-field>
+            <input matInput placeholder="邮箱" [(ngModel)]="newUser.email">
+          </mat-form-field>
+        </p>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="sure()">确定</button>
+  <button mat-button (click)="cancel()">取消</button>
+</mat-dialog-actions>

@@ -1,0 +1,32 @@
+<h3 class="m-t-0">写邮件</h3>
+  <!-- <form class="basic-form"> -->
+      <div fxLayout="row" fxLayoutWrap="wrap">
+          <!-- column -->
+          <div fxFlex.gt-sm="100" fxFlex="100">
+            <mat-form-field>
+              <mat-select [(ngModel)]="receiverID">
+                <mat-option *ngFor="let user of users2email" [value]="user.id">{{user.name}}&nbsp;{{roleDict[user.role]}}&nbsp;{{user.id}}</mat-option>
+              </mat-select>
+              <mat-label>接收者</mat-label>
+            </mat-form-field>
+          </div>
+          <!-- column -->
+          <div fxFlex.gt-sm="100" fxFlex="100">
+            <mat-form-field>
+              <input matInput placeholder="主题" type="text" [(ngModel)]="subject">
+            </mat-form-field>
+          </div>
+          <!-- column -->
+          <div fxFlex.gt-sm="100" fxFlex="100">
+          <quill-editor #editor [(ngModel)]="emailBody" name="editor" [style]="{height: '200px'}"
+          (onEditorCreated)="editorCreated($event)"
+           (onContentChanged)="contentChanged($event)"
+          (onSelectionChanged)="selectionChanged($event)"></quill-editor>
+          </div>
+          <!-- column -->
+          <div fxFlex.gt-sm="100" fxFlex="100" class="m-t-20">
+          <button mat-raised-button color="primary" (click)="send()">发送</button>
+          <button mat-raised-button color="primary" (click)="cancel()">取消</button>
+          </div>
+      </div>
+  <!-- </form> -->

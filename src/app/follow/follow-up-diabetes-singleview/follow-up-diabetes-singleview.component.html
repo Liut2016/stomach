@@ -1,0 +1,63 @@
+<div>
+  <mat-card style="width: 97%">
+    <mat-card-header>
+      <mat-card-title><h2>糖尿病患者随访记录</h2></mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  <mat-card style="width:  97%">
+    <mat-card-header>
+      <mat-card style="width: 300px">
+        <mat-card-title style="margin-left: 30px" > <h3>患者ID：{{PID}}</h3> </mat-card-title>
+      </mat-card>
+      <mat-card style="width: 300px; margin-left: 30px">
+        <mat-card-title style="margin-left: 30px"> <h3>患者姓名：{{patientName}}</h3></mat-card-title>
+      </mat-card>
+      <mat-card style="width: 300px; margin-left: 30px">
+        <mat-card-title style="margin-left: 30px"> <h3>负责医师：{{doctorName}}</h3></mat-card-title>
+      </mat-card>
+      <mat-card style="width: 300px; margin-left: 30px">
+        <mat-card-title style="margin-left: 30px"> <h3>所属社区：{{community}}</h3></mat-card-title>
+      </mat-card>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card style="width: 100%; margin-top: 20px">
+        <table mat-table [dataSource]="PatientList" style="width: 100%;">
+          <ng-container matColumnDef="CID">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 随访次数 </th>
+            <td mat-cell *matCellDef="let element"> {{element.CID}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="FID">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> FID </th>
+            <td mat-cell *matCellDef="let element"> {{element.FID}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="Time">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 录入时间 </th>
+            <td mat-cell *matCellDef="let element"> {{element.Time}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="operate">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 操作 </th>
+            <td mat-cell *matCellDef="let element">
+              <span> <a [routerLink]="'../../diabetesFollow/' + PID + '_' + element.FID"  style="color: #1E88E5; font-size: medium; " > <button mat-button color="accent">查看</button> </a> </span>|
+              <span> <a (click)="deleteRecord(element.FID)" style="color: #1E88E5; font-size: medium">  <button mat-button color="accent">删除</button> </a> </span>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSize]="pageSize" [length]="listLenth"  [pageIndex]="pageIndex" showFirstLastButtons></mat-paginator>
+      </mat-card>
+      <mat-card>
+        <div style="margin-top: 5px">
+          <button mat-fab style="margin: 15px;" [routerLink]="'../../diabetesFollow/' + PID">
+            <mat-icon aria-label="add a new survey">add</mat-icon>
+          </button>
+          <button  routerLink="../../diabetesFollowOverview" style="margin: 5px; margin-top: 20px; float: right; margin-right: 100px" mat-raised-button color="primary">返回</button>
+        </div>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>
