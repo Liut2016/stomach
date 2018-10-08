@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../shared/service/settings.service';
-import { HttpForNowService } from '../shared/service/http-for-now.service';
+import { SettingsService } from '@app/core/services/settings.service';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from '@angular/forms';
 

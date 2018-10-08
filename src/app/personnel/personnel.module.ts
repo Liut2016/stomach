@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { PersonnelComponent } from './personnel/personnel.component';
-import { PersonnelRoutes } from './personnel.routing';
-import { DemoMaterialModule } from '../demo-material-module';
+import { PersonnelComponent } from '@app/personnel/personnel/personnel.component';
+import { PersonnelRoutes } from '@app/personnel/personnel.routing';
+import { DemoMaterialModule } from '@app/demo-material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ManagementDialogComponent } from './management-dialog/management-dialog.component';
+import { ManagementDialogComponent } from '@app/personnel/management-dialog/management-dialog.component';
 
 @NgModule({
   imports: [

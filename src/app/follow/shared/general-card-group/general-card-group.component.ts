@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
-import { ConfInterface } from '../conf-interface';
+import { ConfInterface } from '@app/follow/shared/conf-interface';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({

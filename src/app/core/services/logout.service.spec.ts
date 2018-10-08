@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { LogoutService } from './logout.service';
+import { LogoutService } from '@app/core/services/logout.service';
 
 describe('LogoutService', () => {
   beforeEach(() => {

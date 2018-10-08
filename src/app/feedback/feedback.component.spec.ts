@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedbackComponent } from './feedback.component';
+import { FeedbackComponent } from '@app/feedback/feedback.component';
 
 describe('FeedbackComponent', () => {
   let component: FeedbackComponent;

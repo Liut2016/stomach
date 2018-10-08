@@ -1,10 +1,15 @@
 import {Route, Routes} from '@angular/router';
-import { FollowUpHypertensionOverviewComponent} from './follow-up-hypertension-overview/follow-up-hypertension-overview.component';
-import { FollowUpHypertensionSingleviewComponent} from './follow-up-hypertension-singleview/follow-up-hypertension-singleview.component';
-import { FollowUpHypertensionComponent} from './follow-up-hypertension/follow-up-hypertension.component';
-import { FollowUpDiabetesOverviewComponent} from './follow-up-diabetes-overview/follow-up-diabetes-overview.component';
-import { FollowUpDiabetesSingleviewComponent} from './follow-up-diabetes-singleview/follow-up-diabetes-singleview.component';
-import { FollowUpDiabetesComponent} from './follow-up-diabetes/follow-up-diabetes.component';
+import { FollowUpHypertensionOverviewComponent
+  } from '@app/follow/follow-up-hypertension-overview/follow-up-hypertension-overview.component';
+import { FollowUpHypertensionSingleviewComponent
+  } from '@app/follow/follow-up-hypertension-singleview/follow-up-hypertension-singleview.component';
+import { FollowUpHypertensionComponent
+  } from '@app/follow/follow-up-hypertension/follow-up-hypertension.component';
+import { FollowUpDiabetesOverviewComponent
+  } from '@app/follow/follow-up-diabetes-overview/follow-up-diabetes-overview.component';
+import { FollowUpDiabetesSingleviewComponent
+  } from '@app/follow/follow-up-diabetes-singleview/follow-up-diabetes-singleview.component';
+import { FollowUpDiabetesComponent} from '@app/follow/follow-up-diabetes/follow-up-diabetes.component';
 
 export const FollowRoutes: Routes = [
   {

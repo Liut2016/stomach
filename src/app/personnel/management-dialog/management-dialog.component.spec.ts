@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManagementDialogComponent } from './management-dialog.component';
+import { ManagementDialogComponent } from '@app/personnel/management-dialog/management-dialog.component';
 
 describe('ManagementDialogComponent', () => {
   let component: ManagementDialogComponent;

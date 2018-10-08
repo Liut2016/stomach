@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpForNowService } from '../../shared/service/http-for-now.service';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
 import { LocalStorage } from '@ngx-pwa/local-storage';
 import { Router } from '@angular/router';
-import { SettingsService } from './settings.service';
+import { SettingsService } from '@app/core/services/settings.service';
 import { LocalStorageService } from 'ngx-store';
 
 @Injectable({

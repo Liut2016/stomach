@@ -1,4 +1,4 @@
-import { PersonnelModule } from './personnel.module';
+import { PersonnelModule } from '@app/personnel/personnel.module';
 
 describe('PersonnelModule', () => {
   let personnelModule: PersonnelModule;

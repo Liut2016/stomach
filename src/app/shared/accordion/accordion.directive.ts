@@ -2,7 +2,7 @@ import { Directive, OnInit, AfterViewInit, AfterContentChecked } from '@angular/
 import { Router, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
-import { AccordionLinkDirective } from './accordionlink.directive';
+import { AccordionLinkDirective } from '@app/shared/accordion/accordionlink.directive';
 
 @Directive({
   selector: '[appAccordion]',

@@ -1,11 +1,11 @@
 import {Route, Routes} from '@angular/router';
-import { HypertensionOverviewComponent} from './hypertension-overview/hypertension-overview.component';
-import { HypertensionComponent} from './hypertension/hypertension.component';
-import { DiabetesOverviewComponent} from './diabetes-overview/diabetes.overview.component';
-import { DiabetesComponent} from './diabetes/diabetes.component';
-import { ReportComponent} from './report/report.component';
-import { DiagnosisComponent} from './diagnosis/diagnosis.component';
-import { TreatementComponent} from './treatement/treatement.component';
+import { HypertensionOverviewComponent} from '@app/survey/hypertension-overview/hypertension-overview.component';
+import { HypertensionComponent} from '@app/survey/hypertension/hypertension.component';
+import { DiabetesOverviewComponent} from '@app/survey/diabetes-overview/diabetes.overview.component';
+import { DiabetesComponent} from '@app/survey/diabetes/diabetes.component';
+import { ReportComponent} from '@app/survey/report/report.component';
+import { DiagnosisComponent} from '@app/survey/diagnosis/diagnosis.component';
+import { TreatementComponent} from '@app/survey/treatement/treatement.component';
 
 export const SurveyRoutes: Routes = [
   {

@@ -1,11 +1,11 @@
 import {Component, Inject, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SurveyList} from './surveyList';
-import {HttpService} from '../../core/services/http.service';
-import {SettingsService} from '../../shared/service/settings.service';
+import {SurveyList} from '@app/survey/hypertension/surveyList';
+import {HttpService} from '@app/core/services/http.service';
+import {SettingsService} from '@app/core/services/settings.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
-import {LocalStorage} from '../../core/common/local.storage';
-import {GeneralDateComponent} from '../shared/general-date/general-date.component';
+import {LocalStorage} from '@app/shared/local.storage';
+import {GeneralDateComponent} from '@app/survey/shared/general-date/general-date.component';
 
 @Component({
   selector: 'app-dialog-overview-example-dialog',

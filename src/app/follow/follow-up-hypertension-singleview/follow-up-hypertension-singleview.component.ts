@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
-import { HttpService} from '../../core/services/http.service';
+import { HttpService} from '@app/core/services/http.service';
 import { ActivatedRoute, Router} from '@angular/router';
-import { LocalConfigure} from '../shared/local-configure';
-import {communitiesDict} from "../../shared/config-items/static-item";
+import { LocalConfigure} from '@app/follow/shared/local-configure';
+import {communitiesDict} from '@app/shared/config-items/static-item';
 
 @Component({
   selector: 'app-follow-up-hypertension-singleview',

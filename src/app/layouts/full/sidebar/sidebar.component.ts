@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, NgZone, OnDestroy, ViewChild, HostListener, Directive, AfterViewInit } from '@angular/core';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { MenuItems } from '../../../shared/config-items/menu-items';
-import { SettingsService } from '../../../shared/service/settings.service';
-import { HttpForNowService } from '../../../shared/service/http-for-now.service';
-import { LogoutService } from '../../../shared/service/logout.service';
+import { MenuItems } from '@app/shared/config-items/menu-items';
+import { SettingsService } from '@app/core/services/settings.service';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
+import { LogoutService } from '@app/core/services/logout.service';
 
 @Component({
   selector: 'app-sidebar',

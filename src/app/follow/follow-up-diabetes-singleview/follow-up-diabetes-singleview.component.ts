@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
-import { HttpService} from '../../core/services/http.service';
+import { HttpService} from '@app/core/services/http.service';
 import { ActivatedRoute, Router} from '@angular/router';
-import { LocalConfigure} from '../shared/local-configure';
+import { LocalConfigure} from '@app/follow/shared/local-configure';
 
 @Component({
   selector: 'app-follow-up-diabetes-singleview',
@@ -28,7 +28,7 @@ export class FollowUpDiabetesSingleviewComponent implements OnInit {
     'follow': 1,
     'sorted_key': 'FID',
     'PID': 1
-  }
+  };
   communitiesDict = new LocalConfigure().communitiesDict;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private service: HttpService, private route: ActivatedRoute,  private router: Router) {}

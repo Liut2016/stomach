@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Message } from './message';
-import { FeedbackService } from './feedback.service';
+import { Message } from '@app/feedback/message';
+import { FeedbackService } from '@app/feedback/feedback.service';
 import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
 
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -9,14 +9,14 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { log } from 'util';
 
-import { SettingsService } from '../shared/service/settings.service';
-import { HttpForNowService } from '../shared/service/http-for-now.service';
+import { SettingsService } from '@app/core/services/settings.service';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
 import { PageEvent } from '@angular/material';
 
 // mock data
 // import { users2email } from "./mock-data";
 import { formatDate } from '@angular/common';
-import { roleDict } from '../shared/config-items/static-item';
+import { roleDict } from '@app/shared/config-items/static-item';
 
 interface UserPublicInfo {
   avatar?: string;

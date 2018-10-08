@@ -2,14 +2,14 @@ import {Component, ViewChild, AfterViewInit} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource, MatDialog, MatTable} from '@angular/material';
 import {PageEvent} from '@angular/material';
 
-import { ManagementDialogComponent } from '../management-dialog/management-dialog.component';
-import { SettingsService } from './../../shared/service/settings.service';
+import { ManagementDialogComponent } from '@app/personnel/management-dialog/management-dialog.component';
+import { SettingsService } from '@app/core/services/settings.service';
 /** Constants used to fill up our data base. */
 
-import { HttpForNowService } from '../../shared/service/http-for-now.service';
-import { users as mockUsers } from './mock-userlist';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
+import { users as mockUsers } from '@app/personnel/personnel/mock-userlist';
 import { formatDate } from '@angular/common';
-import { communitiesDict, roleDict } from '../../shared/config-items/static-item';
+import { communitiesDict, roleDict } from '@app/shared/config-items/static-item';
 
 
 interface User {

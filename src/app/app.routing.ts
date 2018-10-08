@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 
-import { FullComponent } from './layouts/full/full.component';
-import { AppBlankComponent } from './layouts/blank/blank.component';
-import { AuthGuardService as AuthGuard } from './shared/service/auth-guard.service';
-import { SettingComponent } from './setting/setting.component';
+import { FullComponent } from '@app/layouts/full/full.component';
+import { AppBlankComponent } from '@app/layouts/blank/blank.component';
+import { AuthGuardService as AuthGuard } from '@app/core/services/auth-guard.service';
+import { SettingComponent } from '@app/setting/setting.component';
 
 export const AppRoutes: Routes = [
   {

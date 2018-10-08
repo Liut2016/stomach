@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
-import { SettingsService } from './settings.service';
+import { SettingsService } from '@app/core/services/settings.service';
 // import { LocalStorage } from '@ngx-pwa/local-storage';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-store';

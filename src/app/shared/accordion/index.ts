@@ -1,3 +1,3 @@
-export * from './accordionanchor.directive';
-export * from './accordionlink.directive';
-export * from './accordion.directive';
+export * from '@app/shared/accordion/accordionanchor.directive';
+export * from '@app/shared/accordion/accordionlink.directive';
+export * from '@app/shared/accordion/accordion.directive';

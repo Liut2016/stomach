@@ -2,7 +2,7 @@ import {
   Directive, HostBinding, Inject, Input, OnInit, OnDestroy
 } from '@angular/core';
 
-import { AccordionDirective } from './accordion.directive';
+import { AccordionDirective } from '@app/shared/accordion/accordion.directive';
 
 @Directive({
   selector: '[appAccordionLink]'

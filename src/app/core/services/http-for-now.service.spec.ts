@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { HttpForNowService } from './http-for-now.service';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
 
 describe('HttpForNowService', () => {
   beforeEach(() => {

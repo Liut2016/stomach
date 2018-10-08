@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { RoleConfiguration } from '../config-items/authority-items';
-import { AuthorityService } from './med-lib/authority.service';
+import { RoleConfiguration } from '@app/shared/config-items/authority-items';
+import { AuthorityService } from '@app/core/services/med-lib/authority.service';
 import { log } from 'util';
 
-import { users, User } from './mock-data';
-import { HttpForNowService } from './http-for-now.service';
+import { users, User } from '@app/core/services/mock-data';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
 
 @Injectable({
   providedIn: 'root'

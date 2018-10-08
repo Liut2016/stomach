@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
-import { HttpService} from '../../core/services/http.service';
+import { HttpService} from '@app/core/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SettingsService} from '../../shared/service/settings.service';
-import { LocalConfigure} from '../shared/local-configure';
+import { SettingsService} from '@app/core/services/settings.service';
+import { LocalConfigure} from '@app/follow/shared/local-configure';
 
 @Component({
   selector: 'app-follow-up-hypertension-overview',

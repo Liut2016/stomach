@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { PersonnelComponent } from './personnel/personnel.component';
+import { PersonnelComponent } from '@app/personnel/personnel/personnel.component';
 
 export const PersonnelRoutes: Routes = [{
   path: '',

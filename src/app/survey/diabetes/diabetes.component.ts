@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import { SurveyList} from './surveyDiabetesList';
-import { HttpService} from '../../core/services/http.service';
+import { SurveyList} from '@app/survey/diabetes/surveyDiabetesList';
+import { HttpService} from '@app/core/services/http.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { SettingsService} from '../../shared/service/settings.service';
-import { GeneralDateComponent} from '../shared/general-date/general-date.component';
+import { SettingsService} from '@app/core/services/settings.service';
+import { GeneralDateComponent} from '@app/survey/shared/general-date/general-date.component';
 
 @Component({
   selector: 'app-dialog-diabetes-dialog',

@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import { HttpService} from '../../core/services/http.service';
+import { HttpService} from '@app/core/services/http.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { FollowDiabetesList} from './followDiabetesList';
+import { FollowDiabetesList} from '@app/follow/follow-up-diabetes/followDiabetesList';
 
 @Component({
   selector: 'app-dialog-overview-follow-hyper-dialog',

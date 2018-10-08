@@ -2,8 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
-import { HttpForNowService } from '../../shared/service/http-for-now.service';
-import { SettingsService } from '../../shared/service/settings.service';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
+import { SettingsService } from '@app/core/services/settings.service';
 
 
 @Component({

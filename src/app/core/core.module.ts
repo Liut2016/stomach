@@ -1,5 +1,5 @@
 import { NgModule} from '@angular/core';
-import { HttpService} from './services/http.service';
+import { HttpService} from '@app/core/services/http.service';
 
 @NgModule({
   imports: [],

@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ConfInterface} from '../conf-interface';
+import { ConfInterface} from '@app/follow/shared/conf-interface';
 
 @Component({
   selector: 'app-dc-general-selector',
@@ -12,7 +12,7 @@ export class GeneralSelectorComponent extends ConfInterface implements OnInit {
   constructor() {
     super();
   }
-  answerChange() { this.validator();}
+  answerChange() { this.validator(); }
   validator() {
     if (this.conf.required) {
       if (this.conf.key_value._value && this.conf.key_value._value !== '') {

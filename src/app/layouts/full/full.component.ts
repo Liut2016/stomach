@@ -2,13 +2,13 @@ import * as $ from 'jquery';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { ChangeDetectorRef, Component, NgZone, OnDestroy, ViewChild, HostListener, Directive, AfterViewInit } from '@angular/core';
-import { MenuItems } from '../../shared/config-items/menu-items';
-import { AppHeaderComponent } from './header/header.component';
-import { AppSidebarComponent } from './sidebar/sidebar.component';
+import { MenuItems } from '@app/shared/config-items/menu-items';
+import { AppHeaderComponent } from '@app/layouts/full/header/header.component';
+import { AppSidebarComponent } from '@app/layouts/full/sidebar/sidebar.component';
 
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
-import { SettingsService } from '../../shared/service/settings.service';
+import { SettingsService } from '@app/core/services/settings.service';
 /** @title Responsive sidenav */
 @Component({
   selector: 'app-full-layout',

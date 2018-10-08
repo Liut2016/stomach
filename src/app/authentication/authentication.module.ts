@@ -5,12 +5,12 @@ import { MatIconModule, MatCardModule, MatInputModule, MatCheckboxModule, MatBut
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AuthenticationRoutes } from './authentication.routing';
-import { ErrorComponent } from './error/error.component';
-import { ForgotComponent } from './forgot/forgot.component';
-import { LockscreenComponent } from './lockscreen/lockscreen.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { AuthenticationRoutes } from '@app/authentication/authentication.routing';
+import { ErrorComponent } from '@app/authentication/error/error.component';
+import { ForgotComponent } from '@app/authentication/forgot/forgot.component';
+import { LockscreenComponent } from '@app/authentication/lockscreen/lockscreen.component';
+import { LoginComponent } from '@app/authentication/login/login.component';
+import { RegisterComponent } from '@app/authentication/register/register.component';
 
 @NgModule({
   imports: [

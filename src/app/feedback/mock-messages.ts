@@ -1,4 +1,4 @@
-import { Message, Message2 } from './message';
+import { Message, Message2 } from '@app/feedback/message';
 // tslint:disable:max-line-length
 export const MESSAGES: Message[] = [{
   from: {

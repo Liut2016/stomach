@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { LogoutService } from '../../../shared/service/logout.service';
-import { SettingsService } from '../../../shared/service/settings.service';
-import { roleDict } from '../../../shared/config-items/static-item';
+import { LogoutService } from '@app/core/services/logout.service';
+import { SettingsService } from '@app/core/services/settings.service';
+import { roleDict } from '@app/shared/config-items/static-item';
 
 @Component({
   selector: 'app-header',

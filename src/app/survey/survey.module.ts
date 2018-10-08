@@ -5,31 +5,31 @@ import { MatInputModule } from '@angular/material';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { DemoMaterialModule} from '../demo-material-module';
-import { SurveyRoutes} from './survey.routing';
+import { DemoMaterialModule} from '@app/demo-material-module';
+import { SurveyRoutes} from '@app/survey/survey.routing';
 
-import { HypertensionOverviewComponent} from './hypertension-overview/hypertension-overview.component';
-import { HypertensionComponent, DialogOverviewExampleDialogComponent } from './hypertension/hypertension.component';
+import { HypertensionOverviewComponent} from '@app/survey/hypertension-overview/hypertension-overview.component';
+import { HypertensionComponent, DialogOverviewExampleDialogComponent } from '@app/survey/hypertension/hypertension.component';
 
-import { DiabetesOverviewComponent} from './diabetes-overview/diabetes.overview.component';
-import { DiabetesComponent, DialogDiabetesComponent} from './diabetes/diabetes.component';
+import { DiabetesOverviewComponent} from '@app/survey/diabetes-overview/diabetes.overview.component';
+import { DiabetesComponent, DialogDiabetesComponent} from '@app/survey/diabetes/diabetes.component';
 
-import { ReportComponent} from './report/report.component';
-import { DiagnosisComponent, DialogHypertensionGradingComponent} from './diagnosis/diagnosis.component';
-import { TreatementComponent} from './treatement/treatement.component';
+import { ReportComponent} from '@app/survey/report/report.component';
+import { DiagnosisComponent, DialogHypertensionGradingComponent} from '@app/survey/diagnosis/diagnosis.component';
+import { TreatementComponent} from '@app/survey/treatement/treatement.component';
 
-import { GeneralRadioComponent} from './shared/general-radio/general-radio.component';
-import { GeneralInputComponent} from './shared/general-input/general-input.component';
-import { GeneralTableComponent} from './shared/general-table/general-table.component';
-import { GeneralSelectorComponent} from './shared/general-selector/general-selector.component';
-import { GeneralCheckboxComponent} from './shared/general-checkbox/general-checkbox.component';
-import { GeneralDateComponent} from './shared/general-date/general-date.component';
-import { GeneralDateYearComponent} from './shared/general-date-year/general-date-year.component';
-import { GeneralDateYearMonthComponent} from './shared/general-date-year-month/general-date-year-month.component';
-import { GeneralCardGroupComponent} from './shared/general-card-group/general-card-group.component';
-import { GeneralAddressComponent} from './shared/general-address/general-address.component';
-import { FileUploadComponent} from './shared/file-upload/file-upload.component';
-import { DynamicRowTableComponent} from './shared/dynamic-row-table/dynamic-row-table.component';
+import { GeneralRadioComponent} from '@app/survey/shared/general-radio/general-radio.component';
+import { GeneralInputComponent} from '@app/survey/shared/general-input/general-input.component';
+import { GeneralTableComponent} from '@app/survey/shared/general-table/general-table.component';
+import { GeneralSelectorComponent} from '@app/survey/shared/general-selector/general-selector.component';
+import { GeneralCheckboxComponent} from '@app/survey/shared/general-checkbox/general-checkbox.component';
+import { GeneralDateComponent} from '@app/survey/shared/general-date/general-date.component';
+import { GeneralDateYearComponent} from '@app/survey/shared/general-date-year/general-date-year.component';
+import { GeneralDateYearMonthComponent} from '@app/survey/shared/general-date-year-month/general-date-year-month.component';
+import { GeneralCardGroupComponent} from '@app/survey/shared/general-card-group/general-card-group.component';
+import { GeneralAddressComponent} from '@app/survey/shared/general-address/general-address.component';
+import { FileUploadComponent} from '@app/survey/shared/file-upload/file-upload.component';
+import { DynamicRowTableComponent} from '@app/survey/shared/dynamic-row-table/dynamic-row-table.component';
 
 @NgModule({
   imports: [

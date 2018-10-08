@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfInterface} from '../conf-interface';
+import { ConfInterface} from '@app/follow/shared/conf-interface';
 import {FormControl} from '@angular/forms';
 @Component({
   selector: 'app-dc-general-date',

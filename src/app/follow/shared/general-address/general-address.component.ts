@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {ConfInterface} from '../conf-interface';
-import {HttpService} from '../../../core/services/http.service';
+import {ConfInterface} from '@app/follow/shared/conf-interface';
+import {HttpService} from '@app/core/services/http.service';
 
 @Component({
   selector: 'app-dc-general-address',

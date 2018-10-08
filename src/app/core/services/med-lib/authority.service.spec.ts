@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { AuthorityService } from './authority.service';
+import { AuthorityService } from '@app/core/services/med-lib/authority.service';
 
 describe('AuthorityService', () => {
   beforeEach(() => {

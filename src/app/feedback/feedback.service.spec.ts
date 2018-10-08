@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { FeedbackService } from './feedback.service';
+import { FeedbackService } from '@app/feedback/feedback.service';
 
 describe('FeedbackService', () => {
   beforeEach(() => {

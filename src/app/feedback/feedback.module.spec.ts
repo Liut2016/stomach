@@ -1,4 +1,4 @@
-import { FeedbackModule } from './feedback.module';
+import { FeedbackModule } from '@app/feedback/feedback.module';
 
 describe('FeedbackModule', () => {
   let feedbackModule: FeedbackModule;

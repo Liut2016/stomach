@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorage } from '../../core/common/local.storage';
+import { LocalStorage } from '@app/shared/local.storage';
 import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({

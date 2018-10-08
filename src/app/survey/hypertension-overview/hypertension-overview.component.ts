@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, NgZone} from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
-import { HttpService} from '../../core/services/http.service';
-import { SettingsService} from '../../shared/service/settings.service';
+import { HttpService} from '@app/core/services/http.service';
+import { SettingsService} from '@app/core/services/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LocalConfigure} from '../shared/local-configure';
+import { LocalConfigure} from '@app/survey/shared/local-configure';
 
 @Component({
   selector: 'app-hypertension-overview',
