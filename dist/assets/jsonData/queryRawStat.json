@@ -1,0 +1,2759 @@
+{
+  "content": {
+    "ZY010001329467": {
+      "Stay_days": 13,
+      "Name": "陈永亮",
+      "Gender": "男",
+      "Age": 60,
+      "Score": 51.73456211058211,
+      "Pathway_on": 0,
+      "Cost": 91074.11
+    },
+    "ZY010001324105": {
+      "Stay_days": 8,
+      "Name": "李爱英",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 21.081372549019605,
+      "Pathway_on": 0,
+      "Cost": 17627.15
+    },
+    "ZY010001131581": {
+      "Stay_days": 16,
+      "Name": "雷益柱",
+      "Gender": "男",
+      "Age": 55,
+      "Score": 42.7911575433247,
+      "Pathway_on": 1,
+      "Cost": 65697.77
+    },
+    "ZY030001211822": {
+      "Stay_days": 21,
+      "Name": "王会生",
+      "Gender": "男",
+      "Age": 53,
+      "Score": 72.82804503980633,
+      "Pathway_on": 1,
+      "Cost": 95421.75
+    },
+    "ZY010001319160": {
+      "Stay_days": 4,
+      "Name": "翟满堂",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 2.509803921568628,
+      "Pathway_on": 0,
+      "Cost": 4721.56
+    },
+    "ZY030001306814": {
+      "Stay_days": 7,
+      "Name": "田根龙",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 6.7215686274509805,
+      "Pathway_on": 0,
+      "Cost": 22684.34
+    },
+    "ZY010001327667": {
+      "Stay_days": 28,
+      "Name": "武水芹",
+      "Gender": "女",
+      "Age": 57,
+      "Score": 7.270588235294118,
+      "Pathway_on": 0,
+      "Cost": 26903.98
+    },
+    "ZY020001318097": {
+      "Stay_days": 3,
+      "Name": "万欣宁",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 4.312091503267974,
+      "Pathway_on": 0,
+      "Cost": 11103.75
+    },
+    "ZY030001286752": {
+      "Stay_days": 9,
+      "Name": "王梅兰",
+      "Gender": "女",
+      "Age": 83,
+      "Score": 7.6003267973856214,
+      "Pathway_on": 0,
+      "Cost": 20638.2
+    },
+    "ZY020001239604": {
+      "Stay_days": 6,
+      "Name": "王生宏",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 0.7937908496732027,
+      "Pathway_on": 0,
+      "Cost": 2347
+    },
+    "ZY070001083024": {
+      "Stay_days": 3,
+      "Name": "王伟平",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 4.600326797385621,
+      "Pathway_on": 0,
+      "Cost": 12471.07
+    },
+    "ZY010001292578": {
+      "Stay_days": 11,
+      "Name": "姜运秀",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 26.01851019170611,
+      "Pathway_on": 0,
+      "Cost": 55812.15
+    },
+    "ZY030001319391": {
+      "Stay_days": 9,
+      "Name": "梁雪玲",
+      "Gender": "女",
+      "Age": 71,
+      "Score": 0.12091503267973855,
+      "Pathway_on": 0,
+      "Cost": 13801.5
+    },
+    "ZY010001288426": {
+      "Stay_days": 17,
+      "Name": "杜宏宜",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 36.630766441495474,
+      "Pathway_on": 0,
+      "Cost": 74927.9
+    },
+    "ZY010001321720": {
+      "Stay_days": 12,
+      "Name": "梁春焕",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 10.144771241830068,
+      "Pathway_on": 0,
+      "Cost": 19396.1
+    },
+    "ZY010001265766": {
+      "Stay_days": 12,
+      "Name": "张曼莉",
+      "Gender": "女",
+      "Age": 65,
+      "Score": 10.68202614379085,
+      "Pathway_on": 0,
+      "Cost": 24378.31
+    },
+    "ZY080001197275": {
+      "Stay_days": 9,
+      "Name": "张向民",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 10.770915032679738,
+      "Pathway_on": 0,
+      "Cost": 6927.34
+    },
+    "ZY010001318820": {
+      "Stay_days": 11,
+      "Name": "张发荣",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 5.5281045751633995,
+      "Pathway_on": 0,
+      "Cost": 10041.62
+    },
+    "ZY010001268292": {
+      "Stay_days": 21,
+      "Name": "张明奇",
+      "Gender": "男",
+      "Age": 67,
+      "Score": 17.838562091503263,
+      "Pathway_on": 0,
+      "Cost": 19609.4
+    },
+    "ZY010001276961": {
+      "Stay_days": 28,
+      "Name": "梁廷柱",
+      "Gender": "男",
+      "Age": 82,
+      "Score": 21.303833498848014,
+      "Pathway_on": 0,
+      "Cost": 63675.44
+    },
+    "ZY010001318905": {
+      "Stay_days": 5,
+      "Name": "赵志荣",
+      "Gender": "男",
+      "Age": 78,
+      "Score": 10.71830065359477,
+      "Pathway_on": 0,
+      "Cost": 8829.63
+    },
+    "ZY010001317424": {
+      "Stay_days": 16,
+      "Name": "刘先锋",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 46.39945283666495,
+      "Pathway_on": 0,
+      "Cost": 99870.68
+    },
+    "ZY020001297494": {
+      "Stay_days": 2,
+      "Name": "万欣宁",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 4.6075163398692816,
+      "Pathway_on": 0,
+      "Cost": 18033.92
+    },
+    "ZY010001311414": {
+      "Stay_days": 28,
+      "Name": "唐玉芳",
+      "Gender": "女",
+      "Age": 70,
+      "Score": 12.258000365829378,
+      "Pathway_on": 0,
+      "Cost": 59153.46
+    },
+    "ZY110001244226": {
+      "Stay_days": 1,
+      "Name": "孙志宏",
+      "Gender": "男",
+      "Age": 52,
+      "Score": 0.7738562091503268,
+      "Pathway_on": 0,
+      "Cost": 4272.5
+    },
+    "ZY020001324477": {
+      "Stay_days": 11,
+      "Name": "付先义",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 9.658496732026144,
+      "Pathway_on": 0,
+      "Cost": 12311.3
+    },
+    "ZY010001296725": {
+      "Stay_days": 21,
+      "Name": "王玉侠",
+      "Gender": "女",
+      "Age": 71,
+      "Score": 59.17721883530551,
+      "Pathway_on": 0,
+      "Cost": 136354.89
+    },
+    "ZY010001310359": {
+      "Stay_days": 11,
+      "Name": "崔桂英",
+      "Gender": "女",
+      "Age": 57,
+      "Score": 14.404575163398693,
+      "Pathway_on": 0,
+      "Cost": 26804.69
+    },
+    "ZY010001259730": {
+      "Stay_days": 22,
+      "Name": "穆苳梅",
+      "Gender": "女",
+      "Age": 61,
+      "Score": 49.83119100323683,
+      "Pathway_on": 1,
+      "Cost": 80865.14
+    },
+    "ZY010001115488": {
+      "Stay_days": 17,
+      "Name": "宋崇友",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 28.283840121268646,
+      "Pathway_on": 1,
+      "Cost": 65498.31
+    },
+    "ZY010001263669": {
+      "Stay_days": 28,
+      "Name": "韩敬成",
+      "Gender": "男",
+      "Age": 75,
+      "Score": 8.501960784313724,
+      "Pathway_on": 0,
+      "Cost": 15208.61
+    },
+    "ZY020001307592": {
+      "Stay_days": 5,
+      "Name": "李自军",
+      "Gender": "男",
+      "Age": 63,
+      "Score": 4.033986928104575,
+      "Pathway_on": 0,
+      "Cost": 22455.3
+    },
+    "ZY020001260003": {
+      "Stay_days": 8,
+      "Name": "员西玲",
+      "Gender": "女",
+      "Age": 53,
+      "Score": 5.556535947712417,
+      "Pathway_on": 0,
+      "Cost": 11612.25
+    },
+    "ZY010001320075": {
+      "Stay_days": 28,
+      "Name": "肖留生",
+      "Gender": "男",
+      "Age": 80,
+      "Score": 16.1797385620915,
+      "Pathway_on": 0,
+      "Cost": 25735.57
+    },
+    "ZY010001315997": {
+      "Stay_days": 15,
+      "Name": "李桂兰",
+      "Gender": "女",
+      "Age": 68,
+      "Score": 52.628087570291555,
+      "Pathway_on": 0,
+      "Cost": 101889.79
+    },
+    "ZY010001325560": {
+      "Stay_days": 28,
+      "Name": "朱玉权",
+      "Gender": "男",
+      "Age": 78,
+      "Score": 0.6130718954248365,
+      "Pathway_on": 0,
+      "Cost": 7555.2
+    },
+    "ZY010001311762": {
+      "Stay_days": 6,
+      "Name": "李引祥",
+      "Gender": "男",
+      "Age": 74,
+      "Score": 7.316013071895425,
+      "Pathway_on": 0,
+      "Cost": 21138.02
+    },
+    "ZY010001243644": {
+      "Stay_days": 18,
+      "Name": "刘忠仁",
+      "Gender": "男",
+      "Age": 58,
+      "Score": 50.044616699490824,
+      "Pathway_on": 1,
+      "Cost": 75169.63
+    },
+    "ZY010001318097": {
+      "Stay_days": 2,
+      "Name": "万欣宁",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 4.48562091503268,
+      "Pathway_on": 0,
+      "Cost": 13494.42
+    },
+    "ZY010001328981": {
+      "Stay_days": 15,
+      "Name": "翟学斌",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 9.158169934640522,
+      "Pathway_on": 0,
+      "Cost": 21707.18
+    },
+    "ZY010001333490": {
+      "Stay_days": 2,
+      "Name": "王淑言",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 1.3784313725490196,
+      "Pathway_on": 0,
+      "Cost": 2883.9
+    },
+    "ZY010001313592": {
+      "Stay_days": 16,
+      "Name": "邹富汉",
+      "Gender": "男",
+      "Age": 68,
+      "Score": 20.389855940951144,
+      "Pathway_on": 0,
+      "Cost": 57375.73
+    },
+    "ZY030001238014": {
+      "Stay_days": 14,
+      "Name": "陈义善",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 1.5568627450980395,
+      "Pathway_on": 0,
+      "Cost": 7966.2
+    },
+    "ZY010001282965": {
+      "Stay_days": 8,
+      "Name": "舒庆林",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 10.581045751633988,
+      "Pathway_on": 0,
+      "Cost": 10050.38
+    },
+    "ZY010001314767": {
+      "Stay_days": 28,
+      "Name": "罗会令",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 8.451633986928105,
+      "Pathway_on": 0,
+      "Cost": 33838.78
+    },
+    "ZY070001278485": {
+      "Stay_days": 8,
+      "Name": "王正明",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 10.609803921568627,
+      "Pathway_on": 0,
+      "Cost": 12186.53
+    },
+    "ZY010001335673": {
+      "Stay_days": 8,
+      "Name": "吴盛旺",
+      "Gender": "男",
+      "Age": 45,
+      "Score": 6.662418300653596,
+      "Pathway_on": 0,
+      "Cost": 10226.62
+    },
+    "ZY010001267172": {
+      "Stay_days": 9,
+      "Name": "袁辉举",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 15.1218954248366,
+      "Pathway_on": 0,
+      "Cost": 16348.36
+    },
+    "ZY010001318790": {
+      "Stay_days": 8,
+      "Name": "张朝霞",
+      "Gender": "女",
+      "Age": 57,
+      "Score": 11.977777777777774,
+      "Pathway_on": 0,
+      "Cost": 28339.84
+    },
+    "ZY060001294409": {
+      "Stay_days": 22,
+      "Name": "王兴社",
+      "Gender": "男",
+      "Age": 48,
+      "Score": 4.534967320261438,
+      "Pathway_on": 0,
+      "Cost": 21470.26
+    },
+    "ZY020001295982": {
+      "Stay_days": 25,
+      "Name": "孙明继",
+      "Gender": "男",
+      "Age": 52,
+      "Score": 51.617729718943544,
+      "Pathway_on": 1,
+      "Cost": 94870.14
+    },
+    "ZY010001306504": {
+      "Stay_days": 25,
+      "Name": "宋冬玲",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 15.696281139894376,
+      "Pathway_on": 0,
+      "Cost": 54450.4
+    },
+    "ZY030001303050": {
+      "Stay_days": 7,
+      "Name": "翟志斌",
+      "Gender": "男",
+      "Age": 73,
+      "Score": 17.185947712418297,
+      "Pathway_on": 0,
+      "Cost": 31099.76
+    },
+    "ZY060001268170": {
+      "Stay_days": 2,
+      "Name": "辛康成",
+      "Gender": "男",
+      "Age": 78,
+      "Score": 1.0062091503267976,
+      "Pathway_on": 0,
+      "Cost": 4057.14
+    },
+    "ZY010001314091": {
+      "Stay_days": 27,
+      "Name": "武保合",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 13.447945392318136,
+      "Pathway_on": 0,
+      "Cost": 45728.02
+    },
+    "ZY010001305234": {
+      "Stay_days": 28,
+      "Name": "刘忠会",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 67.90760203557454,
+      "Pathway_on": 0,
+      "Cost": 162448.97
+    },
+    "ZY010001278485": {
+      "Stay_days": 8,
+      "Name": "王正明",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 12.03627450980392,
+      "Pathway_on": 0,
+      "Cost": 13616
+    },
+    "ZY010001330566": {
+      "Stay_days": 17,
+      "Name": "田世积",
+      "Gender": "女",
+      "Age": 58,
+      "Score": 40.205780823617474,
+      "Pathway_on": 0,
+      "Cost": 111787.15
+    },
+    "ZY010001280149": {
+      "Stay_days": 7,
+      "Name": "刘建昌",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 4.852614379084967,
+      "Pathway_on": 0,
+      "Cost": 15350.35
+    },
+    "ZY070001301676": {
+      "Stay_days": 4,
+      "Name": "黄全武",
+      "Gender": "男",
+      "Age": 51,
+      "Score": 2.9326797385620913,
+      "Pathway_on": 0,
+      "Cost": 0
+    },
+    "ZY030001261447": {
+      "Stay_days": 27,
+      "Name": "张定劳",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 0.7990196078431373,
+      "Pathway_on": 0,
+      "Cost": 19839.5
+    },
+    "ZY020001316974": {
+      "Stay_days": 6,
+      "Name": "史天桂",
+      "Gender": "女",
+      "Age": 68,
+      "Score": 6.257516339869281,
+      "Pathway_on": 0,
+      "Cost": 15204.68
+    },
+    "ZY010001315700": {
+      "Stay_days": 21,
+      "Name": "冀彩凤",
+      "Gender": "女",
+      "Age": 43,
+      "Score": 45.60055635813855,
+      "Pathway_on": 1,
+      "Cost": 85681.86
+    },
+    "ZY010001322348": {
+      "Stay_days": 28,
+      "Name": "江安华",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 54.18287462882837,
+      "Pathway_on": 0,
+      "Cost": 121870.01
+    },
+    "ZY010001326698": {
+      "Stay_days": 25,
+      "Name": "刘韬琨",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 80.80401708820598,
+      "Pathway_on": 0,
+      "Cost": 168276.44
+    },
+    "ZY010001319719": {
+      "Stay_days": 6,
+      "Name": "益振财",
+      "Gender": "男",
+      "Age": 72,
+      "Score": 9.440849673202614,
+      "Pathway_on": 0,
+      "Cost": 13204.61
+    },
+    "ZY020001323979": {
+      "Stay_days": 24,
+      "Name": "张治石",
+      "Gender": "男",
+      "Age": 54,
+      "Score": 41.59266895287569,
+      "Pathway_on": 0,
+      "Cost": 77623.27
+    },
+    "ZY010001320880": {
+      "Stay_days": 21,
+      "Name": "巩新盈",
+      "Gender": "男",
+      "Age": 50,
+      "Score": 49.64643115396971,
+      "Pathway_on": 0,
+      "Cost": 89548.63
+    },
+    "ZY010001102284": {
+      "Stay_days": 16,
+      "Name": "苗天佑",
+      "Gender": "男",
+      "Age": 60,
+      "Score": 41.579164481633626,
+      "Pathway_on": 1,
+      "Cost": 72102.6
+    },
+    "ZY020001314838": {
+      "Stay_days": 28,
+      "Name": "杜国鹏",
+      "Gender": "男",
+      "Age": 76,
+      "Score": 4.896107433898294,
+      "Pathway_on": 0,
+      "Cost": 43654.19
+    },
+    "ZY010001324402": {
+      "Stay_days": 16,
+      "Name": "刘先锋",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 34.678431372549014,
+      "Pathway_on": 0,
+      "Cost": 35751.97
+    },
+    "ZY010001291358": {
+      "Stay_days": 2,
+      "Name": "思培英",
+      "Gender": "女",
+      "Age": 77,
+      "Score": 1.5758169934640522,
+      "Pathway_on": 0,
+      "Cost": 7546.07
+    },
+    "ZY010001320888": {
+      "Stay_days": 21,
+      "Name": "施永安",
+      "Gender": "男",
+      "Age": 58,
+      "Score": 56.3231845821586,
+      "Pathway_on": 0,
+      "Cost": 141864.78
+    },
+    "ZY040001290338": {
+      "Stay_days": 8,
+      "Name": "吕拴民",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 6.033986928104575,
+      "Pathway_on": 0,
+      "Cost": 6690.61
+    },
+    "ZY020001332158": {
+      "Stay_days": 7,
+      "Name": "吴周庆",
+      "Gender": "男",
+      "Age": 74,
+      "Score": 10.948039215686277,
+      "Pathway_on": 0,
+      "Cost": 11739.65
+    },
+    "ZY010001321427": {
+      "Stay_days": 21,
+      "Name": "魏克让",
+      "Gender": "男",
+      "Age": 72,
+      "Score": 47.325012754651944,
+      "Pathway_on": 0,
+      "Cost": 88646.36
+    },
+    "ZY030001295982": {
+      "Stay_days": 3,
+      "Name": "孙明继",
+      "Gender": "男",
+      "Age": 52,
+      "Score": 0.6764705882352942,
+      "Pathway_on": 0,
+      "Cost": 2060.75
+    },
+    "ZY120001258678": {
+      "Stay_days": 8,
+      "Name": "张天辉",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 1.369607843137255,
+      "Pathway_on": 0,
+      "Cost": 6567
+    },
+    "ZY010001323952": {
+      "Stay_days": 22,
+      "Name": "王学海",
+      "Gender": "男",
+      "Age": 38,
+      "Score": 35.807050201614544,
+      "Pathway_on": 0,
+      "Cost": 75097.56
+    },
+    "ZY010001110090": {
+      "Stay_days": 15,
+      "Name": "彭明仓",
+      "Gender": "男",
+      "Age": 63,
+      "Score": 38.91830187163548,
+      "Pathway_on": 1,
+      "Cost": 63991.65
+    },
+    "ZY010001241314": {
+      "Stay_days": 16,
+      "Name": "杨夫海",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 58.98357980097698,
+      "Pathway_on": 1,
+      "Cost": 92187.11
+    },
+    "ZY010001331569": {
+      "Stay_days": 4,
+      "Name": "李岳亭",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 0.3084967320261438,
+      "Pathway_on": 0,
+      "Cost": 709.08
+    },
+    "ZY010001315236": {
+      "Stay_days": 26,
+      "Name": "贾克礼",
+      "Gender": "男",
+      "Age": 62,
+      "Score": 60.51451471930532,
+      "Pathway_on": 0,
+      "Cost": 134867.72
+    },
+    "ZY010001308604": {
+      "Stay_days": 51,
+      "Name": "荆常生",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 41.5052660843495,
+      "Pathway_on": 0,
+      "Cost": 41873.41
+    },
+    "ZY020001272176": {
+      "Stay_days": 21,
+      "Name": "孟青贵",
+      "Gender": "男",
+      "Age": 55,
+      "Score": 50.67310758619236,
+      "Pathway_on": 1,
+      "Cost": 83138.74
+    },
+    "ZY010001325980": {
+      "Stay_days": 12,
+      "Name": "李兰忠",
+      "Gender": "男",
+      "Age": 74,
+      "Score": 7.000000000000002,
+      "Pathway_on": 0,
+      "Cost": 15365.08
+    },
+    "ZY070001238014": {
+      "Stay_days": 7,
+      "Name": "陈义善",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 5.791830065359477,
+      "Pathway_on": 0,
+      "Cost": 16549.42
+    },
+    "ZY020001278485": {
+      "Stay_days": 8,
+      "Name": "王正明",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 12.351633986928105,
+      "Pathway_on": 0,
+      "Cost": 12387.18
+    },
+    "ZY020001304177": {
+      "Stay_days": 14,
+      "Name": "张玉琴",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 2.8078431372549018,
+      "Pathway_on": 0,
+      "Cost": 14767.98
+    },
+    "ZY070001294385": {
+      "Stay_days": 21,
+      "Name": "郝焕章",
+      "Gender": "男",
+      "Age": 42,
+      "Score": 1.8619252508746957,
+      "Pathway_on": 0,
+      "Cost": 43304
+    },
+    "ZY020001319323": {
+      "Stay_days": 8,
+      "Name": "寇伍权",
+      "Gender": "男",
+      "Age": 76,
+      "Score": 3.205228758169935,
+      "Pathway_on": 0,
+      "Cost": 23027.2
+    },
+    "ZY010001314575": {
+      "Stay_days": 1,
+      "Name": "金棣华",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 2.0441176470588234,
+      "Pathway_on": 0,
+      "Cost": 5743.16
+    },
+    "ZY050001253299": {
+      "Stay_days": 5,
+      "Name": "姜运秀",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 9.658169934640522,
+      "Pathway_on": 0,
+      "Cost": 10702.89
+    },
+    "ZY030001306504": {
+      "Stay_days": 7,
+      "Name": "宋冬玲",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 9.882679738562095,
+      "Pathway_on": 0,
+      "Cost": 6869.04
+    },
+    "ZY060001297900": {
+      "Stay_days": 12,
+      "Name": "唐胜利",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 8.026470588235295,
+      "Pathway_on": 0,
+      "Cost": 9710.94
+    },
+    "ZY030001314169": {
+      "Stay_days": 29,
+      "Name": "高会芹",
+      "Gender": "女",
+      "Age": 74,
+      "Score": 0.9166666666666666,
+      "Pathway_on": 0,
+      "Cost": 27525.04
+    },
+    "ZY020001291337": {
+      "Stay_days": 6,
+      "Name": "蒋素芬",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 10.571895424836601,
+      "Pathway_on": 0,
+      "Cost": 23079.59
+    },
+    "ZY010001313514": {
+      "Stay_days": 7,
+      "Name": "马延兴",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 5.246732026143791,
+      "Pathway_on": 0,
+      "Cost": 12491
+    },
+    "ZY030001290490": {
+      "Stay_days": 8,
+      "Name": "郭世华",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 7.713071895424837,
+      "Pathway_on": 0,
+      "Cost": 8310.6
+    },
+    "ZY030001259805": {
+      "Stay_days": 9,
+      "Name": "张遵法",
+      "Gender": "男",
+      "Age": 75,
+      "Score": 6.81797385620915,
+      "Pathway_on": 0,
+      "Cost": 4591.68
+    },
+    "ZY040001292788": {
+      "Stay_days": 6,
+      "Name": "舒庆林",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 9.178104575163399,
+      "Pathway_on": 0,
+      "Cost": 9362.46
+    },
+    "ZY010001101411": {
+      "Stay_days": 17,
+      "Name": "成汉田",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 35.107360369569136,
+      "Pathway_on": 1,
+      "Cost": 48294.54
+    },
+    "ZY010001280858": {
+      "Stay_days": 17,
+      "Name": "牛廷生",
+      "Gender": "男",
+      "Age": 65,
+      "Score": 54.364631160144384,
+      "Pathway_on": 1,
+      "Cost": 96073.33
+    },
+    "ZY020001256811": {
+      "Stay_days": 21,
+      "Name": "王百锁",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 2.627450980392157,
+      "Pathway_on": 0,
+      "Cost": 12124.64
+    },
+    "ZY130001251601": {
+      "Stay_days": 2,
+      "Name": "雷志稳",
+      "Gender": "男",
+      "Age": 67,
+      "Score": 1.312745098039216,
+      "Pathway_on": 0,
+      "Cost": 4727.23
+    },
+    "ZY010001334283": {
+      "Stay_days": 8,
+      "Name": "岳强立",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 15.110130718954249,
+      "Pathway_on": 0,
+      "Cost": 16306.67
+    },
+    "ZY020001327877": {
+      "Stay_days": 8,
+      "Name": "马明琴",
+      "Gender": "女",
+      "Age": 61,
+      "Score": 2.051633986928105,
+      "Pathway_on": 0,
+      "Cost": 20249.3
+    },
+    "ZY010001319656": {
+      "Stay_days": 28,
+      "Name": "柯于贵",
+      "Gender": "男",
+      "Age": 58,
+      "Score": 67.83326933999449,
+      "Pathway_on": 0,
+      "Cost": 148730.43
+    },
+    "ZY080001252523": {
+      "Stay_days": 11,
+      "Name": "李志乾",
+      "Gender": "男",
+      "Age": 67,
+      "Score": 5.67124183006536,
+      "Pathway_on": 0,
+      "Cost": 22553.14
+    },
+    "ZY010001324908": {
+      "Stay_days": 25,
+      "Name": "牛爱阁",
+      "Gender": "女",
+      "Age": 68,
+      "Score": 6.275886502603667,
+      "Pathway_on": 0,
+      "Cost": 55958.36
+    },
+    "ZY010001321690": {
+      "Stay_days": 28,
+      "Name": "刘少军",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 0.7277777777777777,
+      "Pathway_on": 0,
+      "Cost": 21712.58
+    },
+    "ZY020001320075": {
+      "Stay_days": 10,
+      "Name": "肖留生",
+      "Gender": "男",
+      "Age": 80,
+      "Score": 1.4447712418300653,
+      "Pathway_on": 0,
+      "Cost": 10664
+    },
+    "ZY010001322553": {
+      "Stay_days": 28,
+      "Name": "栗时东",
+      "Gender": "女",
+      "Age": 77,
+      "Score": 84.06126659211063,
+      "Pathway_on": 0,
+      "Cost": 143007.05
+    },
+    "ZY010001256700": {
+      "Stay_days": 26,
+      "Name": "张彦时",
+      "Gender": "男",
+      "Age": 52,
+      "Score": 62.36598053547998,
+      "Pathway_on": 1,
+      "Cost": 99383.91
+    },
+    "ZY010001315367": {
+      "Stay_days": 6,
+      "Name": "王明昌",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 3.6758169934640526,
+      "Pathway_on": 0,
+      "Cost": 8675.87
+    },
+    "ZY010001331596": {
+      "Stay_days": 15,
+      "Name": "高步堂",
+      "Gender": "男",
+      "Age": 86,
+      "Score": 14.28169934640523,
+      "Pathway_on": 0,
+      "Cost": 23565.15
+    },
+    "ZY060001083024": {
+      "Stay_days": 1,
+      "Name": "王伟平",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 2.26111111111111,
+      "Pathway_on": 0,
+      "Cost": 8074.61
+    },
+    "ZY020001311414": {
+      "Stay_days": 12,
+      "Name": "唐玉芳",
+      "Gender": "女",
+      "Age": 70,
+      "Score": 3.061111111111111,
+      "Pathway_on": 0,
+      "Cost": 19665.65
+    },
+    "ZY010001319323": {
+      "Stay_days": 7,
+      "Name": "寇伍权",
+      "Gender": "男",
+      "Age": 76,
+      "Score": 1.9578431372549019,
+      "Pathway_on": 0,
+      "Cost": 21423.1
+    },
+    "ZY010001321232": {
+      "Stay_days": 6,
+      "Name": "朱康民",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 11.351960784313725,
+      "Pathway_on": 0,
+      "Cost": 10773.64
+    },
+    "ZY010001310908": {
+      "Stay_days": 21,
+      "Name": "行全明",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 7.725490196078431,
+      "Pathway_on": 0,
+      "Cost": 15400.5
+    },
+    "ZY040001320011": {
+      "Stay_days": 6,
+      "Name": "王较过",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 11.1735294117647,
+      "Pathway_on": 0,
+      "Cost": 17714.42
+    },
+    "ZY060001240672": {
+      "Stay_days": 4,
+      "Name": "田爱侠",
+      "Gender": "女",
+      "Age": 75,
+      "Score": 5.1379084967320265,
+      "Pathway_on": 0,
+      "Cost": 0
+    },
+    "ZY010001327877": {
+      "Stay_days": 21,
+      "Name": "马明琴",
+      "Gender": "女",
+      "Age": 61,
+      "Score": 2.1767973856209144,
+      "Pathway_on": 0,
+      "Cost": 21270.44
+    },
+    "ZY010001298327": {
+      "Stay_days": 14,
+      "Name": "杜成兰",
+      "Gender": "女",
+      "Age": 60,
+      "Score": 47.553375528701466,
+      "Pathway_on": 1,
+      "Cost": 85387.91
+    },
+    "ZY020001325560": {
+      "Stay_days": 25,
+      "Name": "朱玉权",
+      "Gender": "男",
+      "Age": 79,
+      "Score": 3.2738562091503263,
+      "Pathway_on": 0,
+      "Cost": 9175.22
+    },
+    "ZY010001311326": {
+      "Stay_days": 5,
+      "Name": "鱼永峰",
+      "Gender": "男",
+      "Age": 46,
+      "Score": 8.051633986928104,
+      "Pathway_on": 0,
+      "Cost": 15390.9
+    },
+    "ZY040001314169": {
+      "Stay_days": 16,
+      "Name": "高会芹",
+      "Gender": "女",
+      "Age": 74,
+      "Score": 0.715032679738562,
+      "Pathway_on": 0,
+      "Cost": 34220.98
+    },
+    "ZY010001261917": {
+      "Stay_days": 28,
+      "Name": "王伍志",
+      "Gender": "男",
+      "Age": 62,
+      "Score": 5.250326797385621,
+      "Pathway_on": 0,
+      "Cost": 18221.59
+    },
+    "ZY040001299992": {
+      "Stay_days": 7,
+      "Name": "张斌芳",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 7.003921568627452,
+      "Pathway_on": 0,
+      "Cost": 21883.75
+    },
+    "ZY020001275976": {
+      "Stay_days": 7,
+      "Name": "牛晓萍",
+      "Gender": "女",
+      "Age": 74,
+      "Score": 9.576797385620916,
+      "Pathway_on": 0,
+      "Cost": 11210.75
+    },
+    "ZY030001310899": {
+      "Stay_days": 12,
+      "Name": "谢德胜",
+      "Gender": "男",
+      "Age": 68,
+      "Score": 7.465032679738561,
+      "Pathway_on": 0,
+      "Cost": 8299.49
+    },
+    "ZY010001310509": {
+      "Stay_days": 17,
+      "Name": "姚淑梅",
+      "Gender": "女",
+      "Age": 67,
+      "Score": 54.052082768198304,
+      "Pathway_on": 0,
+      "Cost": 105440.75
+    },
+    "ZY040001297984": {
+      "Stay_days": 5,
+      "Name": "惠会英",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 6.981045751633988,
+      "Pathway_on": 0,
+      "Cost": 16732.05
+    },
+    "ZY030001297984": {
+      "Stay_days": 5,
+      "Name": "惠会英",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 8.977777777777778,
+      "Pathway_on": 0,
+      "Cost": 11286.02
+    },
+    "ZY030001325305": {
+      "Stay_days": 11,
+      "Name": "张荣",
+      "Gender": "男",
+      "Age": 73,
+      "Score": 7.849019607843137,
+      "Pathway_on": 0,
+      "Cost": 26219.83
+    },
+    "ZY010001298806": {
+      "Stay_days": 18,
+      "Name": "谢玉泽",
+      "Gender": "男",
+      "Age": 65,
+      "Score": 52.11953866219541,
+      "Pathway_on": 1,
+      "Cost": 90402.61
+    },
+    "ZY020001324105": {
+      "Stay_days": 8,
+      "Name": "李爱英",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 16.57124183006536,
+      "Pathway_on": 0,
+      "Cost": 11496.66
+    },
+    "ZY040001291337": {
+      "Stay_days": 27,
+      "Name": "蒋素芬",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 78.14224387232704,
+      "Pathway_on": 0,
+      "Cost": 178542.19
+    },
+    "ZY010001322372": {
+      "Stay_days": 6,
+      "Name": "巩召书",
+      "Gender": "男",
+      "Age": 78,
+      "Score": 5.999346405228758,
+      "Pathway_on": 0,
+      "Cost": 11973.81
+    },
+    "ZY060001222790": {
+      "Stay_days": 7,
+      "Name": "益振财",
+      "Gender": "男",
+      "Age": 72,
+      "Score": 6.599346405228758,
+      "Pathway_on": 0,
+      "Cost": 8951.69
+    },
+    "ZY010001277638": {
+      "Stay_days": 19,
+      "Name": "陈玉兰",
+      "Gender": "女",
+      "Age": 68,
+      "Score": 56.112418895723955,
+      "Pathway_on": 1,
+      "Cost": 82887.9
+    },
+    "ZY030001320011": {
+      "Stay_days": 7,
+      "Name": "王较过",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 8.581372549019607,
+      "Pathway_on": 0,
+      "Cost": 16287.22
+    },
+    "ZY020001292788": {
+      "Stay_days": 9,
+      "Name": "舒庆林",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 10.915359477124182,
+      "Pathway_on": 0,
+      "Cost": 10425.76
+    },
+    "ZY010001328087": {
+      "Stay_days": 7,
+      "Name": "汪正文",
+      "Gender": "男",
+      "Age": 54,
+      "Score": 7.807516339869281,
+      "Pathway_on": 0,
+      "Cost": 19509.66
+    },
+    "ZY010001263435": {
+      "Stay_days": 14,
+      "Name": "李兴明",
+      "Gender": "男",
+      "Age": 68,
+      "Score": 40.58621920989112,
+      "Pathway_on": 1,
+      "Cost": 64364.51
+    },
+    "ZY020001257805": {
+      "Stay_days": 19,
+      "Name": "吴代坤",
+      "Gender": "男",
+      "Age": 46,
+      "Score": 9.113398692810458,
+      "Pathway_on": 0,
+      "Cost": 9809.55
+    },
+    "ZY010001308208": {
+      "Stay_days": 14,
+      "Name": "杨翠兰",
+      "Gender": "女",
+      "Age": 68,
+      "Score": 41.568557005485374,
+      "Pathway_on": 1,
+      "Cost": 80288.54
+    },
+    "ZY010001328433": {
+      "Stay_days": 28,
+      "Name": "尹西胜",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 7.759042822674064,
+      "Pathway_on": 0,
+      "Cost": 57350.5
+    },
+    "ZY010001323872": {
+      "Stay_days": 9,
+      "Name": "张登华",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 14.184640522875815,
+      "Pathway_on": 0,
+      "Cost": 22462.2
+    },
+    "ZY020001302146": {
+      "Stay_days": 14,
+      "Name": "周发治",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 53.942743524914746,
+      "Pathway_on": 1,
+      "Cost": 90111.62
+    },
+    "ZY030001296896": {
+      "Stay_days": 27,
+      "Name": "周长庆",
+      "Gender": "男",
+      "Age": 82,
+      "Score": 3.7552287581699337,
+      "Pathway_on": 0,
+      "Cost": 16234.48
+    },
+    "ZY020001096971": {
+      "Stay_days": 29,
+      "Name": "赵庚甲",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 13.462035469018312,
+      "Pathway_on": 0,
+      "Cost": 50678.87
+    },
+    "ZY020001303255": {
+      "Stay_days": 9,
+      "Name": "李敏",
+      "Gender": "女",
+      "Age": 50,
+      "Score": 13.436125321816098,
+      "Pathway_on": 0,
+      "Cost": 39287.29
+    },
+    "ZY010001275976": {
+      "Stay_days": 11,
+      "Name": "牛晓萍",
+      "Gender": "女",
+      "Age": 74,
+      "Score": 9.078758169934641,
+      "Pathway_on": 0,
+      "Cost": 11292.11
+    },
+    "ZY010001322989": {
+      "Stay_days": 13,
+      "Name": "潘良臣",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 17.075816993464052,
+      "Pathway_on": 0,
+      "Cost": 13270.29
+    },
+    "ZY010001325325": {
+      "Stay_days": 25,
+      "Name": "李岳亭",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 3.6637767542583113,
+      "Pathway_on": 0,
+      "Cost": 45585.56
+    },
+    "ZY010001307592": {
+      "Stay_days": 20,
+      "Name": "李自军",
+      "Gender": "男",
+      "Age": 63,
+      "Score": 61.146747733482584,
+      "Pathway_on": 1,
+      "Cost": 98504.88
+    },
+    "ZY010001334333": {
+      "Stay_days": 5,
+      "Name": "王乃生",
+      "Gender": "男",
+      "Age": 66,
+      "Score": 5.254248366013073,
+      "Pathway_on": 0,
+      "Cost": 6884.89
+    },
+    "ZY010001326323": {
+      "Stay_days": 15,
+      "Name": "欧瑛",
+      "Gender": "男",
+      "Age": 65,
+      "Score": 21.036941745922555,
+      "Pathway_on": 0,
+      "Cost": 42983.84
+    },
+    "ZY010001298590": {
+      "Stay_days": 2,
+      "Name": "高康印",
+      "Gender": "男",
+      "Age": 54,
+      "Score": 2.1598039215686273,
+      "Pathway_on": 0,
+      "Cost": 6549.14
+    },
+    "ZY010001331003": {
+      "Stay_days": 11,
+      "Name": "冯德高",
+      "Gender": "男",
+      "Age": 52,
+      "Score": 15.631045751633986,
+      "Pathway_on": 0,
+      "Cost": 20826.84
+    },
+    "ZY120001251601": {
+      "Stay_days": 3,
+      "Name": "雷志稳",
+      "Gender": "男",
+      "Age": 67,
+      "Score": 3.144444444444445,
+      "Pathway_on": 0,
+      "Cost": 13880.64
+    },
+    "ZY030001299992": {
+      "Stay_days": 6,
+      "Name": "张斌芳",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 6.688888888888887,
+      "Pathway_on": 0,
+      "Cost": 18460.19
+    },
+    "ZY070001216794": {
+      "Stay_days": 26,
+      "Name": "白夫森",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 3.022222222222222,
+      "Pathway_on": 0,
+      "Cost": 6319.8
+    },
+    "ZY010001140578": {
+      "Stay_days": 18,
+      "Name": "赵建民",
+      "Gender": "男",
+      "Age": 50,
+      "Score": 31.364514701348053,
+      "Pathway_on": 1,
+      "Cost": 45630.65
+    },
+    "ZY010001318587": {
+      "Stay_days": 19,
+      "Name": "刘银年",
+      "Gender": "男",
+      "Age": 53,
+      "Score": 26.491069005000366,
+      "Pathway_on": 1,
+      "Cost": 70502.64
+    },
+    "ZY010001333327": {
+      "Stay_days": 7,
+      "Name": "贾淑珍",
+      "Gender": "女",
+      "Age": 75,
+      "Score": 6.862418300653593,
+      "Pathway_on": 0,
+      "Cost": 20750.4
+    },
+    "ZY020001297984": {
+      "Stay_days": 6,
+      "Name": "惠会英",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 5.614705882352941,
+      "Pathway_on": 0,
+      "Cost": 15936.2
+    },
+    "ZY010001332728": {
+      "Stay_days": 5,
+      "Name": "屈俭俭",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 0.4258169934640523,
+      "Pathway_on": 0,
+      "Cost": 0
+    },
+    "ZY010001264237": {
+      "Stay_days": 16,
+      "Name": "杨自力",
+      "Gender": "男",
+      "Age": 33,
+      "Score": 40.71072694868821,
+      "Pathway_on": 1,
+      "Cost": 78848.52
+    },
+    "ZY010001108369": {
+      "Stay_days": 14,
+      "Name": "张书珍",
+      "Gender": "男",
+      "Age": 54,
+      "Score": 34.72315738724946,
+      "Pathway_on": 1,
+      "Cost": 55245.35
+    },
+    "ZY010001320470": {
+      "Stay_days": 2,
+      "Name": "王镇华",
+      "Gender": "男",
+      "Age": 82,
+      "Score": 1.4356209150326797,
+      "Pathway_on": 0,
+      "Cost": 29174.38
+    },
+    "ZY010001333529": {
+      "Stay_days": 13,
+      "Name": "冯善荣",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 22.25936209889245,
+      "Pathway_on": 0,
+      "Cost": 38409.45
+    },
+    "ZY040001306814": {
+      "Stay_days": 29,
+      "Name": "田根龙",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 5.1993464052287575,
+      "Pathway_on": 0,
+      "Cost": 8713.84
+    },
+    "ZY010001325055": {
+      "Stay_days": 13,
+      "Name": "宋永学",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 1.0382352941176471,
+      "Pathway_on": 0,
+      "Cost": 6360.88
+    },
+    "ZY010001313948": {
+      "Stay_days": 28,
+      "Name": "王较过",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 73.44647495927198,
+      "Pathway_on": 0,
+      "Cost": 132022.15
+    },
+    "ZY010001261447": {
+      "Stay_days": 7,
+      "Name": "张定劳",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 6.033006535947711,
+      "Pathway_on": 0,
+      "Cost": 14116.2
+    },
+    "ZY010001266195": {
+      "Stay_days": 19,
+      "Name": "王新春",
+      "Gender": "男",
+      "Age": 65,
+      "Score": 0.6934640522875817,
+      "Pathway_on": 0,
+      "Cost": 9725.5
+    },
+    "ZY020001308513": {
+      "Stay_days": 5,
+      "Name": "刘祥光",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 4.653267973856209,
+      "Pathway_on": 0,
+      "Cost": 14683.37
+    },
+    "ZY010001333882": {
+      "Stay_days": 18,
+      "Name": "宁美义",
+      "Gender": "男",
+      "Age": 63,
+      "Score": 52.80293361294805,
+      "Pathway_on": 0,
+      "Cost": 121838.15
+    },
+    "ZY010001278575": {
+      "Stay_days": 29,
+      "Name": "王作富",
+      "Gender": "男",
+      "Age": 67,
+      "Score": 6.750326797385621,
+      "Pathway_on": 0,
+      "Cost": 28627.88
+    },
+    "ZY050001297984": {
+      "Stay_days": 6,
+      "Name": "惠会英",
+      "Gender": "女",
+      "Age": 69,
+      "Score": 5.247058823529412,
+      "Pathway_on": 0,
+      "Cost": 23070.59
+    },
+    "ZY010001309563": {
+      "Stay_days": 28,
+      "Name": "杜恩如",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 2.3078431372549018,
+      "Pathway_on": 0,
+      "Cost": 34241.58
+    },
+    "ZY140001129180": {
+      "Stay_days": 17,
+      "Name": "艾青才",
+      "Gender": "男",
+      "Age": 73,
+      "Score": 22.47843137254901,
+      "Pathway_on": 0,
+      "Cost": 10698.57
+    },
+    "ZY010001319058": {
+      "Stay_days": 23,
+      "Name": "徐淑钦",
+      "Gender": "女",
+      "Age": 67,
+      "Score": 54.69788143920562,
+      "Pathway_on": 0,
+      "Cost": 138096.19
+    },
+    "ZY010001328067": {
+      "Stay_days": 7,
+      "Name": "石怀义",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 9.273202614379084,
+      "Pathway_on": 0,
+      "Cost": 10401.65
+    },
+    "ZY010001329417": {
+      "Stay_days": 18,
+      "Name": "代玉芳",
+      "Gender": "女",
+      "Age": 62,
+      "Score": 40.517045549639,
+      "Pathway_on": 0,
+      "Cost": 95812.66
+    },
+    "ZY030001314838": {
+      "Stay_days": 11,
+      "Name": "杜国鹏",
+      "Gender": "男",
+      "Age": 76,
+      "Score": 0.03725490196078431,
+      "Pathway_on": 0,
+      "Cost": 13892
+    },
+    "ZY020001246964": {
+      "Stay_days": 21,
+      "Name": "韩效玉",
+      "Gender": "男",
+      "Age": 81,
+      "Score": 5.692156862745098,
+      "Pathway_on": 0,
+      "Cost": 27465.04
+    },
+    "ZY020001326323": {
+      "Stay_days": 6,
+      "Name": "欧瑛",
+      "Gender": "男",
+      "Age": 66,
+      "Score": 9.593137254901961,
+      "Pathway_on": 0,
+      "Cost": 14515.73
+    },
+    "ZY290001104065": {
+      "Stay_days": 14,
+      "Name": "王秀丽",
+      "Gender": "女",
+      "Age": 60,
+      "Score": 25.416666666666657,
+      "Pathway_on": 0,
+      "Cost": 33085.95
+    },
+    "ZY010001305685": {
+      "Stay_days": 14,
+      "Name": "代春华",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 54.54842025246061,
+      "Pathway_on": 1,
+      "Cost": 98704
+    },
+    "ZY030001222733": {
+      "Stay_days": 17,
+      "Name": "雷平耀",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 64.86928464795626,
+      "Pathway_on": 1,
+      "Cost": 99711.11
+    },
+    "ZY080001231076": {
+      "Stay_days": 3,
+      "Name": "刘永康",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 1.2405228758169935,
+      "Pathway_on": 0,
+      "Cost": 2398.19
+    },
+    "ZY010001247921": {
+      "Stay_days": 19,
+      "Name": "李永安",
+      "Gender": "男",
+      "Age": 51,
+      "Score": 53.393005157855306,
+      "Pathway_on": 1,
+      "Cost": 82149.95
+    },
+    "ZY010001319112": {
+      "Stay_days": 11,
+      "Name": "刘明则",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 13.0864218210475,
+      "Pathway_on": 0,
+      "Cost": 38220.18
+    },
+    "ZY010001318563": {
+      "Stay_days": 34,
+      "Name": "车福民",
+      "Gender": "男",
+      "Age": 65,
+      "Score": 68.12943366980718,
+      "Pathway_on": 0,
+      "Cost": 153732.45
+    },
+    "ZY020001301740": {
+      "Stay_days": 7,
+      "Name": "钱宝乐",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 7.870915032679738,
+      "Pathway_on": 0,
+      "Cost": 18872.21
+    },
+    "ZY020001234917": {
+      "Stay_days": 18,
+      "Name": "刘双山",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 48.87523538365364,
+      "Pathway_on": 1,
+      "Cost": 70720.95
+    },
+    "ZY010001332158": {
+      "Stay_days": 9,
+      "Name": "吴周庆",
+      "Gender": "男",
+      "Age": 74,
+      "Score": 16.158496732026144,
+      "Pathway_on": 0,
+      "Cost": 13081.72
+    },
+    "ZY110001258678": {
+      "Stay_days": 11,
+      "Name": "张天辉",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 5.538562091503268,
+      "Pathway_on": 0,
+      "Cost": 9326
+    },
+    "ZY030001321464": {
+      "Stay_days": 23,
+      "Name": "沈泽祥",
+      "Gender": "男",
+      "Age": 51,
+      "Score": 5.0718954248366,
+      "Pathway_on": 0,
+      "Cost": 20529.6
+    },
+    "ZY010001328010": {
+      "Stay_days": 6,
+      "Name": "王大清",
+      "Gender": "女",
+      "Age": 55,
+      "Score": 10.290196078431372,
+      "Pathway_on": 0,
+      "Cost": 23634.45
+    },
+    "ZY010001307085": {
+      "Stay_days": 18,
+      "Name": "王会勤",
+      "Gender": "女",
+      "Age": 70,
+      "Score": 47.65944019246789,
+      "Pathway_on": 0,
+      "Cost": 114044.5
+    },
+    "ZY090001251601": {
+      "Stay_days": 4,
+      "Name": "雷志稳",
+      "Gender": "男",
+      "Age": 67,
+      "Score": 5.208169934640521,
+      "Pathway_on": 0,
+      "Cost": 18249.97
+    },
+    "ZY030001268170": {
+      "Stay_days": 16,
+      "Name": "辛康成",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 2.242156862745098,
+      "Pathway_on": 0,
+      "Cost": 8318.06
+    },
+    "ZY060001278485": {
+      "Stay_days": 14,
+      "Name": "王正明",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 10.344117647058823,
+      "Pathway_on": 0,
+      "Cost": 9299.34
+    },
+    "ZY020001313996": {
+      "Stay_days": 23,
+      "Name": "王耀冲",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 9.156862745098039,
+      "Pathway_on": 0,
+      "Cost": 19614.47
+    },
+    "ZY010001325169": {
+      "Stay_days": 11,
+      "Name": "屈俭俭",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 13.43137254901961,
+      "Pathway_on": 0,
+      "Cost": 19989.4
+    },
+    "ZY040001297640": {
+      "Stay_days": 4,
+      "Name": "赵水泉",
+      "Gender": "男",
+      "Age": 63,
+      "Score": 5.917647058823531,
+      "Pathway_on": 0,
+      "Cost": 6886.05
+    },
+    "ZY010001319946": {
+      "Stay_days": 5,
+      "Name": "黄全武",
+      "Gender": "男",
+      "Age": 51,
+      "Score": 5.815686274509804,
+      "Pathway_on": 0,
+      "Cost": 9750.82
+    },
+    "ZY020001265296": {
+      "Stay_days": 9,
+      "Name": "梁万金",
+      "Gender": "男",
+      "Age": 74,
+      "Score": 24.563071895424837,
+      "Pathway_on": 0,
+      "Cost": 23477.36
+    },
+    "ZY010001308513": {
+      "Stay_days": 8,
+      "Name": "刘祥光",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 4.92516339869281,
+      "Pathway_on": 0,
+      "Cost": 20069.58
+    },
+    "ZY010001314802": {
+      "Stay_days": 23,
+      "Name": "吴林虎",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 0.26601307189542484,
+      "Pathway_on": 0,
+      "Cost": 29930.6
+    },
+    "ZY040001285012": {
+      "Stay_days": 7,
+      "Name": "李琪",
+      "Gender": "女",
+      "Age": 68,
+      "Score": 5.1120915032679735,
+      "Pathway_on": 0,
+      "Cost": 31916.54
+    },
+    "ZY040001306504": {
+      "Stay_days": 12,
+      "Name": "宋冬玲",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 2.7866013071895424,
+      "Pathway_on": 0,
+      "Cost": 6701.98
+    },
+    "ZY050001292788": {
+      "Stay_days": 16,
+      "Name": "舒庆林",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 8.897712418300653,
+      "Pathway_on": 0,
+      "Cost": 13010.68
+    },
+    "ZY030001310468": {
+      "Stay_days": 6,
+      "Name": "屈怀兴",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 13.132679738562095,
+      "Pathway_on": 0,
+      "Cost": 3892.7
+    },
+    "ZY010001325102": {
+      "Stay_days": 27,
+      "Name": "周润娥",
+      "Gender": "女",
+      "Age": 60,
+      "Score": 58.89209853457953,
+      "Pathway_on": 0,
+      "Cost": 132770.3
+    },
+    "ZY030001302060": {
+      "Stay_days": 29,
+      "Name": "王学录",
+      "Gender": "男",
+      "Age": 66,
+      "Score": 15.287908496732019,
+      "Pathway_on": 0,
+      "Cost": 23207.44
+    },
+    "ZY010001330282": {
+      "Stay_days": 15,
+      "Name": "程振堂",
+      "Gender": "男",
+      "Age": 58,
+      "Score": 8.153921568627451,
+      "Pathway_on": 0,
+      "Cost": 8949.4
+    },
+    "ZY130001216794": {
+      "Stay_days": 2,
+      "Name": "白夫森",
+      "Gender": "男",
+      "Age": 62,
+      "Score": 0.6330065359477124,
+      "Pathway_on": 0,
+      "Cost": 1570.9
+    },
+    "ZY010001168832": {
+      "Stay_days": 8,
+      "Name": "赵竹样",
+      "Gender": "女",
+      "Age": 47,
+      "Score": 7.880392156862745,
+      "Pathway_on": 0,
+      "Cost": 9913.03
+    },
+    "ZY010001311849": {
+      "Stay_days": 13,
+      "Name": "孔宪展",
+      "Gender": "男",
+      "Age": 73,
+      "Score": 18.87581699346405,
+      "Pathway_on": 0,
+      "Cost": 18732.87
+    },
+    "ZY050001301676": {
+      "Stay_days": 1,
+      "Name": "黄全武",
+      "Gender": "男",
+      "Age": 51,
+      "Score": 0.23823529411764705,
+      "Pathway_on": 0,
+      "Cost": 355.27
+    },
+    "ZY040001303050": {
+      "Stay_days": 7,
+      "Name": "翟志斌",
+      "Gender": "男",
+      "Age": 73,
+      "Score": 7.035294117647058,
+      "Pathway_on": 0,
+      "Cost": 16736.94
+    },
+    "ZY010001314580": {
+      "Stay_days": 28,
+      "Name": "郭芝草",
+      "Gender": "女",
+      "Age": 70,
+      "Score": 22.23826829399807,
+      "Pathway_on": 0,
+      "Cost": 68211.25
+    },
+    "ZY010001331129": {
+      "Stay_days": 14,
+      "Name": "李自军",
+      "Gender": "男",
+      "Age": 63,
+      "Score": 1.5176470588235293,
+      "Pathway_on": 0,
+      "Cost": 4886
+    },
+    "ZY020001307272": {
+      "Stay_days": 3,
+      "Name": "陈昌友",
+      "Gender": "男",
+      "Age": 54,
+      "Score": 7.833333333333333,
+      "Pathway_on": 0,
+      "Cost": 8887.01
+    },
+    "ZY010001310688": {
+      "Stay_days": 6,
+      "Name": "王洪俊",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 5.82875816993464,
+      "Pathway_on": 0,
+      "Cost": 17841.37
+    },
+    "ZY090001223998": {
+      "Stay_days": 1,
+      "Name": "吴芳云",
+      "Gender": "女",
+      "Age": 49,
+      "Score": 0.7359477124183007,
+      "Pathway_on": 0,
+      "Cost": 3905.9
+    },
+    "ZY070001272714": {
+      "Stay_days": 6,
+      "Name": "齐民善",
+      "Gender": "男",
+      "Age": 58,
+      "Score": 6.589542483660132,
+      "Pathway_on": 0,
+      "Cost": 26376.72
+    },
+    "ZY050001299992": {
+      "Stay_days": 5,
+      "Name": "张斌芳",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 2.9901960784313726,
+      "Pathway_on": 0,
+      "Cost": 12747.76
+    },
+    "ZY030001207550": {
+      "Stay_days": 8,
+      "Name": "巩三羊",
+      "Gender": "男",
+      "Age": 62,
+      "Score": 8.87875816993464,
+      "Pathway_on": 0,
+      "Cost": 7764.21
+    },
+    "ZY010001275699": {
+      "Stay_days": 29,
+      "Name": "耿康善",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 1.2594771241830065,
+      "Pathway_on": 0,
+      "Cost": 12930.2
+    },
+    "ZY010001315374": {
+      "Stay_days": 6,
+      "Name": "王建功",
+      "Gender": "男",
+      "Age": 62,
+      "Score": 6.315032679738561,
+      "Pathway_on": 0,
+      "Cost": 19251.01
+    },
+    "ZY030001322537": {
+      "Stay_days": 7,
+      "Name": "邹富汉",
+      "Gender": "男",
+      "Age": 68,
+      "Score": 12.9078431372549,
+      "Pathway_on": 0,
+      "Cost": 26758.01
+    },
+    "ZY020001321720": {
+      "Stay_days": 14,
+      "Name": "梁春焕",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 10.308496732026146,
+      "Pathway_on": 0,
+      "Cost": 19838.56
+    },
+    "ZY010001307807": {
+      "Stay_days": 26,
+      "Name": "黄创建",
+      "Gender": "男",
+      "Age": 42,
+      "Score": 57.82485539011733,
+      "Pathway_on": 0,
+      "Cost": 139512.06
+    },
+    "ZY020001267172": {
+      "Stay_days": 29,
+      "Name": "袁辉举",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 28.816117060677037,
+      "Pathway_on": 0,
+      "Cost": 37912.85
+    },
+    "ZY010001319574": {
+      "Stay_days": 25,
+      "Name": "屈建普",
+      "Gender": "男",
+      "Age": 60,
+      "Score": 49.41937768911621,
+      "Pathway_on": 0,
+      "Cost": 105075.04
+    },
+    "ZY020001294385": {
+      "Stay_days": 18,
+      "Name": "郝焕章",
+      "Gender": "男",
+      "Age": 42,
+      "Score": 49.37852828982096,
+      "Pathway_on": 1,
+      "Cost": 84412.9
+    },
+    "ZY010001328024": {
+      "Stay_days": 5,
+      "Name": "高步堂",
+      "Gender": "男",
+      "Age": 86,
+      "Score": 12.212418300653594,
+      "Pathway_on": 0,
+      "Cost": 5326.83
+    },
+    "ZY070001231076": {
+      "Stay_days": 7,
+      "Name": "刘永康",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 7.399346405228759,
+      "Pathway_on": 0,
+      "Cost": 16972.46
+    },
+    "ZY050001246669": {
+      "Stay_days": 25,
+      "Name": "马顺根",
+      "Gender": "男",
+      "Age": 58,
+      "Score": 67.4983403671761,
+      "Pathway_on": 1,
+      "Cost": 97795.88
+    },
+    "ZY010001310655": {
+      "Stay_days": 3,
+      "Name": "韩彩霞",
+      "Gender": "女",
+      "Age": 79,
+      "Score": 3.5349673202614382,
+      "Pathway_on": 0,
+      "Cost": 7542.13
+    },
+    "ZY010001315074": {
+      "Stay_days": 28,
+      "Name": "王学录",
+      "Gender": "男",
+      "Age": 66,
+      "Score": 6.500980392156862,
+      "Pathway_on": 0,
+      "Cost": 28152.35
+    },
+    "ZY010001314632": {
+      "Stay_days": 7,
+      "Name": "刘永康",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 8.987908496732027,
+      "Pathway_on": 0,
+      "Cost": 18530.84
+    },
+    "ZY020001250043": {
+      "Stay_days": 15,
+      "Name": "杨科喜",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 8.574509803921568,
+      "Pathway_on": 0,
+      "Cost": 15660.63
+    },
+    "ZY040001238014": {
+      "Stay_days": 9,
+      "Name": "陈义善",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 3.8964052287581694,
+      "Pathway_on": 0,
+      "Cost": 6902.28
+    },
+    "ZY040001307272": {
+      "Stay_days": 3,
+      "Name": "陈昌友",
+      "Gender": "男",
+      "Age": 55,
+      "Score": 9.030718954248368,
+      "Pathway_on": 0,
+      "Cost": 10159.39
+    },
+    "ZY010001277468": {
+      "Stay_days": 19,
+      "Name": "张定劳",
+      "Gender": "男",
+      "Age": 59,
+      "Score": 0.03725490196078431,
+      "Pathway_on": 0,
+      "Cost": 11038
+    },
+    "ZY010001321464": {
+      "Stay_days": 8,
+      "Name": "沈泽祥",
+      "Gender": "男",
+      "Age": 50,
+      "Score": 9.352941176470583,
+      "Pathway_on": 0,
+      "Cost": 24280.53
+    },
+    "ZY010001312085": {
+      "Stay_days": 14,
+      "Name": "张宝建",
+      "Gender": "男",
+      "Age": 53,
+      "Score": 8.581045751633985,
+      "Pathway_on": 0,
+      "Cost": 18336.8
+    },
+    "ZY020001311585": {
+      "Stay_days": 25,
+      "Name": "范天才",
+      "Gender": "男",
+      "Age": 68,
+      "Score": 8.959477124183007,
+      "Pathway_on": 0,
+      "Cost": 33395
+    },
+    "ZY010001309297": {
+      "Stay_days": 7,
+      "Name": "郭芝草",
+      "Gender": "女",
+      "Age": 70,
+      "Score": 11.02124183006536,
+      "Pathway_on": 0,
+      "Cost": 11515.66
+    },
+    "ZY090001258678": {
+      "Stay_days": 7,
+      "Name": "张天辉",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 2.74281045751634,
+      "Pathway_on": 0,
+      "Cost": 12103.85
+    },
+    "ZY020001314580": {
+      "Stay_days": 20,
+      "Name": "郭芝草",
+      "Gender": "女",
+      "Age": 70,
+      "Score": 3.196732026143791,
+      "Pathway_on": 0,
+      "Cost": 2081.91
+    },
+    "ZY030001292788": {
+      "Stay_days": 6,
+      "Name": "舒庆林",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 10.955228758169934,
+      "Pathway_on": 0,
+      "Cost": 8988.36
+    },
+    "ZY010001311585": {
+      "Stay_days": 28,
+      "Name": "范天才",
+      "Gender": "男",
+      "Age": 68,
+      "Score": 5.129312445695049,
+      "Pathway_on": 0,
+      "Cost": 41359.29
+    },
+    "ZY010001273868": {
+      "Stay_days": 8,
+      "Name": "王正明",
+      "Gender": "男",
+      "Age": 56,
+      "Score": 11.065359477124185,
+      "Pathway_on": 0,
+      "Cost": 12946.07
+    },
+    "ZY050001238014": {
+      "Stay_days": 10,
+      "Name": "陈义善",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 4.727450980392157,
+      "Pathway_on": 0,
+      "Cost": 8282.88
+    },
+    "ZY010001313464": {
+      "Stay_days": 8,
+      "Name": "夏礼成",
+      "Gender": "男",
+      "Age": 47,
+      "Score": 6.821241830065361,
+      "Pathway_on": 0,
+      "Cost": 7699.3
+    },
+    "ZY010001255738": {
+      "Stay_days": 25,
+      "Name": "席淑芳",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 51.24040562353248,
+      "Pathway_on": 1,
+      "Cost": 88727.32
+    },
+    "ZY010001269064": {
+      "Stay_days": 28,
+      "Name": "李春录",
+      "Gender": "男",
+      "Age": 73,
+      "Score": 8.181972708041183,
+      "Pathway_on": 0,
+      "Cost": 57785.96
+    },
+    "ZY010001322332": {
+      "Stay_days": 9,
+      "Name": "余秀娥",
+      "Gender": "女",
+      "Age": 73,
+      "Score": 8.671241830065359,
+      "Pathway_on": 0,
+      "Cost": 10313.18
+    },
+    "ZY010001322288": {
+      "Stay_days": 18,
+      "Name": "陈振鹏",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 1.449673202614379,
+      "Pathway_on": 0,
+      "Cost": 21235.88
+    },
+    "ZY030001177650": {
+      "Stay_days": 11,
+      "Name": "长天耀",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 7.044771241830065,
+      "Pathway_on": 0,
+      "Cost": 19133.78
+    },
+    "ZY020001316248": {
+      "Stay_days": 28,
+      "Name": "李引祥",
+      "Gender": "男",
+      "Age": 74,
+      "Score": 2.3150326797385623,
+      "Pathway_on": 0,
+      "Cost": 33676.04
+    },
+    "ZY010001326276": {
+      "Stay_days": 20,
+      "Name": "孙考院",
+      "Gender": "男",
+      "Age": 71,
+      "Score": 0.9199346405228759,
+      "Pathway_on": 0,
+      "Cost": 12575.18
+    },
+    "ZY030001306451": {
+      "Stay_days": 5,
+      "Name": "王志杰",
+      "Gender": "男",
+      "Age": 68,
+      "Score": 6.244771241830065,
+      "Pathway_on": 0,
+      "Cost": 17266.43
+    },
+    "ZY060001238014": {
+      "Stay_days": 7,
+      "Name": "陈义善",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 6.515359477124183,
+      "Pathway_on": 0,
+      "Cost": 16301.24
+    },
+    "ZY010001334555": {
+      "Stay_days": 11,
+      "Name": "刘爱莲",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 13.827777777777778,
+      "Pathway_on": 0,
+      "Cost": 0
+    },
+    "ZY010001283628": {
+      "Stay_days": 24,
+      "Name": "瞿翠平",
+      "Gender": "女",
+      "Age": 58,
+      "Score": 47.879969002401936,
+      "Pathway_on": 1,
+      "Cost": 91264.31
+    },
+    "ZY030001314575": {
+      "Stay_days": 3,
+      "Name": "金棣华",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 3.6104575163398693,
+      "Pathway_on": 0,
+      "Cost": 8976.57
+    },
+    "ZY010001310300": {
+      "Stay_days": 11,
+      "Name": "徐洪斌",
+      "Gender": "男",
+      "Age": 85,
+      "Score": 8.46111111111111,
+      "Pathway_on": 0,
+      "Cost": 22254.61
+    },
+    "ZY010001274296": {
+      "Stay_days": 20,
+      "Name": "李小盈",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 56.86870884559765,
+      "Pathway_on": 1,
+      "Cost": 94778.11
+    },
+    "ZY010001331897": {
+      "Stay_days": 3,
+      "Name": "何俊鹏",
+      "Gender": "男",
+      "Age": 73,
+      "Score": 0.9049019607843137,
+      "Pathway_on": 0,
+      "Cost": 3630
+    },
+    "ZY020001310468": {
+      "Stay_days": 28,
+      "Name": "屈怀兴",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 21.07385620915033,
+      "Pathway_on": 0,
+      "Cost": 32473.82
+    },
+    "ZY010001328620": {
+      "Stay_days": 14,
+      "Name": "冯万成",
+      "Gender": "男",
+      "Age": 62,
+      "Score": 42.5656080618025,
+      "Pathway_on": 1,
+      "Cost": 70148.33
+    },
+    "ZY020001259651": {
+      "Stay_days": 24,
+      "Name": "乔玉杰",
+      "Gender": "男",
+      "Age": 72,
+      "Score": 3.0624183006535945,
+      "Pathway_on": 0,
+      "Cost": 12261
+    },
+    "ZY030001321237": {
+      "Stay_days": 12,
+      "Name": "赵友良",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 0.2156862745098039,
+      "Pathway_on": 0,
+      "Cost": 1260
+    },
+    "ZY010001283380": {
+      "Stay_days": 12,
+      "Name": "刘建平",
+      "Gender": "男",
+      "Age": 57,
+      "Score": 7.310457516339869,
+      "Pathway_on": 0,
+      "Cost": 24776.21
+    },
+    "ZY010001135004": {
+      "Stay_days": 18,
+      "Name": "屈玉侠",
+      "Gender": "女",
+      "Age": 57,
+      "Score": 38.66690614799236,
+      "Pathway_on": 1,
+      "Cost": 51750.72
+    },
+    "ZY010001268190": {
+      "Stay_days": 28,
+      "Name": "杨跃进",
+      "Gender": "男",
+      "Age": 53,
+      "Score": 1.6833333333333331,
+      "Pathway_on": 0,
+      "Cost": 19076
+    },
+    "ZY010001309285": {
+      "Stay_days": 20,
+      "Name": "田孝忠",
+      "Gender": "男",
+      "Age": 67,
+      "Score": 36.18081114586895,
+      "Pathway_on": 0,
+      "Cost": 89107.41
+    },
+    "ZY010001313829": {
+      "Stay_days": 8,
+      "Name": "潘民乐",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 11.931045751633988,
+      "Pathway_on": 0,
+      "Cost": 16423.94
+    },
+    "ZY010001254367": {
+      "Stay_days": 27,
+      "Name": "张贵轩",
+      "Gender": "男",
+      "Age": 87,
+      "Score": 0.9032679738562093,
+      "Pathway_on": 0,
+      "Cost": 6031.25
+    },
+    "ZY020001308604": {
+      "Stay_days": 24,
+      "Name": "荆常生",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 18.811437908496735,
+      "Pathway_on": 0,
+      "Cost": 19728.85
+    },
+    "ZY030001260003": {
+      "Stay_days": 8,
+      "Name": "员西玲",
+      "Gender": "女",
+      "Age": 53,
+      "Score": 4.736274509803922,
+      "Pathway_on": 0,
+      "Cost": 12813.79
+    },
+    "ZY100001258678": {
+      "Stay_days": 10,
+      "Name": "张天辉",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 5.159477124183007,
+      "Pathway_on": 0,
+      "Cost": 8187.4
+    },
+    "ZY010001268584": {
+      "Stay_days": 16,
+      "Name": "陈全保",
+      "Gender": "男",
+      "Age": 77,
+      "Score": 47.745363341298926,
+      "Pathway_on": 1,
+      "Cost": 83896.21
+    },
+    "ZY010001314585": {
+      "Stay_days": 2,
+      "Name": "熊建明",
+      "Gender": "男",
+      "Age": 61,
+      "Score": 1.7728758169934644,
+      "Pathway_on": 0,
+      "Cost": 19822.79
+    },
+    "ZY010001321850": {
+      "Stay_days": 11,
+      "Name": "潘民乐",
+      "Gender": "男",
+      "Age": 64,
+      "Score": 10.478431372549021,
+      "Pathway_on": 0,
+      "Cost": 11636.81
+    },
+    "ZY090001274088": {
+      "Stay_days": 9,
+      "Name": "黄平稳",
+      "Gender": "男",
+      "Age": 70,
+      "Score": 5.540196078431372,
+      "Pathway_on": 0,
+      "Cost": 11776.98
+    },
+    "ZY010001265936": {
+      "Stay_days": 6,
+      "Name": "王春芝",
+      "Gender": "女",
+      "Age": 76,
+      "Score": 0.6137254901960784,
+      "Pathway_on": 0,
+      "Cost": 2346.35
+    },
+    "ZY010001306443": {
+      "Stay_days": 22,
+      "Name": "宋麦侠",
+      "Gender": "女",
+      "Age": 63,
+      "Score": 39.24019393577292,
+      "Pathway_on": 1,
+      "Cost": 55060.22
+    },
+    "ZY010001269583": {
+      "Stay_days": 28,
+      "Name": "胡清查",
+      "Gender": "女",
+      "Age": 79,
+      "Score": 4.504901960784315,
+      "Pathway_on": 0,
+      "Cost": 24546.22
+    },
+    "ZY080001232760": {
+      "Stay_days": 2,
+      "Name": "郝方涛",
+      "Gender": "男",
+      "Age": 75,
+      "Score": 1.8251633986928106,
+      "Pathway_on": 0,
+      "Cost": 4383.28
+    },
+    "ZY010001266000": {
+      "Stay_days": 8,
+      "Name": "冯康牛",
+      "Gender": "男",
+      "Age": 65,
+      "Score": 3.29967320261438,
+      "Pathway_on": 0,
+      "Cost": 14545.57
+    },
+    "ZY010001320823": {
+      "Stay_days": 23,
+      "Name": "李治科",
+      "Gender": "男",
+      "Age": 58,
+      "Score": 35.754464468957586,
+      "Pathway_on": 1,
+      "Cost": 74174.93
+    },
+    "ZY010001104143": {
+      "Stay_days": 30,
+      "Name": "姬芬仙",
+      "Gender": "女",
+      "Age": 79,
+      "Score": 96.52762411353841,
+      "Pathway_on": 1,
+      "Cost": 147758.85
+    },
+    "ZY030001314091": {
+      "Stay_days": 7,
+      "Name": "武保合",
+      "Gender": "男",
+      "Age": 65,
+      "Score": 7.569607843137254,
+      "Pathway_on": 0,
+      "Cost": 7036.85
+    },
+    "ZY010001320919": {
+      "Stay_days": 18,
+      "Name": "杜世银",
+      "Gender": "男",
+      "Age": 55,
+      "Score": 51.2860038706141,
+      "Pathway_on": 0,
+      "Cost": 86690.99
+    },
+    "ZY010001310468": {
+      "Stay_days": 7,
+      "Name": "屈怀兴",
+      "Gender": "男",
+      "Age": 69,
+      "Score": 9.7281045751634,
+      "Pathway_on": 0,
+      "Cost": 11010.92
+    }
+  },
+  "Return": 0
+}
