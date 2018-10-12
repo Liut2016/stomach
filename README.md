@@ -77,8 +77,11 @@ $ git push <url>
 ```
 
 ## vim 使用
-1. 三种模式
-![](http://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png) 
+1. 三种模式  
+
+![](http://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png)   
+
+
 2. 保存退出
 
 | 命令 |  功能 |
