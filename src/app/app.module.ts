@@ -27,7 +27,6 @@ import { SpinnerComponent } from '@app/shared/spinner.component';
 import { CoreModule } from '@app/core/core.module';
 import { HttpModule } from '@angular/http';
 import { SettingComponent } from '@app/setting/setting.component';
-import { WebStorageModule } from 'ngx-store';
 
 import { LocalStorage } from '@app/shared/local.storage';
 
@@ -60,7 +59,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CoreModule,
     HttpModule,
     ReactiveFormsModule,
-    WebStorageModule
   ],
   providers: [
     LocalStorage,

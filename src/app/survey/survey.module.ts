@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DemoMaterialModule} from '@app/demo-material-module';
@@ -36,7 +35,6 @@ import { DynamicRowTableComponent} from '@app/survey/shared/dynamic-row-table/dy
     CommonModule,
     RouterModule.forChild(SurveyRoutes),
     MatInputModule,
-    NgxDatatableModule,
     DemoMaterialModule,
     FormsModule,
     ReactiveFormsModule

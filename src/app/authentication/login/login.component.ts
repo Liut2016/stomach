@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { HttpForNowService } from '@app/core/services/http-for-now.service';
 import { LocalStorage } from '@ngx-pwa/local-storage';
 import { SettingsService } from '@app/core/services/settings.service';
-import { LocalStorageService } from 'ngx-store';
+// import { LocalStorageService } from 'ngx-store';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,7 @@ import { LocalStorageService } from 'ngx-store';
 export class LoginComponent implements OnInit {
 
   public form: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router, private httpService: HttpForNowService,
-    private localStorage: LocalStorageService, private settings: SettingsService) {}
+  constructor(private fb: FormBuilder, private router: Router, private httpService: HttpForNowService, private settings: SettingsService) {}
 
   ngOnInit() {
     this.form = this.fb.group ( {
@@ -44,7 +43,8 @@ export class LoginComponent implements OnInit {
             mail: u.email
           };
         });
-        this.localStorage.set('token', res.TOKEN);
+        // this.localStorage.set('token', res.TOKEN);
+        localStorage.setItem('token', res.TOKEN);
         this.settings.initSettings();
         this.router.navigate(['/survey/hypertensionMS']);
       }

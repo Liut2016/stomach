@@ -3,7 +3,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { SettingsService } from '@app/core/services/settings.service';
 // import { LocalStorage } from '@ngx-pwa/local-storage';
 import { Observable } from 'rxjs';
-import { LocalStorageService } from 'ngx-store';
+// import { LocalStorageService } from 'ngx-store';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ import { LocalStorageService } from 'ngx-store';
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(public router: Router, public settings: SettingsService, public localStorage: LocalStorageService) { }
+  constructor(public router: Router, public settings: SettingsService) { }
 
   canActivate(route: ActivatedRouteSnapshot) {
     if (!this.settings.user) {
@@ -38,7 +38,7 @@ export class AuthGuardService implements CanActivate {
   }
 
   checkToken() {
-    const token = this.localStorage.get('token');
+    const token = localStorage.getItem('token');
     if (!token) {
       console.log(token);
       this.router.navigate(['authentication/login']);

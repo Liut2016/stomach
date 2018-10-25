@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+
 import { LocalStorage } from '@ngx-pwa/local-storage';
-import { LocalStorageService } from 'ngx-store';
+// import { LocalStorageService } from 'ngx-store';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -14,9 +14,9 @@ export class HttpForNowService {
   // private localUrl = 'http://202.117.54.88:9000/';
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http, private localStorage: LocalStorageService, private router: Router) {
+  constructor(private http: Http, private router: Router) {
     console.log(this.headers);
-    const token = this.localStorage.get('token');
+    const token = localStorage.getItem('token');
     this.headers = new Headers({'Content-Type': 'application/json', 'X-CSRFToken': token});
   }
 
