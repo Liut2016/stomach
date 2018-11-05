@@ -52,7 +52,21 @@ const MENUITEMS = [
     type: 'link',
     icon: 'perm_contact_calendar',
     rolesCannotSee: ['patient']
-  }
+  },
+  {
+        state: 'mammary',
+        name: '乳腺癌数据',
+        type: 'link',
+        icon: 'airline_seat_flat_angled',
+        rolesCannotSee: []
+  },
+  {
+        state: 'components_list',
+        name: '医疗表单组件',
+        type: 'link',
+        icon: 'category',
+        rolesCannotSee: []
+    },
   // {
   //   state: 'feedback',
   //   name: '消息反馈',

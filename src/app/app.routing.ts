@@ -40,13 +40,17 @@ export const AppRoutes: Routes = [
     loadChildren: './feedback/feedback.module#FeedbackModule'
   },
   {
+    path: 'mammary',
+    loadChildren: './mammary/mammary.module#MammaryModule'
+  },
+  {
     path: 'setting',
     component: SettingComponent
-  }
-    // {
-    //   path: 'follow',
-    //   loadChildren: './follow/follow.module#FollowModule'
-    // }
+  },
+     {
+       path: 'components_list',
+       loadChildren: './generalComponents/generalComponents.module#GeneralComponentsListModule'
+     }
   ]
 }, {
   path: '',

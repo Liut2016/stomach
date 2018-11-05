@@ -6,6 +6,7 @@ import { DiabetesComponent} from '@app/survey/diabetes/diabetes.component';
 import { ReportComponent} from '@app/survey/report/report.component';
 import { DiagnosisComponent} from '@app/survey/diagnosis/diagnosis.component';
 import { TreatementComponent} from '@app/survey/treatement/treatement.component';
+import { MammaryFormComponent } from '@app/survey/mammary/mammary-form/mammary-form.component';
 
 export const SurveyRoutes: Routes = [
   {
@@ -46,7 +47,11 @@ export const SurveyRoutes: Routes = [
       {
         path: 'treatementMS',
         component: TreatementComponent
-      }
+      },
+        {
+          path: 'mammary',
+            component: MammaryFormComponent
+        }
     ]
   }
 ];
