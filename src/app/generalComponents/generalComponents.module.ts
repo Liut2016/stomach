@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoMaterialModule } from '@app/demo-material-module';
 import { GeneralComponentsModule } from '@app/shared/generalComponents.module';
 import { GeneralComponentsRoutes} from '@app/generalComponents/generalComponents.routing';
-import {GeneralComponentsListComponent} from '@app/generalComponents/general-components-list/general-components-list.component';
+import { GeneralComponentsListComponent } from '@app/generalComponents/general-components-list/general-components-list.component';
 
 
 @NgModule({

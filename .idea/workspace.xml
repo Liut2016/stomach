@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4999cbe-e7ea-49c3-ad23-9cf9af92cf11" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/survey/survey.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/survey/survey.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/survey/survey.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/survey/survey.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +24,8 @@
             <file leaf-file-name="mammary-form.component.html" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="306">
-                    <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+                  <state relative-caret-position="450">
+                    <caret line="25" column="6" lean-forward="true" selection-end-line="26" />
                     <folding>
                       <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
                     </folding>
@@ -34,16 +33,16 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="surveyList.ts" pinned="false" current-in-tab="false">
+            <file leaf-file-name="surveyList.ts" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/app/mammary/surveyList.ts">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="432">
-                    <caret line="24" column="121" selection-start-line="24" selection-start-column="121" selection-end-line="24" selection-end-column="121" />
+                  <state>
+                    <caret column="23" selection-start-column="23" selection-end-column="23" />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="survey.module.ts" pinned="false" current-in-tab="true">
+            <file leaf-file-name="survey.module.ts" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/app/survey/survey.module.ts">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="774">
@@ -73,11 +72,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu-items.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts">
+      <file leaf-file-name="hypertension.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/hypertension.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+            <state relative-caret-position="352">
+              <caret line="172" column="21" lean-forward="true" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="http.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/core/services/http.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -85,8 +96,8 @@
       <file leaf-file-name="generalComponents.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="144">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -94,81 +105,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <file leaf-file-name="surveyList.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/surveyList.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+            <state relative-caret-position="252">
+              <caret line="193" column="9" lean-forward="true" selection-start-line="149" selection-start-column="8" selection-end-line="193" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.routing.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="50" column="29" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generalComponents.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/generalComponents.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shared.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/shared.module.ts">
+      <file leaf-file-name="general-checkbox.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/survey/shared/general-checkbox/general-checkbox.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#72#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mammary.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary.module.ts">
+      <file leaf-file-name="cmpList.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/generalComponents/cmpList.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="30" lean-forward="true" selection-end-line="23" />
+            <state relative-caret-position="968">
+              <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hypertension.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/hypertension.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="68" column="158" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="68" selection-end-column="158" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#style#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generalComponents.routing.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.routing.ts">
+      <file leaf-file-name="general-components-list.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+            <state relative-caret-position="270">
+              <caret line="15" column="124" selection-start-line="15" selection-start-column="124" selection-end-line="15" selection-end-column="124" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mammary.routing.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary.routing.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="3" lean-forward="true" selection-end-line="6" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -195,6 +180,11 @@
       <find>人员管理</find>
       <find>高血压患者</find>
       <find>高血压档案</find>
+      <find>年收入</find>
+      <find>checkbox</find>
+      <find>address</find>
+      <find>date</find>
+      <find>dynamic</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -221,9 +211,12 @@
         <option value="$PROJECT_DIR$/src/app/mammary/mammary.module.ts" />
         <option value="$PROJECT_DIR$/src/app/survey/survey.module.ts" />
         <option value="$PROJECT_DIR$/src/app/generalComponents/generalComponents.routing.ts" />
-        <option value="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts" />
+        <option value="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html" />
+        <option value="$PROJECT_DIR$/src/app/generalComponents/cmpList.ts" />
       </list>
     </option>
   </component>
@@ -287,7 +280,8 @@
               <item name="oncology" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="mammary" type="462c0819:PsiDirectoryNode" />
+              <item name="generalComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="general-components-list" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
@@ -295,6 +289,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="survey" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oncology" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="survey" type="462c0819:PsiDirectoryNode" />
+              <item name="hypertension" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
@@ -303,6 +305,15 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="survey" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oncology" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="survey" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="general-checkbox" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -359,12 +370,12 @@
       <workItem from="1539223526806" duration="628000" />
       <workItem from="1539225613456" duration="10996000" />
       <workItem from="1540174722715" duration="1872000" />
-      <workItem from="1541232477425" duration="18108000" />
+      <workItem from="1541232477425" duration="24005000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33819000" />
+    <option name="totallyTimeSpent" value="39716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
@@ -398,48 +409,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/core/services/settings.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/layouts/full/full.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/layouts/full/sidebar/sidebar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/layouts/full/full.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/accordion/accordion.directive.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -586,43 +555,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/hypertension.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/follow/follow-up-hypertension/follow-up-hypertension.component.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/mammary/surveyList.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="121" selection-start-line="24" selection-start-column="121" selection-end-line="24" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/surveyList.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="150" lean-forward="true" selection-start-line="38" selection-start-column="150" selection-end-line="38" selection-end-column="150" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/hypertension.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="63" column="151" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="151" />
-          <folding>
-            <element signature="n#style#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/local.storage.ts">
       <provider selected="true" editor-type-id="text-editor" />
@@ -631,16 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-126">
           <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,16 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -783,10 +697,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="6" lean-forward="true" selection-end-line="26" />
+          <folding>
+            <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/mammary/surveyList.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/hypertension.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="172" column="21" lean-forward="true" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/services/http.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="828">
           <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/survey/shared/general-checkbox/general-checkbox.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/survey/shared/general-checkbox/general-checkbox.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/hypertension.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="68" column="158" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="68" selection-end-column="158" />
+          <folding>
+            <element signature="n#style#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="124" selection-start-line="15" selection-start-column="124" selection-end-line="15" selection-end-column="124" />
+          <folding>
+            <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/survey/hypertension/surveyList.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="193" column="9" lean-forward="true" selection-start-line="149" selection-start-column="8" selection-end-line="193" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/cmpList.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="968">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
         </state>
       </provider>
     </entry>
