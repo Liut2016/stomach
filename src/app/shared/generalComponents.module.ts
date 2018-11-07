@@ -14,6 +14,7 @@ import { GeneralCardGroupComponent} from '@app/survey/shared/general-card-group/
 import { GeneralAddressComponent} from '@app/survey/shared/general-address/general-address.component';
 import { FileUploadComponent} from '@app/survey/shared/file-upload/file-upload.component';
 import { DynamicRowTableComponent} from '@app/survey/shared/dynamic-row-table/dynamic-row-table.component';
+import { GeneralInputConditionComponent } from '@app/survey/shared/general-input-condition/general-input-condition.component';
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import { DynamicRowTableComponent} from '@app/survey/shared/dynamic-row-table/dy
         GeneralCardGroupComponent,
         GeneralAddressComponent,
         FileUploadComponent,
-        DynamicRowTableComponent
+        DynamicRowTableComponent,
+        GeneralInputConditionComponent
     ],
     exports: [
         GeneralRadioComponent,
@@ -48,7 +50,8 @@ import { DynamicRowTableComponent} from '@app/survey/shared/dynamic-row-table/dy
         GeneralCardGroupComponent,
         GeneralAddressComponent,
         FileUploadComponent,
-        DynamicRowTableComponent
+        DynamicRowTableComponent,
+        GeneralInputConditionComponent
     ]
 })
 

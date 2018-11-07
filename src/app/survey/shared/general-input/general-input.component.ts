@@ -1,8 +1,6 @@
 import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ConfInterface} from '@app/survey/shared/conf-interface';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import {any} from "codelyzer/util/function";
-import {number} from "ng2-validation/dist/number";
 
 @Component({
   selector: 'app-dc-general-input',

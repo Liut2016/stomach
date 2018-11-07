@@ -23,6 +23,7 @@ export const components_list = [
         step_description: 'Input Combination',
         items: [
             { type: 'address', title: '居住地址', key_value: [ { _key: '省', _value: ''}, { _key: '市', _value: ''}, { _key: '区', _value: ''}], required: false},
+            { type: 'condition-input', target_value: '99' }
         ]
     },
     {

@@ -1,0 +1,17 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        条件输入
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput title="condition_input" [(ngModel)]="condition_value" (ngModelChange)="checkAnswer()">
+      </mat-form-field>
+      <mat-form-field *ngIf="condition">
+        <input matInput  title="extra_input">
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+</div>

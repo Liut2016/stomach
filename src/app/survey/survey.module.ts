@@ -20,6 +20,7 @@ import { TreatementComponent} from '@app/survey/treatement/treatement.component'
 import { MammaryFormComponent } from '@app/survey/mammary/mammary-form/mammary-form.component';
 import { GeneralComponentsModule } from '@app/shared/generalComponents.module';
 
+
 @NgModule({
   imports: [
     CommonModule,
