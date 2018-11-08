@@ -47,10 +47,10 @@ export const AppRoutes: Routes = [
     path: 'setting',
     component: SettingComponent
   },
-     {
+  {
        path: 'components_list',
        loadChildren: './generalComponents/generalComponents.module#GeneralComponentsListModule'
-     }
+  }
   ]
 }, {
   path: '',
