@@ -1,8 +1,84 @@
 export const survey_list = [
     {
-        step_description: '病案首页',
-        items: []
-    },
+        step_description: '住院病案首页提取信息',
+        items: [
+          {
+            type: 'table',
+            title: '住院病案首页提取信息',
+            required: false,
+            cols: 6,
+            layout: [
+              { type: 'text', cols: 1, rows: 1, text: '住院号:' },
+              { type: 'text', cols: 1, rows: 1, text: '708265' },
+              { type: 'text', cols: 1, rows: 1, text: '名字:' },
+              { type: 'text', cols: 1, rows: 1, text: '张三' },
+              { type: 'text', cols: 1, rows: 1, text: '出生年月:' },
+              { type: 'text', cols: 1, rows: 1, text: '1988/01/01' },
+
+              { type: 'text', cols: 1, rows: 1, text: '年龄:' },
+              { type: 'text', cols: 1, rows: 1, text: '30' },
+              { type: 'text', cols: 1, rows: 1, text: '体重:' },
+              { type: 'text', cols: 1, rows: 1, text: '65Kg' },
+              { type: 'text', cols: 1, rows: 1, text: '身高:' },
+              { type: 'text', cols: 1, rows: 1, text: '170cm' },
+
+              { type: 'text', cols: 1, rows: 1, text: '性别:' },
+              { type: 'radio', cols: 1, rows: 1, options: ['男', '女'], key_value: { _key: '有无头晕', _value: '' }},
+              { type: 'text', cols: 1, rows: 1, text: '民族:' },
+              { type: 'text', cols: 1, rows: 1, text: '汉族' },
+              { type: 'text', cols: 1, rows: 1, text: '联系电话:' },
+              { type: 'text', cols: 1, rows: 1, text: '17782935405' },
+
+
+              { type: 'text', cols: 1, rows: 1, text: '出生地:' },
+              { type: 'text', cols: 2, rows: 1, text: '陕西省西安市碑林区' },
+              { type: 'text', cols: 1, rows: 1, text: '职业:' },
+              { type: 'radio', cols: 2, rows: 1, options: ['农民', '教师', '职工', '公务员', '其它'], key_value: { _key: '有无头晕', _value: '' }},
+
+              { type: 'text', cols: 1, rows: 1, text: '居住地:' },
+              { type: 'text', cols: 2, rows: 1, text: '陕西省西安市未央区' },
+              { type: 'text', cols: 1, rows: 1, text: '居住地址:' },
+              { type: 'text', cols: 2, rows: 1, text: '陕西省西安市未央区南党村167号 ' },
+
+              { type: 'text', cols: 1, rows: 1, text: '联系人姓名:' },
+              { type: 'text', cols: 1, rows: 1, text: '张三' },
+              { type: 'text', cols: 1, rows: 1, text: '联系人电话:' },
+              { type: 'text', cols: 3, rows: 1, text: '17782935405' },
+              { type: 'text', cols: 1, rows: 1, text: '入院时间:' },
+              { type: 'text', cols: 1, rows: 1, text: '2018/10/15' },
+              { type: 'text', cols: 1, rows: 1, text: '入院诊断:' },
+              { type: 'radio', cols: 3, rows: 1, options: ['乳腺恶性肿瘤', '乙型肝炎', '高血压病'], key_value: { _key: '高血压发现方式', _value: '' }},
+              { type: 'text', cols: 1, rows: 1, text: '出院时间:' },
+              { type: 'text', cols: 1, rows: 1, text: '2018/10/20' },
+              { type: 'text', cols: 1, rows: 1, text: '出院诊断:' },
+              { type: 'radio', cols: 3, rows: 1, options: ['乳腺恶性肿瘤', '乙型肝炎', '高血压病'], key_value: { _key: '高血压发现方式', _value: '' }},
+              { type: 'text', cols: 1, rows: 1, text: '实际住院天数:' },
+              { type: 'text', cols: 1, rows: 1, text: '5天' },
+              { type: 'text', cols: 1, rows: 1, text: '病理号:' },
+              { type: 'text', cols: 1, rows: 1, text: '2018-37005' },
+              { type: 'text', cols: 1, rows: 1, text: '手术日期:' },
+              { type: 'text', cols: 1, rows: 1, text: '2018/10/15' },
+
+              { type: 'text', cols: 1, rows: 3, text: '病理诊断' },
+              { type: 'text', cols: 1, rows: 1, text: '肿瘤类型:' },
+              { type: 'text', cols: 4, rows: 1, text: '浸润性导管癌' },
+              { type: 'text', cols: 1, rows: 1, text: '淋巴结转移情况:' },
+              { type: 'text', cols: 4, rows: 1, text: '淋巴结转移5/10' },
+              { type: 'text', cols: 1, rows: 1, text: '抗体阳性:' },
+              { type: 'text', cols: 4, rows: 1, text: '' },
+              { type: 'text', cols: 1, rows: 1, text: '手术名称:' },
+              { type: 'radio', cols: 5, rows: 1, options: ['乳房病损切除手术', '乳房改良根手术'], key_value: { _key: '高血压发现方式', _value: '' }},
+              { type: 'text', cols: 1, rows: 1, text: '麻醉方式:' },
+              { type: 'radio', cols: 5, rows: 1, options: ['静吸复合全麻', '局部浸润麻醉'], key_value: { _key: '高血压发现方式', _value: '' }},
+
+
+
+
+
+            ]
+          }
+        ]
+      },
     {
         step_description: '入院病例',
         items: []
