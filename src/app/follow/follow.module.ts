@@ -15,18 +15,7 @@ import { FollowUpHypertensionComponent, DialogOverviewFollowHyperDialogComponent
 import { FollowUpDiabetesOverviewComponent} from '@app/follow/follow-up-diabetes-overview/follow-up-diabetes-overview.component';
 import { FollowUpDiabetesSingleviewComponent } from '@app/follow/follow-up-diabetes-singleview/follow-up-diabetes-singleview.component';
 import { FollowUpDiabetesComponent, DialogOverviewFollowDiabetesDialogComponent} from '@app/follow/follow-up-diabetes/follow-up-diabetes.component';
-import { GeneralRadioComponent} from '@app/follow/shared/general-radio/general-radio.component';
-import { GeneralInputComponent} from '@app/follow/shared/general-input/general-input.component';
-import { GeneralTableComponent} from '@app/follow/shared/general-table/general-table.component';
-import { GeneralSelectorComponent} from '@app/follow/shared/general-selector/general-selector.component';
-import { GeneralCheckboxComponent} from '@app/follow/shared/general-checkbox/general-checkbox.component';
-import { GeneralDateComponent} from '@app/follow/shared/general-date/general-date.component';
-import { GeneralDateYearComponent} from '@app/follow/shared/general-date-year/general-date-year.component';
-import { GeneralDateYearMonthComponent} from '@app/follow/shared/general-date-year-month/general-date-year-month.component';
-import { GeneralCardGroupComponent} from '@app/follow/shared/general-card-group/general-card-group.component';
-import { GeneralAddressComponent} from '@app/follow/shared/general-address/general-address.component';
-import { FileUploadComponent} from '@app/follow/shared/file-upload/file-upload.component';
-import { DynamicRowTableComponent} from '@app/follow/shared/dynamic-row-table/dynamic-row-table.component';
+import {GeneralComponentsModule} from '@app/shared/generalComponents.module';
 
 @NgModule({
   imports: [
@@ -35,7 +24,8 @@ import { DynamicRowTableComponent} from '@app/follow/shared/dynamic-row-table/dy
     MatInputModule,
     DemoMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GeneralComponentsModule
   ],
   declarations: [
     FollowUpHypertensionOverviewComponent,
@@ -46,18 +36,6 @@ import { DynamicRowTableComponent} from '@app/follow/shared/dynamic-row-table/dy
     FollowUpDiabetesSingleviewComponent,
     FollowUpDiabetesComponent,
     DialogOverviewFollowDiabetesDialogComponent,
-    GeneralRadioComponent,
-    GeneralInputComponent,
-    GeneralTableComponent,
-    GeneralSelectorComponent,
-    GeneralCheckboxComponent,
-    GeneralDateComponent,
-    GeneralDateYearComponent,
-    GeneralDateYearMonthComponent,
-    GeneralCardGroupComponent,
-    GeneralAddressComponent,
-    FileUploadComponent,
-    DynamicRowTableComponent
   ],
   entryComponents: [
     DialogOverviewFollowHyperDialogComponent,

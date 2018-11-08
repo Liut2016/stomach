@@ -3,10 +3,46 @@
   <component name="ChangeListManager">
     <list default="true" id="d4999cbe-e7ea-49c3-ad23-9cf9af92cf11" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/mammary/surveyList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/mammary/surveyList.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/follow.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/follow/follow.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/conf-interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/dynamic-row-table/dynamic-row-table.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/dynamic-row-table/dynamic-row-table.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/dynamic-row-table/dynamic-row-table.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/file-upload/file-upload.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/file-upload/file-upload.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/file-upload/file-upload.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-address/general-address.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-address/general-address.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-address/general-address.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-card-group/general-card-group.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-card-group/general-card-group.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-card-group/general-card-group.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-checkbox/general-checkbox.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-checkbox/general-checkbox.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-checkbox/general-checkbox.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date-year-month/general-date-year-month.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date-year-month/general-date-year-month.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date-year-month/general-date-year-month.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date-year/general-date-year.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date-year/general-date-year.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date-year/general-date-year.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date/general-date.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date/general-date.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-date/general-date.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-input/general-input.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-input/general-input.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-input/general-input.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-radio/general-radio.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-radio/general-radio.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-radio/general-radio.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-selector/general-selector.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-selector/general-selector.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-selector/general-selector.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-table/general-table.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-table/general-table.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/general-table/general-table.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/follow/shared/local-configure.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary.routing.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -56,11 +92,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mammary-form.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mammary-form.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            <state relative-caret-position="72">
+              <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="follow.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/follow/follow.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +125,7 @@
       <file leaf-file-name="mammary-overview.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-overview/mammary-overview.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
+            <state relative-caret-position="1592">
               <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
@@ -105,6 +162,7 @@
       <find>dynamic</find>
       <find>conf</find>
       <find>right</find>
+      <find>社区慢性病</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -144,6 +202,8 @@
         <option value="$PROJECT_DIR$/src/app/shared/config-items/menu-items.ts" />
         <option value="$PROJECT_DIR$/src/app/mammary/mammary-overview/mammary-overview.component.ts" />
         <option value="$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html" />
+        <option value="$PROJECT_DIR$/src/app/follow/follow.module.ts" />
+        <option value="$PROJECT_DIR$/src/index.html" />
       </list>
     </option>
   </component>
@@ -199,61 +259,7 @@
               <item name="oncology" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oncology" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="full" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oncology" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="full" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oncology" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="mammary" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oncology" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="mammary" type="462c0819:PsiDirectoryNode" />
-              <item name="mammary-form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oncology" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="mammary" type="462c0819:PsiDirectoryNode" />
-              <item name="mammary-overview" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oncology" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="personnel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oncology" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oncology" type="b2602c69:ProjectViewProjectNode" />
@@ -324,22 +330,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54212000" />
+    <option name="totallyTimeSpent" value="54980000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1984" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20592992" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50026953" side_tool="true" weight="0.32991803" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49973047" visible="true" weight="0.32991803" />
+      <window_info anchor="bottom" id="TypeScript" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20592992" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -358,7 +365,6 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32991803" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
@@ -370,24 +376,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/survey/shared/general-card-group/general-card-group.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/survey/shared/general-address/general-address.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/survey/shared/dynamic-row-table/dynamic-row-table.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -486,6 +474,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
           <caret line="68" column="158" selection-start-line="63" selection-start-column="18" selection-end-line="68" selection-end-column="158" />
+          <folding>
+            <element signature="n#style#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ng-template#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -561,16 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/follow/follow.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,19 +720,9 @@
     <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-overview/mammary-overview.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -765,10 +737,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/follow/follow.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-overview/mammary-overview.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1592">
+          <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/mammary/mammary-form/mammary-form.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        <state relative-caret-position="72">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/images/chronic/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>
