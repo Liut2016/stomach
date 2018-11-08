@@ -14,7 +14,17 @@
               <div *ngFor="let cmp of tab.items">
                 <div [ngSwitch]="cmp.type">
                   <app-dc-general-selector        *ngSwitchCase="'selector'"        [conf]="cmp" ></app-dc-general-selector>
+                  <app-dc-general-input *ngSwitchCase="'input'" [conf]="cmp"></app-dc-general-input>
+                  <app-dc-general-radio *ngSwitchCase="'radio'" [conf]="cmp"></app-dc-general-radio>
+                  <app-dc-general-checkbox *ngSwitchCase="'checkbox'" [conf]="cmp"></app-dc-general-checkbox>
+                  <app-dc-general-table           *ngSwitchCase="'table'"           [conf]="cmp"></app-dc-general-table>
                   <app-dc-general-date            *ngSwitchCase="'date'"            [conf]="cmp" ></app-dc-general-date>
+                  <app-dc-general-date-year       *ngSwitchCase="'date-year'"       [conf]="cmp" ></app-dc-general-date-year>
+                  <app-dc-general-date-year-month *ngSwitchCase="'date-year-month'" [conf]="cmp" ></app-dc-general-date-year-month>
+                  <app-dc-general-card-group      *ngSwitchCase="'card-group'"      [conf]="cmp" ></app-dc-general-card-group>
+                  <app-dc-general-address         *ngSwitchCase="'address'"         [conf]="cmp" ></app-dc-general-address>
+                  <app-dc-dynamic-row-table       *ngSwitchCase="'dynamic-row-table'" [conf]="cmp" ></app-dc-dynamic-row-table>
+                  <app-general-input-condition    *ngSwitchCase="'condition-input'" [conf]="cmp" ></app-general-input-condition>
                 </div>
               </div>
             </ng-template>

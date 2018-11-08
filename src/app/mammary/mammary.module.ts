@@ -6,6 +6,7 @@ import { DemoMaterialModule } from '@app/demo-material-module';
 import { GeneralComponentsModule } from '@app/shared/generalComponents.module';
 import { MammaryFormComponent } from './mammary-form/mammary-form.component';
 import { MammaryRoutes } from '@app/mammary/mammary.routing';
+import { MammaryOverviewComponent } from './mammary-overview/mammary-overview.component';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { MammaryRoutes } from '@app/mammary/mammary.routing';
         DemoMaterialModule,
         GeneralComponentsModule
     ],
-    declarations: [MammaryFormComponent],
+    declarations: [MammaryFormComponent, MammaryOverviewComponent],
 })
 
 export class MammaryModule { }
