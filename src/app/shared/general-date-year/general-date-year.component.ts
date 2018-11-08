@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfInterface} from '@app/survey/shared/conf-interface';
+import { ConfInterface} from '@app/shared/conf-interface';
 
 @Component({
-  selector: 'app-dc-general-date-year-month',
-  templateUrl: './general-date-year-month.component.html',
-  styleUrls: ['./general-date-year-month.component.css']
+  selector: 'app-dc-general-date-year',
+  templateUrl: './general-date-year.component.html',
+  styleUrls: ['./general-date-year.component.css']
 })
-export class GeneralDateYearMonthComponent extends ConfInterface implements OnInit {
+
+export class GeneralDateYearComponent extends ConfInterface implements OnInit {
   years = [];
-  months = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   ngOnInit() {
     this.init_year();
     this.validator();
@@ -33,14 +33,11 @@ export class GeneralDateYearMonthComponent extends ConfInterface implements OnIn
   }
   validator() {
     if (this.conf.required) {
-      const key_values = this.conf.key_value;
-      let flag = false
-      for (const item of key_values) {
-        if (!item._value || item._value === '') {
-          flag = true;
-        }
+      if (this.conf.key_value._value && this.conf.key_value._value !== '') {
+        this.valid_confirmed = true;
+      } else {
+        this.valid_confirmed = false;
       }
-      if (flag) { this.valid_confirmed = true; } else { this.valid_confirmed = false; }
       this.conf.valid_confirmed = this.valid_confirmed;
     }
   }

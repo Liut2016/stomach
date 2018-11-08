@@ -9,13 +9,12 @@ import { FollowRoutes} from '@app/follow/follow.routing';
 
 import { FollowUpHypertensionOverviewComponent } from '@app/follow/follow-up-hypertension-overview/follow-up-hypertension-overview.component';
 import { FollowUpHypertensionSingleviewComponent} from '@app/follow/follow-up-hypertension-singleview/follow-up-hypertension-singleview.component';
-import { FollowUpHypertensionComponent, DialogOverviewFollowHyperDialogComponent} from
-  '@app/follow/follow-up-hypertension/follow-up-hypertension.component';
+import { FollowUpHypertensionComponent, DialogOverviewFollowHyperDialogComponent} from '@app/follow/follow-up-hypertension/follow-up-hypertension.component';
 
 import { FollowUpDiabetesOverviewComponent} from '@app/follow/follow-up-diabetes-overview/follow-up-diabetes-overview.component';
 import { FollowUpDiabetesSingleviewComponent } from '@app/follow/follow-up-diabetes-singleview/follow-up-diabetes-singleview.component';
 import { FollowUpDiabetesComponent, DialogOverviewFollowDiabetesDialogComponent} from '@app/follow/follow-up-diabetes/follow-up-diabetes.component';
-import {GeneralComponentsModule} from '@app/shared/generalComponents.module';
+import {SharedModule} from '@app/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -25,7 +24,7 @@ import {GeneralComponentsModule} from '@app/shared/generalComponents.module';
     DemoMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    GeneralComponentsModule
+    SharedModule
   ],
   declarations: [
     FollowUpHypertensionOverviewComponent,

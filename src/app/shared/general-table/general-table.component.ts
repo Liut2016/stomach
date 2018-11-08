@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfInterface} from '@app/survey/shared/conf-interface';
+import { ConfInterface} from '@app/shared/conf-interface';
 import { el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({

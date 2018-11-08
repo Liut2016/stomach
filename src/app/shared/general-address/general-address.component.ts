@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {ConfInterface} from '@app/survey/shared/conf-interface';
+import {ConfInterface} from '@app/shared/conf-interface';
 import {HttpService} from '@app/core/services/http.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class GeneralAddressComponent extends ConfInterface implements OnInit, Af
   validator() {
     if (this.conf.required) {
       const key_values = this.conf.key_value;
-      let flag = false
+      let flag = false;
       for (const item of key_values) {
         if (!item._value || item._value === '') {
           flag = true;

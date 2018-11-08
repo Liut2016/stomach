@@ -5,7 +5,7 @@ import {HttpService} from '@app/core/services/http.service';
 import {SettingsService} from '@app/core/services/settings.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LocalStorage} from '@app/shared/local.storage';
-import {GeneralDateComponent} from '@app/survey/shared/general-date/general-date.component';
+import {GeneralDateComponent} from '@app/shared/general-date/general-date.component';
 
 @Component({
   selector: 'app-dialog-overview-example-dialog',
@@ -286,7 +286,7 @@ export class HypertensionComponent implements OnInit {
     const hd3 = this.surveyList[1].items[2];
     const hd4 = this.surveyList[1].items[3];
     console.log(hd1);
-    let iters = ''
+    let iters = '';
     for ( let i = 0; i < hd1.layout.length; i++) {
       if (hd1.layout[i].type !== 'text') {
         if (hd1.layout[i].key_value._value && (hd1.layout[i].key_value._value !== '') ) {
@@ -411,7 +411,7 @@ export class HypertensionComponent implements OnInit {
     }
     reportdata['体征'] = signPersonal;
 
-    const labInsp = []
+    const labInsp = [];
 
     for ( let i = 0; i < this.surveyList[6].items.length; i++) {
       if ( this.surveyList[6].items[i].displayControl.check === true) {
