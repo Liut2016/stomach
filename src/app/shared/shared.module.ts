@@ -18,6 +18,8 @@ import { GeneralAddressComponent} from '@app/shared/general-address/general-addr
 import { FileUploadComponent} from '@app/shared/file-upload/file-upload.component';
 import { DynamicRowTableComponent} from '@app/shared/dynamic-row-table/dynamic-row-table.component';
 import { GeneralInputConditionComponent } from '@app/shared/general-input-condition/general-input-condition.component';
+import { GeneralSelectComponent } from '@app/shared/general-select/general-select.component';
+import { GeneralExpansionPanelComponent } from '@app/shared/general-expansion-panel/general-expansion-panel.component';
 
 
 
@@ -46,7 +48,9 @@ import { GeneralInputConditionComponent } from '@app/shared/general-input-condit
     GeneralAddressComponent,
     FileUploadComponent,
     DynamicRowTableComponent,
-    GeneralInputConditionComponent
+    GeneralInputConditionComponent,
+    GeneralSelectComponent,
+    GeneralExpansionPanelComponent
   ],
   exports: [
     AccordionAnchorDirective,
@@ -65,7 +69,9 @@ import { GeneralInputConditionComponent } from '@app/shared/general-input-condit
     GeneralAddressComponent,
     FileUploadComponent,
     DynamicRowTableComponent,
-    GeneralInputConditionComponent
+    GeneralInputConditionComponent,
+    GeneralSelectComponent,
+    GeneralExpansionPanelComponent
    ],
   providers: [ MenuItems ]
 })

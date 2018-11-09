@@ -24,7 +24,8 @@
                   <app-dc-general-card-group      *ngSwitchCase="'card-group'"      [conf]="cmp" ></app-dc-general-card-group>
                   <app-dc-general-address         *ngSwitchCase="'address'"         [conf]="cmp" ></app-dc-general-address>
                   <app-dc-dynamic-row-table       *ngSwitchCase="'dynamic-row-table'" [conf]="cmp" ></app-dc-dynamic-row-table>
-                  <app-general-input-condition    *ngSwitchCase="'condition-input'" [conf]="cmp" ></app-general-input-condition>
+                  <app-general-select *ngSwitchCase="'select'" [conf]="cmp"></app-general-select>
+                  <app-general-expansion-panel *ngSwitchCase="'expansion-panel'" [conf]="cmp"></app-general-expansion-panel>
                 </div>
               </div>
             </ng-template>

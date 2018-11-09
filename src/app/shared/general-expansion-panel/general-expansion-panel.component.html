@@ -1,0 +1,36 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        个人信息
+      </mat-panel-title>
+      <mat-panel-description>
+        请输入你的名字和年龄
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       事项选择 
+      </mat-panel-title>
+      <mat-panel-description>
+        请选择以下事项
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      <section >
+        <mat-checkbox  style="margin-left: 10px" *ngFor="let option of conf.options, index as i" [(ngModel)]="conf.key_value[i]._value" (ngModelChange)="answerChange()" [disabled]="edit_disabled">
+          {{option}}
+        </mat-checkbox>
+      </section>
+  </mat-expansion-panel>
+</mat-accordion>
