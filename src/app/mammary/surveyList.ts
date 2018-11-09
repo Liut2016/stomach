@@ -82,7 +82,53 @@ export const survey_list = [
     {
         step_description: '入院病例',
         items: [
-            { type: 'input', title: '主诉', key_value: { _key: '出生日期', _value: '' }, validType: 'other' },
+            {
+                type: 'table',
+                title: '入院病例',
+                required: false,
+                cols: 6,
+                layout: [
+                    { type: 'text', cols: 1, rows: 1, text: '主诉:' },
+                    { type: 'text', cols: 2, rows: 1, text: '左乳包块1年月' },
+                    { type: 'text', cols: 1, rows: 1, text: '现病史:' },
+                    { type: 'text', cols: 2, rows: 1, text: '在外院给予抗增生治疗' },
+                    { type: 'text', cols: 1, rows: 1, text: '治疗时间:' },
+                    { type: 'radio', cols: 1, rows: 1, options: ['术后', '术前'], key_value: { _key: '有无头晕', _value: '' }},
+                    { type: 'text', cols: 1, rows: 1, text: '治疗次数:' },
+                    { type: 'text', cols: 1, rows: 1, text: '1次' },
+                    { type: 'text', cols: 1, rows: 1, text: '治疗方式:' },
+                    { type: 'text', cols: 1, rows: 1, text: '化疗' },
+                    { type: 'text', cols: 1, rows: 1, text: '靶向治疗:' },
+                    { type: 'text', cols: 1, rows: 1, text: '赫赛丁' },
+                    { type: 'text', cols: 1, rows: 1, text: '靶向治疗剂量:' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '160mg/m2' },
+                    { type: 'text', cols: 1, rows: 1, text: '化疗方案:' },
+                    { type: 'text', cols: 1, rows: 1, text: 'AC-T' },
+                    { type: 'text', cols: 1, rows: 1, text: '化疗剂量:' },
+                    { type: 'text', cols: 1, rows: 1, text: '60mg/m2' },
+                    { type: 'text', cols: 1, rows: 1, text: '血压:' },
+                    { type: 'text', cols: 1, rows: 1, text: '80/120 mmHg' },
+                    { type: 'text', cols: 1, rows: 1, text: '体重:' },
+                    { type: 'text', cols: 1, rows: 1, text: '65kg' },
+                    { type: 'text', cols: 1, rows: 1, text: '身高:' },
+                    { type: 'text', cols: 1, rows: 1, text: '170cm' },
+                    { type: 'text', cols: 1, rows: 1, text: '手术史:' },
+                    { type: 'text', cols: 1, rows: 1, text: '乳腺纤维腺瘤切除' },
+                    { type: 'text', cols: 1, rows: 1, text: '绝经日期:' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '2015/6' },
+                    { type: 'text', cols: 1, rows: 1, text: '月经:' },
+                    { type: 'text', cols: 1, rows: 1, text: '正常' },
+                    { type: 'text', cols: 1, rows: 1, text: '伴随疾病:' },
+                    { type: 'text', cols: 1, rows: 1, text: '高血压' },
+                    { type: 'text', cols: 1, rows: 1, text: '家族史:' },
+                    { type: 'text', cols: 1, rows: 1, text: '母亲患乳腺癌死亡' },
+                    { type: 'text', cols: 1, rows: 1, text: '专科体检:' },
+                    { type: 'input', cols: 5, rows: 1, key_value: { _key: '出生日期', _value: '' }, validType: 'other' }
+                ]
+            },
+            /*{ type: 'input', title: '主诉', key_value: { _key: '出生日期', _value: '' }, validType: 'other' },
             { type: 'input', title: '现病史', key_value: { _key: '出生日期', _value: '' }, validType: 'other' },
             { type: 'selector', title: '治疗时间', key_value: { _key: '民族', _value: ''},  placeholder: '点击选择治疗时间', options: ['术后', '术前']},
             { type: 'input', title: '治疗次数', key_value: { _key: '出生日期', _value: '' }, validType: 'other', right_text: '次' },
@@ -100,7 +146,7 @@ export const survey_list = [
             { type: 'input', title: '月经', key_value: { _key: '出生日期', _value: '' }, validType: 'other'},
             { type: 'input', title: '伴随疾病', key_value: { _key: '出生日期', _value: '' }, validType: 'other'},
             { type: 'input', title: '家族史', key_value: { _key: '出生日期', _value: '' }, validType: 'other'},
-            { type: 'input', title: '专科体检', key_value: { _key: '出生日期', _value: '' }, validType: 'other'},
+            { type: 'input', title: '专科体检', key_value: { _key: '出生日期', _value: '' }, validType: 'other'},*/
         ]
     },
     {
