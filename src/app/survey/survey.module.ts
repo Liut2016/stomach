@@ -17,8 +17,8 @@ import { ReportComponent} from '@app/survey/report/report.component';
 import { DiagnosisComponent, DialogHypertensionGradingComponent} from '@app/survey/diagnosis/diagnosis.component';
 import { TreatementComponent} from '@app/survey/treatement/treatement.component';
 
-import { MammaryFormComponent } from '@app/survey/mammary/mammary-form/mammary-form.component';
-import { GeneralComponentsModule } from '@app/shared/generalComponents.module';
+
+import { SharedModule} from '@app/shared/shared.module';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { GeneralComponentsModule } from '@app/shared/generalComponents.module';
     DemoMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    GeneralComponentsModule
+    SharedModule
   ],
   declarations: [
     HypertensionOverviewComponent,
@@ -42,7 +42,6 @@ import { GeneralComponentsModule } from '@app/shared/generalComponents.module';
     DiagnosisComponent,
     DialogHypertensionGradingComponent,
     TreatementComponent,
-    MammaryFormComponent,
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent,

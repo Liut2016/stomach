@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { ConfInterface} from '@app/survey/shared/conf-interface';
+import { ConfInterface} from '@app/shared/conf-interface';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
@@ -22,7 +22,7 @@ export class GeneralInputComponent extends ConfInterface implements OnInit, Afte
       id1: id1,
       id2: id2,
       title: title
-    }
+    };
     this.onVoted.emit(data);
   }
   ngOnInit() {

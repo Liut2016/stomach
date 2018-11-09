@@ -3,7 +3,7 @@ import { MatPaginator, MatTableDataSource} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { SettingsService} from '@app/core/services/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LocalConfigure} from '@app/survey/shared/local-configure';
+import { LocalConfigure} from '@app/shared/local-configure';
 
 @Component({
   selector: 'app-mammary-overview',

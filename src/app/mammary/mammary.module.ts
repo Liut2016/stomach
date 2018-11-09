@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoMaterialModule } from '@app/demo-material-module';
-import { GeneralComponentsModule } from '@app/shared/generalComponents.module';
+import { SharedModule } from '@app/shared/shared.module';
 import { MammaryFormComponent } from './mammary-form/mammary-form.component';
 import { MammaryRoutes } from '@app/mammary/mammary.routing';
 import { MammaryOverviewComponent } from './mammary-overview/mammary-overview.component';
@@ -16,7 +16,7 @@ import { MammaryOverviewComponent } from './mammary-overview/mammary-overview.co
         FormsModule,
         ReactiveFormsModule,
         DemoMaterialModule,
-        GeneralComponentsModule
+        SharedModule
     ],
     declarations: [MammaryFormComponent, MammaryOverviewComponent],
 })

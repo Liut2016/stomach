@@ -1,18 +1,22 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ConfInterface} from '@app/survey/shared/conf-interface';
-
+import { ConfInterface} from '@app/shared/conf-interface';
 @Component({
-  selector: 'app-dc-general-selector',
-  templateUrl: './general-selector.component.html',
-  styleUrls: ['./general-selector.component.css']
+  selector: 'app-dc-general-radio',
+  templateUrl: './general-radio.component.html',
+  styleUrls: ['./general-radio.component.css']
 })
-export class GeneralSelectorComponent extends ConfInterface implements OnInit {
+export class GeneralRadioComponent extends ConfInterface implements OnInit  {
+  public result: string;
   @Output() onVoted = new EventEmitter< any >();
-  ngOnInit() { this.validator(); }
+  ngOnInit() {
+    this.validator();
+  }
   constructor() {
     super();
   }
-  answerChange() { this.validator();}
+  answerChange() {
+    this.validator();
+  }
   validator() {
     if (this.conf.required) {
       if (this.conf.key_value._value && this.conf.key_value._value !== '') {
@@ -24,3 +28,4 @@ export class GeneralSelectorComponent extends ConfInterface implements OnInit {
     }
   }
 }
+

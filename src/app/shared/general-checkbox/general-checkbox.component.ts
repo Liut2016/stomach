@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ConfInterface} from '@app/survey/shared/conf-interface';
+import { ConfInterface} from '@app/shared/conf-interface';
 
 @Component({
   selector: 'app-dc-general-checkbox',

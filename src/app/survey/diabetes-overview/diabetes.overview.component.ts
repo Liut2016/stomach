@@ -3,7 +3,7 @@ import { MatPaginator, MatTableDataSource} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { SettingsService} from '@app/core/services/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LocalConfigure} from '@app/survey/shared/local-configure';
+import { LocalConfigure} from '@app/shared/local-configure';
 
 @Component({
   selector: 'app-diabetes-overview',
@@ -52,8 +52,8 @@ export class DiabetesOverviewComponent implements OnInit {
     const params = {
       disease: 'diabetes',
       follow: '0'
-    }
-    this.service.downloadFile( params,'AllDiabetesData.csv' );
+    };
+    this.service.downloadFile( params, 'AllDiabetesData.csv' );
   }
   roleControl() {
     if (this.user.role === 'doctor') {
