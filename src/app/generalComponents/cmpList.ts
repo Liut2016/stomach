@@ -23,7 +23,18 @@ export const components_list = [
         step_description: 'Input Combination',
         items: [
             { type: 'address', title: '居住地址', key_value: [ { _key: '省', _value: ''}, { _key: '市', _value: ''}, { _key: '区', _value: ''}], required: false},
-            { type: 'condition-input', target_value: '99' }
+            //{ type: 'condition-input', target_value: '99' }
+        ]
+    },
+    {
+        step_description: 'Select',
+        items: [
+            { type: 'select', title: '地址选择',key_value: { _key: '地址', _value: ''}, required: true, placeholder: '点击选择', options: ['陕西省', '山西省', '自定义'], target_value:'自定义'},
+        ]
+    },
+    {   step_description: 'Expansion panel',
+        items: [
+            { type: 'expansion-panel', title: '信息输入',key_value: [{ _key: '事项', _value: false }, { _key: '事项', _value: false }], required: true,options:['查询','预约']},
         ]
     },
     {

@@ -21,6 +21,7 @@ import { TreatementComponent} from '@app/survey/treatement/treatement.component'
 import { SharedModule} from '@app/shared/shared.module';
 
 
+
 @NgModule({
   imports: [
     CommonModule,

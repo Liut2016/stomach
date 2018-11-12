@@ -15,7 +15,7 @@ import { GeneralComponentsListComponent } from '@app/generalComponents/general-c
         FormsModule,
         ReactiveFormsModule,
         DemoMaterialModule,
-        SharedModule
+        SharedModule,
     ],
     declarations: [GeneralComponentsListComponent],
 })
