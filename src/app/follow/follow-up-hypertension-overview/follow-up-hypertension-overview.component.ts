@@ -3,7 +3,7 @@ import { MatPaginator, MatTableDataSource} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SettingsService} from '@app/core/services/settings.service';
-import { LocalConfigure} from '@app/follow/shared/local-configure';
+import { LocalConfigure} from '@app/shared/local-configure';
 
 @Component({
   selector: 'app-follow-up-hypertension-overview',

@@ -5,7 +5,7 @@ import {HttpService} from '@app/core/services/http.service';
 import {SettingsService} from '@app/core/services/settings.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LocalStorage} from '@app/shared/local.storage';
-import {GeneralDateComponent} from '@app/shared/general-date/general-date.component';
+import {GeneralDateComponent} from '@app/shared/general-components/general-date/general-date.component';
 
 @Component({
   selector: 'app-dialog-overview-example-dialog',

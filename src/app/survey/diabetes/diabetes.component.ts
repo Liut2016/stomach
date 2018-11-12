@@ -4,7 +4,7 @@ import { SurveyList} from '@app/survey/diabetes/surveyDiabetesList';
 import { HttpService} from '@app/core/services/http.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { SettingsService} from '@app/core/services/settings.service';
-import { GeneralDateComponent} from '@app/shared/general-date/general-date.component';
+import { GeneralDateComponent} from '@app/shared/general-components/general-date/general-date.component';
 
 @Component({
   selector: 'app-dialog-diabetes-dialog',

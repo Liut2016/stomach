@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { MatPaginator, MatTableDataSource} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { ActivatedRoute, Router} from '@angular/router';
-import { LocalConfigure} from '@app/follow/shared/local-configure';
+import { LocalConfigure} from '@app/shared/local-configure';
 import {communitiesDict} from '@app/shared/config-items/static-item';
 
 @Component({
