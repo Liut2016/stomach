@@ -66,7 +66,7 @@ export class HypertensionOverviewComponent implements OnInit {
       disease: 'hypertension',
       follow: '0'
     };
-    this.service.downloadFile( params,'AllHypertensionData.csv' );
+    this.service.downloadFile( params, 'AllHypertensionData.csv' );
   }
   clear() {
     this.patientName = '';
