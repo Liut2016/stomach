@@ -6,7 +6,7 @@
                 <form [formGroup]="form" (ngSubmit)="login()">
                     <div class="text-center"><img alt="homepage" src="assets/images/chronic/logo.png" width="34" height="33"><h4 class="m-t-0">社区慢性病管理系统</h4></div>
 
-                    <div fxLayout="row" fxLayoutWrap="wrap">
+                    <div fxLayout="column" fxLayoutWrap="wrap">
                         <!-- col full-->
                         <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
                             <mat-form-field>
@@ -23,14 +23,14 @@
                         </div>
                         <!-- col half-->
                         <!-- <div fxFlex.gt-sm="50" fxFlex.gt-xs="50">
-                            <mat-checkbox color="warn">Remember me</mat-checkbox>
+                            <mat-checkbox color="warn">记住密码</mat-checkbox>
                         </div> -->
                         <!-- col half-->
                         <!-- <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right">
                             <a [routerLink]="['/authentication/forgot']" class="link">Forgot pwd?</a>
                         </div> -->
                         <!-- col full-->    
-                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="50">
                             <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit" [disabled]="!form.valid">登录</button> 
                         </div>
                         <!-- col full-->    
