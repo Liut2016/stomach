@@ -34,7 +34,25 @@ export const components_list = [
     },
     {   step_description: 'Expansion panel',
         items: [
-            { type: 'expansion-panel', title: '信息输入',key_value: [{ _key: '事项', _value: false }, { _key: '事项', _value: false }], required: true,options:['查询','预约']},
+            {
+                type: 'panel-table',
+                title: '信息输入',
+                required: true,
+                displayControl: { check: false },
+                cols: 4,
+                layout: [
+                    { type: 'text', cols: 1, rows: 1, text: '检查时间：' },
+                    { type: 'date', cols: 3, rows: 1, key_value: { _key: '皮质醇定量及昼夜节律检查时间', '_value': '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '时间点：' },
+                    { type: 'text', cols: 1, rows: 1, text: '8:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '16:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '00:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '皮质醇' },
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇8:00', _value: ''}, disabled: false},
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇16:00', _value: ''}, disabled: false},
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇00:00', _value: ''}, disabled: false},
+                ]
+            },
         ]
     },
     {
