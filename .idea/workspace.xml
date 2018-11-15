@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d4999cbe-e7ea-49c3-ad23-9cf9af92cf11" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/demo-material-module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/demo-material-module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/generalComponents/cmpList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/cmpList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/general-components/general-expansion-panel/general-expansion-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/general-components/general-expansion-panel/general-expansion-panel.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/general-components/general-expansion-panel/general-expansion-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/general-components/general-expansion-panel/general-expansion-panel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,11 +34,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general-components-list.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="general-components-list.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="314">
+              <caret line="36" column="62" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
+              <folding>
+                <element signature="n#style#0;n#mat-card#0;n#ng-template#1;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,16 +68,16 @@
         <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
-              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+              <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general-components-list.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="general-components-list.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+            <state relative-caret-position="360">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -86,8 +88,11 @@
       <file leaf-file-name="generalComponents.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+            <state relative-caret-position="342">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/app/survey/mammary/mammary.module.ts" />
         <option value="$PROJECT_DIR$/src/app/mammary/mammary.module.ts" />
         <option value="$PROJECT_DIR$/src/app/generalComponents/generalComponents.routing.ts" />
-        <option value="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" />
         <option value="$PROJECT_DIR$/src/app/survey/shared/general-input/general-input.component.ts" />
         <option value="$PROJECT_DIR$/src/app/survey/survey.module.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/generalComponents.module.ts" />
@@ -200,10 +204,11 @@
         <option value="$PROJECT_DIR$/src/app/generalComponents/cmpList.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/general-components/general-expansion-panel/general-expansion-panel.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/general-components/general-expansion-panel/general-expansion-panel.component.html" />
-        <option value="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.css" />
         <option value="$PROJECT_DIR$/src/app/demo-material-module.ts" />
-        <option value="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html" />
+        <option value="$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts" />
         <option value="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.css" />
+        <option value="$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html" />
       </list>
     </option>
   </component>
@@ -346,7 +351,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67029000" />
+    <option name="totallyTimeSpent" value="69494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
@@ -666,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/shared.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -700,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -714,19 +705,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.css">
+    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/generalComponents.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="342">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        <state relative-caret-position="360">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/generalComponents/general-components-list/general-components-list.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="36" column="62" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#mat-card#0;n#ng-template#1;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-card-content#0;n#mat-card#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
