@@ -1,0 +1,10 @@
+<p>
+  选择可视化方法
+</p>
+<p>
+  维度：{{dims}}
+</p>
+<div *ngFor="let item of dims">
+  <span>{{item}}</span>
+</div>
+<button (click)="getJson()">可视化</button>

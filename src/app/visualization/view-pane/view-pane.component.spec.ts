@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EncodingPanelComponent } from './encoding-panel.component';
+import { ViewPaneComponent } from './view-pane.component';
 
-describe('EncodingPanelComponent', () => {
-  let component: EncodingPanelComponent;
-  let fixture: ComponentFixture<EncodingPanelComponent>;
+describe('ViewPaneComponent', () => {
+  let component: ViewPaneComponent;
+  let fixture: ComponentFixture<ViewPaneComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EncodingPanelComponent ]
+      declarations: [ ViewPaneComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EncodingPanelComponent);
+    fixture = TestBed.createComponent(ViewPaneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

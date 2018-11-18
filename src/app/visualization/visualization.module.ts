@@ -1,13 +1,28 @@
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { DataPanelComponent } from './data-panel/data-panel.component';
-import { EncodingPanelComponent } from './encoding-panel/encoding-panel.component';
-import { PlotPanelComponent } from './plot-panel/plot-panel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DemoMaterialModule } from '@app/demo-material-module';
+import { HttpClientModule } from '@angular/common/http';
 
+import { ViewPaneComponent } from './view-pane/view-pane.component';
+import { PlotPaneComponent } from './plot-pane/plot-pane.component';
+import { DataPaneComponent } from './data-pane/data-pane.component';
+import { EncodingPaneComponent } from './encoding-pane/encoding-pane.component';
+import { MainComponent } from './main/main.component';
+
+export const visRoutes: Routes = [
+  { path: '', component: MainComponent}
+]
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(visRoutes),
+    DemoMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  declarations: [DataPanelComponent, EncodingPanelComponent, PlotPanelComponent]
+  declarations: [ViewPaneComponent, PlotPaneComponent, DataPaneComponent, EncodingPaneComponent, MainComponent]
 })
 export class VisualizationModule { }

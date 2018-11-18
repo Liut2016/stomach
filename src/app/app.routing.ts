@@ -15,18 +15,14 @@ export const AppRoutes: Routes = [
     redirectTo: '/authentication/login',
     pathMatch: 'full',
   },
-  //  {
-  //   path: 'apps',
-  //   loadChildren: './apps/apps.module#AppsModule',
-  //   canActivate: [RoleGuard],
-  //   data: {
-  //     expectedRoles: ['admin', 'community', 'doctor']
-  //   }
-  // }
   {
     path: 'survey',
     loadChildren: './survey/survey.module#SurveyModule'
   },
+    {
+      path: 'vis',
+      loadChildren: './visualization/visualization.module#VisualizationModule'
+    },
   {
     path: 'follow',
     loadChildren: './follow/follow.module#FollowModule'
