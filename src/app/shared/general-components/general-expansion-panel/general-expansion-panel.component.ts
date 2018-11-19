@@ -9,7 +9,9 @@ import { ConfInterface } from '@app/shared/conf-interface';
 export class GeneralExpansionPanelComponent extends ConfInterface implements OnInit {
 
   panelOpenState = false;
-  
+
+  data_list = [{'id': 1}, {'id': 2}];
+
   constructor() {
     super();
   }

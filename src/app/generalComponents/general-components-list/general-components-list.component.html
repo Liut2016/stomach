@@ -7,7 +7,7 @@
     </mat-card-header>
     <mat-card-content>
       <div>
-        <mat-tab-group>
+        <mat-tab-group (selectedTabChange)="changeTab($event)">
           <mat-tab *ngFor="let tab of components_list" [label]="tab.step_description">
             <ng-template mat-tab-label style="font-size: large; color: #232a37">{{tab.step_description}}</ng-template>
             <ng-template matTabContent>
@@ -25,9 +25,18 @@
                   <app-dc-general-address         *ngSwitchCase="'address'"         [conf]="cmp" ></app-dc-general-address>
                   <app-dc-dynamic-row-table       *ngSwitchCase="'dynamic-row-table'" [conf]="cmp" ></app-dc-dynamic-row-table>
                   <app-general-select *ngSwitchCase="'select'" [conf]="cmp"></app-general-select>
-                  <app-general-expansion-panel *ngSwitchCase="'expansion-panel'" [conf]="cmp"></app-general-expansion-panel>
+                  <app-general-expansion-panel *ngSwitchCase="'panel-table'" [conf]="cmp"></app-general-expansion-panel>
                 </div>
               </div>
+              <div class="source-button">
+                <button  mat-icon-button (click)="showSource()">
+                  <mat-icon>code</mat-icon>
+                </button>
+              </div>
+
+              <mat-card style="border-top: 1px solid gainsboro" *ngIf="show_source">
+                <ngx-json-viewer [json]="source_code"></ngx-json-viewer>
+              </mat-card>
             </ng-template>
           </mat-tab>
         </mat-tab-group>
