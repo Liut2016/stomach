@@ -1,20 +1,18 @@
-<div class="login-register"  style="background-image:url(assets/images/background/login-register.jpg);">
+<div class="login-register">
     <div class="login-register-box">
       <mat-card>
         <mat-card-content>
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="text-center"><img alt="homepage" src="assets/images/logo-icon.png"><h4 class="m-t-0">Recover Password</h4></div>  
-            <p class="text-center font-14">Enter your email and we'll send you the password reset link.</p>
-            
+            <div class="text-center"><h4 class="m-t-0" style="font-size:larger;font-family: Arial, Helvetica, sans-serif">找回密码</h4></div>        
             <div  fxLayout="column"  fxLayoutAlign="space-around">
               <div class="pb-1">
                 <mat-form-field style="width: 100%">
-                  <input matInput placeholder="Email address" type="email" [formControl]="form.controls['email']">
+                  <input matInput placeholder="请输入您的邮箱地址" type="email" [formControl]="form.controls['email']">
                 </mat-form-field>
-                <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="text-danger support-text">You must include an email address.</small>
-                <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="text-danger support-text">You must include a valid email address.</small>
+                <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="text-danger support-text">请输入您的邮箱地址</small>
+                <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="text-danger support-text">请输入有效的邮箱地址</small>
               </div>
-              <button mat-raised-button color="primary" type="submit"  class="btn-block btn-lg m-t-20"  [disabled]="!form.valid">Submit</button>
+              <button mat-raised-button color="primary" type="submit"  class="btn-block btn-lg m-t-20"  [disabled]="!form.valid">登录</button>
             </div>
             
           </form>
