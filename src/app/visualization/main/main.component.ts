@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { jsons } from '../shared/specification';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit{
 
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   data;
+  visData;
 
   constructor(private _formBuilder: FormBuilder) {}
 
@@ -27,10 +29,11 @@ export class MainComponent implements OnInit {
   }
 
   getData($event){
+    console.log($event);
     this.data = $event;
   }
 
   draw($event){
-    console.log($event);
+    this.visData = $event;
   }
 }

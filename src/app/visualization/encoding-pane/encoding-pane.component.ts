@@ -1,5 +1,6 @@
 import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angular/core';
-
+import { specification, jsons } from '../shared/specification';
+import {testData} from "@app/visualization/shared/weball";
 @Component({
   selector: 'app-encoding-pane',
   templateUrl: './encoding-pane.component.html',
@@ -16,18 +17,22 @@ export class EncodingPaneComponent implements OnInit {
   ngOnInit() {
   }
   ngOnChanges(){
-    console.log(this.data);
     this.getKeys(this.data);
   }
 
   getKeys(data){
-    for( let key in data[0]){
-      this.dims.push(key);
+    if( data && data.length>0) {
+      for (let key in data[0]) {
+        this.dims.push(key);
+      }
     }
   }
 
   getJson(){
-    this.json.emit(this.data);
+    let testData =this.data;
+    let sample = new jsons().barchart;
+    console.log(sample);
+    sample.data[0].values = testData;
+    this.json.emit(sample);
   }
-
 }

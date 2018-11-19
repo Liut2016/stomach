@@ -17,7 +17,7 @@ export interface Dessert {
   templateUrl: './data-pane.component.html',
   styleUrls: ['./data-pane.component.css']
 })
-export class DataPaneComponent{
+export class DataPaneComponent implements OnInit{
 
     @Output('visData') data = new EventEmitter<any>();
     desserts: Dessert[] = [
@@ -34,6 +34,8 @@ export class DataPaneComponent{
         this.sortedData = this.desserts.slice();
     }
 
+    ngOnInit(){
+    }
     sortData(sort: Sort) {
         const data = this.desserts.slice();
         if (!sort.active || sort.direction === '') {
@@ -55,7 +57,7 @@ export class DataPaneComponent{
     }
 
     getData(){
-        this.data.emit(new testData().weball);
+        this.data.emit(new testData().cars);
     }
 }
 

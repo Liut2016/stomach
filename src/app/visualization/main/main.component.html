@@ -39,6 +39,6 @@
     <app-encoding-pane [tabledata]="data" (visJson)="draw($event)"></app-encoding-pane>
   </mat-grid-tile>
   <mat-grid-tile colspan="4">
-    <app-plot-pane></app-plot-pane>
+    <app-plot-pane [data]="visData"></app-plot-pane>
   </mat-grid-tile>
 </mat-grid-list>
