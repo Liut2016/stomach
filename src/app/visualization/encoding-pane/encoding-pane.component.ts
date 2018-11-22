@@ -33,6 +33,53 @@ export class EncodingPaneComponent implements OnInit {
     let sample = new jsons().barchart;
     console.log(sample);
     sample.data[0].values = testData;
-    this.json.emit(sample);
+    let car0 = {
+      "Name":"chevrolet chevelle malibu",
+      "Miles_per_Gallon":18,
+      "Cylinders":8,
+      "Displacement":307,
+      "Horsepower":130,
+      "Weight_in_lbs":3504,
+      "Acceleration":12,
+      "Year":"1970-01-01",
+      "Origin":"USA"
+    }
+    let arr = [];
+    for(let key in car0){
+      arr.push(key);
+    }
+    let data = [
+      {"a": "A","b": 55}, {"a": "B","b": 55}, {"a": "C","b": 43},
+      {"a": "D","b": 20}, {"a": "E","b": 81}, {"a": "F","b": 53},
+      {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+    ];
+    let encoding = {
+      "x": {"field": "a", "type": "ordinal"},
+      "y": {"field": "b", "type": "quantitative"}
+    };
+    let mark = 'bar';
+    let spec1 = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+      "description": "A simple bar chart with embedded data.",
+      "width": 360,
+      "data": {
+        "values": [
+          {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+          {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+          {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "a", "type": "ordinal"},
+        "y": {"field": "b", "type": "quantitative"},
+        "tooltip": {"field": "b", "type": "quantitative"}
+      }
+    }
+    this.json.emit(spec1);
+  }
+
+  getx(spec){
+    // return spec.encoding['x'].
   }
 }

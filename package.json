@@ -50,6 +50,8 @@
     "rxjs-compat": "*6.2.0",
     "rxjs-tslint": "*0.1.4",
     "vega": "^4.3.0",
+    "vega-embed": "^3.24.1",
+    "vega-lite": "^3.0.0-rc8",
     "zone.js": "*0.8.26"
   },
   "devDependencies": {

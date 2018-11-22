@@ -1,5 +1,7 @@
 import {Component, OnInit, Input, OnChanges} from '@angular/core';
 import { View , parse, Spec, Loader} from 'vega';
+import vegaEmbed from 'vega-embed';
+import {vega} from "vega-embed";
 
 @Component({
   selector: 'app-plot-pane',
@@ -14,7 +16,7 @@ export class PlotPaneComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(){
-
+    console.log(vegaEmbed);
   }
 
   ngOnChanges() {
@@ -24,11 +26,7 @@ export class PlotPaneComponent implements OnInit, OnChanges {
 
   render() {
     if (this.data) {
-      this.view = new View(parse(this.data))
-          .renderer('svg')
-          .initialize('#view')
-          .hover()
-          .run();
+      vegaEmbed("#embed-view", this.data, { actions: false });
     }
-  }
+    }
 }
