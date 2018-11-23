@@ -1,47 +1,8 @@
-<!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">-->
-  <!--{{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}-->
-<!--</button>-->
-<!--<mat-horizontal-stepper [linear]="isLinear" #stepper>-->
-  <!--<mat-step [stepControl]="firstFormGroup">-->
-    <!--<form [formGroup]="firstFormGroup">-->
-      <!--<ng-template matStepLabel>选择数据库</ng-template>-->
-      <!--<app-data-pane></app-data-pane>-->
-      <!--<div>-->
-        <!--<button mat-button matStepperNext>下一步</button>-->
-      <!--</div>-->
-    <!--</form>-->
-  <!--</mat-step>-->
-  <!--<mat-step [stepControl]="secondFormGroup">-->
-    <!--<form [formGroup]="secondFormGroup">-->
-      <!--<ng-template matStepLabel>定制可视化</ng-template>-->
-      <!--<app-encoding-pane></app-encoding-pane>-->
-      <!--<div>-->
-        <!--<button mat-button matStepperPrevious>返回</button>-->
-        <!--<button mat-button matStepperNext>下一步</button>-->
-      <!--</div>-->
-    <!--</form>-->
-  <!--</mat-step>-->
-  <!--<mat-step>-->
-    <!--<ng-template matStepLabel>可视化结果</ng-template>-->
-    <!--<app-plot-pane></app-plot-pane>-->
-    <!--<div>-->
-      <!--<button mat-button matStepperPrevious>返回</button>-->
-      <!--<button mat-button (click)="stepper.reset()">重置</button>-->
-    <!--</div>-->
-  <!--</mat-step>-->
-<!--</mat-horizontal-stepper>-->
-<!-- a -->
-  <!-- <mat-grid-tile colspan="2" style="padding: 20px">
-    <app-data-pane (visData)="getData($event)"></app-data-pane>
-    <button (click)="getData(visData)"></button>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="2">
-    <app-encoding-pane [tabledata]="data" (visJson)="draw($event)"></app-encoding-pane>
-  </mat-grid-tile> -->
-  <div class="left">
+<mat-grid-list cols="4" rowHeight="800px">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
     <app-data-pane></app-data-pane>
-  </div>
-  <div colspan="4" class="right">
-    <app-plot-pane [data]="visData"></app-plot-pane>
-  </div>>
-<!-- </mat-grid-list> -->
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <app-plot-pane></app-plot-pane>
+  </mat-grid-tile>
+</mat-grid-list>
