@@ -10,10 +10,11 @@ import { PlotPaneComponent } from './plot-pane/plot-pane.component';
 import { DataPaneComponent } from './data-pane/data-pane.component';
 import { EncodingPaneComponent } from './encoding-pane/encoding-pane.component';
 import { MainComponent } from './main/main.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 export const visRoutes: Routes = [
   { path: '', component: MainComponent}
-]
+];
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +22,8 @@ export const visRoutes: Routes = [
     DemoMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   declarations: [ViewPaneComponent, PlotPaneComponent, DataPaneComponent, EncodingPaneComponent, MainComponent]
 })
