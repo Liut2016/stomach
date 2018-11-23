@@ -1,4 +1,42 @@
-<p>示例数据</p>
+<div class="example-container">
+  <h2>To do</h2>
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todo"
+    [cdkDropListConnectedTo]="[doneList, doneList1]"
+    class="example-list"
+    >
+<div class="example-box" *ngFor="let item of todo1" cdkDrag>{{item}}</div>
+</div>
+</div>
+<div class="example-container">
+  <h2>Done</h2>
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    (cdkDropListDropped)="drop($event)"
+    class="example-list">
+    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}
+     <button (click)="delete(item)">delete</button>
+    </div> 
+  </div>
+  <br>  
+  <div
+    cdkDropList
+    #doneList1="cdkDropList"
+    [cdkDropListData]="done1"
+    (cdkDropListDropped)="drop($event)"
+    class="example-list">
+    <div class="example-box" *ngFor="let item of done1" cdkDrag>{{item}}
+     <button (click)="delete1(item)">delete</button>
+    </div> 
+  </div>
+  <br>  
+  <button (click)="clear()">clear</button>
+</div>
+<!-- <p>示例数据</p>
 <button>加载数据</button>
 <table matSort (matSortChange)="sortData($event)">
   <tr>
@@ -17,4 +55,4 @@
     <td>{{dessert.protein}}</td>
   </tr>
 </table>
-<button (click)="getData()">确定</button>
+<button (click)="getData()">确定</button> -->
