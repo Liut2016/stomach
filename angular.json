@@ -32,7 +32,8 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/jquery.sparkline.min.js",
-              "src/assets/js/tsne.js"
+              "src/assets/js/tfjs.js",
+              "src/assets/js/tfjs-tsne.js"
             ]
           },
           "configurations": {
