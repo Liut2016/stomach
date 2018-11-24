@@ -45,12 +45,14 @@
       <mat-card>
           <mat-card-content> 
               <mat-card-title>自定义可视化</mat-card-title>
-              <div class="left">
-                <app-data-pane></app-data-pane>
-              </div>
-              <div colspan="4" class="right">
-                <app-plot-pane [data]="visData"></app-plot-pane>
-              </div>
+              <mat-grid-list cols="4" rowHeight="800px">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                  <app-data-pane></app-data-pane>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                  <app-plot-pane></app-plot-pane>
+                </mat-grid-tile>
+              </mat-grid-list>
               <div>
                 <app-dimension-reduction></app-dimension-reduction>
               </div>

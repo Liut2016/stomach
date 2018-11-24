@@ -33,21 +33,6 @@ export class EncodingPaneComponent implements OnInit {
     let sample = new jsons().barchart;
     console.log(sample);
     sample.data[0].values = testData;
-    let car0 = {
-      "Name":"chevrolet chevelle malibu",
-      "Miles_per_Gallon":18,
-      "Cylinders":8,
-      "Displacement":307,
-      "Horsepower":130,
-      "Weight_in_lbs":3504,
-      "Acceleration":12,
-      "Year":"1970-01-01",
-      "Origin":"USA"
-    }
-    let arr = [];
-    for(let key in car0){
-      arr.push(key);
-    }
     let data = [
       {"a": "A","b": 55}, {"a": "B","b": 55}, {"a": "C","b": 43},
       {"a": "D","b": 20}, {"a": "E","b": 81}, {"a": "F","b": 53},
