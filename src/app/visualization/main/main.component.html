@@ -1,8 +1,8 @@
 <mat-grid-list cols="4" rowHeight="800px">
   <mat-grid-tile [colspan]="2" [rowspan]="1">
-    <app-data-pane></app-data-pane>
+    <app-data-pane (visJson)="getData($event)"></app-data-pane>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="2" [rowspan]="1">
-    <app-plot-pane></app-plot-pane>
+    <app-plot-pane [data]="data"></app-plot-pane>
   </mat-grid-tile>
 </mat-grid-list>
