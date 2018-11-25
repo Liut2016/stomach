@@ -11,6 +11,7 @@ import { PlotPaneComponent } from './plot-pane/plot-pane.component';
 import { DataPaneComponent } from './data-pane/data-pane.component';
 import { EncodingPaneComponent } from './encoding-pane/encoding-pane.component';
 import { MainComponent } from './main/main.component';
+import { DimensionReductionComponent } from './dimension-reduction/dimension-reduction.component';
 
 export const visRoutes: Routes = [
   { path: '', component: MainComponent}
@@ -25,6 +26,6 @@ export const visRoutes: Routes = [
     HttpClientModule,
     DragDropModule
   ],
-  declarations: [ViewPaneComponent, PlotPaneComponent, DataPaneComponent, EncodingPaneComponent, MainComponent]
+  declarations: [ViewPaneComponent, PlotPaneComponent, DataPaneComponent, EncodingPaneComponent, MainComponent, DimensionReductionComponent]
 })
 export class VisualizationModule { }

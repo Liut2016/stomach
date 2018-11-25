@@ -1,8 +1,20 @@
-<mat-grid-list cols="4" rowHeight="800px">
-  <mat-grid-tile [colspan]="2" [rowspan]="1">
-    <app-data-pane (visJson)="getData($event)"></app-data-pane>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="2" [rowspan]="1">
-    <app-plot-pane [data]="data"></app-plot-pane>
-  </mat-grid-tile>
-</mat-grid-list>
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+      <mat-card>
+          <mat-card-content>
+              <mat-card-title>自定义可视化</mat-card-title>
+              <mat-grid-list cols="4" rowHeight="800px">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                  <app-data-pane (visJson)="getData($event)"></app-data-pane>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                  <app-plot-pane [data]="data"></app-plot-pane>
+                </mat-grid-tile>
+              </mat-grid-list>
+              <div>
+                <app-dimension-reduction></app-dimension-reduction>
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
