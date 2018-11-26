@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { carsData, getProcessedCars, carsTSNE } from '../shared/cars';
-// import { TSNE } from 'tsne-js';
-// import * as tf from '@tensorflow/tfjs';
-// import * as tsne from '@tensorflow/tfjs-tsne';
+import { TSNE } from 'tsne-js';
+import * as tf from '@tensorflow/tfjs';
+import * as tsne from '@tensorflow/tfjs-tsne';
 
 @Component({
   selector: 'app-dimension-reduction',
@@ -34,21 +34,25 @@ export class DimensionReductionComponent implements OnInit {
     }
     console.log(carsTSNEMatrix);
 
-    // // Create some data
-    // const data = tf.randomUniform([100, 3]);
-    // // const data = [[1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2]];
+    // const data = tf.tensor(carsTSNEMatrix);
+
+    // Create some data
+    const data = tf.randomUniform([200, 10]);
+    // console.log(data);
+    // console.log(data.dataSync());
+    // const data = [[1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2]];
     // console.log(data);
     // // Initialize the tsne optimizer
-    // const tsneOpt = tsne.tsne(data);
+    const tsneOpt = tsne.tsne(data);
 
-    // // Compute a T-SNE embedding, returns a promise.
-    // // Runs for 1000 iterations by default.
-    // tsneOpt.compute().then(() => {
-    //   // tsne.coordinate returns a *tensor* with x, y coordinates of
-    //   // the embedded data.
-    //   const coordinates = tsneOpt.coordinates();
-    //   coordinates.print();
-    // });
+    // Compute a T-SNE embedding, returns a promise.
+    // Runs for 1000 iterations by default.
+    tsneOpt.compute(10).then(() => {
+      // tsne.coordinate returns a *tensor* with x, y coordinates of
+      // the embedded data.
+      const coordinates = tsneOpt.coordinates();
+      console.log(coordinates.dataSync());
+    });
 
     // const model = new TSNE({
     //   dim: 2,
