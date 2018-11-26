@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { carsData, getProcessedCars, carsTSNE } from '../shared/cars';
 import { TSNE } from 'tsne-js';
 import * as tf from '@tensorflow/tfjs';
 import * as tsne from '@tensorflow/tfjs-tsne';
+import { ScatterPlot } from './scatter-plot';
 
 @Component({
   selector: 'app-dimension-reduction',
@@ -10,13 +11,16 @@ import * as tsne from '@tensorflow/tfjs-tsne';
   styleUrls: ['./dimension-reduction.component.css']
 })
 export class DimensionReductionComponent implements OnInit {
-
+  scatterPlot: ScatterPlot;
+  @ViewChild('target') target;
   constructor() { }
 
   ngOnInit() {
-    console.log(carsData);
+    this.scatterPlot = new ScatterPlot(this.target.nativeElement);
+    this.scatterPlot.render();
+    /* console.log(carsData); */
     const cars = getProcessedCars();
-    console.log(cars);
+    /* console.log(cars); */
 
     // let str2output = '';
     // cars.forEach(car => {
@@ -26,13 +30,12 @@ export class DimensionReductionComponent implements OnInit {
     // });
     // console.log(str2output);
     // feed str2output to python-tsne model, and get result as carsTSNE
-
-    const carsTSNEMatrix = [];
+    /* const carsTSNEMatrix = [];
     const values = carsTSNE.split(',');
     for (let index = 0; index < values.length / 2; index++) {
       carsTSNEMatrix.push([+(values[index * 2]), +values[index * 2] + 1]);
-    }
-    console.log(carsTSNEMatrix);
+    } */
+   /*  console.log(this.carsTSNEMatrix); */
 
     // const data = tf.tensor(carsTSNEMatrix);
 
@@ -51,7 +54,7 @@ export class DimensionReductionComponent implements OnInit {
       // tsne.coordinate returns a *tensor* with x, y coordinates of
       // the embedded data.
       const coordinates = tsneOpt.coordinates();
-      console.log(coordinates.dataSync());
+/*       console.log(coordinates.dataSync()); */
     });
 
     // const model = new TSNE({
