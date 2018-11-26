@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { jsons } from '../shared/specification';
+import vegaEmbed from 'vega-embed';
 
 @Component({
   selector: 'app-main',
@@ -9,31 +8,19 @@ import { jsons } from '../shared/specification';
 })
 export class MainComponent implements OnInit{
 
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
   data;
-  visData;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor() {}
 
   ngOnInit() {
-
-    console.log()
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
   }
 
   getData($event){
     console.log($event);
     this.data = $event;
+    if (this.data) {
+      vegaEmbed("#embed-view", this.data, { actions: false });
+    }
   }
 
-  draw($event){
-    this.visData = $event;
-  }
 }

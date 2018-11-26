@@ -14,6 +14,7 @@ export class DataPaneComponent implements OnInit{
     public done: string[] = [ ];
     public done1: string[] = [];
 
+    @Output('visJson') json = new EventEmitter<any>();
     constructor(){
       // this.getDataDimension(this.data);
     }
@@ -54,22 +55,34 @@ export class DataPaneComponent implements OnInit{
    this.done = [];
    this.done1 = [];
   }
-  draw(){
-      let spec = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-        "description": "",
-        "width": 360,
-        "data": {
-          "values": this.data
-        },
-        "mark": "bar",
-        "encoding": {
-          "x": {"field": this.done[0], "type": "ordinal"},
-          "y": {"field": this.done1[0], "type": "quantitative"},
-          "tooltip": {"field":  this.done1[0], "type": "quantitative"}
-        }
+
+  getJson(){
+    let testData =this.data;
+    let data = [
+      {"a": "A","b": 55}, {"a": "B","b": 55}, {"a": "C","b": 43},
+      {"a": "D","b": 20}, {"a": "E","b": 81}, {"a": "F","b": 53},
+      {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+    ];
+    let encoding = {
+      "x": {"field": "a", "type": "ordinal"},
+      "y": {"field": "b", "type": "quantitative"}
+    };
+    let mark = 'bar';
+    let spec1 = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+      "description": "A simple bar chart with embedded data.",
+      "width": 360,
+      "data": {
+        "values": this.data
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": this.done[0], "type": "ordinal"},
+        "y": {"field": this.done1[0], "type": "quantitative"},
+        // "tooltip": {"field": "b", "type": "quantitative"}
       }
-    // vegaEmbed("#view", spec, { actions: false});
+    }
+    this.json.emit(spec1);
   }
 
 }

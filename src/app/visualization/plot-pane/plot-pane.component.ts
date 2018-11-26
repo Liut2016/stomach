@@ -16,7 +16,6 @@ export class PlotPaneComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(){
-    console.log(vegaEmbed);
   }
 
   ngOnChanges() {
