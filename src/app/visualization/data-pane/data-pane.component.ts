@@ -69,7 +69,7 @@ export class DataPaneComponent implements OnInit{
           "tooltip": {"field":  this.done1[0], "type": "quantitative"}
         }
       }
-    vegaEmbed("#view", spec, { actions: false });
+    // vegaEmbed("#view", spec, { actions: false});
   }
 
 }
