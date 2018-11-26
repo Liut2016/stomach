@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { carsData, getProcessedCars, carsTSNE } from '../shared/cars';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { carsData, getProcessedCars, getCarsTSNE, getCarsDimTSNE } from '../shared/cars';
+import { ScatterPlot, ScatterMatrixPlot } from './scatter-plot';
 
 @Component({
   selector: 'app-dimension-reduction',
@@ -7,13 +8,18 @@ import { carsData, getProcessedCars, carsTSNE } from '../shared/cars';
   styleUrls: ['./dimension-reduction.component.css']
 })
 export class DimensionReductionComponent implements OnInit {
-
+  scatterPlotFordata: ScatterPlot;
+  scatterPlotForDim: ScatterPlot;
+  scatterMatrixPlot: ScatterMatrixPlot;
+  @ViewChild('dataTsne') dataTarget;
+  @ViewChild('dimTsne') dimTarget;
+  @ViewChild('drResult') drResultTarget;
   constructor() { }
 
   ngOnInit() {
-    console.log(carsData);
-    const cars = getProcessedCars();
-    console.log(cars);
+    /* console.log(carsData); */
+    // const cars = getProcessedCars();
+    /* console.log(cars); */
 
     // let str2output = '';
     // cars.forEach(car => {
@@ -23,13 +29,16 @@ export class DimensionReductionComponent implements OnInit {
     // });
     // console.log(str2output);
     // feed str2output to python-tsne model, and get result as carsTSNE
+    const carsTSNEMatrix = getCarsTSNE();
+    const carsDimTSNEMatrix = getCarsDimTSNE();
+    this.scatterPlotFordata = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix);
+    this.scatterPlotForDim = new ScatterPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix);
+    this.scatterPlotFordata.render();
+    this.scatterPlotForDim.render();
 
-    const carsTSNEMatrix = [];
-    const values = carsTSNE.split(',');
-    for (let index = 0; index < values.length / 2; index++) {
-      carsTSNEMatrix.push([+(values[index * 2]), +values[index * 2] + 1]);
-    }
-    console.log(carsTSNEMatrix);
+    this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement);
+    this.scatterMatrixPlot.render();
+
 
     // ----------------------------- try tf.tsne ------------------------------------------- //
     // // const data = tf.tensor(carsTSNEMatrix);
