@@ -10,9 +10,12 @@ import vegaEmbed from 'vega-embed';
 })
 export class DataPaneComponent implements OnInit{
    data = new testData().cars;
+   public mark: string;
     public dimension: string[] = [];
     public done: string[] = [ ];
     public done1: string[] = [];
+
+    markDic = ['area', 'bar', 'circle', 'line', 'point','rect', 'rule','tick'];
 
     @Output('visJson') json = new EventEmitter<any>();
     constructor(){
@@ -21,6 +24,7 @@ export class DataPaneComponent implements OnInit{
 
     ngOnInit(){
       this.getDataDimension(this.data);
+      this.mark = this.markDic[0];
     }
 
     getDataDimension = (data)=>{
@@ -75,11 +79,11 @@ export class DataPaneComponent implements OnInit{
       "data": {
         "values": this.data
       },
-      "mark": "bar",
+      "mark": this.mark,
       "encoding": {
         "x": {"field": this.done[0], "type": "ordinal"},
         "y": {"field": this.done1[0], "type": "quantitative"},
-        // "tooltip": {"field": "b", "type": "quantitative"}
+        "tooltip": {"field": this.done1[0], "type": "quantitative"}
       }
     }
     this.json.emit(spec1);

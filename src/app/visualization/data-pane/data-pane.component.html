@@ -33,6 +33,12 @@
      <button (click)="delete1(item)">delete</button>
     </div>
   </div>
+  <p>选择图表类型:</p>
+  <mat-form-field>
+    <mat-select  [(ngModel)]="mark">
+      <mat-option *ngFor="let item of markDic" [value]="item">{{item}}</mat-option>
+    </mat-select>
+  </mat-form-field>
   <br>
   <button (click)="clear()">clear</button>
   <button (click)="getJson()">draw</button>
