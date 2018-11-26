@@ -29,7 +29,7 @@ export const components_list = [
     {
         step_description: 'Select',
         items: [
-            { type: 'select', title: '地址选择',key_value: { _key: '地址', _value: ''}, required: true, placeholder: '点击选择', options: ['陕西省', '山西省', '自定义'], target_value:'自定义'},
+            { type: 'select', title: '地址选择',key_value: { _key: '地址', _value: ''}, required: true, placeholder: '点击选择', options: ['陕西省', '山西省', '自定义输入1','自定义输入2'], target_value1:'自定义输入1',target_value2:'自定义输入2'},
         ]
     },
     {   step_description: 'Expansion panel',
@@ -127,6 +127,13 @@ export const components_list = [
                     ]
                 }
             }
+        ]
+    },
+    {
+        step_description:"Stepper",
+        items:
+        [
+           { type :'stepper',title :'步进输入', key_value: { _key: '病历', _value: '' }}
         ]
     }
 ];
