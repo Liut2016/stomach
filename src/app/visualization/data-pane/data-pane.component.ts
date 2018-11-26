@@ -12,10 +12,10 @@ export class DataPaneComponent implements OnInit{
    data = new testData().cars;
    public mark: string;
     public dimension: string[] = [];
-    public done: string[] = [ ];
-    public done1: string[] = [];
+    public done: string[] = Array(7);
 
     markDic = ['area', 'bar', 'circle', 'line', 'point','rect', 'rule','tick'];
+    dropDic = ['x', 'y', 'size', 'color', 'shape', 'detail', 'text'];
 
     @Output('visJson') json = new EventEmitter<any>();
     constructor(){
@@ -34,16 +34,18 @@ export class DataPaneComponent implements OnInit{
       console.log(this.dimension);
 }
 
-   drop(event: CdkDragDrop<string[]>) {
+   drop(event: CdkDragDrop<any[]>) {
+      console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      copyArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+      event.container.data[event.currentIndex] = event.previousContainer.data[event.previousIndex]
+      // copyArrayItem(
+      //   event.previousContainer.data,
+      //   event.container.data,
+      //   event.previousIndex,
+      //   event.currentIndex
+      // );
       }
    }
   delete(item: string) {
@@ -51,27 +53,18 @@ export class DataPaneComponent implements OnInit{
     this.done.splice(index, 1);
   }
   delete1(item: string ) {
-    const index1 = this.done1.indexOf(item);
-    this.done1.splice(index1, 1);
+    const index1 = this.dropDic.indexOf(item);
+    this.dropDic.splice(index1, 1);
   }
 
   clear () {
-   this.done = [];
-   this.done1 = [];
+   this.dropDic = ['x轴', 'y轴', 'size', 'color', 'shape', 'detail', 'text'];
+   this.done = Array(7);
   }
 
   getJson(){
-    let testData =this.data;
-    let data = [
-      {"a": "A","b": 55}, {"a": "B","b": 55}, {"a": "C","b": 43},
-      {"a": "D","b": 20}, {"a": "E","b": 81}, {"a": "F","b": 53},
-      {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
-    ];
-    let encoding = {
-      "x": {"field": "a", "type": "ordinal"},
-      "y": {"field": "b", "type": "quantitative"}
-    };
-    let mark = 'bar';
+    let encoding = this.getEncoding(this.done);
+
     let spec1 = {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "description": "A simple bar chart with embedded data.",
@@ -80,13 +73,32 @@ export class DataPaneComponent implements OnInit{
         "values": this.data
       },
       "mark": this.mark,
-      "encoding": {
-        "x": {"field": this.done[0], "type": "ordinal"},
-        "y": {"field": this.done1[0], "type": "quantitative"},
-        "tooltip": {"field": this.done1[0], "type": "quantitative"}
-      }
+      "encoding": encoding
     }
     this.json.emit(spec1);
+  }
+
+  getEncoding(arr){
+    let encode = {};
+    arr.forEach((v,i)=>{
+      if(v){
+        encode[this.dropDic[i]] = {
+          'field': v,
+          'type': this.getType(v)
+        }
+      }
+    })
+    return encode;
+  }
+
+  getType(dim){
+    const types = ['oridinal', 'nominal', 'quantitative', 'temporal'];
+    let data0 = this.data[0];
+    for( let key in data0 ){
+      if(key === dim ){
+        return types[2];
+      }
+    }
   }
 
 }
