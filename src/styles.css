@@ -36,3 +36,40 @@ circle {
 .selected {
 	fill: steelblue;
 }
+.axis,
+.frame {
+  shape-rendering: crispEdges;
+}
+
+.axis line {
+  stroke: #ddd;
+}
+
+.axis path {
+  display: none;
+}
+
+.cell text {
+  font-weight: bold;
+  text-transform: capitalize;
+  fill: black;
+}
+
+.frame {
+  fill: none;
+  stroke: #aaa;
+}
+
+circle {
+  fill-opacity: .7;
+}
+
+circle.hidden {
+  fill: #ccc !important;
+}
+
+.extent {
+  fill: #000;
+  fill-opacity: .125;
+  stroke: #fff;
+}
