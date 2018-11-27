@@ -1,9 +1,7 @@
-import { carsTSNE } from '../shared/cars';
-export class ScatterPlot {
-
+export class ScatterDimPlot {
     target: HTMLElement;
     pointsMatrix;
- /*    data = new Array(100).fill(null).map(m => [Math.random(), Math.random()]); */
+    d_brush;
     svgWidth = 800;
     svgHeight = 500;
     margin = {
@@ -28,7 +26,6 @@ export class ScatterPlot {
             return d[0]; });
         const  yMin = d3.min(pointsMatrix, (d) => {
             return d[1]; });
-            console.log(xMax, yMax, xMin, yMin);
 
         const svg = d3.select(this.target)
         .attr('width', this.svgWidth)
@@ -107,9 +104,9 @@ export class ScatterPlot {
 
                 // Reset the style of the not selected dots
                 lasso.notSelectedItems()
-                    .attr('r', 3.5);
-                const d_brushed =  lasso.selectedItems().data();
-                console.log(d_brushed);
+                .attr('r', 3.5);
+                this.d_brush =  lasso.selectedItems().data();
+                console.log(this.d_brush);
             }
     }
 }
