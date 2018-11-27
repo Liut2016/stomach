@@ -8,8 +8,10 @@ def getReuslt(indexes, dimensions, isDataProjection=1 ,randomState=50, perplexit
     carsData = carsData.split(',')
     carsData = np.array(carsData, dtype='float')
     X = np.reshape(carsData, (392, 10))
-    X = X[:, dimensions]
-    X = X[indexes]
+    if dimensions != []:
+        X = X[:, dimensions]
+    if indexes != []:
+        X = X[indexes]
     if isDataProjection == 0:
         X = X.T
 

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { carsData, getProcessedCars, getCarsTSNE, getCarsDimTSNE } from '../shared/cars';
-import { ScatterPlot, ScatterMatrixPlot } from './scatter-plot';
+import { ScatterPlot } from './scatter-plot';
+import { ScatterDimPlot } from './scatter-plot-dim';
+import { ScatterMatrixPlot } from './scatter-plot-matrix';
 
 @Component({
   selector: 'app-dimension-reduction',
@@ -9,7 +11,7 @@ import { ScatterPlot, ScatterMatrixPlot } from './scatter-plot';
 })
 export class DimensionReductionComponent implements OnInit {
   scatterPlotForData: ScatterPlot;
-  scatterPlotForDim: ScatterPlot;
+  scatterPlotForDim: ScatterDimPlot;
   scatterMatrixPlot: ScatterMatrixPlot;
   @ViewChild('dataTsne') dataTarget;
   @ViewChild('dimTsne') dimTarget;
@@ -32,12 +34,14 @@ export class DimensionReductionComponent implements OnInit {
     const carsTSNEMatrix = getCarsTSNE();
     const carsDimTSNEMatrix = getCarsDimTSNE();
     this.scatterPlotForData = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix);
-    this.scatterPlotForDim = new ScatterPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix);
+    this.scatterPlotForDim = new ScatterDimPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix);
+    this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement);
     this.scatterPlotForData.render();
     this.scatterPlotForDim.render();
-
-    this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement);
     this.scatterMatrixPlot.render();
+   /*  console.log(carsTSNEMatrix);
+    console.log(carsDimTSNEMatrix);
+    console.log(carsOrigins); */
 
 
     // ----------------------------- try tf.tsne ------------------------------------------- //
