@@ -32,7 +32,6 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/jquery.sparkline.min.js",
-              "src/assets/js/tfjs.js",
               "src/assets/js/d3.lasso.min.js",
               "src/assets/js/d3.v4.min.js"
             ]

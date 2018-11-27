@@ -1,9 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { carsData, getProcessedCars, carsTSNE } from '../shared/cars';
-import { TSNE } from 'tsne-js';
-import * as tf from '@tensorflow/tfjs';
-import * as tsne from '@tensorflow/tfjs-tsne';
-import { ScatterPlot } from './scatter-plot';
+import { carsData, getProcessedCars, getCarsTSNE, getCarsDimTSNE } from '../shared/cars';
+import { ScatterPlot, ScatterMatrixPlot } from './scatter-plot';
 
 @Component({
   selector: 'app-dimension-reduction',
@@ -11,15 +8,17 @@ import { ScatterPlot } from './scatter-plot';
   styleUrls: ['./dimension-reduction.component.css']
 })
 export class DimensionReductionComponent implements OnInit {
-  scatterPlot: ScatterPlot;
-  @ViewChild('target') target;
+  scatterPlotFordata: ScatterPlot;
+  scatterPlotForDim: ScatterPlot;
+  scatterMatrixPlot: ScatterMatrixPlot;
+  @ViewChild('dataTsne') dataTarget;
+  @ViewChild('dimTsne') dimTarget;
+  @ViewChild('drResult') drResultTarget;
   constructor() { }
 
   ngOnInit() {
-    this.scatterPlot = new ScatterPlot(this.target.nativeElement);
-    this.scatterPlot.render();
     /* console.log(carsData); */
-    const cars = getProcessedCars();
+    // const cars = getProcessedCars();
     /* console.log(cars); */
 
     // let str2output = '';
@@ -30,33 +29,39 @@ export class DimensionReductionComponent implements OnInit {
     // });
     // console.log(str2output);
     // feed str2output to python-tsne model, and get result as carsTSNE
-    /* const carsTSNEMatrix = [];
-    const values = carsTSNE.split(',');
-    for (let index = 0; index < values.length / 2; index++) {
-      carsTSNEMatrix.push([+(values[index * 2]), +values[index * 2] + 1]);
-    } */
-   /*  console.log(this.carsTSNEMatrix); */
+    const carsTSNEMatrix = getCarsTSNE();
+    const carsDimTSNEMatrix = getCarsDimTSNE();
+    this.scatterPlotFordata = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix);
+    this.scatterPlotForDim = new ScatterPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix);
+    this.scatterPlotFordata.render();
+    this.scatterPlotForDim.render();
 
-    // const data = tf.tensor(carsTSNEMatrix);
+    this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement);
+    this.scatterMatrixPlot.render();
 
-    // Create some data
-    const data = tf.randomUniform([200, 10]);
-    // console.log(data);
-    // console.log(data.dataSync());
-    // const data = [[1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2]];
-    // console.log(data);
-    // // Initialize the tsne optimizer
-    const tsneOpt = tsne.tsne(data);
 
-    // Compute a T-SNE embedding, returns a promise.
-    // Runs for 1000 iterations by default.
-    tsneOpt.compute(10).then(() => {
-      // tsne.coordinate returns a *tensor* with x, y coordinates of
-      // the embedded data.
-      const coordinates = tsneOpt.coordinates();
-/*       console.log(coordinates.dataSync()); */
-    });
+    // ----------------------------- try tf.tsne ------------------------------------------- //
+    // // const data = tf.tensor(carsTSNEMatrix);
 
+    // // Create some data
+    // const data = tf.randomUniform([200, 10]);
+    // // console.log(data);
+    // // console.log(data.dataSync());
+    // // const data = [[1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2]];
+    // // console.log(data);
+    // // // Initialize the tsne optimizer
+    // const tsneOpt = tsne.tsne(data);
+
+    // // Compute a T-SNE embedding, returns a promise.
+    // // Runs for 1000 iterations by default.
+    // tsneOpt.compute(10).then(() => {
+    //   // tsne.coordinate returns a *tensor* with x, y coordinates of
+    //   // the embedded data.
+    //   const coordinates = tsneOpt.coordinates();
+    //   console.log(coordinates.dataSync());
+    // });
+
+    // -------------------------------- try tsne.js --------------------------------------------------//
     // const model = new TSNE({
     //   dim: 2,
     //   perplexity: 30.0,
