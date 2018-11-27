@@ -1,7 +1,6 @@
 import { carsTSNE } from '../shared/cars';
 export class ScatterPlot {
     target: HTMLElement;
- /*    data = new Array(100).fill(null).map(m => [Math.random(), Math.random()]); */
     svgWidth = 800;
     svgHeight = 500;
     margin = {
@@ -19,18 +18,18 @@ export class ScatterPlot {
     const carsTSNEMatrix = [];
     const values = carsTSNE.split(',');
         for (let index = 0; index < values.length / 2; index++) {
-          carsTSNEMatrix.push([+(values[index * 2]), +values[index * 2 + 1]]);
+          carsTSNEMatrix.push(index, [+(values[index * 2]), +values[index * 2 + 1]]);
         }
     console.log(carsTSNEMatrix);
 
     const  xMax = d3.max(carsTSNEMatrix, (d) => {
-        return d[0]; });
+        return d[1]; });
     const  yMax = d3.max(carsTSNEMatrix, (d) => {
-        return d[1]; });
+        return d[2]; });
     const  xMin = d3.min(carsTSNEMatrix, (d) => {
-        return d[0]; });
-    const  yMin = d3.min(carsTSNEMatrix, (d) => {
         return d[1]; });
+    const  yMin = d3.min(carsTSNEMatrix, (d) => {
+        return d[2]; });
         console.log(xMax, yMax, xMin, yMin);
 
     const svg = d3.select(this.target)
@@ -63,9 +62,9 @@ export class ScatterPlot {
         .enter()
         .append('circle')
         .attr('cx', d => {
-            return xAxisScale(d[0]); })
+            return xAxisScale(d[1]); })
         .attr('cy', d => {
-            return yAxisScale(d[1]); })
+            return yAxisScale(d[2]); })
         .attr('r', 3.5);
 
    const lasso = d3.lasso()
