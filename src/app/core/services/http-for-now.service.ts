@@ -253,5 +253,13 @@ export class HttpForNowService {
     .catch(this.handleError);
   }
 
+  getDRResult() {
+    return this.http.post('localhost:5000/getDRResult', {}).toPromise()
+    .then(res => {
+      return res.json();
+    })
+    .catch(this.handleError);
+  }
+
   // --------------------------------------------- Email related API end ----------------------------------------------//
 }

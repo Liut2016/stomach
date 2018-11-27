@@ -8,7 +8,7 @@ import { ScatterPlot, ScatterMatrixPlot } from './scatter-plot';
   styleUrls: ['./dimension-reduction.component.css']
 })
 export class DimensionReductionComponent implements OnInit {
-  scatterPlotFordata: ScatterPlot;
+  scatterPlotForData: ScatterPlot;
   scatterPlotForDim: ScatterPlot;
   scatterMatrixPlot: ScatterMatrixPlot;
   @ViewChild('dataTsne') dataTarget;
@@ -31,9 +31,9 @@ export class DimensionReductionComponent implements OnInit {
     // feed str2output to python-tsne model, and get result as carsTSNE
     const carsTSNEMatrix = getCarsTSNE();
     const carsDimTSNEMatrix = getCarsDimTSNE();
-    this.scatterPlotFordata = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix);
+    this.scatterPlotForData = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix);
     this.scatterPlotForDim = new ScatterPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix);
-    this.scatterPlotFordata.render();
+    this.scatterPlotForData.render();
     this.scatterPlotForDim.render();
 
     this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement);

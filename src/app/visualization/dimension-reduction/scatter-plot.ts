@@ -11,11 +11,15 @@ export class ScatterPlot {
         left: 80,
         right: 150
     };
+    lasso = d3.lasso();
     width = this.svgWidth - this.margin.left - this.margin.right;
     height = this.svgHeight - this.margin.top - this.margin.bottom;
     constructor(target: HTMLElement, pointsMatrix) {
         this.target = target;
         this.pointsMatrix = pointsMatrix;
+    }
+    setData(newMatrix) {
+        this.pointsMatrix = newMatrix;
     }
     render() {
         const pointsMatrix = this.pointsMatrix;
@@ -64,52 +68,53 @@ export class ScatterPlot {
                 return yAxisScale(d[1]); })
             .attr('r', 3.5);
 
-       const lasso = d3.lasso()
-            .closePathSelect(true)
-            .closePathDistance(100)
-            .items(circles)
-            .targetArea(svg)
-            .on('start', lasso_start)
-            .on('draw', lasso_draw)
-            .on('end', lasso_end);
 
-            svg.call(lasso);
-            function lasso_start() {
-                lasso.items()
+            const lasso_start = () => {
+                this.lasso.items()
                     .attr('r', 3.5) // reset size
                     .classed('not_possible', true)
                     .classed('selected', false);
-            }
+            };
 
-            function lasso_draw() {
+            const lasso_draw = () => {
                 // Style the possible dots
-                lasso.possibleItems()
+                this.lasso.possibleItems()
                     .classed('not_possible', false)
                     .classed('possible', true);
 
                 // Style the not possible dot
-                lasso.notPossibleItems()
+                this.lasso.notPossibleItems()
                     .classed('not_possible', true)
                     .classed('possible', false);
-            }
+            };
 
-            function lasso_end() {
+            const lasso_end = () => {
                 // Reset the color of all dots
-                lasso.items()
+                this.lasso.items()
                     .classed('not_possible', false)
                     .classed('possible' , false);
 
                 // Style the selected dots
-                lasso.selectedItems()
+                this.lasso.selectedItems()
                     .classed('selected', true)
                     .attr('r', 7);
 
                 // Reset the style of the not selected dots
-                lasso.notSelectedItems()
+                this.lasso.notSelectedItems()
                     .attr('r', 3.5);
-                const d_brushed =  lasso.selectedItems().data();
+                const d_brushed =  this.lasso.selectedItems().data();
                 console.log(d_brushed);
-            }
+            };
+        this.lasso.closePathSelect(true)
+        .closePathDistance(100)
+        .items(circles)
+        .targetArea(svg)
+        .on('start', lasso_start)
+        .on('draw', lasso_draw)
+        .on('end', lasso_end);
+
+        // this.lasso.on('end', () => {console.log('end~!!!'); });
+        svg.call(this.lasso);
     }
 }
 
