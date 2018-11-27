@@ -151,6 +151,7 @@ var domainByTrait = {},
 traits.forEach(function(trait) {
 domainByTrait[trait] = d3.extent(data, function(d) { return d[trait]; });
 });
+console.log(traits);
 
 xAxis.tickSize(size * n);
 yAxis.tickSize(-size * n);
@@ -161,7 +162,7 @@ var brush = d3.brush()
   .on("end", brushend)
   .extent([[0,0],[size,size]]);
 
-var svg = d3.select("#drResult")
+var svg = d3.select("#drResult").append("svg")
   .attr("width", size * n + padding)
   .attr("height", size * n + padding)
 .append("g")
@@ -210,6 +211,7 @@ cell.append("rect")
     .attr("width", size - padding)
     .attr("height", size - padding);
 
+    console.log(data);
 cell.selectAll("circle")
     .data(data)
   .enter().append("circle")
