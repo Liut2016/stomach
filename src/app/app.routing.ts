@@ -36,10 +36,6 @@ export const AppRoutes: Routes = [
     loadChildren: './personnel/personnel.module#PersonnelModule'
   },
   {
-    path: 'feedback',
-    loadChildren: './feedback/feedback.module#FeedbackModule'
-  },
-  {
     path: 'mammary',
     loadChildren: './mammary/mammary.module#MammaryModule'
   },

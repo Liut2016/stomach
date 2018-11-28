@@ -1,15 +1,10 @@
 import {Route, Routes} from '@angular/router';
-import { FollowUpHypertensionOverviewComponent
-  } from '@app/follow/follow-up-hypertension-overview/follow-up-hypertension-overview.component';
-import { FollowUpHypertensionSingleviewComponent
-  } from '@app/follow/follow-up-hypertension-singleview/follow-up-hypertension-singleview.component';
-import { FollowUpHypertensionComponent
-  } from '@app/follow/follow-up-hypertension/follow-up-hypertension.component';
-import { FollowUpDiabetesOverviewComponent
-  } from '@app/follow/follow-up-diabetes-overview/follow-up-diabetes-overview.component';
-import { FollowUpDiabetesSingleviewComponent
-  } from '@app/follow/follow-up-diabetes-singleview/follow-up-diabetes-singleview.component';
-import { FollowUpDiabetesComponent} from '@app/follow/follow-up-diabetes/follow-up-diabetes.component';
+import { FollowUpMammaryOverviewComponent
+  } from '@app/follow/follow-up-mammary-overview/follow-up-mammary-overview.component';
+import { FollowUpMammarySingleviewComponent
+  } from '@app/follow/follow-up-mammary-singleview/follow-up-mammary-singleview.component';
+import { FollowUpMammaryComponent
+  } from '@app/follow/follow-up-mammary/follow-up-mammary.component';
 
 export const FollowRoutes: Routes = [
   {
@@ -28,45 +23,17 @@ export const FollowRoutes: Routes = [
       //   component: HypertensionComponent
       // },
       {
-        path: 'hypertensionFollowOverview',
-        component: FollowUpHypertensionOverviewComponent
+        path: 'mammaryFollowOverview',
+        component: FollowUpMammaryOverviewComponent
       },
       {
-        path: 'hypertensionFollowSingleview/:PID',
-        component: FollowUpHypertensionSingleviewComponent
-      },
-      // {
-      //   path: 'hypertensionFollow',
-      //   component: FollowUpHypertensionComponent
-      // },
-      {
-        path: 'hypertensionFollow/:param',
-        component: FollowUpHypertensionComponent
-      },
-      // {
-      //   path: 'diabetesMS',
-      //   component: DiabetesOverviewComponent
-      // },
-      // {
-      //   path: 'diabetes',
-      //   component: DiabetesComponent
-      // },
-      // {
-      //   path: 'diabetes/:PID',
-      //   component: DiabetesComponent
-      // },
-      {
-        path: 'diabetesFollowOverview',
-        component: FollowUpDiabetesOverviewComponent
+        path: 'mammaryFollowSingleview/:PID',
+        component: FollowUpMammarySingleviewComponent
       },
       {
-        path: 'diabetesFollowSingleview/:PID',
-        component: FollowUpDiabetesSingleviewComponent
+        path: 'mammaryFollow/:param',
+        component: FollowUpMammaryComponent
       },
-      {
-        path: 'diabetesFollow/:param',
-        component: FollowUpDiabetesComponent
-      }
     ]
   }
 ];

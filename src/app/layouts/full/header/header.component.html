@@ -2,11 +2,7 @@
 <!-- Profile - style you can find in header.scss -->
 <!-- ============================================================== -->
 
-<button mat-icon-button class="m-r-5" [routerLink]="['/feedback']">
-    <mat-icon>email</mat-icon>
-    <div class="notify" *ngIf="setting.unreadEmailNumber > 0"> <span class="heartbit"></span> <span class="point"></span> </div>
-</button>
-<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/chronic/avatar.png" width="40" height="40" alt="user" class="profile-pic"> </button>
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/chronic/avatar.png" width="30" height="30" alt="user" class="profile-pic"> </button>
 <mat-menu #profile="matMenu" class="mymegamenu">
     <button mat-menu-item [routerLink]="['/setting']">
         <mat-icon>settings</mat-icon> 设置 

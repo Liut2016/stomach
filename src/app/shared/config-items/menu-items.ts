@@ -26,34 +26,7 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  {
-    state: 'survey',
-    name: '慢性病档案管理',
-    type: 'sub',
-    icon: 'insert_drive_file',
-    children: [
-      {state: 'hypertensionMS', name: '高血压档案管理'},
-      {state: 'diabetesMS', name: '糖尿病档案管理'},
-    ]
-  },
-  {
-    state: 'follow',
-    name: '随访管理',
-    type: 'sub',
-    icon: 'web',
-    children: [
-      {state: 'hypertensionFollowOverview', name: '高血压患者随访管理'},
-      {state: 'diabetesFollowOverview', name: '糖尿病患者随访管理'},
-    ]
-  },
-  {
-    state: 'personnel',
-    name: '人员管理',
-    type: 'link',
-    icon: 'perm_contact_calendar',
-    rolesCannotSee: ['patient']
-  },
-  {
+    {
         state: 'mammary',
         name: '乳腺癌患者管理',
         type: 'sub',
@@ -62,6 +35,22 @@ const MENUITEMS = [
           {state: 'overview', name: '患者数据管理'},
       ],
         rolesCannotSee: []
+  },
+  {
+    state: 'follow',
+    name: '随访管理',
+    type: 'sub',
+    icon: 'web',
+    children: [
+      {state: 'mammaryFollowOverview', name: '乳腺癌患者随访管理'},
+    ]
+  },
+  {
+    state: 'personnel',
+    name: '人员管理',
+    type: 'link',
+    icon: 'perm_contact_calendar',
+    rolesCannotSee: ['patient']
   },
   {
         state: 'components_list',
