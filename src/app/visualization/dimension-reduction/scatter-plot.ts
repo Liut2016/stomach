@@ -35,11 +35,10 @@ export class ScatterPlot {
             console.log(xMax, yMax, xMin, yMin);
 
         const svg = d3.select(this.target)
-        .attr('width', this.svgWidth)
-        .attr('height', this.svgHeight)
-        .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')')
-        ;
-
+            .attr('width', this.svgWidth)
+            .attr('height', this.svgHeight)
+            .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')')
+            ;
         const xAxisScale = d3.scaleLinear()
             .domain([xMin, xMax])
             .range([0, this.width]);
@@ -67,7 +66,8 @@ export class ScatterPlot {
                 return xAxisScale(d[0]); })
             .attr('cy', d => {
                 return yAxisScale(d[1]); })
-            .attr('r', 3.5);
+            .attr('r', 3.5)
+            ;
 
 
             const lasso_start = () => {
@@ -107,14 +107,14 @@ export class ScatterPlot {
                 console.log(d_brushed);
             };
         this.lasso.closePathSelect(true)
-        .closePathDistance(100)
-        .items(circles)
-        .targetArea(svg)
-        .on('start', lasso_start)
-        .on('draw', lasso_draw)
-        .on('end', lasso_end);
+            .closePathDistance(100)
+            .items(circles)
+            .targetArea(svg)
+            .on('start', lasso_start)
+            .on('draw', lasso_draw)
+            .on('end', lasso_end);
 
-        // this.lasso.on('end', () => {console.log('end~!!!'); });
-        svg.call(this.lasso);
+            // this.lasso.on('end', () => {console.log('end~!!!'); });
+            svg.call(this.lasso);
     }
 }

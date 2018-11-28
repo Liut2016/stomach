@@ -13,10 +13,72 @@ export class ScatterMatrixPlot {
 render() {
     const pointsMatrix = this.pointsMatrix;
     console.log(pointsMatrix);
+    d3.helper = {};
+
+    /* d3.helper.tooltip = function () {
+        let tooltipDiv;
+        const bodyNode = d3.select('body').node();
+
+        function tooltip(selection) {
+            selection.on('mouseover.tooltip', function (point) {
+                // Clean up lost tooltips
+                d3.select('body').selectAll('div.tooltip').remove();
+                // Append tooltip
+                tooltipDiv = d3.select('body')
+                    .append('div')
+                    .attr('class', 'tooltip');
+                const absoluteMousePos = d3.mouse(bodyNode);
+                tooltipDiv
+                    .style('left', (absoluteMousePos[0] + 10) + 'px')
+                    .style('top', (absoluteMousePos[1] - 30) + 'px');
+
+                let line = '';
+                _.each(d3.keys(point), function (key, index) {
+                    if (index !== d3.keys(point).length - 1) {
+                        line += key + ': ' + point[key] + '</br>';
+                    } else {
+                        line += key + ': ' + point[key];
+                    }
+                });
+                tooltipDiv.html(line);
+            })
+                .on('mousemove.tooltip', function () {
+                    // Move tooltip
+                    const absoluteMousePos = d3.mouse(bodyNode);
+                    tooltipDiv
+                        .style('left', (absoluteMousePos[0] + 10) + 'px')
+                        .style('top', absoluteMousePos[1] < 80 ? absoluteMousePos[1] + 10 : (absoluteMousePos[1] - 70) + 'px');
+                })
+                .on('mouseout.tooltip', function () {
+                    // Remove tooltip
+                    tooltipDiv.remove();
+                });
+
+        }
+
+        tooltip.attr = function (_x) {
+            if (!arguments.length) return attrs;
+            attrs = _x;
+            return this;
+        };
+
+        tooltip.style = function (_x) {
+            if (!arguments.length) return styles;
+            styles = _x;
+            return this;
+        };
+
+        return tooltip;
+    }; */
+
     const width = 960;
     const size = 230;
     const padding = 10;
 
+     const tooltip = d3.select('body')
+                      .append('div')
+                      .attr('class', 'tooltip')
+                      .style('opacity', 0);
     const x = d3.scaleLinear()
     .range([padding / 2, size - padding / 2]);
 
@@ -40,6 +102,7 @@ render() {
     traits.forEach(function(trait) {
       domainByTrait[trait] = d3.extent(pointsMatrix, function(d) { return d[trait]; });
       });
+    console.log(domainByTrait);
     xAxis.tickSize(size * n);
     yAxis.tickSize(-size * n);
 
@@ -52,6 +115,7 @@ render() {
     const svg = d3.select('#drResult')
       .attr('width', size * n + padding)
       .attr('height', size * n + padding)
+      .append('g')
       .attr('transform', 'translate(' + padding + ',' + padding / 2 + ')');
 
     svg.selectAll('.x.axis')
@@ -76,8 +140,9 @@ render() {
       .append('g')
       .attr('class', 'cell')
       .attr('transform', function(d) { return 'translate(' + (n - d.i - 1) * size + ',' + d.j * size + ')'; })
-      .each(plot);
-
+      ;
+      cell.call(brush);
+      cell.each(plot);
     // Titles for the diagonal.
     cell.filter(function(d) { return d.i === d.j; }).append('text')
       .attr('x', padding)
@@ -85,11 +150,8 @@ render() {
       .attr('dy', '.71em')
       .text(function(d) { return d.x; });
 
-    cell.call(brush);
-
     function plot(p) {
     const cell1 = d3.select(this);
-
     x.domain(domainByTrait[p.x]);
     y.domain(domainByTrait[p.y]);
 
@@ -107,8 +169,22 @@ render() {
         .attr('cx', function(d) { return x(d[p.x]); })
         .attr('cy', function(d) { return y(d[p.y]); })
         .attr('r', 4)
-        .style('fill', function(d) { return color(d.species); });
-    }
+        .style('fill', function(d) { return color(d.species); })
+        .on('mouseover', (d) => {
+            tooltip.transition()
+            .duration(200)
+            .style('opacity', .9);
+            tooltip.html('value: ' + d[p.x] + ',' + d[p.y])
+            .style('left', (d3.event.pageX) - 60 + 'px')
+            .style('top', (d3.event.pageY) + 20 + 'px');
+        })
+       .on('mouseout', (d) => {
+        tooltip.transition()
+          .duration(500)
+          .style('opacity', 0);
+        })
+        ;
+        }
 
  let brushCell;
 

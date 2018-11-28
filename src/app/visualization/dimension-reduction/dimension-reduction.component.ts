@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { carsData, getProcessedCars, getCars, getCarsTSNE, getCarsDimTSNE } from '../shared/cars';
 import { ScatterPlot } from './scatter-plot';
-import { ScatterDimPlot } from './scatter-plot-dim';
 import { ScatterMatrixPlot } from './scatter-plot-matrix';
 
 @Component({
