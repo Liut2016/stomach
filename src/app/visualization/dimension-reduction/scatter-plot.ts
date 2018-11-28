@@ -13,6 +13,7 @@ export class ScatterPlot {
         right: 150
     };
     lasso = d3.lasso();
+    svg;
     width = this.svgWidth - this.margin.left - this.margin.right;
     height = this.svgHeight - this.margin.top - this.margin.bottom;
     constructor(target: HTMLElement, pointsMatrix) {
@@ -21,6 +22,10 @@ export class ScatterPlot {
     }
     setData(newMatrix) {
         this.pointsMatrix = newMatrix;
+    }
+    refresh() {
+        this.svg.remove();
+        this.render();
     }
     render() {
         const pointsMatrix = this.pointsMatrix;
@@ -34,11 +39,19 @@ export class ScatterPlot {
             return d[1]; });
             console.log(xMax, yMax, xMin, yMin);
 
+<<<<<<< HEAD
         const svg = d3.select(this.target)
             .attr('width', this.svgWidth)
             .attr('height', this.svgHeight)
             .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')')
             ;
+=======
+        this.svg = d3.select(this.target).append('svg')
+        .attr('width', this.svgWidth)
+        .attr('height', this.svgHeight)
+        .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
+        const svg = this.svg;
+>>>>>>> 240d3510cda57a6456a3347ac2056de4e0232c30
         const xAxisScale = d3.scaleLinear()
             .domain([xMin, xMax])
             .range([0, this.width]);
@@ -70,43 +83,8 @@ export class ScatterPlot {
             ;
 
 
-            const lasso_start = () => {
-                this.lasso.items()
-                    .attr('r', 3.5) // reset size
-                    .classed('not_possible', true)
-                    .classed('selected', false);
-            };
-
-            const lasso_draw = () => {
-                // Style the possible dots
-                this.lasso.possibleItems()
-                    .classed('not_possible', false)
-                    .classed('possible', true);
-
-                // Style the not possible dot
-                this.lasso.notPossibleItems()
-                    .classed('not_possible', true)
-                    .classed('possible', false);
-            };
-
-            const lasso_end = () => {
-                // Reset the color of all dots
-                this.lasso.items()
-                    .classed('not_possible', false)
-                    .classed('possible' , false);
-
-                // Style the selected dots
-                this.lasso.selectedItems()
-                    .classed('selected', true)
-                    .attr('r', 7);
-
-                // Reset the style of the not selected dots
-                this.lasso.notSelectedItems()
-                    .attr('r', 3.5);
-                const d_brushed =  this.lasso.selectedItems().data();
-                console.log(d_brushed);
-            };
         this.lasso.closePathSelect(true)
+<<<<<<< HEAD
             .closePathDistance(100)
             .items(circles)
             .targetArea(svg)
@@ -116,5 +94,69 @@ export class ScatterPlot {
 
             // this.lasso.on('end', () => {console.log('end~!!!'); });
             svg.call(this.lasso);
+=======
+        .closePathDistance(100)
+        .items(circles)
+        .targetArea(svg)
+        .on('start', () => this.lassoStart())
+        .on('draw', () => this.lassoDraw())
+        .on('end', () => this.loassEnd());
+
+        svg.call(this.lasso);
+>>>>>>> 240d3510cda57a6456a3347ac2056de4e0232c30
+    }
+
+    bind(dataProjConf, dimProjConf, isDataProjection) {
+        this.lasso
+        .on('start', () => this.lassoStart())
+        .on('draw', () => this.lassoDraw())
+        .on('end', () => {
+            this.loassEnd();
+            const selectedPoints = this.lasso.selectedItems().data();
+            const itemIds = [];
+            selectedPoints.forEach(n => itemIds.push(n[2]));
+            if (isDataProjection === 1) {
+                dataProjConf.indexes = itemIds;
+                dimProjConf.indexes = itemIds;
+            } else {
+                dataProjConf.dimensions = itemIds;
+                dimProjConf.dimensions = itemIds;
+            }
+            console.log(dataProjConf, dimProjConf);
+        });
+    }
+
+    loassEnd() {
+        this.lasso.items()
+        .classed('not_possible', false)
+        .classed('possible' , false);
+
+        // Style the selected dots
+        this.lasso.selectedItems()
+        .classed('selected', true)
+        .attr('r', 7);
+
+        // Reset the style of the not selected dots
+        this.lasso.notSelectedItems()
+        .attr('r', 3.5);
+    }
+
+    lassoDraw() {
+        // Style the possible dots
+        this.lasso.possibleItems()
+            .classed('not_possible', false)
+            .classed('possible', true);
+
+        // Style the not possible dot
+        this.lasso.notPossibleItems()
+            .classed('not_possible', true)
+            .classed('possible', false);
+    }
+
+    lassoStart() {
+        this.lasso.items()
+            .attr('r', 3.5) // reset size
+            .classed('not_possible', true)
+            .classed('selected', false);
     }
 }

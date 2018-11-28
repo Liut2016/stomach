@@ -4467,9 +4467,14 @@ export const carsData = [
     }
   ];
   export const getCars = () => {
-      return carsData;
+    const cars = [];
+    carsData.forEach(n => {
+      if (!!n.Acceleration && !!n.Cylinders && !!n.Displacement && !!n.Horsepower && n.Miles_per_Gallon) {
+        cars.push(n);
+      }
+    });
+    return cars;
   };
-  console.log(getCars());
 export const getProcessedCars = () => {
     const carsOrigins = [];
     carsData.forEach(n => {

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { carsData, getProcessedCars, getCars, getCarsTSNE, getCarsDimTSNE } from '../shared/cars';
 import { ScatterPlot } from './scatter-plot';
 import { ScatterMatrixPlot } from './scatter-plot-matrix';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
 
 @Component({
   selector: 'app-dimension-reduction',
@@ -12,94 +13,131 @@ export class DimensionReductionComponent implements OnInit {
   scatterPlotForData: ScatterPlot;
   scatterPlotForDim: ScatterPlot;
   scatterMatrixPlot: ScatterMatrixPlot;
+
+  carsDataMatrix;
+
+  dataProjectionConfiguration = {
+    indexes: [],
+    dimensions: [],
+    isDataProjection: 1,
+    tsneConfiguration: {
+      randomState: 50,
+      perplexity: 30
+    }
+  };
+
+  dimensionProjectionConfiguration = {
+    indexes: [],
+    dimensions: [],
+    isDataProjection: 0,
+    tsneConfiguration: {
+      randomState: 50,
+      perplexity: 30
+    }
+  };
+
   @ViewChild('dataTsne') dataTarget;
   @ViewChild('dimTsne') dimTarget;
   @ViewChild('drResult') drResultTarget;
-  constructor() { }
+  constructor(public httpService: HttpForNowService) { }
 
   ngOnInit() {
-    /* console.log(carsData); */
-    // const cars = getProcessedCars();
-    /* console.log(cars); */
-
-    // let str2output = '';
-    // cars.forEach(car => {
-    //   car.forEach(c => {
-    //     str2output += ',' + c;
-    //   });
-    // });
-    // console.log(str2output);
-    // feed str2output to python-tsne model, and get result as carsTSNE
     const carsTSNEMatrix = getCarsTSNE();
     const carsDimTSNEMatrix = getCarsDimTSNE();
-    const carsDataMatrix = getCars();
+    this.carsDataMatrix = getCars();
     this.scatterPlotForData = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix);
     this.scatterPlotForDim = new ScatterPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix);
-    this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement, carsDataMatrix);
     this.scatterPlotForData.render();
     this.scatterPlotForDim.render();
-    this.scatterMatrixPlot.render();
-   /*  console.log(carsTSNEMatrix);
-    console.log(carsDimTSNEMatrix);
-    console.log(carsOrigins); */
+    this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement, this.carsDataMatrix);
+    this.drawScatterMatrx();
 
+    this.scatterPlotForData.bind(this.dataProjectionConfiguration, this.dimensionProjectionConfiguration, 1);
+    this.scatterPlotForDim.bind(this.dataProjectionConfiguration, this.dimensionProjectionConfiguration, 0);
 
-    // ----------------------------- try tf.tsne ------------------------------------------- //
-    // // const data = tf.tensor(carsTSNEMatrix);
-
-    // // Create some data
-    // const data = tf.randomUniform([200, 10]);
-    // // console.log(data);
-    // // console.log(data.dataSync());
-    // // const data = [[1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2]];
-    // // console.log(data);
-    // // // Initialize the tsne optimizer
-    // const tsneOpt = tsne.tsne(data);
-
-    // // Compute a T-SNE embedding, returns a promise.
-    // // Runs for 1000 iterations by default.
-    // tsneOpt.compute(10).then(() => {
-    //   // tsne.coordinate returns a *tensor* with x, y coordinates of
-    //   // the embedded data.
-    //   const coordinates = tsneOpt.coordinates();
-    //   console.log(coordinates.dataSync());
-    // });
-
-    // -------------------------------- try tsne.js --------------------------------------------------//
-    // const model = new TSNE({
-    //   dim: 2,
-    //   perplexity: 30.0,
-    //   earlyExaggeration: 1.0,
-    //   learningRate: 100.0,
-    //   nIter: 1000,
-    //   metric: 'euclidean'
-    // });
-
-    // const inputData = [[1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2], [1.0, 0.1, 0.2]];
-
-    // console.log(inputData);
-    // // inputData is a nested array which can be converted into an ndarray
-    // // alternatively, it can be an array of coordinates (second argument should be specified as 'sparse')
-    // model.init({
-    //   data: carsData,
-    //   type: 'dense'
-    // });
-
-    // // `error`,  `iter`: final error and iteration number
-    // // note: computation-heavy action happens here
-    // const [error, iter] = model.run();
-
-    // // rerun without re-calculating pairwise distances, etc.
-    // // let [error, iter] = model.rerun();
-
-    // // `output` is unpacked ndarray (regular nested javascript array)
-    // const output = model.getOutput();
-
-    // // `outputScaled` is `output` scaled to a range of [-1, 1]
-    // const outputScaled = model.getOutputScaled();
-
-    // console.log(error, iter, output, outputScaled);
   }
 
+  freshDataProjection() {
+    this.httpService.getDRResult(this.dataProjectionConfiguration).then(res => {
+      console.log(res);
+      const projections = res.data;
+      if (this.dataProjectionConfiguration.indexes.length === 0) {
+        projections.forEach((n, i) => {
+          n.push(i);
+        });
+      } else {
+        projections.forEach((n, i) => {
+          n.push(this.dataProjectionConfiguration.indexes[i]);
+        });
+      }
+      console.log(projections);
+      this.scatterPlotForData.setData(projections);
+      // this.scatterPlotForData.render();
+      this.scatterPlotForData.refresh();
+      this.scatterPlotForData.bind(this.dataProjectionConfiguration, this.dimensionProjectionConfiguration, 1);
+    });
+  }
 
+  freshDimensionProjection() {
+    this.httpService.getDRResult(this.dimensionProjectionConfiguration).then(res => {
+      console.log(res);
+      const projections = res.data;
+      if (this.dimensionProjectionConfiguration.dimensions.length === 0) {
+        projections.forEach((n, i) => {
+          n.push(i);
+        });
+      } else {
+        projections.forEach((n, i) => {
+          n.push(this.dimensionProjectionConfiguration.dimensions[i]);
+        });
+      }
+      console.log(projections);
+      this.scatterPlotForDim.setData(projections);
+      // this.scatterPlotForData.render();
+      this.scatterPlotForDim.refresh();
+      this.scatterPlotForDim.bind(this.dataProjectionConfiguration, this.dimensionProjectionConfiguration, 0);
+    });
+  }
+
+  recoverDataProjection() {
+    this.dataProjectionConfiguration.dimensions = [];
+    this.dataProjectionConfiguration.indexes = [];
+    this.freshDataProjection();
+  }
+
+  recoverDimensionProjection() {
+    this.dataProjectionConfiguration.dimensions = [];
+    this.dimensionProjectionConfiguration.dimensions = [];
+    this.freshDimensionProjection();
+  }
+
+  drawScatterMatrx() {
+    let points = [];
+    const allDimensions = ['Acceleration', 'Cylinders', 'Displacement', 'Horsepower', 'Miles_per_Gallon', 'Origin',
+     'Weight_in_lbs', 'Year'];
+    let dimensions = [];
+    if (this.dataProjectionConfiguration.indexes.length === 0) {
+      points = this.carsDataMatrix;
+    } else {
+      this.dataProjectionConfiguration.indexes.forEach(n => {
+        // points.push([this.carsDataMatrix[n], n]);
+        points.push(this.carsDataMatrix[n]);
+      });
+    }
+    if (this.dataProjectionConfiguration.dimensions.length !== 0) {
+      this.dataProjectionConfiguration.dimensions.forEach(n => {
+        if (n < 5) {
+          dimensions.push(allDimensions[n]);
+        } else if (n === 8) {
+          dimensions.push(allDimensions[n - 2]);
+        } else if (dimensions.indexOf('Origin') === -1) {
+          // dimensions.push('Origin');
+        }
+      });
+    } else {
+      dimensions = ['Acceleration', 'Cylinders', 'Displacement', 'Horsepower', 'Miles_per_Gallon', 'Weight_in_lbs'];
+    }
+    this.scatterMatrixPlot.draw(points, dimensions);
+    console.log(points, dimensions);
+  }
 }
