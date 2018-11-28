@@ -253,5 +253,21 @@ export class HttpForNowService {
     .catch(this.handleError);
   }
 
+  getDRResult(conf) {
+    // const params = {
+    //   indexes,
+    //   dimensions,
+    //   isDataProjection,
+    //   tsneConfiguration: {
+    //     randomState: tsneConfiguration.randomState
+    //   }
+    // };
+    return this.http.post('http://localhost:5000/getDRResult', JSON.stringify(conf), {headers: this.headers}).toPromise()
+    .then(res => {
+      return res.json();
+    })
+    .catch(this.handleError);
+  }
+
   // --------------------------------------------- Email related API end ----------------------------------------------//
 }

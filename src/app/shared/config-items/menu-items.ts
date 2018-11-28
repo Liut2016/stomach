@@ -59,13 +59,13 @@ const MENUITEMS = [
         icon: 'category',
         rolesCannotSee: []
     },
-  // {
-  //   state: 'feedback',
-  //   name: '消息反馈',
-  //   type: 'link',
-  //   icon: 'perm_contact_calendar',
-  //   rolesCannotSee: []
-  // }
+  {
+    state: 'vis',
+    name: '自定义可视化',
+    type: 'link',
+    icon: 'dashboard',
+    rolesCannotSee: []
+  }
 ];
 
 @Injectable()

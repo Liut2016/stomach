@@ -1,0 +1,28 @@
+<p>
+  选择可视化方法
+</p>
+<mat-form-field>
+  <mat-select [(value)]="x">
+    <mat-option>选择X轴数据</mat-option>
+    <div *ngFor="let item of dims">
+      <mat-option value="item">{{item}}</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-select [(value)]="y">
+    <mat-option>选择y轴数据</mat-option>
+    <div *ngFor="let item of dims">
+      <mat-option value="item">{{item}}</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-select [(value)]="mark">
+    <mat-option>选择图表类型</mat-option>
+    <mat-option value="option1">柱形图</mat-option>
+    <mat-option value="option2">饼图</mat-option>
+    <mat-option value="option3">散点图</mat-option>
+  </mat-select>
+</mat-form-field>
+<button (click)="getJson()">可视化</button>
