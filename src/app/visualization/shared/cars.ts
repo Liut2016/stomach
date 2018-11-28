@@ -4466,6 +4466,10 @@ export const carsData = [
       'Origin': 'USA'
     }
   ];
+  export const getCars = () => {
+      return carsData;
+  };
+  console.log(getCars());
 export const getProcessedCars = () => {
     const carsOrigins = [];
     carsData.forEach(n => {
