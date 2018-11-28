@@ -3,7 +3,10 @@ import json
 import numpy as np
 from sklearn import manifold
 from tsne import getReuslt
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def hello():

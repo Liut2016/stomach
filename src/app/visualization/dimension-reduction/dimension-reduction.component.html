@@ -3,11 +3,19 @@
 </p>
 
 <p>
+    <mat-slider
+    class="example-margin"
+    [max]="500"
+    [min]="5"
+    [step]="1"
+    [thumbLabel]="true"
+    [(ngModel)]="dataProjectionConfiguration.tsneConfiguration.randomState">
+</mat-slider>
     <mat-form-field style="width: 100px">
         <input matInput type="number" placeholder="Please input random status">
       </mat-form-field>
-      <button mat-raised-button>确定</button>
+      <button mat-raised-button (click)="sure()">确定</button>
 </p>
 <svg #dataTsne></svg>
 <svg #dimTsne ></svg>
-<div id="drResult" #drResult ></div>
+<svg id="drResult" #drResult ></svg>

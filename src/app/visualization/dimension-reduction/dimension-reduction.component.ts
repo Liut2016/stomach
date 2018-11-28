@@ -3,6 +3,7 @@ import { carsData, getProcessedCars, getCarsTSNE, getCarsDimTSNE } from '../shar
 import { ScatterPlot } from './scatter-plot';
 import { ScatterDimPlot } from './scatter-plot-dim';
 import { ScatterMatrixPlot } from './scatter-plot-matrix';
+import { HttpForNowService } from '@app/core/services/http-for-now.service';
 
 @Component({
   selector: 'app-dimension-reduction',
@@ -13,10 +14,29 @@ export class DimensionReductionComponent implements OnInit {
   scatterPlotForData: ScatterPlot;
   scatterPlotForDim: ScatterDimPlot;
   scatterMatrixPlot: ScatterMatrixPlot;
+
+  dataProjectionConfiguration = {
+    indexes: [],
+    dimensions: [],
+    isDataProjection: 1,
+    tsneConfiguration: {
+      randomState: 50
+    }
+  };
+
+  dimensionProjectionConfiguration = {
+    indexes: [],
+    dimensions: [],
+    isDataProjection: 0,
+    tsneConfiguration: {
+      randomState: 50
+    }
+  };
+
   @ViewChild('dataTsne') dataTarget;
   @ViewChild('dimTsne') dimTarget;
   @ViewChild('drResult') drResultTarget;
-  constructor() { }
+  constructor(public httpService: HttpForNowService) { }
 
   ngOnInit() {
     /* console.log(carsData); */
@@ -99,6 +119,12 @@ export class DimensionReductionComponent implements OnInit {
     // const outputScaled = model.getOutputScaled();
 
     // console.log(error, iter, output, outputScaled);
+  }
+
+  sure() {
+    this.httpService.getDRResult([], [], 1, {randomState: 50}).then(res => {
+      console.log(res);
+    });
   }
 
 
