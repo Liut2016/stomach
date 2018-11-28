@@ -106,7 +106,7 @@
 general-component-list组件用来展示自定义的表单组件，首先在类文件中导入该组件列表components_list，再在类中添加一个components_list属性，以供绑定，components_list = components_list; 然后在模板文件中用ngFor来实现对components_list数组的遍历，再用ngFor和ngSwitch实现对每个自定义组件中所包含基础组件的显示，其中ngSwitchcase都是shared文件夹下general-components模块中的每一个封装好的基本组件，通过[conf]属性绑定基本组件，实现组件之间的通信。
 
 #####代码如下：
-```
+``` javascript
 
 <mat-tab-group (selectedTabChange)="changeTab($event)">
 <mat-tab *ngFor="let tab of components_list" [label]="tab.step_description">
@@ -135,7 +135,7 @@ general-component-list组件用来展示自定义的表单组件，首先在类�
 然后在shared文件夹中，包含子系统之间共享的一些内容，其中general-components中包含的是所有基本组件的实现，需要注意的是这些组件在shared.mudule.ts模板文件中必须保证导入、声明以及导出。另外在conf-interface.ts类文件中,导出了一个带有@Input（）装饰器的输入属性conf，用来让外部的general-component-list组件来绑定到它，其他valid_confirmed属性表验证确认以及edit_disabled输入属性表示组件是否可编辑。
 
 #####代码如下：
-```
+```javascript
 import { Input } from '@angular/core';
 
 export class ConfInterface {
@@ -156,15 +156,16 @@ public valid_confirmed = false;
   - [ ] 数据录入
   - [ ] 随访管理
 
+
 gantt
-dateFormat YYYY-MM-DD
-title 进展与计划
-section 初期阶段
-系统初步完善组件模块的封装和接口设计:2018-10-01,10d
-section 中期阶段
-拿到数据后跟进开发，完善表单:2018-12-01,10d
-section 后期阶段
-性能测试，调整优化:2018-01-01,10d
+  dateFormat YYYY-MM-DD
+  title 进展与计划
+  section 初期阶段
+  系统初步完善组件模块的封装和接口设计:2018-10-01,10d
+  section 中期阶段
+  拿到数据后跟进开发，完善表单:2018-12-01,10d
+  section 后期阶段
+  性能测试，调整优化:2018-01-01,10d
 
 ---
 
@@ -176,12 +177,5 @@ Model|View|ViewModel
 
 Angular引入数据结构并复用组件模块生成GUI
 
-![MVVM](/home/xujingqin/Picture.png "MVVM")
-
-
-
-
-
-
-
+![MVVM](../../../../../home/xujingqin/Picture.png "MVVM")
 

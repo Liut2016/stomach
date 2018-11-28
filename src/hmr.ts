@@ -8,7 +8,7 @@ let ngModule: NgModuleRef<any>;
 
 module.hot.accept();
 
-bootstrap().then(mod => ngModule = mod);
+bootstrap().then(currentModule => ngModule = currentModule);
 
 module.hot.dispose(() => {
 
@@ -16,11 +16,11 @@ const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
 
 const elements = appRef.components.map(c => c.location.nativeElement);
 
-const makeVisible = createNewHosts(elements);
+const removeOldHosts = createNewHosts(elements);
 
 ngModule.destroy();
 
-makeVisible();
+removeOldHosts();
 
 });
 
