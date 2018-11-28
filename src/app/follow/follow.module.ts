@@ -6,15 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DemoMaterialModule} from '@app/demo-material-module';
 import { FollowRoutes} from '@app/follow/follow.routing';
-
-import { FollowUpHypertensionOverviewComponent } from '@app/follow/follow-up-hypertension-overview/follow-up-hypertension-overview.component';
-import { FollowUpHypertensionSingleviewComponent} from '@app/follow/follow-up-hypertension-singleview/follow-up-hypertension-singleview.component';
-import { FollowUpHypertensionComponent, DialogOverviewFollowHyperDialogComponent} from '@app/follow/follow-up-hypertension/follow-up-hypertension.component';
-
-import { FollowUpDiabetesOverviewComponent} from '@app/follow/follow-up-diabetes-overview/follow-up-diabetes-overview.component';
-import { FollowUpDiabetesSingleviewComponent } from '@app/follow/follow-up-diabetes-singleview/follow-up-diabetes-singleview.component';
-import { FollowUpDiabetesComponent, DialogOverviewFollowDiabetesDialogComponent} from '@app/follow/follow-up-diabetes/follow-up-diabetes.component';
 import {SharedModule} from '@app/shared/shared.module';
+import { FollowUpMammaryComponent } from './follow-up-mammary/follow-up-mammary.component';
+import { FollowUpMammaryOverviewComponent } from './follow-up-mammary-overview/follow-up-mammary-overview.component';
+import { FollowUpMammarySingleviewComponent } from './follow-up-mammary-singleview/follow-up-mammary-singleview.component';
 
 @NgModule({
   imports: [
@@ -27,18 +22,11 @@ import {SharedModule} from '@app/shared/shared.module';
     SharedModule
   ],
   declarations: [
-    FollowUpHypertensionOverviewComponent,
-    FollowUpHypertensionSingleviewComponent,
-    FollowUpHypertensionComponent,
-    DialogOverviewFollowHyperDialogComponent,
-    FollowUpDiabetesOverviewComponent,
-    FollowUpDiabetesSingleviewComponent,
-    FollowUpDiabetesComponent,
-    DialogOverviewFollowDiabetesDialogComponent,
+    FollowUpMammaryComponent,
+    FollowUpMammaryOverviewComponent,
+    FollowUpMammarySingleviewComponent,
   ],
   entryComponents: [
-    DialogOverviewFollowHyperDialogComponent,
-    DialogOverviewFollowDiabetesDialogComponent
   ],
 })
 

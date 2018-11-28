@@ -178,9 +178,6 @@ export class DialogHypertensionGradingComponent {
 })
 
 export class DiagnosisComponent implements OnInit {
-  grading = [ '高血压1级', '高血压2级', '高血压3级'];
-  danger = [ '低危', '中危', '高危', '很高危'];
-  ifmove = [ '初诊转诊', '随访转诊', '立即急救车转诊'];
   historydisease = '';
   constructor(
     private ls: LocalStorage,

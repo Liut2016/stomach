@@ -19,6 +19,14 @@
           <mat-label>负责医师</mat-label>
         </mat-form-field>
 
+        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
+          <input matInput placeholder="患者姓名" [(ngModel)]="patientName">
+        </mat-form-field>
+
+        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
+          <input matInput placeholder="患者身份证号" [(ngModel)]="idNumber" >
+        </mat-form-field>
+        <br>
         <label *ngIf="user.role !== 'patient'" style="margin-right: 5px">录入时间段：</label>
 
         <mat-form-field *ngIf="user.role !== 'patient'" style="max-width: 200px;">
@@ -33,15 +41,6 @@
           <input matInput [matDatepicker]="picker2" placeholder="选择一个时间" [(ngModel)]="endTime">
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-
-
-        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
-          <input matInput placeholder="患者姓名" [(ngModel)]="patientName">
-        </mat-form-field>
-
-        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
-          <input matInput placeholder="患者身份证号" [(ngModel)]="idNumber" >
         </mat-form-field>
         <button  *ngIf="user.role !== 'patient'" mat-raised-button color="primary" (click)="search()">查询</button>
 

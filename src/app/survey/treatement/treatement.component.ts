@@ -14,6 +14,6 @@ export class TreatementComponent implements OnInit {
   ngOnInit() {
   }
   next() {
-    this.router.navigate(['survey/hypertensionMS']);
+    this.router.navigate(['survey/mammaryMS']);
   }
 }

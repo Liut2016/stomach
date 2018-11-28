@@ -7,10 +7,22 @@
       </p>
       <p>
           <mat-form-field>
-              <mat-label>请输入新密码</mat-label>
-            <input matInput [type]="pwdHide ? 'password' : 'text'" [(ngModel)]="newUser.password" required>
+            <!--<mat-label>请输入新密码</mat-label>-->
+            <input matInput [type]="pwdHide ? 'password' : 'text'" placeholder="密码" [(ngModel)]="newUser.password"  [formControl]="form.controls['password']">
+            
             <mat-icon matSuffix (click)="pwdHide = !pwdHide">{{pwdHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">请输入密码</small>
           </mat-form-field>
+      </p>
+      <p>
+          <mat-form-field>
+            <!--<mat-label>请再次确认密码</mat-label>-->
+            <input matInput [type]="pwdHide ? 'password' : 'text'" placeholder="确认密码" [formControl]="form.controls['confirmPassword']">
+          
+            <mat-icon matSuffix (click)="pwdHide = !pwdHide">{{pwdHide ? 'visibility' : 'visibility_off'}}</mat-icon> 
+          </mat-form-field>
+          <small *ngIf="form.controls['confirmPassword'].errors?.equalTo&&form.controls['confirmPassword'].touched" class="text-danger support-text">密码不匹配</small>
+   
       </p>
       <p>
         <mat-form-field style="width: 50%">
@@ -38,12 +50,13 @@
               <input matInput placeholder="身份证号" [(ngModel)]="newUser.idNumber" required>
             </mat-form-field>
       </p>
-
       <p>
           <mat-form-field>
-            <input matInput placeholder="邮箱" [(ngModel)]="newUser.email">
+            <input matInput placeholder="邮箱" [(ngModel)]="newUser.email" [formControl]="form.controls['email']">
           </mat-form-field>
-        </p>
+            <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="text-danger support-text">请输入您的邮箱地址.</small>
+            <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="text-danger support-text">请输入有效的邮箱地址.</small>
+      </p>
 
 
 

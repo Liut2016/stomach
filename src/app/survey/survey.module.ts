@@ -7,18 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoMaterialModule} from '@app/demo-material-module';
 import { SurveyRoutes} from '@app/survey/survey.routing';
 
-import { HypertensionOverviewComponent} from '@app/survey/hypertension-overview/hypertension-overview.component';
-import { HypertensionComponent, DialogOverviewExampleDialogComponent } from '@app/survey/hypertension/hypertension.component';
-
-import { DiabetesOverviewComponent} from '@app/survey/diabetes-overview/diabetes.overview.component';
-import { DiabetesComponent, DialogDiabetesComponent} from '@app/survey/diabetes/diabetes.component';
-
 import { ReportComponent} from '@app/survey/report/report.component';
 import { DiagnosisComponent, DialogHypertensionGradingComponent} from '@app/survey/diagnosis/diagnosis.component';
 import { TreatementComponent} from '@app/survey/treatement/treatement.component';
 
 
 import { SharedModule} from '@app/shared/shared.module';
+import { MammaryComponent } from './mammary/mammary.component';
+import { MammaryOverviewComponent } from './mammary-overview/mammary-overview.component';
 
 
 
@@ -33,20 +29,14 @@ import { SharedModule} from '@app/shared/shared.module';
     SharedModule
   ],
   declarations: [
-    HypertensionOverviewComponent,
-    HypertensionComponent,
-    DialogOverviewExampleDialogComponent,
-    DiabetesOverviewComponent,
-    DiabetesComponent,
-    DialogDiabetesComponent,
     ReportComponent,
     DiagnosisComponent,
     DialogHypertensionGradingComponent,
     TreatementComponent,
+    MammaryComponent,
+    MammaryOverviewComponent,
   ],
   entryComponents: [
-    DialogOverviewExampleDialogComponent,
-    DialogDiabetesComponent,
     DialogHypertensionGradingComponent
   ]
 })

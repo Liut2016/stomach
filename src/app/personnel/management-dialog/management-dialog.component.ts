@@ -1,10 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { HttpForNowService } from '@app/core/services/http-for-now.service';
 import { SettingsService } from '@app/core/services/settings.service';
+import { CustomValidators } from 'ng2-validation';
 
+const password = new FormControl('', Validators.required);
+const confirmPassword = new FormControl('', CustomValidators.equalTo(password));
 
 @Component({
   selector: 'app-management-dialog',
@@ -12,11 +15,13 @@ import { SettingsService } from '@app/core/services/settings.service';
   styleUrls: ['./management-dialog.component.css']
 })
 export class ManagementDialogComponent implements OnInit {
+  public form: FormGroup;
+
   newUser = {
     username: '',
+    firstname:'',
+    lastname:'',
     community: '',
-    firstName: '',
-    lastName: '',
     role: '',
     password: '',
     email: '',
@@ -43,13 +48,18 @@ export class ManagementDialogComponent implements OnInit {
   ];
   roles2select;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<ManagementDialogComponent>,
-  public httpService: HttpForNowService, public settings: SettingsService) {
+  public httpService: HttpForNowService, public settings: SettingsService,private fb: FormBuilder) {
     console.log(data);
     this.roles2select = data.roles2create;
     console.log(this.roles2select);
   }
 
   ngOnInit() {
+    this.form = this.fb.group( {
+      email: [null, Validators.compose([Validators.required, CustomValidators.email])],
+      password: password,
+      confirmPassword: confirmPassword
+    } );
   }
 
   sure() {
@@ -63,7 +73,7 @@ export class ManagementDialogComponent implements OnInit {
 
   signUpUser() {
     const newUser = this.newUser;
-    this.httpService.signUpUser(newUser.username, newUser.firstName, newUser.lastName, newUser.community, newUser.password,
+    this.httpService.signUpUser(newUser.username, newUser.firstname,newUser.lastname,newUser.community, newUser.password,
       newUser.email, newUser.idNumber)
       .then(res => {
         console.log(res);

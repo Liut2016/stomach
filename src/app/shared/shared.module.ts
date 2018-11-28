@@ -20,6 +20,7 @@ import { DynamicRowTableComponent} from '@app/shared/general-components/dynamic-
 import { GeneralInputConditionComponent } from '@app/shared/general-components/general-input-condition/general-input-condition.component';
 import { GeneralSelectComponent } from '@app/shared/general-components/general-select/general-select.component';
 import { GeneralExpansionPanelComponent } from '@app/shared/general-components/general-expansion-panel/general-expansion-panel.component';
+import { GeneralStepperComponent } from './general-components/general-stepper/general-stepper.component';
 
 
 
@@ -50,7 +51,8 @@ import { GeneralExpansionPanelComponent } from '@app/shared/general-components/g
     DynamicRowTableComponent,
     GeneralInputConditionComponent,
     GeneralSelectComponent,
-    GeneralExpansionPanelComponent
+    GeneralExpansionPanelComponent,
+    GeneralStepperComponent
   ],
   exports: [
     AccordionAnchorDirective,
@@ -71,7 +73,8 @@ import { GeneralExpansionPanelComponent } from '@app/shared/general-components/g
     DynamicRowTableComponent,
     GeneralInputConditionComponent,
     GeneralSelectComponent,
-    GeneralExpansionPanelComponent
+    GeneralExpansionPanelComponent,
+    GeneralStepperComponent
    ],
   providers: [ MenuItems ]
 })

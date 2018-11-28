@@ -15,8 +15,14 @@
           <mat-option *ngFor="let option of conf.options" [value]="option">{{option}}</mat-option>
         </mat-select>
      </mat-form-field>
-      <mat-form-field *ngIf="condition">
-        <input matInput  title="extra_input" placeholder="">
+      <mat-form-field *ngIf="condition1">
+        <input matInput  title="extra_input" placeholder="1个输入框">
+      </mat-form-field>
+      <mat-form-field *ngIf="condition2">
+        <input matInput  title="extra_input1" placeholder="第一个输入框">
+      </mat-form-field>
+      <mat-form-field *ngIf="condition2">
+        <input matInput  title="extra_input1" placeholder="第二个输入框">
       </mat-form-field>
     </mat-card-content>
   </mat-card>

@@ -151,15 +151,158 @@ export const survey_list = [
     },
     {
         step_description: '一般检查项目',
-        items: []
+        items: [
+            {
+                type: 'table',
+                title: '一般检查项目',
+                required: false,
+                cols: 6,
+                layout:[
+                    { type: 'text',cols: 1,rows: 1,text: '血常规 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*109' },
+                    { type: 'text', cols: 1, rows: 1, text: '尿常规 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*110' },
+                    { type: 'text', cols: 1, rows: 1, text: '粪常规 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*111' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '生化 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*112' },
+                    { type: 'text', cols: 1, rows: 1, text: '肝肾功 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*113' },
+                    { type: 'text', cols: 1, rows: 1, text: '风湿免疫抗体 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*114' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '女性性激素 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*115' },
+                    { type: 'text', cols: 1, rows: 1, text: '凝血系列 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*116' },
+                    { type: 'text', cols: 1, rows: 1, text: '女性肿瘤标志物 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '1.5*117' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '甲功八项 :' },
+                    { type: 'text', cols: 5, rows: 1, text: '1.5*118' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '胸片：' },
+                    { type: 'text', cols: 5, rows: 1, text: '无' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '心电图 :' },
+                    { type: 'text', cols: 5, rows: 1, text: '无' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '子宫B超 :' },
+                    { type: 'text', cols: 5, rows: 1, text: '无' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '胸部CT :' },
+                    { type: 'text', cols: 5, rows: 1, text: '无' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '脑部CT :' },
+                    { type: 'text', cols: 5, rows: 1, text: '无' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '腹部CT :' },
+                    { type: 'text', cols: 5, rows: 1, text: '无' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '心脏彩超：' },
+                    { type: 'text', cols: 5, rows: 1, text: '无' },
+                ]
+            }
+        ]
     },
     {
         step_description: '特殊检查项目',
-        items: []
+        items: [
+            {
+                  type: 'table',
+                  title: '病理学检查报告单',
+                  required: false,
+                  cols: 6,
+                  layout: [
+                    { type: 'text', cols: 1, rows: 2, text: '肿瘤位置 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '位置 :' },
+                    { type: 'radio', cols: 2, rows: 1,  options: ['左乳', '右乳'],key_value: { _key: '肿瘤位置', _value: '' }},
+                    { type: 'text', cols: 1, rows: 1, text: '肿瘤大小 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '5cm*4cm*3cm' },
+                    { type: 'text', cols: 1, rows: 1, text: '方向 :' },
+                    { type: 'radio', cols: 2, rows: 1,  options: ['11点钟方向', '3点钟方向'],key_value: { _key: '肿瘤位置', _value: '' }},
+                    { type: 'text', cols: 1, rows: 1, text: '肿瘤大小（T） :' },
+                    { type: 'text', cols: 1, rows: 1, text: 'T0,Tis,Tis(DCIS),Tis(LCIS),Tis(Pagets),T1a,T1b,T1c,T2,T3,T4a,T4b,T1c,T1d' },
+                
+
+                    { type: 'text', cols: 1, rows: 1, text: '淋巴结转移个数 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '10' },
+                    { type: 'text', cols: 1, rows: 1, text: '淋巴结（N） :' },
+                    { type: 'text', cols: 3, rows: 1, text: 'Nx,N0,N1,N2a，N2b,N3a,N3b,N3c' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '病历分期（pN） :' },
+                    { type: 'text', cols: 1, rows: 1, text: '无' },
+                    { type: 'text', cols: 1, rows: 1, text: '远处转移（M）:' },
+                    { type: 'text', cols: 1, rows: 1, text: 'M0' },
+                    { type: 'text', cols: 1, rows: 1, text: 'tnm分明 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '无' },
+
+                    { type: 'text', cols: 1, rows: 1, text: '临床分期 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '4' },
+                    { type: 'text', cols: 1, rows: 1, text: '组织学分级 :' },
+                    { type: 'radio', cols: 3, rows: 1, options:['低分化','中分化','高分化'],key_value: { _key: '组织分级', _value: '' }},
+
+                    { type: 'text', cols: 1, rows: 1, text: '免疫组化 :' },
+                    { type: 'text', cols: 2, rows: 1, text: 'ER(+),PR(2+),Her2(3+),Ki67（+）15%' },
+                    { type: 'text', cols: 1, rows: 1, text: '补充检查 :' },
+                    { type: 'text', cols: 2, rows: 1, text: 'Her2 70%' },
+
+                    { type: 'text', cols: 1, rows: 3, text: '乳腺B超 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '检查日期 :' },
+                    { type: 'text', cols: 4, rows: 1, text: ' ' },
+                    { type: 'text', cols: 1, rows: 2, text: '检查结果 ：' },
+                    { type: 'text', cols: 4, rows: 2, text: ' ' },
+
+                    { type: 'text', cols: 1, rows: 3, text: '乳腺磁共振 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '检查日期 :' },
+                    { type: 'text', cols: 4, rows: 1, text: ' ' },
+                    { type: 'text', cols: 1, rows: 2, text: '检查结果 ：' },
+                    { type: 'text', cols: 4, rows: 2, text: ' ' },
+
+                    { type: 'text', cols: 1, rows: 3, text: '乳腺钼靶 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '检查日期 :' },
+                    { type: 'text', cols: 4, rows: 1, text: ' ' },
+                    { type: 'text', cols: 1, rows: 2, text: '检查结果 ：' },
+                    { type: 'text', cols: 4, rows: 2, text: ' ' },
+
+                    { type: 'text', cols: 1, rows: 3, text: '乳管镜 :' },
+                    { type: 'text', cols: 1, rows: 1, text: '检查日期 :' },
+                    { type: 'text', cols: 4, rows: 1, text: ' ' },
+                    { type: 'text', cols: 1, rows: 2, text: '检查结果 ：' },
+                    { type: 'text', cols: 4, rows: 2, text: ' ' },           
+                ]
+            },
+        ]
     },
     {
         step_description: '治疗方式',
-        items: []
+        items: [
+            { type: 'table',
+              title: '化疗',
+              required: false,
+              cols:4,
+              layout:[
+                  {type: 'text',cols: 1,rows: 1,text:'化疗方案 ：'},
+                  {type: 'text',cols: 3,rows: 1,text:'AC-T '},
+                  {type: 'text',cols: 1,rows: 1,text:'化疗剂量 ：'},
+                  {type: 'text',cols: 3,rows: 1,text:'无 '},
+                  {type: 'text',cols: 1,rows: 1,text:'化疗次数 ：'},
+                  {type: 'text',cols: 3,rows: 1,text:'无 '},
+              ]
+            },
+            {
+                type: 'table',
+                title: '放疗',
+                required: false,
+                cols:4,
+                layout:[
+                    {type: 'text',cols: 1,rows: 1,text:'放疗方案 ：'},
+                    {type: 'text',cols: 3,rows: 1,text:'  '},
+                    
+                ]
+            }
+        ]
     },
     {
         step_description: '随访一般项目',
@@ -176,6 +319,9 @@ export const survey_list = [
     },
     {
         step_description: '出院记录',
-        items: []
+        items: [
+            { type: 'text', text: '主诉',required: false},
+            { type: 'date', title: '出院时间', key_value: { _key: '出生日期', _value: 'Tue Jul 20 2018' }},
+        ]
     }
 ];

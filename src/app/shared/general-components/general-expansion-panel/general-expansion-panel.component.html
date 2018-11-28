@@ -1,23 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        个人信息
-      </mat-panel-title>
-      <mat-panel-description>
-        请输入你的名字和年龄
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <input matInput placeholder="Name">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
-  </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true"
+  <mat-expansion-panel *ngFor="let item of data_list" (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -27,10 +9,83 @@
         请选择以下事项
       </mat-panel-description>
     </mat-expansion-panel-header>
-      <section >
-        <mat-checkbox  style="margin-left: 10px" *ngFor="let option of conf.options, index as i" [(ngModel)]="conf.key_value[i]._value" (ngModelChange)="answerChange()" [disabled]="edit_disabled">
-          {{option}}
-        </mat-checkbox>
-      </section>
+    <mat-card>
+      <mat-card-content>
+        <mat-grid-list [cols]="conf.cols" rowHeight="80px">
+          <mat-grid-tile *ngFor="let item of conf.layout" [colspan]="item.cols" [rowspan]="item.rows" style="border: 1px solid #020303">
+
+            <div *ngIf="item.type=='input_with_text'" style="max-width: 99%">
+              <label *ngIf="item.left_text" style="margin-right: 8px">{{item.left_text}}</label>
+              <mat-form-field style="max-width: 60px">
+                <input matInput [(ngModel)]="item.key_value._value" [disabled]="item.disabled" (ngModelChange)="answerChange()">
+              </mat-form-field>
+              <label *ngIf="item.right_text" style="margin-left: 8px">{{item.right_text}}</label>
+            </div>
+
+            <div *ngIf="item.type=='input_double_with_text'" style="max-width: 99%">
+              <label *ngIf="item.left_text" style="margin-right: 5px">{{item.left_text}}</label>
+              <mat-form-field style="max-width: 50px">
+                <input matInput [(ngModel)]="item.key_value[0]._value" [disabled]="item.disabled" (ngModelChange)="answerChange()">
+              </mat-form-field>
+              <label *ngIf="item.center_text" style="margin-left: 5px; margin-right: 5px">{{item.center_text}}</label>
+              <mat-form-field style="max-width: 50px">
+                <input matInput [(ngModel)]="item.key_value[1]._value" [disabled]="item.disabled" (ngModelChange)="answerChange()">
+              </mat-form-field>
+              <label *ngIf="item.right_text" style="margin-left: 5px">{{item.right_text}}</label>
+            </div>
+
+            <mat-form-field *ngIf="item.type=='input'" style="max-width: 80%">
+              <!--<mat-label *ngIf="item.left_text">{{item.left_text}}</mat-label>-->
+              <input matInput [(ngModel)]="item.key_value._value" [disabled]="item.disabled" >
+              <mat-label *ngIf="item.right_text">{{item.right_text}}</mat-label>
+            </mat-form-field>
+
+
+            <mat-radio-group *ngIf="item.type=='radio'" [(ngModel)]="item.key_value._value" (ngModelChange)="answerChange()" [disabled]="item.disabled">
+              <mat-label *ngIf="item.left_text">{{item.left_text}}</mat-label>
+              <mat-radio-button *ngFor="let option of item.options"  [value]="option" style="margin-left: 5px">
+                {{option}}
+              </mat-radio-button>
+              <mat-label *ngIf="item.right_text">{{item.right_text}}</mat-label>
+            </mat-radio-group>
+
+            <mat-label *ngIf="item.type=='text'" style="color: #020303; font-size: large">{{item.text}}</mat-label>
+
+            <mat-select *ngIf="item.type=='option'" style="max-width: 80%" [(ngModel)]="item.key_value._value" (ngModelChange)="answerChange()"  placeholder="请点击选择" [disabled]="item.disabled">
+              <mat-option>--请点击选择--</mat-option>
+              <mat-option  *ngFor="let option of item.options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-select>
+
+            <mat-select *ngIf="item.type=='year_selector'" style="max-width: 80%" [(ngModel)]="item.key_value._value" (ngModelChange)="answerChange()"  placeholder="请点击选择" [disabled]="item.disabled">
+              <mat-option>--请点击选择--</mat-option>
+              <mat-option  *ngFor="let option of item.options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-select>
+
+            <section *ngIf="item.type=='checkbox'">
+              <mat-checkbox *ngFor="let option of item.options,index as i" class="example-margin" (change)="answerChange()" [(ngModel)]="item.key_value[i]._value" [disabled]="item.disabled">{{option}}</mat-checkbox>
+            </section>
+
+            <mat-form-field *ngIf="item.type=='date'" style="max-width: 250px">
+              <input style="max-width: 300px" matInput [matDatepicker]="picker" [(ngModel)]="item.key_value._value" (ngModelChange)="answerChange()"  placeholder="点击选择时间" [disabled]="item.disabled">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div *ngIf="item.type==='file'" style="max-width: 300px">
+              <a class="file">
+                <input type="file"> 选择文件
+              </a>
+              <a class="text">
+                {{item.fileName}}
+              </a>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+
   </mat-expansion-panel>
 </mat-accordion>

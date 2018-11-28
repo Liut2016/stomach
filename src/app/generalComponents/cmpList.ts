@@ -29,12 +29,30 @@ export const components_list = [
     {
         step_description: 'Select',
         items: [
-            { type: 'select', title: '地址选择',key_value: { _key: '地址', _value: ''}, required: true, placeholder: '点击选择', options: ['陕西省', '山西省', '自定义'], target_value:'自定义'},
+            { type: 'select', title: '地址选择',key_value: { _key: '地址', _value: ''}, required: true, placeholder: '点击选择', options: ['陕西省', '山西省', '自定义输入1','自定义输入2'], target_value1:'自定义输入1',target_value2:'自定义输入2'},
         ]
     },
     {   step_description: 'Expansion panel',
         items: [
-            { type: 'expansion-panel', title: '信息输入',key_value: [{ _key: '事项', _value: false }, { _key: '事项', _value: false }], required: true,options:['查询','预约']},
+            {
+                type: 'panel-table',
+                title: '信息输入',
+                required: true,
+                displayControl: { check: false },
+                cols: 4,
+                layout: [
+                    { type: 'text', cols: 1, rows: 1, text: '检查时间：' },
+                    { type: 'date', cols: 3, rows: 1, key_value: { _key: '皮质醇定量及昼夜节律检查时间', '_value': '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '时间点：' },
+                    { type: 'text', cols: 1, rows: 1, text: '8:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '16:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '00:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '皮质醇' },
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇8:00', _value: ''}, disabled: false},
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇16:00', _value: ''}, disabled: false},
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇00:00', _value: ''}, disabled: false},
+                ]
+            },
         ]
     },
     {
@@ -109,6 +127,13 @@ export const components_list = [
                     ]
                 }
             }
+        ]
+    },
+    {
+        step_description:"Stepper",
+        items:
+        [
+           { type :'stepper',title :'步进输入', key_value: { _key: '病历', _value: '' }}
         ]
     }
 ];
