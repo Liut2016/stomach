@@ -7,7 +7,11 @@
     [cdkDropListConnectedTo]="[doneList, doneList1]"
     class="example-list"
   >
-    <div class="example-box" *ngFor="let item of dimension" cdkDrag>{{item}}</div>
+    <div class="example-box" *ngFor="let item of dimension" cdkDrag>
+      <i class="fa fa-calendar" *ngIf="getType(item) === 'temporal'"></i>
+      <i class="fa fa-hashtag" *ngIf="getType(item) === 'quantitative'"></i>
+      <i class="fa fa-font" *ngIf="getType(item) === 'nominal'"></i>
+      {{item}}</div>
   </div>
 </div>
 <div class="example-container" style="width: 70px;">
@@ -17,7 +21,7 @@
     <!--[cdkDropListData]="dropDic"-->
     <!--(cdkDropListDropped)="drop($event)"-->
     <!--class="example-list">-->
-    <div class="example-box" *ngFor="let item of dropDic" cdkDrag>{{item}}
+    <div class="example-box" *ngFor="let item of dropDic" >{{item}}
       <!--<i class="fa fa-remove uploadimgremove" (click)="delete1(item)"></i>-->
     </div>
   <!--</div>-->

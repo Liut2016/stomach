@@ -58,7 +58,7 @@ export class DataPaneComponent implements OnInit{
   }
 
   clear () {
-   this.dropDic = ['x轴', 'y轴', 'size', 'color', 'shape', 'detail', 'text'];
+   this.dropDic = ['x', 'y', 'size', 'color', 'shape', 'detail', 'text'];
    this.done = Array(7);
   }
 
@@ -96,7 +96,14 @@ export class DataPaneComponent implements OnInit{
     let data0 = this.data[0];
     for( let key in data0 ){
       if(key === dim ){
-        return types[2];
+        const regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+        if(regNeg.test(data0[key]) || !isNaN(data0[key])  ){
+          return types[2]
+        }else if(isNaN(data0[key])&&!isNaN(Date.parse(data0[key]))){
+          return types[3]
+        }else {
+          return types[1];
+        }
       }
     }
   }
