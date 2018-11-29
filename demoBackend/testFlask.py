@@ -2,6 +2,7 @@ from flask import Flask, request, Response
 import json
 import numpy as np
 from sklearn import manifold
+from waitress import serve
 from tsne import getReuslt
 from flask_cors import CORS
 
@@ -27,4 +28,5 @@ def getDRResult():
     response = Response(json.dumps(rt), mimetype='application/json')
     return response
 
-app.run()
+# app.run()
+serve(app, listen='127.0.0.1:5000')
