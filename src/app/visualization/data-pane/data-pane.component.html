@@ -4,7 +4,7 @@
     cdkDropList
     #todoList="cdkDropList"
     [cdkDropListData]="dimension"
-    [cdkDropListConnectedTo]="[doneList, doneList1]"
+    [cdkDropListConnectedTo]="[doneList]"
     class="example-list"
   >
     <div class="example-box" *ngFor="let item of dimension" cdkDrag>{{item}}</div>
