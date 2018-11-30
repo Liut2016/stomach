@@ -3,6 +3,7 @@ export class ScatterPlot {
 
     target: HTMLElement;
     pointsMatrix;
+    dimension;
  /*    data = new Array(100).fill(null).map(m => [Math.random(), Math.random()]); */
     svgWidth = 800;
     svgHeight = 500;
@@ -16,9 +17,10 @@ export class ScatterPlot {
     svg;
     width = this.svgWidth - this.margin.left - this.margin.right;
     height = this.svgHeight - this.margin.top - this.margin.bottom;
-    constructor(target: HTMLElement, pointsMatrix) {
+    constructor(target: HTMLElement, pointsMatrix, dimension) {
         this.target = target;
         this.pointsMatrix = pointsMatrix;
+        this.dimension = dimension;
     }
     setData(newMatrix) {
         this.pointsMatrix = newMatrix;
@@ -29,6 +31,7 @@ export class ScatterPlot {
     }
     render() {
         const pointsMatrix = this.pointsMatrix;
+        const dimension = this.dimension;
         const  xMax = d3.max(pointsMatrix, (d) => {
             return d[0]; });
         const  yMax = d3.max(pointsMatrix, (d) => {
@@ -73,6 +76,18 @@ export class ScatterPlot {
                 return yAxisScale(d[1]); })
             .attr('r', 3.5);
 
+        const text = svg.selectAll('.dimText')
+            .data(pointsMatrix)
+            .enter()
+            .append('text')
+            .text(function(d, i) {
+                return dimension[i];
+            })
+            .attr('x', d => {
+                return xAxisScale(d[0]) + 15; })
+            .attr('y', d => {
+                return yAxisScale(d[1]) + 10; })
+            .attr('fill', 'darkgreen');
 
         this.lasso.closePathSelect(true)
         .closePathDistance(100)
