@@ -8,10 +8,11 @@
 
 * [一、项目所用技术](#一-项目所用技术)
 * [二、项目体系结构](#二-项目体系结构)
-	* [2.1 模块结构](#21-模块结构)
-	* [2.1代码结构](#21代码结构)
-		* [（1）Angular整体目录结构](#1angular整体目录结构)
-		* [（2）app项目目录结构](#2app项目目录结构)
+	* [2.1 页面结构](#21-页面结构)
+	* [2.2 代码结构](#22-代码结构)
+		* [（1）Angular-cli初始结构](#1angular整体目录结构)
+		* [（2）app组件目录结构](#2app组件目录结构)
+	* [2.3 模块结构](#23-模块结构)
 * [三、组件封装的实现](#三-组件封装的实现)
 	* [3.1 自定义组件](#31-自定义组件)
 	* [3.2 组件封装的实现](#32-组件封装的实现)
@@ -35,17 +36,16 @@ Model|View|ViewModel
 >本项目中的MVVM模式体现如下：
 ![MVVM](../../../../../home/xujingqin/Picture.png "MVVM")
 
+
 * [Angular Material 官网](https://material.angular.io)
 *Angular Material的目标是使用Angular及TypeScript打造出高品质的UI元件，同时这些元件必须遵守Material Design的设计标准。直觉的API，在大部分通用的情况下，是不会有bug的，所有的元件都有撰写良好的单元测试及整合测试，让所有使用者都能够轻易与这些元件互动。可以依照Material Design准则客观化这些元件的细节，高效能、干净的程式码且所有元件都有清楚的文件及范例。*
 
 ### 二、项目体系结构
 
-#### 2.1 模块结构
+#### 2.1 页面结构
 
 * <font color="CornflowerBlue" size=4>乳腺癌患者管理</font>
-在数据管理页面，当登录者有相关权限时，可查询或清空患者的数据记录，页面上方设置了五个过滤条件输入框来确定查询对象，包括所属社区、负责医师、患者姓名、患者身份证号以及录入时间段，同时页面下方显示了病人基本信息的列表，当登录者有相关权限时，还可对列表条目进行查看和删除操作，当点击表中某一个病人的操作列中查看按钮时，可跳转至患者数据录入页面，该页面显示了患者的住院病案首页提取信息、入院病历、一般检查项目、特殊检查项目、治疗方式、随访一般项目和出院记录的详细表单信息，也可对表单信息进行修改完善。
-* <font color="CornflowerBlue" size=4>随访管理</font>
-在随访管理页面，当登录者有相关权限时，可查询或清空患者的随访记录，页面上方设置了五个过滤条件输入框来确定查询对象，包括所属社区、负责医师、患者姓名、患者身份证号以及录入时间段，同时页面下方显示了病人基本信息的列表，当登录者有相关权限时，当点击列表条目中的查看随访记录按钮时，可跳转至患者随访记录页面，该页面显示了患者基本信息以及随访记录，当点击表下方的添加按钮时，可添加新的随访记录，所填写的有常规检查、症状、新发事件、饮食生活习惯、体征、实验室检查的详细表单信息。（这里按慢性病项目写的，乳腺癌的随访暂定是放在表单中）
+在数据管理页面，当登录者有相关权限时，可查询或清空患者的数据记录，页面上方设置了五个过滤条件输入框来确定查询对象，包括所属社区、负责医师、患者姓名、患者身份证号以及录入时间段，同时页面下方显示了病人基本信息的列表，当登录者有相关权限时，还可对列表条目进行查看和删除操作，当点击表中某一个病人的操作列中查看按钮时，可跳转至患者数据录入页面，该页面显示了患者的住院病案首页提取信息、入院病历、一般检查项目、特殊检查项目、治疗方式、随访一般项目和出院记录、随访记录的详细表单信息，也可对表单信息进行修改完善。
 * <font color="CornflowerBlue" size=4>人员管理</font>
 在人员管理页面，当登录者有相关权限时，可查询该系统中注册的所有人员的基本信息，页面上方设置了六个过滤条件输入框来确定查询对象，包括用户名、姓名、角色、负责人、社区以及注册时间，同时页面下方显示了人员基本信息的列表，当点击表下方的添加按钮时，可新建用户，所填写的一些基本信息有用户名、密码、姓名、社区及邮箱，新用户即可通过用户名和密码登录本系统。
 * <font color="CornflowerBlue" size=4>医疗表单组件</font>
@@ -54,11 +54,11 @@ Model|View|ViewModel
 在自定义可视化页面中，能在可视化图像中直观清晰地查看数据并分析。
 
 
-#### 2.1代码结构
-##### （1）Angular整体目录结构
+#### 2.2 代码结构
+##### （1）Angular-cli初始结构
 ![结构](https://img-blog.csdn.net/20171229104026472?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRWRpc29uXzAz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast "angualr结构")
 
-##### （2）app项目目录结构
+##### （2）app根组件目录结构
 <details>
 <summary>app-根组件（可点击展开）</summary>
 <details>
@@ -66,12 +66,6 @@ Model|View|ViewModel
 </details>
 <details>
 <summary>core-底层服务</summary>
-</details>
-<details>
-<summary>feedback-反馈信息</summary>
-</details>
-<details>
-<summary>follow-随访管理</summary>
 </details>
 <details>
 <summary>generalcomponents-组件表单</summary>
@@ -93,6 +87,11 @@ Model|View|ViewModel
 </details>
 </details>
 </details>
+
+#### 2.3 模块结构
+
+app中主要有三个子模块，分别是表单，人员，组件。我们把所有组件单独抽出来作为一个模块，供“表单模块”和“组件库模块”两个模块去共享。
+
 
 ----
 
@@ -122,7 +121,7 @@ Model|View|ViewModel
 首先，在generalComponents文件夹中，建了一个cmpList.ts类文件，该文件创建了一个包含了所有自定义组件的components_list的json常量数组，并导出了它。每个自定义表单组件用step_description属性定义其名称，具体的自定义设计由items属性实现，items可包含多个基本组件，其中type来选择基本组件，title来定义基本组件名，key_value来匹配键值对。
 general-component-list组件用来展示自定义的表单组件，首先在类文件中导入该组件列表components_list，再在类中添加一个components_list属性，以供绑定，components_list = components_list; 然后在模板文件中用ngFor来实现对components_list数组的遍历，再用ngFor和ngSwitch实现对每个自定义组件中所包含基础组件的显示，其中ngSwitchcase都是shared文件夹下general-components模块中的每一个封装好的基本组件，通过[conf]属性绑定基本组件，实现组件之间的通信。
 
->代码如下：
+>部分代码如下：
 ``` javascript
 
 <mat-tab-group (selectedTabChange)="changeTab($event)">
@@ -131,20 +130,8 @@ general-component-list组件用来展示自定义的表单组件，首先在类�
 <ng-template matTabContent>
 <div *ngFor="let cmp of tab.items">
 <div [ngSwitch]="cmp.type">
-<app-dc-general-selector *ngSwitchCase="'selector'" [conf]="cmp" ></app-dc-general-selector>
-<app-dc-general-input *ngSwitchCase="'input'" [conf]="cmp"></app-dc-general-input>
-<app-dc-general-radio *ngSwitchCase="'radio'" [conf]="cmp"></app-dc-general-radio>
-<app-dc-general-checkbox *ngSwitchCase="'checkbox'" [conf]="cmp"></app-dc-general-checkbox>
-<app-dc-general-table *ngSwitchCase="'table'" [conf]="cmp"></app-dc-general-table>
-<app-dc-general-date *ngSwitchCase="'date'" [conf]="cmp" ></app-dc-general-date>
-<app-dc-general-date-year *ngSwitchCase="'date-year'" [conf]="cmp" ></app-dc-general-date-year>
-<app-dc-general-date-year-month *ngSwitchCase="'date-year-month'" [conf]="cmp" ></app-dc-general-date-year-month>
-<app-dc-general-card-group *ngSwitchCase="'card-group'" [conf]="cmp" ></app-dc-general-card-group>
-<app-dc-general-address *ngSwitchCase="'address'" [conf]="cmp" ></app-dc-general-address>
-<app-dc-dynamic-row-table *ngSwitchCase="'dynamic-row-table'" [conf]="cmp" ></app-dc-dynamic-row-table>
-<app-general-select *ngSwitchCase="'select'" [conf]="cmp"></app-general-select>
+<app-dc-general-select *ngSwitchCase="'select'" [conf]="cmp" ></app-dc-general-select>
 <app-general-expansion-panel *ngSwitchCase="'panel-table'" [conf]="cmp"></app-general-expansion-panel>
-<app-general-stepper *ngSwitchCase="'stepper'" [conf]="cmp"></app-general-stepper>
 </div>
 </div>
 
