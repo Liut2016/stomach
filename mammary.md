@@ -10,8 +10,8 @@
 * [二、项目体系结构](#二-项目体系结构)
 	* [2.1 页面结构](#21-页面结构)
 	* [2.2 代码结构](#22-代码结构)
-		* [（1）Angular-cli初始结构](#1angular整体目录结构)
-		* [（2）app组件目录结构](#2app组件目录结构)
+		* [（1）Angular-cli初始结构](#1angular-cli初始结构)
+		* [（2）app根组件目录结构](#2app根组件目录结构)
 	* [2.3 模块结构](#23-模块结构)
 * [三、组件封装的实现](#三-组件封装的实现)
 	* [3.1 自定义组件](#31-自定义组件)
@@ -32,9 +32,6 @@ Angular 框架模式
 模型层|视图层|视图模型层
 ---|:--:|:---:
 Model|View|ViewModel
-
->本项目中的MVVM模式体现如下：
-![MVVM](../../../../../home/xujingqin/Picture.png "MVVM")
 
 
 * [Angular Material 官网](https://material.angular.io)
@@ -88,6 +85,7 @@ Model|View|ViewModel
 </details>
 </details>
 
+
 #### 2.3 模块结构
 
 app中主要有三个子模块，分别是表单，人员，组件。我们把所有组件单独抽出来作为一个模块，供“表单模块”和“组件库模块”两个模块去共享。
@@ -96,6 +94,8 @@ app中主要有三个子模块，分别是表单，人员，组件。我们把�
 ----
 
 ### 三、组件封装的实现
+
+![MVVM](../../../../../home/xujingqin/Picture.png "MVVM")
 
 #### 3.1 自定义组件
 * dynamic-row-table 自定义动态表单
