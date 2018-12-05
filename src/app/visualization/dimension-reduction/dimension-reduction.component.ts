@@ -14,6 +14,8 @@ export class DimensionReductionComponent implements OnInit {
   scatterPlotForDim: ScatterPlot;
   scatterMatrixPlot: ScatterMatrixPlot;
 
+  Dimensions = ['Acceleration', 'Cylinders', 'Displacement', 'Horsepower', 'Miles_per_Gallon', 'Origin.USA',
+  'Origin.Europe', ' Origin.Japan', 'Weight_in_lbs', 'Year'];
   carsDataMatrix;
 
   dataProjectionConfiguration = {
@@ -45,8 +47,8 @@ export class DimensionReductionComponent implements OnInit {
     const carsTSNEMatrix = getCarsTSNE();
     const carsDimTSNEMatrix = getCarsDimTSNE();
     this.carsDataMatrix = getCars();
-    this.scatterPlotForData = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix);
-    this.scatterPlotForDim = new ScatterPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix);
+    this.scatterPlotForData = new ScatterPlot(this.dataTarget.nativeElement, carsTSNEMatrix, []);
+    this.scatterPlotForDim = new ScatterPlot(this.dimTarget.nativeElement, carsDimTSNEMatrix, this.Dimensions);
     this.scatterPlotForData.render();
     this.scatterPlotForDim.render();
     this.scatterMatrixPlot = new ScatterMatrixPlot(this.drResultTarget.nativeElement, this.carsDataMatrix);
