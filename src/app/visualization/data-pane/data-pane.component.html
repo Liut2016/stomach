@@ -7,7 +7,15 @@
     [cdkDropListConnectedTo]="[doneList]"
     class="example-list"
   >
-    <div class="example-box" *ngFor="let item of dimension" cdkDrag>{{item}}</div>
+  <div class="example-box" *ngFor="let item of dimension" cdkDrag>
+    <button mat-button [matMenuTriggerFor]="menu">{{getType(item)}}{{item}}</button>
+    <mat-menu #menu="matMenu">
+    <mat-radio-group>
+        <mat-radio-button value="Number" (click)="changeTypeNumber(item)">Number</mat-radio-button>
+        <mat-radio-button value="String" (click)="changeTypeString(item)">String</mat-radio-button>
+    </mat-radio-group>
+   </mat-menu>  
+  </div>
   </div>
 </div>
 <div class="example-container" style="width: 70px;">
@@ -18,7 +26,7 @@
     <!--(cdkDropListDropped)="drop($event)"-->
     <!--class="example-list">-->
     <div class="example-box" *ngFor="let item of dropDic" cdkDrag>{{item}}
-      <!--<i class="fa fa-remove uploadimgremove" (click)="delete1(item)"></i>-->
+      <!-- <i class="fa fa-remove uploadimgremove" (click)="delete1(item)"></i> -->
     </div>
   <!--</div>-->
 </div>
@@ -29,7 +37,7 @@
     [cdkDropListData]="done"
     (cdkDropListDropped)="drop($event)"
     class="example-list">
-    <div class="example-box" *ngFor="let item of done;let i = index" cdkDrag> {{item}}
+    <div class="example-box" *ngFor="let item of done;let i = index" cdkDrag> {{getitem(item)}}{{item}}
       <i class="fa fa-remove uploadimgremove" style="float: right" (click)="delete(item)" *ngIf="item"></i>
     </div>
   </div>
