@@ -92,8 +92,16 @@ export class DataPaneComponent implements OnInit {
     });
     return encode;
   }
-
   getType(dim) {
+    const types = ['oridinal', 'nominal', 'quantitative', 'temporal'];
+    const data0 = this.data[0];
+    for ( const key in data0 ) {
+      if (key === dim ) {
+        return types[2];
+      }
+    }
+  }
+  get(dim) {
     // const types = ['oridinal', 'nominal', 'quantitative', 'temporal'];
      const data0 = this.data[0];
     for (const key in data0) {

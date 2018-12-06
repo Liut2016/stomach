@@ -8,7 +8,7 @@
     class="example-list"
   >
   <div class="example-box" *ngFor="let item of dimension" cdkDrag>
-    <button mat-button [matMenuTriggerFor]="menu">{{getType(item)}}{{item}}</button>
+    <button mat-button [matMenuTriggerFor]="menu">{{get(item)}}{{item}}</button>
     <mat-menu #menu="matMenu">
     <mat-radio-group>
         <mat-radio-button value="Number" (click)="changeTypeNumber(item)">Number</mat-radio-button>
