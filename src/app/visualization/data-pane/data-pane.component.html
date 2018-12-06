@@ -8,12 +8,29 @@
     class="example-list"
   >
   <div class="example-box" *ngFor="let item of dimension" cdkDrag>
-    <button mat-button [matMenuTriggerFor]="menu">{{get(item)}}{{item}}</button>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <div *ngIf = "get(item)">
+      <span class="type fa  fa-font"  ng-show="showType" title="nominal"></span>
+      <span>{{item}}</span>
+    </div>
+    <div *ngIf = "!get(item)">
+      <span class="type fa  fa-bars"  ng-show="showType" title="quantitative"></span>
+      <span>{{item}}</span>
+    </div>
+    </button>
     <mat-menu #menu="matMenu">
-    <mat-radio-group>
-        <mat-radio-button value="Number" (click)="changeTypeNumber(item)">Number</mat-radio-button>
-        <mat-radio-button value="String" (click)="changeTypeString(item)">String</mat-radio-button>
-    </mat-radio-group>
+    <div *ngIf= "get(item)">
+      <mat-radio-group>
+          <mat-radio-button value="quantitative" (click)="changeTypeNumber(item)">quantitative</mat-radio-button>
+          <mat-radio-button value="nominal"  checked=true (click)="changeTypeString(item)">nominal</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div *ngIf= "!get(item)">
+        <mat-radio-group>
+            <mat-radio-button value="quantitative" checked=true  (click)="changeTypeNumber(item)">quantitative</mat-radio-button>
+            <mat-radio-button value="nominal" (click)="changeTypeString(item)">nominal</mat-radio-button>
+        </mat-radio-group>
+      </div>
    </mat-menu>  
   </div>
   </div>
@@ -37,8 +54,17 @@
     [cdkDropListData]="done"
     (cdkDropListDropped)="drop($event)"
     class="example-list">
-    <div class="example-box" *ngFor="let item of done;let i = index" cdkDrag> {{getitem(item)}}{{item}}
-      <i class="fa fa-remove uploadimgremove" style="float: right" (click)="delete(item)" *ngIf="item"></i>
+    <div class="example-box" *ngFor="let item of done;let i = index" cdkDrag> 
+        <div *ngIf = "getitem(item) && item">
+            <span class="type fa  fa-font"  ng-show="showType" title="nominal"></span>
+            <span> {{item}}</span>
+            <i class="fa fa-remove uploadimgremove" (click)="delete(item)" *ngIf="item"></i>
+        </div>
+        <div *ngIf = "!getitem(item) && item">
+            <span class="type fa  fa-bars" ng-show="showType" title="quantitative"></span>
+            <span>{{item}}</span>
+          <i class="fa fa-remove uploadimgremove" (click)="delete(item)" *ngIf="item"></i>
+        </div>
     </div>
   </div>
   <p>选择图表类型:</p>

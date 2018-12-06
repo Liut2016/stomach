@@ -12,9 +12,10 @@ import { isDate } from 'util';
 })
 export class DataPaneComponent implements OnInit {
    data = new testData().cars;
-   public mark: string;
+    public mark: string;
     public dimension: string[] = [];
     public done: string[] = Array(7);
+    
 
     markDic = ['area', 'bar', 'circle', 'line', 'point', 'rect', 'rule', 'tick'];
     dropDic = ['x', 'y', 'size', 'color', 'shape', 'detail', 'text'];
@@ -107,9 +108,9 @@ export class DataPaneComponent implements OnInit {
     for (const key in data0) {
       if (key === dim) {
          if (isString(data0[key])) {
-           return 'String';
+           return true;
          } else {
-           return 'Number';
+           return false;
          }
       }
     }
@@ -136,9 +137,9 @@ export class DataPaneComponent implements OnInit {
   getitem(item) {
     const data0 = this.data[0];
     if ( isString(data0[item])) {
-        return 'String';
+        return true;
     } else if (isNumber(data0[item])) {
-      return 'Number';
+      return false;
     }
     }
 }
