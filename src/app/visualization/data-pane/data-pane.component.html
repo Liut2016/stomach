@@ -9,7 +9,7 @@
   >
   <div class="example-box" *ngFor="let item of dimension" cdkDrag>
     <button mat-button [matMenuTriggerFor]="menu">
-      <div *ngIf = "get(item) === 'nominal'">
+      <div *ngIf = "get(item) === 'nominal' ">
         <span class="type fa  fa-font" title="nominal"></span>
       <span>{{item}}</span>
     </div>
@@ -23,7 +23,7 @@
     </div>
     </button>
     <mat-menu #menu="matMenu">
-    <div *ngIf= "get(item) === 'nominal'">
+    <div *ngIf= "get(item) === 'nominal' && StringisNumber(item)">
       <mat-radio-group>
           <mat-radio-button value="quantitative" (click)="changeTypeNumber(item)">quantitative</mat-radio-button>
           <mat-radio-button value="nominal"  checked=true (click)="changeTypeString(item)">nominal</mat-radio-button>

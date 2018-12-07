@@ -28,8 +28,8 @@ export class DataPaneComponent implements OnInit {
     ngOnInit() {
       this.getDataDimension(this.data);
       this.mark = this.markDic[0];
-      console.log(this.strDateTime('1970-01-01'));
-      console.log(this.isShortTime('20:43:09'));
+      console.log(this.StringisNumber('123'));
+      console.log(this.is_numeric('123'));
     }
 
     getDataDimension = (data) => {
@@ -119,7 +119,6 @@ export class DataPaneComponent implements OnInit {
     }
   }
 
-
   changeTypeNumber(item) {
     for (const key in this.dataSimple) {
       if ( key === item) {
@@ -131,18 +130,11 @@ export class DataPaneComponent implements OnInit {
   changeTypeString(item) {
     for (const key in this.dataSimple) {
       if ( key === item) {
-          this.dataSimple[key] = 'String';
+          this.dataSimple[key] = '123';
       }
     }
     console.log(this.dataSimple[item]);
   }
-  getitem(item) {
-    if ( isString(this.dataSimple[item])) {
-        return true;
-    } else if (isNumber(this.dataSimple[item])) {
-      return false;
-    }
-    }
  strDateTime(str) {
    if (isNumber(str)) {
      return false;
@@ -155,8 +147,23 @@ export class DataPaneComponent implements OnInit {
       }
   }
  }
+StringisNumber(value) {
+  for (const key in this.dataSimple) {
+    if ( key === value) {
+      return !Number.isNaN(Number(this.dataSimple[key]));
+  }
+  }
+}
+is_numeric(value) {
+  if (typeof(value) === 'object') {
+      return false;
+  } else {
+      return !Number.isNaN(Number(value));
+  }
+}
 
-isShortTime(str) {
+
+/* isShortTime(str) {
     const a = str.match(/^(\d{1,2})(:)?(\d{1,2})\2(\d{1,2})$/);
     if (a === null) {
         return false;
@@ -165,5 +172,5 @@ isShortTime(str) {
             return false;
     }
     return true;
-}
+} */
 }
