@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { survey_list } from '../surveyList';
+import { HttpService } from '@app/core/services/http.service';
+import {init} from 'protractor/built/launcher';
 
 @Component({
   selector: 'app-mammary-form',
@@ -10,9 +12,18 @@ export class MammaryFormComponent implements OnInit {
 
   mammary_list = survey_list;
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
+    this.initForm().subscribe((res) => {
+      console.log(res);
+      // fill in the answer right here
+    });
+    const part1 = this.mammary_list[0].items[0];
+    part1['layout'][1].key_value._value = '415124';
   }
 
+  initForm() {
+    return this.http.getPatient('415124');
+  }
 }

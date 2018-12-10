@@ -9,7 +9,7 @@ export const survey_list = [
             cols: 6,
             layout: [
               { type: 'text', cols: 1, rows: 1, text: '住院号 :' },
-              { type: 'text', cols: 1, rows: 1, text: '708265' },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'zyh', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '名字 :' },
               { type: 'text', cols: 1, rows: 1, text: '张三' },
               { type: 'text', cols: 1, rows: 1, text: '出生年月 :' },
@@ -224,7 +224,7 @@ export const survey_list = [
                     { type: 'radio', cols: 2, rows: 1,  options: ['11点钟方向', '3点钟方向'],key_value: { _key: '肿瘤位置', _value: '' }},
                     { type: 'text', cols: 1, rows: 1, text: '肿瘤大小（T） :' },
                     { type: 'text', cols: 1, rows: 1, text: 'T0,Tis,Tis(DCIS),Tis(LCIS),Tis(Pagets),T1a,T1b,T1c,T2,T3,T4a,T4b,T1c,T1d' },
-                
+
 
                     { type: 'text', cols: 1, rows: 1, text: '淋巴结转移个数 :' },
                     { type: 'text', cols: 1, rows: 1, text: '10' },
@@ -270,7 +270,7 @@ export const survey_list = [
                     { type: 'text', cols: 1, rows: 1, text: '检查日期 :' },
                     { type: 'text', cols: 4, rows: 1, text: ' ' },
                     { type: 'text', cols: 1, rows: 2, text: '检查结果 ：' },
-                    { type: 'text', cols: 4, rows: 2, text: ' ' },           
+                    { type: 'text', cols: 4, rows: 2, text: ' ' },
                 ]
             },
         ]
@@ -299,7 +299,7 @@ export const survey_list = [
                 layout:[
                     {type: 'text',cols: 1,rows: 1,text:'放疗方案 ：'},
                     {type: 'text',cols: 3,rows: 1,text:'  '},
-                    
+
                 ]
             }
         ]

@@ -9,6 +9,7 @@ const httpOptions = {
 @Injectable()
 export class HttpService {
   baseUrl = 'http://59.110.52.133:9010/';
+  testUrl = 'http://202.117.54.45:8080/';
   // baseUrl = 'http://202.117.54.88:9000/';
 
   constructor(
@@ -45,5 +46,11 @@ export class HttpService {
   getRecord(params: any): Observable<any> {
     return this.httpClient.get (this.baseUrl + 'disease/recordop/', { params: { q: JSON.stringify(params)}})
       .pipe( data => { return data; });
+  }
+
+  getPatient(params: any): Observable<any> {
+    return this.httpClient.get(`${this.testUrl}oa/patient/${params}`).pipe( data => {
+      return data;
+    });
   }
 }
