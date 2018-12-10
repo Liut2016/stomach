@@ -13,6 +13,9 @@ import { DataPaneComponent } from './data-pane/data-pane.component';
 import { MainComponent } from './main/main.component';
 import { DimensionReductionComponent } from './dimension-reduction/dimension-reduction.component';
 import { TreeComponent } from './tree/tree.component';
+import { TestTreeComponent } from './test-tree/test-tree.component';
+
+import {FileDatabase} from './test-tree/test-tree.component';
 
 export const visRoutes: Routes = [
   { path: '', component: MainComponent}
@@ -34,7 +37,9 @@ export const visRoutes: Routes = [
     DataPaneComponent,
     MainComponent,
     DimensionReductionComponent,
-    TreeComponent
-]
+    TreeComponent,
+    TestTreeComponent
+],
+  providers: [FileDatabase]
 })
 export class VisualizationModule { }
