@@ -40,7 +40,7 @@ export class HttpService {
     return this.httpClient.get('http://202.117.54.45:8080/oa/patients')
       .pipe( data => { return data; });
   }
-  
+
   putRecord(params: any): Observable<any> {
     return this.httpClient.put( this.baseUrl + 'disease/recordop/', params)
       .pipe( data => {  return data; });

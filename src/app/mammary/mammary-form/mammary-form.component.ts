@@ -17,14 +17,6 @@ export class MammaryFormComponent implements OnInit {
   ngOnInit() {
     this.initForm().subscribe((res) => {
       console.log(res);
-      // fill in the answer right here
-      // const part1 = this.mammary_list[0].items[0]['layout'][1];
- 
-      // if (part1.hasOwnProperty("key_value")) {
-      //   console.log(part1.key_value._key);
-      //   console.log(res.data);
-      //   part1.key_value._value = res.data[part1.key_value._key];
-      // }
       for ( let i = 0; i < this.mammary_list[0].items[0]['layout'].length; i++) {
         const part1 = this.mammary_list[0].items[0]['layout'][i];
         if (part1.key_value) {
