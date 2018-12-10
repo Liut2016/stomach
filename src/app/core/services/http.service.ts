@@ -31,10 +31,16 @@ export class HttpService {
   getChinaDivision(file_name) {
     return this.httpClient.get('assets/jsonData/' + file_name + '.json');
   }
-  getRecordList(condictions): Observable<any> {
+  /*getRecordList(condictions): Observable<any> {
     return this.httpClient.post( this.baseUrl + 'disease/recordlist/', JSON.stringify(condictions))
       .pipe( data => { return data; });
+  }*/
+
+  getRecordList(): Observable<any> {
+    return this.httpClient.get('http://202.117.54.45:8080/oa/patients')
+      .pipe( data => { return data; });
   }
+  
   putRecord(params: any): Observable<any> {
     return this.httpClient.put( this.baseUrl + 'disease/recordop/', params)
       .pipe( data => {  return data; });

@@ -90,9 +90,9 @@ export const survey_list = [
                 cols: 6,
                 layout: [
                     { type: 'text', cols: 1, rows: 1, text: '主诉:' },
-                    { type: 'text', cols: 2, rows: 1, text: '左乳包块1年月' },
+                    { type: 'text', cols: 2, rows: 1, text: '左乳包块1年月let element'},
                     { type: 'text', cols: 1, rows: 1, text: '现病史:' },
-                    { type: 'text', cols: 2, rows: 1, text: '在外院给予抗增生治疗' },
+                    { type: 'text', cols: 2, rows: 1, text: '在外院给予抗let element治疗' },
                     { type: 'text', cols: 1, rows: 1, text: '治疗时间:' },
                     { type: 'radio', cols: 1, rows: 1, options: ['术后', '术前'], key_value: { _key: '有无头晕', _value: '' }},
                     { type: 'text', cols: 1, rows: 1, text: '治疗次数:' },

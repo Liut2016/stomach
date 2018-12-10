@@ -51,7 +51,7 @@
       <mat-card style="width: 100%; margin-top: 20px">
         <table mat-table [dataSource]="PatientList" style="width: 100%;">
           <ng-container matColumnDef="PID">
-            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 病人ID </th>
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 住院号 </th>
             <td mat-cell *matCellDef="let element"> {{element.PID}} </td>
           </ng-container>
 
@@ -62,25 +62,20 @@
           </ng-container>
 
           <!-- Weight Column -->
-          <ng-container matColumnDef="DoctorName">
-            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 录入医师 </th>
-            <td mat-cell *matCellDef="let element"> {{element.DoctorName}} </td>
+          <ng-container matColumnDef="Occupation">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 病人职业 </th>
+            <td mat-cell *matCellDef="let element"> {{element.Occupation}} </td>
           </ng-container>
 
           <!-- Symbol Column -->
-          <ng-container matColumnDef="Community">
-            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 所属社区 </th>
-            <td mat-cell *matCellDef="let element"> {{element.Community}} </td>
+          <ng-container matColumnDef="Disease">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 入院诊断 </th>
+            <td mat-cell *matCellDef="let element"> {{element.Disease}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="SubmitTime">
-            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 提交时间 </th>
-            <td mat-cell *matCellDef="let element"> {{element.SubmitTime}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="UpdateTime">
-            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 更新时间 </th>
-            <td mat-cell *matCellDef="let element"> {{element.UpdateTime}} </td>
+          <ng-container matColumnDef="AdmissionTime">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 入院时间 </th>
+            <td mat-cell *matCellDef="let element"> {{element.AdmissionTime}} </td>
           </ng-container>
 
           <ng-container matColumnDef="operate">
