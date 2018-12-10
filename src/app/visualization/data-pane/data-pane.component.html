@@ -7,7 +7,36 @@
     [cdkDropListConnectedTo]="[doneList]"
     class="example-list"
   >
-    <div class="example-box" *ngFor="let item of dimension" cdkDrag>{{item}}</div>
+  <div class="example-box" *ngFor="let item of dimension" cdkDrag>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <div *ngIf = "get(item) === 'nominal' ">
+        <span class="type fa  fa-font" title="nominal"></span>
+      <span>{{item}}</span>
+    </div>
+    <div *ngIf = "get(item) === 'quantitative'">
+      <span class="type fa  fa-align-justify"  title="quantitative"></span>
+      <span>{{item}}</span>
+    </div>
+    <div *ngIf = "get(item) === 'temporal'">
+      <span class="type fa  fa-calendar"  title="temporal"></span>
+      <span>{{item}}</span>
+    </div>
+    </button>
+    <mat-menu #menu="matMenu">
+    <div *ngIf= "get(item) === 'nominal' && StringisNumber(item)">
+      <mat-radio-group>
+          <mat-radio-button value="quantitative" (click)="changeTypeNumber(item)">quantitative</mat-radio-button>
+          <mat-radio-button value="nominal"  checked=true (click)="changeTypeString(item)">nominal</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div *ngIf= "get(item) === 'quantitative'">
+        <mat-radio-group>
+            <mat-radio-button value="quantitative" checked=true  (click)="changeTypeNumber(item)">quantitative</mat-radio-button>
+            <mat-radio-button value="nominal" (click)="changeTypeString(item)">nominal</mat-radio-button>
+        </mat-radio-group>
+      </div>
+   </mat-menu>  
+  </div>
   </div>
 </div>
 <div class="example-container" style="width: 70px;">
@@ -18,7 +47,7 @@
     <!--(cdkDropListDropped)="drop($event)"-->
     <!--class="example-list">-->
     <div class="example-box" *ngFor="let item of dropDic" cdkDrag>{{item}}
-      <!--<i class="fa fa-remove uploadimgremove" (click)="delete1(item)"></i>-->
+      <!-- <i class="fa fa-remove uploadimgremove" (click)="delete1(item)"></i> -->
     </div>
   <!--</div>-->
 </div>
@@ -29,8 +58,22 @@
     [cdkDropListData]="done"
     (cdkDropListDropped)="drop($event)"
     class="example-list">
-    <div class="example-box" *ngFor="let item of done;let i = index" cdkDrag> {{item}}
-      <i class="fa fa-remove uploadimgremove" style="float: right" (click)="delete(item)" *ngIf="item"></i>
+    <div class="example-box" *ngFor="let item of done;let i = index" cdkDrag> 
+        <div *ngIf = "get(item)==='nominal' && item">
+            <span class="type fa  fa-font"  title="nominal"></span>
+            <span> {{item}}</span>
+            <i class="fa fa-remove uploadimgremove" (click)="delete(item)" *ngIf="item"></i>
+        </div>
+        <div *ngIf = "get(item)==='quantitative' && item">
+            <span class="type fa  fa-bars" title="quantitative"></span>
+            <span>{{item}}</span>
+          <i class="fa fa-remove uploadimgremove" (click)="delete(item)" *ngIf="item"></i>
+        </div>
+        <div *ngIf = "get(item) === 'temporal'">
+          <span class="type fa  fa-calendar"  title="temporal"></span>
+          <span>{{item}}</span>
+        <i class="fa fa-remove uploadimgremove" (click)="delete(item)" *ngIf="item"></i>
+      </div>
     </div>
   </div>
   <p>选择图表类型:</p>
