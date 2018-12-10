@@ -18,9 +18,11 @@ export class MammaryFormComponent implements OnInit {
     this.initForm().subscribe((res) => {
       console.log(res);
       // fill in the answer right here
+      const part1 = this.mammary_list[0].items[0]['layout'][1];
+      console.log(part1.key_value._key);
+      console.log(res.data);
+      part1.key_value._value = res.data[part1.key_value._key];
     });
-    const part1 = this.mammary_list[0].items[0];
-    part1['layout'][1].key_value._value = '415124';
   }
 
   initForm() {

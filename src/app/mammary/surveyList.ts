@@ -9,7 +9,7 @@ export const survey_list = [
             cols: 6,
             layout: [
               { type: 'text', cols: 1, rows: 1, text: '住院号 :' },
-              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'zyh', _value: ''}},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_zyh', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '名字 :' },
               { type: 'text', cols: 1, rows: 1, text: '张三' },
               { type: 'text', cols: 1, rows: 1, text: '出生年月 :' },
