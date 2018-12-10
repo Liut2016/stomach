@@ -55,9 +55,13 @@ const MENUITEMS = [
   {
         state: 'components_list',
         name: '医疗表单组件',
-        type: 'link',
+        type: 'sub',
         icon: 'category',
-        rolesCannotSee: []
+        children: [
+      {state: 'components', name: '表单组件一览'},
+      {state: 'markdown', name: '使用说明'},
+    ],
+    rolesCannotSee: []
     },
   {
     state: 'vis',

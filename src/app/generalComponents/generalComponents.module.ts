@@ -7,6 +7,8 @@ import { SharedModule } from '@app/shared/shared.module';
 import { GeneralComponentsRoutes} from '@app/generalComponents/generalComponents.routing';
 import { GeneralComponentsListComponent } from '@app/generalComponents/general-components-list/general-components-list.component';
 import {NgxJsonViewerModule} from 'ngx-json-viewer';
+import { GeneralComponentsMdComponent } from './general-components-md/general-components-md.component';
+import { MarkdownModule} from 'ngx-markdown';
 
 
 @NgModule({
@@ -17,9 +19,10 @@ import {NgxJsonViewerModule} from 'ngx-json-viewer';
         ReactiveFormsModule,
         DemoMaterialModule,
         SharedModule,
-        NgxJsonViewerModule
+        NgxJsonViewerModule,
+      MarkdownModule.forChild()
     ],
-    declarations: [GeneralComponentsListComponent],
+    declarations: [GeneralComponentsListComponent, GeneralComponentsMdComponent],
 })
 
 export class GeneralComponentsListModule { }
