@@ -1,0 +1,3 @@
+<input id = "filter" #filter (keyup)="tree.treeModel.filterNodes(filter.value)" placeholder="filter nodes">
+<tree-root [nodes]="nodes" [options]="options" #tree [(state)]="state" [focused]="true"></tree-root>
+<tree-root [nodes]="nodes1" [options]="options1" [focused]= "true"></tree-root>
