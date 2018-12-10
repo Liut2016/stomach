@@ -3,6 +3,8 @@ import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {BehaviorSubject, Observable, of as observableOf} from 'rxjs';
 
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+
 
 /**
  * File node data with nested structure.
@@ -121,6 +123,20 @@ export class TestTreeComponent implements OnInit {
   treeControl: FlatTreeControl<FileFlatNode>;
   treeFlattener: MatTreeFlattener<FileNode, FileFlatNode>;
   dataSource: MatTreeFlatDataSource<FileNode, FileFlatNode>;
+  testData = ['testData'];
+  todo = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep'
+  ];
+  done = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
 
   constructor(database: FileDatabase) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this._getLevel,
@@ -144,6 +160,20 @@ export class TestTreeComponent implements OnInit {
   hasChild = (_: number, _nodeData: FileFlatNode) => _nodeData.expandable;
 
   ngOnInit() {
+  }
+
+
+  drop(event: CdkDragDrop<string[]>) {
+    console.log('DROP!!!', event);
+    // this.done.push(event.previousContainer.data[0]);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
 }
