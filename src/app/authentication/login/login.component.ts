@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         // this.localStorage.set('token', res.TOKEN);
         localStorage.setItem('token', res.TOKEN);
         this.settings.initSettings();
-        this.router.navigate(['/mammary']);
+        this.router.navigate(['/mammary/overview']);
       }
     });
   }
