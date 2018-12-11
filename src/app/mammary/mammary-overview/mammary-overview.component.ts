@@ -33,7 +33,7 @@ export class MammaryOverviewComponent implements OnInit {
     };
     communitiesDict = new LocalConfigure().communitiesDict;
     communitiesDictReverse = new LocalConfigure().communitiesDictReverse;
-    displayedColumns: string[] = ['PID', 'PatientName', 'DoctorName', 'Community', 'SubmitTime', 'UpdateTime',  'operate'];
+    displayedColumns: string[] = ['PID', 'PatientName', 'Occupation', 'Disease', 'AdmissionTime', 'operate'];
     PatientList = new MatTableDataSource(<PeriodicElement[]>(ELEMENT_DATA));
     @ViewChild(MatPaginator) paginator: MatPaginator;
     constructor(
@@ -47,7 +47,7 @@ export class MammaryOverviewComponent implements OnInit {
         this.user = this.settingService.user;
         this.PatientList.paginator = this.paginator;
         this.roleControl();
-        this.getPageData(this.condictions);
+        this.getPageData();
     }
     roleControl() {
         if (this.user.role === 'doctor') {
@@ -87,7 +87,7 @@ export class MammaryOverviewComponent implements OnInit {
                 'submit_time': [this.startTime, this.endTime],
                 '姓名': this.patientName
             };
-            this.getPageData(this.condictions);
+            this.getPageData();
         }
         if (this.user.role === 'community') {
             this.condictions.filter_dict = {
@@ -97,7 +97,7 @@ export class MammaryOverviewComponent implements OnInit {
                 '姓名': this.patientName,
                 'community': this.user.community,
             };
-            this.getPageData(this.condictions);
+            this.getPageData();
         }
         if (this.user.role === 'doctor') {
             this.condictions.filter_dict = {
@@ -121,10 +121,10 @@ export class MammaryOverviewComponent implements OnInit {
             body: deleteID
         };
         this.service.deleteRecord(deleteParam).subscribe(res => {
-            this.getPageData(this.condictions);
+            this.getPageData();
         });
     }
-    getPageData(condictions) {
+   /* getPageData(condictions) {
         const tableData = [];
         this.service.getRecordList(condictions).subscribe((res) => {
             this.listLenth = res.Count_total;
@@ -155,20 +155,42 @@ export class MammaryOverviewComponent implements OnInit {
                 this.PatientList.data = tableData;
             });
         });
+    }*/
+    getPageData() {
+        const tableData = [];
+        this.service.getRecordList().subscribe((res) => {
+            this.service.getRecordList().subscribe( (data) => {
+                const recordList = data.data;
+                this.doctorList = [];
+                this.communityList = [];
+                for ( const item of recordList ) {
+                    tableData.push(
+                        {
+                            PID: item['PART1_zyh'],
+                            PatientName: item['PART1_xm'],
+                            Occupation: item['PART1_zy'],
+                            Disease: item['PART1_ryzd'],
+                            AdmissionTime: item['PART1_rysj'],
+                            DischargeTime: item['PART1_cyrj']
+                        }
+                    );
+                }
+                this.PatientList.data = tableData;
+            });
+        });
     }
-
     goToDetail() {
       this.router.navigate(['../detail'], {relativeTo: this.route});
     }
 }
 
 export interface PeriodicElement {
-    PID: string;
-    PatientName: string;
-    DoctorName: string;
-    Community: string;
-    SubmitTime: string;
-    UpdateTime: string;
+    PID: string,
+    PatientName: string,
+    Occupation: string,
+    Disease: string,
+    AdmissionTime: string,
+    DischargeTime: string
 }
 const ELEMENT_DATA: PeriodicElement[] = [
 ];

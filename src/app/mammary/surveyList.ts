@@ -9,67 +9,68 @@ export const survey_list = [
             cols: 6,
             layout: [
               { type: 'text', cols: 1, rows: 1, text: '住院号 :' },
-              { type: 'text', cols: 1, rows: 1, text: '708265' },
-              { type: 'text', cols: 1, rows: 1, text: '名字 :' },
-              { type: 'text', cols: 1, rows: 1, text: '张三' },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_zyh', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '病案号 :' },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_bah', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '编号 :' },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_bh', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '姓名 :' },
+              { type: 'input', cols: 1, rows: 1,key_value: {_key: 'PART1_xm', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '出生年月 :' },
-              { type: 'text', cols: 1, rows: 1, text: '1988/01/01' },
-
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_csny', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '年龄 :' },
-              { type: 'text', cols: 1, rows: 1, text: '30' },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_nl', _value: ''} },
+
               { type: 'text', cols: 1, rows: 1, text: '体重 :' },
-              { type: 'text', cols: 1, rows: 1, text: '65Kg' },
+              { type: 'input', cols: 1, rows: 1,  key_value: {_key: 'PART1_tz', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '身高 :' },
-              { type: 'text', cols: 1, rows: 1, text: '170cm' },
-
+              { type: 'input', cols: 1, rows: 1,  key_value: {_key: 'PART1_sg', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '性别:' },
-              { type: 'radio', cols: 1, rows: 1, options: ['男', '女'], key_value: { _key: '有无头晕', _value: '' }},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_xb', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '民族 :' },
-              { type: 'text', cols: 1, rows: 1, text: '汉族' },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_mz', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '联系电话 :' },
-              { type: 'text', cols: 1, rows: 1, text: '17782935405' },
-
-
-              { type: 'text', cols: 1, rows: 1, text: '出生地 :' },
-              { type: 'text', cols: 2, rows: 1, text: '陕西省西安市碑林区' },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_lxdh', _value: ''} },
               { type: 'text', cols: 1, rows: 1, text: '职业 :' },
-              { type: 'radio', cols: 2, rows: 1, options: ['农民', '教师', '职工', '公务员', '其它'], key_value: { _key: '有无头晕', _value: '' }},
-
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'PART1_zy', _value: ''}},
+             
+              { type: 'text', cols: 1, rows: 1, text: '出生地 :' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_csd', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '居住地 :' },
-              { type: 'text', cols: 2, rows: 1, text: '陕西省西安市未央区' },
-              { type: 'text', cols: 1, rows: 1, text: '居住地址 :' },
-              { type: 'text', cols: 2, rows: 1, text: '陕西省西安市未央区南党村167号 ' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_jzd', _value: ''}},
 
               { type: 'text', cols: 1, rows: 1, text: '联系人姓名 :' },
-              { type: 'text', cols: 1, rows: 1, text: '张三' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_lxr', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '联系人电话 :' },
-              { type: 'text', cols: 3, rows: 1, text: '17782935405' },
-              { type: 'text', cols: 1, rows: 1, text: '入院时间 :' },
-              { type: 'text', cols: 1, rows: 1, text: '2018/10/15' },
-              { type: 'text', cols: 1, rows: 1, text: '入院诊断 :' },
-              { type: 'radio', cols: 3, rows: 1, options: ['乳腺恶性肿瘤', '乙型肝炎', '高血压病'], key_value: { _key: '高血压发现方式', _value: '' }},
-              { type: 'text', cols: 1, rows: 1, text: '出院时间 :' },
-              { type: 'text', cols: 1, rows: 1, text: '2018/10/20' },
-              { type: 'text', cols: 1, rows: 1, text: '出院诊断 :' },
-              { type: 'radio', cols: 3, rows: 1, options: ['乳腺恶性肿瘤', '乙型肝炎', '高血压病'], key_value: { _key: '高血压发现方式', _value: '' }},
-              { type: 'text', cols: 1, rows: 1, text: '实际住院天数 :' },
-              { type: 'text', cols: 1, rows: 1, text: '5天' },
-              { type: 'text', cols: 1, rows: 1, text: '病理号 :' },
-              { type: 'text', cols: 1, rows: 1, text: '2018-37005' },
-              { type: 'text', cols: 1, rows: 1, text: '手术日期 :' },
-              { type: 'text', cols: 1, rows: 1, text: '2018/10/15' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_lxrdh', _value: ''}},
 
-              { type: 'text', cols: 1, rows: 3, text: '病理诊断' },
-              { type: 'text', cols: 1, rows: 1, text: '肿瘤类型 :' },
-              { type: 'text', cols: 4, rows: 1, text: '浸润性导管癌' },
-              { type: 'text', cols: 1, rows: 1, text: '淋巴结转移情况 :' },
-              { type: 'text', cols: 4, rows: 1, text: '淋巴结转移5/10' },
-              { type: 'text', cols: 1, rows: 1, text: '抗体阳性 :' },
-              { type: 'text', cols: 4, rows: 1, text: '' },
+              { type: 'text', cols: 1, rows: 1, text: '入院时间 :' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_rysj', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '入院诊断 :' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_ryzd', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '出院时间 :' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_cysj', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '出院诊断 :' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_cyzd', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '实际住院天数 :' },
+              { type: 'input', cols: 2, rows: 1,key_value: {_key: 'PART1_sjzyts', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '病理号 :' },
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_blh', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '手术日期 :' },
+              { type: 'input', cols: 2, rows: 1,key_value: {_key: 'PART1_ssrq', _value: ''} },
+
+            //   { type: 'text', cols: 1, rows: 1, text: '肿瘤类型 :' },
+            //   { type: 'text', cols: 4, rows: 1, text: '浸润性导管癌' },
+            //   { type: 'text', cols: 1, rows: 1, text: '淋巴结转移情况 :' },
+            //   { type: 'text', cols: 4, rows: 1, text: '淋巴结转移5/10' },
+            //   { type: 'text', cols: 1, rows: 1, text: '抗体阳性 :' },
+            //   { type: 'text', cols: 4, rows: 1, text: '' },
               { type: 'text', cols: 1, rows: 1, text: '手术名称 :' },
-              { type: 'radio', cols: 5, rows: 1, options: ['乳房病损切除手术', '乳房改良根手术'], key_value: { _key: '高血压发现方式', _value: '' }},
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_ssmc', _value: ''}},
               { type: 'text', cols: 1, rows: 1, text: '麻醉方式 :' },
-              { type: 'radio', cols: 5, rows: 1, options: ['静吸复合全麻', '局部浸润麻醉'], key_value: { _key: '高血压发现方式', _value: '' }},
+              { type: 'input', cols: 2, rows: 1, key_value: {_key: 'PART1_mzfs', _value: ''}},
+              { type: 'text', cols: 1, rows: 1, text: '病理诊断' },
+              { type: 'input', cols: 2, rows: 1,key_value: {_key: 'PART1_blzd', _value: ''} },
 
 
 
@@ -89,9 +90,9 @@ export const survey_list = [
                 cols: 6,
                 layout: [
                     { type: 'text', cols: 1, rows: 1, text: '主诉:' },
-                    { type: 'text', cols: 2, rows: 1, text: '左乳包块1年月' },
+                    { type: 'text', cols: 2, rows: 1, text: '左乳包块1年月let element'},
                     { type: 'text', cols: 1, rows: 1, text: '现病史:' },
-                    { type: 'text', cols: 2, rows: 1, text: '在外院给予抗增生治疗' },
+                    { type: 'text', cols: 2, rows: 1, text: '在外院给予抗let element治疗' },
                     { type: 'text', cols: 1, rows: 1, text: '治疗时间:' },
                     { type: 'radio', cols: 1, rows: 1, options: ['术后', '术前'], key_value: { _key: '有无头晕', _value: '' }},
                     { type: 'text', cols: 1, rows: 1, text: '治疗次数:' },
@@ -224,7 +225,7 @@ export const survey_list = [
                     { type: 'radio', cols: 2, rows: 1,  options: ['11点钟方向', '3点钟方向'],key_value: { _key: '肿瘤位置', _value: '' }},
                     { type: 'text', cols: 1, rows: 1, text: '肿瘤大小（T） :' },
                     { type: 'text', cols: 1, rows: 1, text: 'T0,Tis,Tis(DCIS),Tis(LCIS),Tis(Pagets),T1a,T1b,T1c,T2,T3,T4a,T4b,T1c,T1d' },
-                
+
 
                     { type: 'text', cols: 1, rows: 1, text: '淋巴结转移个数 :' },
                     { type: 'text', cols: 1, rows: 1, text: '10' },
@@ -270,7 +271,7 @@ export const survey_list = [
                     { type: 'text', cols: 1, rows: 1, text: '检查日期 :' },
                     { type: 'text', cols: 4, rows: 1, text: ' ' },
                     { type: 'text', cols: 1, rows: 2, text: '检查结果 ：' },
-                    { type: 'text', cols: 4, rows: 2, text: ' ' },           
+                    { type: 'text', cols: 4, rows: 2, text: ' ' },
                 ]
             },
         ]
@@ -299,7 +300,7 @@ export const survey_list = [
                 layout:[
                     {type: 'text',cols: 1,rows: 1,text:'放疗方案 ：'},
                     {type: 'text',cols: 3,rows: 1,text:'  '},
-                    
+
                 ]
             }
         ]

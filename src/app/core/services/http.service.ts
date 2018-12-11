@@ -9,6 +9,7 @@ const httpOptions = {
 @Injectable()
 export class HttpService {
   baseUrl = 'http://59.110.52.133:9010/';
+  testUrl = 'http://202.117.54.45:8080/';
   // baseUrl = 'http://202.117.54.88:9000/';
 
   constructor(
@@ -30,10 +31,16 @@ export class HttpService {
   getChinaDivision(file_name) {
     return this.httpClient.get('assets/jsonData/' + file_name + '.json');
   }
-  getRecordList(condictions): Observable<any> {
+  /*getRecordList(condictions): Observable<any> {
     return this.httpClient.post( this.baseUrl + 'disease/recordlist/', JSON.stringify(condictions))
       .pipe( data => { return data; });
+  }*/
+
+  getRecordList(): Observable<any> {
+    return this.httpClient.get('http://202.117.54.45:8080/oa/patients')
+      .pipe( data => { return data; });
   }
+
   putRecord(params: any): Observable<any> {
     return this.httpClient.put( this.baseUrl + 'disease/recordop/', params)
       .pipe( data => {  return data; });
@@ -45,5 +52,11 @@ export class HttpService {
   getRecord(params: any): Observable<any> {
     return this.httpClient.get (this.baseUrl + 'disease/recordop/', { params: { q: JSON.stringify(params)}})
       .pipe( data => { return data; });
+  }
+
+  getPatient(params: any): Observable<any> {
+    return this.httpClient.get(`${this.testUrl}oa/patient/${params}`).pipe( data => {
+      return data;
+    });
   }
 }

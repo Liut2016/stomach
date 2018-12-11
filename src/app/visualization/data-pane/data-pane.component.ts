@@ -11,11 +11,11 @@ import { isDate } from 'util';
   styleUrls: ['./data-pane.component.css']
 })
 export class DataPaneComponent implements OnInit {
-   data = new testData().cars;
+    data = new testData().cars;
     public mark: string;
     public dimension: string[] = [];
     public done: string[] = Array(7);
-    
+    public dataSimple = this.data[0];
 
     markDic = ['area', 'bar', 'circle', 'line', 'point', 'rect', 'rule', 'tick'];
     dropDic = ['x', 'y', 'size', 'color', 'shape', 'detail', 'text'];
@@ -28,6 +28,8 @@ export class DataPaneComponent implements OnInit {
     ngOnInit() {
       this.getDataDimension(this.data);
       this.mark = this.markDic[0];
+      console.log(this.StringisNumber('123'));
+      console.log(this.is_numeric('123'));
     }
 
     getDataDimension = (data) => {
@@ -61,7 +63,7 @@ export class DataPaneComponent implements OnInit {
   }
 
   clear () {
-   this.dropDic = ['x轴', 'y轴', 'size', 'color', 'shape', 'detail', 'text'];
+   this.dropDic = ['x', 'y', 'size', 'color', 'shape', 'detail', 'text'];
    this.done = Array(7);
   }
 
@@ -104,43 +106,71 @@ export class DataPaneComponent implements OnInit {
   }
   get(dim) {
     // const types = ['oridinal', 'nominal', 'quantitative', 'temporal'];
-     const data0 = this.data[0];
-    for (const key in data0) {
+    for (const key in this.dataSimple) {
       if (key === dim) {
-         if (isString(data0[key])) {
-           return true;
-         } else {
-           return false;
+        if (this.strDateTime(this.dataSimple[key])) {
+           return 'temporal';
+        } else if (isString(this.dataSimple[key])) {
+           return 'nominal';
+         } else if (isNumber(this.dataSimple[key])) {
+           return 'quantitative';
          }
       }
     }
   }
 
   changeTypeNumber(item) {
-    const data0 = this.data[0];
-    for (const key in data0) {
+    for (const key in this.dataSimple) {
       if ( key === item) {
-          data0[key] = 0;
+          this.dataSimple[key] = 0;
       }
     }
-    console.log(data0[item]);
+    console.log(this.dataSimple[item]);
   }
   changeTypeString(item) {
-    const data0 = this.data[0];
-    for (const key in data0) {
+    for (const key in this.dataSimple) {
       if ( key === item) {
-          data0[key] = 'String';
+          this.dataSimple[key] = '123';
       }
     }
-    console.log(data0[item]);
+    console.log(this.dataSimple[item]);
   }
-  getitem(item) {
-    const data0 = this.data[0];
-    if ( isString(data0[item])) {
+ strDateTime(str) {
+   if (isNumber(str)) {
+     return false;
+   } else {
+      const r = str.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+      if (r === null) {
+        return false;
+      } else {
         return true;
-    } else if (isNumber(data0[item])) {
+      }
+  }
+ }
+StringisNumber(value) {
+  for (const key in this.dataSimple) {
+    if ( key === value) {
+      return !Number.isNaN(Number(this.dataSimple[key]));
+  }
+  }
+}
+is_numeric(value) {
+  if (typeof(value) === 'object') {
       return false;
-    }
-    }
+  } else {
+      return !Number.isNaN(Number(value));
+  }
 }
 
+
+/* isShortTime(str) {
+    const a = str.match(/^(\d{1,2})(:)?(\d{1,2})\2(\d{1,2})$/);
+    if (a === null) {
+        return false;
+    }
+    if (a[1] > 24 || a[3] > 60 || a[4] > 60) {
+            return false;
+    }
+    return true;
+} */
+}
