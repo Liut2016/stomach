@@ -1,0 +1,52 @@
+<p>
+  test-tree works!
+</p>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding 
+  cdkDropList 
+  [cdkDropListData]="testData"
+  [cdkDropListConnectedTo]="[doneList]" cdkDrag>
+  
+    <button mat-icon-button disabled></button>
+    <div cdkDrag>{{node.filename}} : {{node.type}} -- {{testData}}</div>
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding 
+  cdkDropList 
+  [cdkDropListData]="testData"
+  [cdkDropListConnectedTo]="[doneList]">
+    <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'toggle ' + node.filename">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    <div>{{node.filename}} : {{node.type}}</div>
+  </mat-tree-node>
+</mat-tree>
+<!-- <div class="example-container">
+  <h2>To do</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todo"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+  </div>
+</div> -->
+
+<div class="example-container">
+  <h2>Done</h2>
+  <!-- <button >Test drop container</button> -->
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+  </div>
+</div>
