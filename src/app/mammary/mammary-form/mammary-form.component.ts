@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { survey_list } from '../surveyList';
 import { HttpService } from '@app/core/services/http.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {init} from 'protractor/built/launcher';
 
 @Component({
@@ -12,13 +12,16 @@ import {init} from 'protractor/built/launcher';
 export class MammaryFormComponent implements OnInit {
 
   mammary_list = survey_list;
-
+  pid;
   constructor(
     private http: HttpService,
-    private route: ActivatedRoute,
+    private router: ActivatedRoute,
+    private route : Router
   ) { }
 
   ngOnInit() {
+   this.pid = this.router.params['value']['PID'];
+    console.log(this.pid);
     this.initForm().subscribe((res) => {
       console.log(res);
       // fill in the answer right here
@@ -38,9 +41,10 @@ export class MammaryFormComponent implements OnInit {
         }
       }
     });
+  
   }
 
   initForm() {
-    return this.http.getPatient('415124');
+    return this.http.getPatient(this.pid);
   }
 }
