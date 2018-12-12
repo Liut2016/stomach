@@ -6,7 +6,7 @@ export const MammaryRoutes: Routes = [{
     path: '',
     children: [
         {
-            path: 'detail',
+            path: 'detail/:PID',
             component: MammaryFormComponent
         },
         {

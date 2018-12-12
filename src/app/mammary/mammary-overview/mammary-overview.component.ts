@@ -176,11 +176,12 @@ export class MammaryOverviewComponent implements OnInit {
                     );
                 }
                 this.PatientList.data = tableData;
+        
             });
         });
     }
-    goToDetail() {
-      this.router.navigate(['../detail'], {relativeTo: this.route});
+    goToDetail(pid) {
+      this.router.navigate([`../detail/${pid}`], {relativeTo: this.route});
     }
 }
 
