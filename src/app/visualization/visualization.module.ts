@@ -12,7 +12,6 @@ import { PlotPaneComponent } from './plot-pane/plot-pane.component';
 import { DataPaneComponent } from './data-pane/data-pane.component';
 import { MainComponent } from './main/main.component';
 import { DimensionReductionComponent } from './dimension-reduction/dimension-reduction.component';
-import { TreeComponent } from './tree/tree.component';
 import { TestTreeComponent } from './test-tree/test-tree.component';
 
 import {FileDatabase} from './test-tree/test-tree.component';
@@ -37,7 +36,6 @@ export const visRoutes: Routes = [
     DataPaneComponent,
     MainComponent,
     DimensionReductionComponent,
-    TreeComponent,
     TestTreeComponent
 ],
   providers: [FileDatabase]

@@ -3,6 +3,7 @@
       <mat-card>
           <mat-card-content>
               <mat-card-title>自定义可视化</mat-card-title>
+              <app-test-tree></app-test-tree>
               <mat-grid-list cols="2" rowHeight="800px">
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                   <app-data-pane (visJson)="getData($event)"></app-data-pane>
@@ -14,10 +15,6 @@
               <div>
                 <app-dimension-reduction></app-dimension-reduction>
               </div>
-              <div>
-                <app-tree></app-tree>
-              </div>
-              <app-test-tree></app-test-tree>
           </mat-card-content>
       </mat-card>
   </div>

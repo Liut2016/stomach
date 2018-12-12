@@ -1,20 +1,29 @@
-<p>
-  test-tree works!
-</p>
+
+<div class="left">
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding 
   cdkDropList 
-  [cdkDropListData]="testData"
-  [cdkDropListConnectedTo]="[doneList]" cdkDrag>
+  [cdkDropListData]="[node.filename] || [node.type]"
+  [cdkDropListConnectedTo]="[doneList]">
   
     <button mat-icon-button disabled></button>
-    <div cdkDrag>{{node.filename}} : {{node.type}} -- {{testData}}</div>
+    <div cdkDrag>
+        <div *ngIf = "node.type === 'string' ">
+          <span class="type fa  fa-font" title="string"></span>
+          <span style="margin-left: 15px;">{{node.filename}}</span>
+        </div>
+        <div *ngIf = "node.type === 'number'">
+          <span class="type fa  fa-align-justify"  title="number"></span>
+          <span style="margin-left: 15px;">{{node.filename}}</span>
+        </div>
+        <div *ngIf = "node.type === 'date'">
+          <span class="type fa  fa-calendar"  title="date"></span>
+          <span style="margin-left: 15px;">{{node.filename}}</span>
+        </div>
+    </div>
   </mat-tree-node>
 
-  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding 
-  cdkDropList 
-  [cdkDropListData]="testData"
-  [cdkDropListConnectedTo]="[doneList]">
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding >
     <button mat-icon-button matTreeNodeToggle
             [attr.aria-label]="'toggle ' + node.filename">
       <mat-icon class="mat-icon-rtl-mirror">
@@ -24,29 +33,20 @@
     <div>{{node.filename}} : {{node.type}}</div>
   </mat-tree-node>
 </mat-tree>
-<!-- <div class="example-container">
-  <h2>To do</h2>
+</div>
 
-  <div
-    cdkDropList
-    #todoList="cdkDropList"
-    [cdkDropListData]="todo"
-    [cdkDropListConnectedTo]="[doneList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-  </div>
-</div> -->
-
+<div class = "middle">
 <div class="example-container">
-  <h2>Done</h2>
-  <!-- <button >Test drop container</button> -->
   <div
     cdkDropList
     #doneList="cdkDropList"
     [cdkDropListData]="done"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-  </div>
+    <div *ngFor="let item of done" cdkDrag> 
+        <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="key">{{item}}</textarea>
+        </mat-form-field>
+    </div>
+</div>
 </div>
