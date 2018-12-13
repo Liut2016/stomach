@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { survey_list } from '../surveyList';
 import { HttpService } from '@app/core/services/http.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {init} from 'protractor/built/launcher';
 
 @Component({
@@ -11,12 +12,26 @@ import {init} from 'protractor/built/launcher';
 export class MammaryFormComponent implements OnInit {
 
   mammary_list = survey_list;
-
-  constructor(private http: HttpService) { }
+  pid;
+  constructor(
+    private http: HttpService,
+    private router: ActivatedRoute,
+    private route : Router
+  ) { }
 
   ngOnInit() {
+   this.pid = this.router.params['value']['PID'];
+    console.log(this.pid);
     this.initForm().subscribe((res) => {
       console.log(res);
+      // fill in the answer right here
+      // const part1 = this.mammary_list[0].items[0]['layout'][1];
+ 
+      // if (part1.hasOwnProperty("key_value")) {
+      //   console.log(part1.key_value._key);
+      //   console.log(res.data);
+      //   part1.key_value._value = res.data[part1.key_value._key];
+      // }
       for ( let i = 0; i < this.mammary_list[0].items[0]['layout'].length; i++) {
         const part1 = this.mammary_list[0].items[0]['layout'][i];
         if (part1.key_value) {
@@ -26,9 +41,10 @@ export class MammaryFormComponent implements OnInit {
         }
       }
     });
+  
   }
 
   initForm() {
-    return this.http.getPatient('415124');
+    return this.http.getPatient(this.pid);
   }
 }
