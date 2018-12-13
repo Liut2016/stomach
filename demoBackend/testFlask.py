@@ -29,4 +29,4 @@ def getDRResult():
     return response
 
 # app.run()
-serve(app, listen='127.0.0.1:5000')
+serve(app, listen='59.110.52.1333:3111')

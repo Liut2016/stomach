@@ -262,7 +262,7 @@ export class HttpForNowService {
     //     randomState: tsneConfiguration.randomState
     //   }
     // };
-    return this.http.post('http://59.110.52.133:5000/getDRResult', JSON.stringify(conf), {headers: this.headers}).toPromise()
+    return this.http.post('http://59.110.52.133:3111/getDRResult', JSON.stringify(conf), {headers: this.headers}).toPromise()
     .then(res => {
       return res.json();
     })
