@@ -47,6 +47,8 @@ export class ScatterPlot {
         .attr('height', this.svgHeight)
         .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
         const svg = this.svg;
+        const zoom = d3.zoom()
+             .on('zoom', zoomFunction);
         const xAxisScale = d3.scaleLinear()
             .domain([xMin, xMax])
             .range([0, this.width]);
@@ -64,6 +66,11 @@ export class ScatterPlot {
             .attr('class', 'axis2')
             .attr('transform', 'translate(' + 0 + ',' + 0 + ')')
             .call(yAxis);
+        this.svg.append('rect')
+            .attr('class', 'zoom')
+            .attr('width', this.width)
+            .attr('height', this.height)
+            .call(zoom);
         // append some dummy data
         const circles = svg
             .selectAll('circle')
@@ -90,14 +97,25 @@ export class ScatterPlot {
             .attr('fill', 'darkgreen');
 
         this.lasso.closePathSelect(true)
-        .closePathDistance(100)
-        .items(circles)
-        .targetArea(svg)
-        .on('start', () => this.lassoStart())
-        .on('draw', () => this.lassoDraw())
-        .on('end', () => this.loassEnd());
+            .closePathDistance(100)
+            .items(circles)
+            .targetArea(svg)
+            .on('start', () => this.lassoStart())
+            .on('draw', () => this.lassoDraw())
+            .on('end', () => this.loassEnd());
 
-        svg.call(this.lasso);
+            svg.call(this.lasso);
+       function zoomFunction() {
+            const new_xScale = d3.event.transform.rescaleX(xAxisScale);
+            const new_yScale = d3.event.transform.rescaleY(yAxisScale);
+            console.log(d3.event.transform);
+            // update axes
+            gX.call(xAxis.scale(new_xScale));
+            gY.call(yAxis.scale(new_yScale));
+            // update circle
+            circles.attr('transform', d3.event.transform);
+            text.attr('transform', d3.event.transform);
+        }
     }
 
     bind(dataProjConf, dimProjConf, isDataProjection) {

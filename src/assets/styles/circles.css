@@ -69,3 +69,8 @@ circle.hidden {
   fill-opacity: .125;
   stroke: #fff;
 }
+.zoom {
+	cursor: move;
+	fill: none;
+	pointer-events: all;
+  }

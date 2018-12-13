@@ -1,10 +1,10 @@
-
+<div cdkDropListGroup>
 <div class="left">
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding 
   cdkDropList 
-  [cdkDropListData]="[node.filename] || [node.type]"
-  [cdkDropListConnectedTo]="[doneList]">
+  [cdkDropListData]="[node.filename]"
+  >
   
     <button mat-icon-button disabled></button>
     <div cdkDrag>
@@ -35,18 +35,35 @@
 </mat-tree>
 </div>
 
-<div class = "middle">
+<!-- <div class = "middle">
 <div class="example-container">
   <div
     cdkDropList
     #doneList="cdkDropList"
-    [cdkDropListData]="done"
+    [cdkDropListData]="array"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
-    <div *ngFor="let item of done" cdkDrag> 
+    <div *ngFor="let item of array"> 
         <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="key">{{item}}</textarea>
+        <textarea matInput placeholder={{item.name}}>{{item.state}}</textarea>
         </mat-form-field>
     </div>
+</div>
+</div>
+</div> -->
+<div class = "middle">
+ <div class="example-container">
+    <div *ngFor="let item of array">
+      <mat-form-field class="example-full-width">
+        <div
+        cdkDropList
+        [cdkDropListData]="item.state"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"> 
+        <textarea matInput placeholder={{item.name}} >{{item.state[0]}}</textarea>
+        </div>
+      </mat-form-field>
+    </div>
+ </div>
 </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Pipe } from '@angular/core';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {BehaviorSubject, Observable, of as observableOf} from 'rxjs';
@@ -84,7 +84,8 @@ export class FileDatabase {
 @Component({
   selector: 'app-test-tree',
   templateUrl: './test-tree.component.html',
-  styleUrls: ['./test-tree.component.css']
+  styleUrls: ['./test-tree.component.css'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TestTreeComponent implements OnInit {
 
@@ -93,6 +94,15 @@ export class TestTreeComponent implements OnInit {
   dataSource: MatTreeFlatDataSource<FileNode, FileFlatNode>;
   dropDic = ['x', 'y', 'size', 'color', 'shape', 'detail', 'text'];
   done = ['', '', '', '', '', '', ''];
+ /*  array = this.transform(this.done, this.dropDic); */
+  array = [ {'state': [''], 'name': 'x'},
+            {'state': [''], 'name': 'y'},
+            {'state': [''], 'name': 'size'},
+            {'state': [''], 'name': 'color'},
+            {'state': [''], 'name': 'shape'},
+            {'state': [''], 'name': 'detail'},
+            {'state': [''], 'name': 'text'}];
+  LIST_IDS = [];
   constructor(database: FileDatabase) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this._getLevel,
       this._isExpandable, this._getChildren);
@@ -115,7 +125,7 @@ export class TestTreeComponent implements OnInit {
   hasChild = (_: number, _nodeData: FileFlatNode) => _nodeData.expandable;
 
   ngOnInit() {
-    this.gettype();
+    /* this.gettype(); */
   }
 
 
@@ -133,10 +143,21 @@ export class TestTreeComponent implements OnInit {
     event.previousContainer.data[event.previousIndex];
     }
   }
+  addId(i, j) {
+    this.LIST_IDS.push('cdk-drop-list-' + i + '' + j);
+    return i + '' + j;
+}
 gettype() {
   const data = gettreedata();
   Object.keys(data.一般检查项目).forEach(function(prop){
     console.log(prop);
   });
+}
+transform(arr1, arr2) {
+  const arr = [];
+  arr1.forEach((elt, i) => {
+    arr.push({ state: elt, name: arr2[i] });
+  });
+  return arr;
 }
 }
