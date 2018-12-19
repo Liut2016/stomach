@@ -7,8 +7,7 @@ import { SharedModule } from '@app/shared/shared.module';
 import { GeneralComponentsRoutes} from '@app/generalComponents/generalComponents.routing';
 import { GeneralComponentsListComponent } from '@app/generalComponents/general-components-list/general-components-list.component';
 import {NgxJsonViewerModule} from 'ngx-json-viewer';
-import { GeneralComponentsMdComponent } from './general-components-md/general-components-md.component';
-import { MarkdownModule} from 'ngx-markdown';
+
 
 
 @NgModule({
@@ -20,9 +19,8 @@ import { MarkdownModule} from 'ngx-markdown';
         DemoMaterialModule,
         SharedModule,
         NgxJsonViewerModule,
-      MarkdownModule.forChild()
     ],
-    declarations: [GeneralComponentsListComponent, GeneralComponentsMdComponent],
+    declarations: [GeneralComponentsListComponent],
 })
 
 export class GeneralComponentsListModule { }

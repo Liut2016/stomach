@@ -16,24 +16,12 @@ export const AppRoutes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'survey',
-    loadChildren: './survey/survey.module#SurveyModule'
-  },
-    {
-      path: 'vis',
-      loadChildren: './visualization/visualization.module#VisualizationModule'
-    },
-  {
-    path: 'follow',
-    loadChildren: './follow/follow.module#FollowModule'
-  },
-  {
     path: 'personnel',
     loadChildren: './personnel/personnel.module#PersonnelModule'
   },
   {
-    path: 'mammary',
-    loadChildren: './mammary/mammary.module#MammaryModule'
+    path: 'stomach',
+    loadChildren: './stomach/stomach.module#StomachModule'
   },
   {
     path: 'setting',

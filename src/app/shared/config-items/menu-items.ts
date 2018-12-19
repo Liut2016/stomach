@@ -27,23 +27,11 @@ export interface Menu {
 
 const MENUITEMS = [
     {
-        state: 'mammary',
-        name: '乳腺癌患者管理',
-        type: 'sub',
+        state: 'stomach',
+        name: '结肠癌患者管理',
+        type: 'link',
         icon: 'airline_seat_flat_angled',
-      children: [
-          {state: 'overview', name: '患者数据管理'},
-      ],
         rolesCannotSee: []
-  },
-  {
-    state: 'follow',
-    name: '随访管理',
-    type: 'sub',
-    icon: 'web',
-    children: [
-      {state: 'mammaryFollowOverview', name: '乳腺癌患者随访管理'},
-    ]
   },
   {
     state: 'personnel',
@@ -55,21 +43,10 @@ const MENUITEMS = [
   {
         state: 'components_list',
         name: '医疗表单组件',
-        type: 'sub',
+        type: 'link',
         icon: 'category',
-        children: [
-      {state: 'components', name: '表单组件一览'},
-      {state: 'markdown', name: '使用说明'},
-    ],
-    rolesCannotSee: []
+        rolesCannotSee: []
     },
-  {
-    state: 'vis',
-    name: '自定义可视化',
-    type: 'link',
-    icon: 'dashboard',
-    rolesCannotSee: []
-  }
 ];
 
 @Injectable()

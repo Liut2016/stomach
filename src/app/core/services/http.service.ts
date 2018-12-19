@@ -9,7 +9,7 @@ const httpOptions = {
 @Injectable()
 export class HttpService {
   baseUrl = 'http://59.110.52.133:9010/';
-  testUrl = 'http://202.117.54.45:8080/';
+  testUrl = 'http://202.117.54.92:8080/';
   // baseUrl = 'http://202.117.54.88:9000/';
 
   constructor(
@@ -37,7 +37,7 @@ export class HttpService {
   }*/
 
   getRecordList(): Observable<any> {
-    return this.httpClient.get('http://202.117.54.45:8080/oa/patients')
+    return this.httpClient.get('http://202.117.54.92:8080/oa/patients1')
       .pipe( data => { return data; });
   }
 
@@ -55,7 +55,7 @@ export class HttpService {
   }
 
   getPatient(params: any): Observable<any> {
-    return this.httpClient.get(`${this.testUrl}oa/patient/${params}`).pipe( data => {
+    return this.httpClient.get(`${this.testUrl}oa/patients1/${params}`).pipe( data => {
       return data;
     });
   }
