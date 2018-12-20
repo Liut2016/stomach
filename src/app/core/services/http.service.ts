@@ -36,11 +36,17 @@ export class HttpService {
       .pipe( data => { return data; });
   }*/
 
-  getRecordList(): Observable<any> {
+  /*getRecordList(): Observable<any> {
     return this.httpClient.get('http://202.117.54.92:8080/oa/patients1')
       .pipe( data => { return data; });
+  }*/
+  getRecordList(condiction): Observable<any> {
+    return this.httpClient.post('http://202.117.54.92:8080/oa/patients1', JSON.stringify(
+      condiction
+    ), {headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .pipe( data => { return data; });
   }
-
+  
   putRecord(params: any): Observable<any> {
     return this.httpClient.put( this.baseUrl + 'disease/recordop/', params)
       .pipe( data => {  return data; });
