@@ -130,10 +130,136 @@ export const components_list = [
         ]
     },
     {
-        step_description:"Stepper",
+        step_description: 'Stepper',
         items:
         [
-           { type :'stepper',title :'步进输入', key_value: { _key: '病历', _value: '' }}
+           { type : 'stepper', title : '步进输入', key_value: { _key: '病历', _value: '' }}
         ]
-    }
+    },
+  {
+    step_description: 'Classified List',
+    items:
+      [
+        { type : 'classified-lists', title : '分类列表', key_value: { _key: '病历', _value: '' },
+          data : [
+            {
+              type: '嘱托长嘱',
+              data: [
+                {
+                  "part2_pid": 201879,
+                  "part2_zyh": "ZY010001211080",
+                  "part2_yzlb": "嘱托长嘱",
+                  "part2_xmmc": "流食",
+                  "part2_xmzl": 1,
+                  "part2_mcjl": 0,
+                  "part2_gg": null,
+                  "part2_jldw": null,
+                  "part2_zxdw": null,
+                  "part2_jjdw": "个",
+                  "part2_pcdm": "QD",
+                  "part2_pcmc": "每天一次",
+                  "part2_yfmc": null,
+                  "part2_kssj": "2015-1-23",
+                  "part2_jssj": "2015-1-28 10:26:37"
+                },
+                {
+                  "part2_pid": 201880,
+                  "part2_zyh": "ZY010001211080",
+                  "part2_yzlb": "嘱托长嘱",
+                  "part2_xmmc": "按普外科常规护理",
+                  "part2_xmzl": 1,
+                  "part2_mcjl": 0,
+                  "part2_gg": null,
+                  "part2_jldw": null,
+                  "part2_zxdw": null,
+                  "part2_jjdw": "个",
+                  "part2_pcdm": "WPC",
+                  "part2_pcmc": "无频次",
+                  "part2_yfmc": null,
+                  "part2_kssj": "2015-1-23",
+                  "part2_jssj": "2015-1-28 10:26:41"
+                },
+              ]
+            },
+            {
+              type: '长期医嘱',
+              data: [
+                {
+                  "part2_pid": 201879,
+                  "part2_zyh": "ZY010001211080",
+                  "part2_yzlb": "嘱托长嘱",
+                  "part2_xmmc": "流食",
+                  "part2_xmzl": 1,
+                  "part2_mcjl": 0,
+                  "part2_gg": null,
+                  "part2_jldw": null,
+                  "part2_zxdw": null,
+                  "part2_jjdw": "个",
+                  "part2_pcdm": "QD",
+                  "part2_pcmc": "每天一次",
+                  "part2_yfmc": null,
+                  "part2_kssj": "2015-1-23",
+                  "part2_jssj": "2015-1-28 10:26:37"
+                },
+                {
+                  "part2_pid": 201880,
+                  "part2_zyh": "ZY010001211080",
+                  "part2_yzlb": "嘱托长嘱",
+                  "part2_xmmc": "按普外科常规护理",
+                  "part2_xmzl": 1,
+                  "part2_mcjl": 0,
+                  "part2_gg": null,
+                  "part2_jldw": null,
+                  "part2_zxdw": null,
+                  "part2_jjdw": "个",
+                  "part2_pcdm": "WPC",
+                  "part2_pcmc": "无频次",
+                  "part2_yfmc": null,
+                  "part2_kssj": "2015-1-23",
+                  "part2_jssj": "2015-1-28 10:26:41"
+                },
+              ]
+            },
+            {
+              type: '临时医嘱',
+              data: [
+                {
+                  "part2_pid": 201879,
+                  "part2_zyh": "ZY010001211080",
+                  "part2_yzlb": "嘱托长嘱",
+                  "part2_xmmc": "流食",
+                  "part2_xmzl": 1,
+                  "part2_mcjl": 0,
+                  "part2_gg": null,
+                  "part2_jldw": null,
+                  "part2_zxdw": null,
+                  "part2_jjdw": "个",
+                  "part2_pcdm": "QD",
+                  "part2_pcmc": "每天一次",
+                  "part2_yfmc": null,
+                  "part2_kssj": "2015-1-23",
+                  "part2_jssj": "2015-1-28 10:26:37"
+                },
+                {
+                  "part2_pid": 201880,
+                  "part2_zyh": "ZY010001211080",
+                  "part2_yzlb": "嘱托长嘱",
+                  "part2_xmmc": "按普外科常规护理",
+                  "part2_xmzl": 1,
+                  "part2_mcjl": 0,
+                  "part2_gg": null,
+                  "part2_jldw": null,
+                  "part2_zxdw": null,
+                  "part2_jjdw": "个",
+                  "part2_pcdm": "WPC",
+                  "part2_pcmc": "无频次",
+                  "part2_yfmc": null,
+                  "part2_kssj": "2015-1-23",
+                  "part2_jssj": "2015-1-28 10:26:41"
+                },
+              ]
+            }
+          ]}
+      ]
+  }
 ];

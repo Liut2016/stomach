@@ -21,6 +21,7 @@ import { GeneralInputConditionComponent } from '@app/shared/general-components/g
 import { GeneralSelectComponent } from '@app/shared/general-components/general-select/general-select.component';
 import { GeneralExpansionPanelComponent } from '@app/shared/general-components/general-expansion-panel/general-expansion-panel.component';
 import { GeneralStepperComponent } from './general-components/general-stepper/general-stepper.component';
+import {GeneralClassifiedListsComponent} from '@app/shared/general-components/general-classified-lists/general-classified-lists.component';
 
 
 
@@ -52,7 +53,8 @@ import { GeneralStepperComponent } from './general-components/general-stepper/ge
     GeneralInputConditionComponent,
     GeneralSelectComponent,
     GeneralExpansionPanelComponent,
-    GeneralStepperComponent
+    GeneralStepperComponent,
+    GeneralClassifiedListsComponent
   ],
   exports: [
     AccordionAnchorDirective,
@@ -74,7 +76,8 @@ import { GeneralStepperComponent } from './general-components/general-stepper/ge
     GeneralInputConditionComponent,
     GeneralSelectComponent,
     GeneralExpansionPanelComponent,
-    GeneralStepperComponent
+    GeneralStepperComponent,
+    GeneralClassifiedListsComponent
    ],
   providers: [ MenuItems ]
 })
