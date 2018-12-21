@@ -6,6 +6,6 @@ export const StomachRoutes: Routes = [{
     path: '',
     component: StomachOverviewComponent
 },
-    {path: 'detail/:PID',
+    {path: 'detail/:PID/:ZYH',
     component: StomachFormComponent
 }];

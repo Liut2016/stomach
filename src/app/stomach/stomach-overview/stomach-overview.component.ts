@@ -32,9 +32,9 @@ export class StomachOverviewComponent implements OnInit {
       'disease': 'hypertension',
       'follow': 0
   };
-  condiction={
-      'pagesize':this.pageSize,
-      'pageindex':this.pageIndex
+  condiction = {
+      'pagesize': this.pageSize,
+      'pageindex': this.pageIndex
   };
   communitiesDict = new LocalConfigure().communitiesDict;
   communitiesDictReverse = new LocalConfigure().communitiesDictReverse;
@@ -67,13 +67,7 @@ export class StomachOverviewComponent implements OnInit {
           }
       }
   }
-  downloadFile() {
-      const params = {
-          disease: 'hypertension',
-          follow: '0'
-      }
-      this.service.downloadFile( params,'AllHypertensionData.csv' );
-  }
+
   clear() {
       this.patientName = '';
       this.endTime = '';
@@ -104,7 +98,7 @@ export class StomachOverviewComponent implements OnInit {
           };
           this.getPageData(this.condiction);
       }
-      if (this.user.role === 'doctor') { 
+      if (this.user.role === 'doctor') {
           this.condictions.filter_dict = {
               'complete_by': this.user.name,
               'community': this.user.community,
@@ -172,29 +166,30 @@ export class StomachOverviewComponent implements OnInit {
                   tableData.push(
                       {
                           PID: item['part1_pid'],
+                          ZYH: item['part1_zylsh'],
                           PatientName: item['part1_xm'],
                           Occupation: item['part1_zy'],
                           Disease: item['part1_zzd'],
                           Staydays: item['part1_sjzyts'],
                       }
                   );
-              } 
+              }
               this.PatientList.data = tableData;
             });
           });
 }
-  goToDetail(pid) {
-    this.router.navigate([`./detail/${pid}`], {relativeTo: this.route});
+  goToDetail(ele) {
+    console.log(ele);
+     this.router.navigate([`./detail`, ele.PID, ele.ZYH], {relativeTo: this.route});
   }
 }
 
 export interface PeriodicElement {
-  PID: string,
-  PatientName: string,
-  Occupation: string,
-  Disease: string,
-  Staydays:number
- 
+  PID: string;
+  PatientName: string;
+  Occupation: string;
+  Disease: string;
+  Staydays: number;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
 ];

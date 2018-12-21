@@ -40,16 +40,8 @@ export class GeneralClassifiedListsComponent extends ConfInterface implements On
   keys: string[];
 
   ngOnInit() {
-    console.log(this.conf);
-    console.log(this.conf.data[0].data[0]);
     this.keys = Object.keys(this.conf.data[0].data[0]);
-
     this.displayedColumns = this.keys;
-    console.log(this.conf.data[0].data);
-    console.log(this.displayedColumns);
-    setTimeout(() => {
-      this.conf.title = '列表变了';
-    }, 3000);
   }
 
 }
