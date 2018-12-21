@@ -57,7 +57,7 @@ const comunities = [
   styleUrls: ['./personnel.component.css']
 })
 export class PersonnelComponent implements AfterViewInit {
-  displayedColumns = ['id', 'name', 'role', 'supervisor', 'community', 'dateSignUp', 'operation'];
+  displayedColumns = ['id', 'name', 'role', 'supervisor',  'dateSignUp', 'operation'];
  dataSource: MatTableDataSource<User>;
  userList: User[] = [];
  roles2create = [];

@@ -30,6 +30,7 @@ export class StomachFormComponent implements OnInit {
       console.log(this.stomach_list[2].items[0]);
       this.stomach_list[2].items[0]['data'] = res.data['advice'];
       this.stomach_list[2].items[0]['dic'] = this.advice_dic;
+
       for ( let i = 0; i < this.stomach_list[0].items[0]['layout'].length; i++) {
         const part1 = this.stomach_list[0].items[0]['layout'][i];
         if (part1.key_value) {

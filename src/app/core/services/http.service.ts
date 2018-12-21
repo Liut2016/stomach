@@ -40,11 +40,15 @@ export class HttpService {
     return this.httpClient.get('http://202.117.54.92:8080/oa/patients1')
       .pipe( data => { return data; });
   }*/
-  getRecordList(condiction): Observable<any> {
-    return this.httpClient.post('http://202.117.54.45:8080/oa/patients1', JSON.stringify(
-      condiction
-    ), {headers: new HttpHeaders().set('Content-Type', 'application/json')})
-      .pipe( data => { return data; });
+
+  getRecordList(pageindex: number, pagesize): Observable<any> {
+     const params = {
+      'pageindex': pageindex,
+      'pagesize': pagesize
+    };
+     return this.httpClient.post('http://202.117.54.92:8080/oa/patients1', JSON.stringify(params),
+      {headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .pipe( data =>  data);
   }
 
   putRecord(params: any): Observable<any> {

@@ -4,30 +4,23 @@
     <mat-card-content>
       <mat-card>
         <mat-form-field *ngIf="user.role !== 'doctor' && user.role !== 'patient' && user.role !== 'community'" style="max-width: 200px; margin-right: 30px">
-          <mat-select [(ngModel)]="communityName">
-            <mat-option>-- None --</mat-option>
-            <mat-option  *ngFor="let option of communityList" [value]="option">{{option}}</mat-option>
-          </mat-select>
-          <mat-label>所属社区</mat-label>
-        </mat-form-field>
-
-        <mat-form-field *ngIf="user.role !== 'doctor' && user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
-          <mat-select [(ngModel)]="doctorName">
-            <mat-option>-- None --</mat-option>
-            <mat-option  *ngFor="let option of doctorList" [value]="option">{{option}}</mat-option>
-          </mat-select>
-          <mat-label>负责医师</mat-label>
+          <input matInput placeholder="住院流水号" [(ngModel)]="patientID">
         </mat-form-field>
 
         <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
           <input matInput placeholder="患者姓名" [(ngModel)]="patientName">
         </mat-form-field>
 
-        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
-          <input matInput placeholder="患者身份证号" [(ngModel)]="idNumber" >
+        <mat-form-field *ngIf="user.role !== 'doctor' && user.role !== 'patient'" style="max-width: 200px; margin-right: 30px">
+          <mat-select [(ngModel)]="Disease">
+            <mat-option  *ngFor="let option of DiseaseList" [value]="option">{{option}}</mat-option> 
+            <mat-option>-- None --</mat-option>
+          </mat-select>
+          <mat-label>入院诊断</mat-label>
         </mat-form-field>
+
         <br>
-        <label *ngIf="user.role !== 'patient'" style="margin-right: 5px">录入时间段：</label>
+        <label *ngIf="user.role !== 'patient'" style="margin-right: 5px">入院时间：</label>
 
         <mat-form-field *ngIf="user.role !== 'patient'" style="max-width: 200px;">
           <input matInput [matDatepicker]="picker1" placeholder="选择一个时间" [(ngModel)]="startTime">
@@ -89,7 +82,9 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator [length]="100" [pageSizeOptions]="pageSizeOptions"  [pageSize]="pageSize" showFirstLastButtons></mat-paginator>
+
+        <mat-paginator [length]="paginatorConfig.length" [pageSize]="paginatorConfig.pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="pageChanged($event)" showFirstLastButtons></mat-paginator>
       </mat-card>
     </mat-card-content>
   </mat-card>
