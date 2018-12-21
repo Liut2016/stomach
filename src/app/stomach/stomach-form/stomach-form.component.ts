@@ -25,7 +25,6 @@ export class StomachFormComponent implements OnInit {
       console.log(res);
       // fill in the answer right here
       // const part1 = this.mammary_list[0].items[0]['layout'][1];
- 
       // if (part1.hasOwnProperty("key_value")) {
       //   console.log(part1.key_value._key);
       //   console.log(res.data);
