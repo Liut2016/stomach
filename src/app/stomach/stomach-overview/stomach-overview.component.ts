@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, NgZone} from '@angular/core';
+import { Component, OnInit, AfterViewInit , ViewChild, NgZone} from '@angular/core';
 import { MatPaginator, MatTableDataSource,PageEvent} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { SettingsService} from '@app/core/services/settings.service';
@@ -10,34 +10,29 @@ import { LocalConfigure} from '@app/shared/local-configure';
   templateUrl: './stomach-overview.component.html',
   styleUrls: ['./stomach-overview.component.css']
 })
-export class StomachOverviewComponent implements OnInit {
+export class StomachOverviewComponent implements OnInit, AfterViewInit {
 
-  user;
-  communityName = '';
-  doctorName = '';
+  user;;
   patientName = '';
   startTime = '';
   endTime = '';
   idNumber = '';
-  doctorList = [];
-  communityList = [];
-  pageSize = 10;
-  pageIndex = 5;
-  listLenth = 100;
+  DiseaseList = [ "乙状结肠恶性肿瘤","升结肠恶性肿瘤","降结肠恶性肿瘤","横结肠恶性肿瘤","直肠恶性肿瘤","直肠癌","十二指肠恶性肿瘤","回肠恶性肿瘤"];
+  paginatorConfig = {
+    length: 15,
+    pageSize: 5
+  };
+    // MatPaginator Output
+  pageEvent: PageEvent;
+  start=1;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   condictions = {
       'filter_dict': { },
       'start': 0,
-      'offset': this.listLenth,
+      'offset': this.paginatorConfig.length,
       'disease': 'hypertension',
       'follow': 0
   };
-  condiction={
-      'pagesize':this.pageSize,
-      'pageindex':this.pageIndex
-  };
-  communitiesDict = new LocalConfigure().communitiesDict;
-  communitiesDictReverse = new LocalConfigure().communitiesDictReverse;
   displayedColumns: string[] = ['PID', 'PatientName', 'Occupation', 'Disease', 'Staydays', 'operate'];
   PatientList = new MatTableDataSource(<PeriodicElement[]>(ELEMENT_DATA));
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -47,12 +42,18 @@ export class StomachOverviewComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private zone: NgZone
-  ) {}
+  ) {
+    this.user = this.settingService.user;
+    this.PatientList.paginator = this.paginator;
+    this.roleControl();
+    this.getPageData();
+  }
   ngOnInit() {
-      this.user = this.settingService.user;
-      this.PatientList.paginator = this.paginator;
-      this.roleControl();
-      this.getPageData(this.condiction);
+      
+  }
+
+  ngAfterViewInit() {
+
   }
   roleControl() {
       if (this.user.role === 'doctor') {
@@ -78,36 +79,28 @@ export class StomachOverviewComponent implements OnInit {
       this.patientName = '';
       this.endTime = '';
       this.startTime = '';
-      this.doctorName = '';
-      this.communityName = '';
       this.idNumber = '';
       this.search();
   }
   search() {
       if (this.user.role === 'super') {
           this.condictions.filter_dict = {
-              'community': this.communitiesDictReverse[this.communityName],
-              'complete_by': this.doctorName,
               '身份证号': this.idNumber,
               'submit_time': [this.startTime, this.endTime],
               '姓名': this.patientName
           };
-          this.getPageData(this.condiction);
+          this.getPageData();
       }
-      if (this.user.role === 'community') {
+      if (this.user.role === 'community') {this.paginatorConfig
           this.condictions.filter_dict = {
-              'complete_by': this.doctorName,
               '身份证号': this.idNumber,
               'submit_time': [this.startTime, this.endTime],
               '姓名': this.patientName,
-              'community': this.user.community,
           };
-          this.getPageData(this.condiction);
+          this.getPageData();
       }
       if (this.user.role === 'doctor') { 
           this.condictions.filter_dict = {
-              'complete_by': this.user.name,
-              'community': this.user.community,
               '身份证号': this.idNumber,
               'submit_time': [this.startTime, this.endTime],
               '姓名': this.patientName
@@ -118,7 +111,6 @@ export class StomachOverviewComponent implements OnInit {
       pid = pid + '';
       const deleteID = {
           PID: pid,
-          disease: 'hypertension',
           follow: 0,
           FID: 0
       };
@@ -126,7 +118,7 @@ export class StomachOverviewComponent implements OnInit {
           body: deleteID
       };
       this.service.deleteRecord(deleteParam).subscribe(res => {
-          this.getPageData(this.condiction);
+          this.getPageData();
       });
   }
  /* getPageData(condictions) {
@@ -161,12 +153,20 @@ export class StomachOverviewComponent implements OnInit {
           });
       });
   }*/
-  getPageData(condiction) {
+  pageChanged(e) {
+    this.pageEvent = e;
+    this.paginatorConfig.pageSize = this.pageEvent.pageSize;
+    this.start = this.pageEvent.pageIndex * this.pageEvent.pageSize+1;
+    console.log(e);
+    this.getPageData();
+  }
+
+  getPageData() {
       const tableData = [];
-      this.service.getRecordList(condiction).subscribe((res) => {
-        this.listLenth = res.count_num;
-        console.log(this.listLenth)
-          this.service.getRecordList(condiction).subscribe( (data) => {
+      this.service.getRecordList(this.start, this.paginatorConfig.pageSize).subscribe((res) => {
+        this.paginatorConfig.length = res.count_num;
+        console.log(this.paginatorConfig.length)
+          this.service.getRecordList(this.start, this.paginatorConfig.pageSize).subscribe( (data) => {
               const recordList = data.data;
               for ( const item of recordList ) {
                   tableData.push(

@@ -1,8 +1,8 @@
 <div fxLayout="row" fxLayoutWrap="wrap">
     <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
         <mat-card>
+            <mat-card-header><mat-card-title ><h2 style="margin-left: 25px">人员管理</h2></mat-card-title></mat-card-header>
             <mat-card-content> 
-                <mat-card-title>人员管理</mat-card-title>
                 <!-- <div class="bg-light p-10 p-r-20 p-l-20">
                     <mat-form-field>
                         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -28,10 +28,6 @@
                 <mat-form-field style="max-width: 200px; margin-right: 5px">
                     <input matInput placeholder="负责人" [(ngModel)]="filters.supervisor" (ngModelChange)="filter()">
                 </mat-form-field>
-                <mat-form-field style="max-width: 200px; margin-right: 5px">
-                    <input matInput placeholder="社区" [(ngModel)]="filters.community" (ngModelChange)="filter()">
-                </mat-form-field>
-          
                   <!-- <mat-form-field style="max-width: 200px; margin-right: 30px">
                     <mat-select >
                       <mat-option>-- None --</mat-option>
@@ -94,11 +90,6 @@
                         <mat-cell *matCellDef="let row"> {{row.supervisor}} </mat-cell>
                       </ng-container>
 
-                    <!-- community Column -->
-                    <ng-container matColumnDef="community">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> 社区 </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{communityDic[row.community]}} </mat-cell>
-                      </ng-container>
                     <!-- dateSignUp Column -->
                     <ng-container matColumnDef="dateSignUp">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> 注册时间 </mat-header-cell>
