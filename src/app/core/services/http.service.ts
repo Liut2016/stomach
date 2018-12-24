@@ -10,7 +10,6 @@ const httpOptions = {
 export class HttpService {
   baseUrl = 'http://59.110.52.133:9010/';
   testUrl = 'http://202.117.54.45:8080/';
-  // baseUrl = 'http://202.117.54.88:9000/';
 
   constructor(
     private httpClient: HttpClient,
@@ -46,7 +45,7 @@ export class HttpService {
       'pageindex': pageindex,
       'pagesize': pagesize
     };
-     return this.httpClient.post('http://202.117.54.92:8080/oa/patients1', JSON.stringify(params),
+     return this.httpClient.post('http://202.117.54.45:8080/oa/patients1', JSON.stringify(params),
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);
   }

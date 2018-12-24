@@ -125,10 +125,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
 
   getPageData() {
       const tableData = [];
-      this.service.getRecordList(this.start, this.paginatorConfig.pageSize).subscribe((res) => {
-        this.paginatorConfig.length = res.count_num;
-        console.log(this.paginatorConfig.length)
           this.service.getRecordList(this.start, this.paginatorConfig.pageSize).subscribe( (data) => {
+              this.paginatorConfig.length = data.count_num;
               const recordList = data.data;
               for ( const item of recordList ) {
                   tableData.push(
@@ -144,7 +142,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
               }
               this.PatientList.data = tableData;
             });
-          });
 }
   goToDetail(ele) {
     console.log(ele);
