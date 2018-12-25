@@ -145,7 +145,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
 }
   goToDetail(ele) {
     console.log(ele);
-     this.router.navigate([`./detail`, ele.PID, ele.ZYH], {relativeTo: this.route});
+     this.router.navigate([`./detail`, ele.PID, ele.HID], {relativeTo: this.route});
   }
 }
 

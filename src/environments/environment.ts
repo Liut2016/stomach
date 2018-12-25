@@ -7,3 +7,5 @@ export const environment = {
   production: false,
   hmr: false
 };
+
+export const url = 'http://202.117.54.45:8080/';
