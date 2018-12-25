@@ -50,7 +50,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
   }
-
+  /*We are using the AfterViewInit lifecycle hook because we need to make sure 
+  that the paginator component queried via @ViewChild is already available.*/
   ngAfterViewInit() {
 
   }
