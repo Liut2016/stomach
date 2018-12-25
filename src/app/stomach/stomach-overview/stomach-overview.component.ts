@@ -33,7 +33,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
       'disease': 'hypertension',
       'follow': 0
   };
-  displayedColumns: string[] = ['PID', 'PatientName', 'Occupation', 'Disease', 'Staydays', 'operate'];
+  displayedColumns: string[] = ['PID', 'HID' , 'PatientName', 'Disease', 'Date', 'Staydays', 'operate'];
   PatientList = new MatTableDataSource(<PeriodicElement[]>(ELEMENT_DATA));
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
@@ -132,10 +132,10 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
                   tableData.push(
                       {
                           PID: item['part1_pid'],
-                          ZYH: item['part1_zylsh'],
+                          HID: item['part1_zylsh'],
                           PatientName: item['part1_xm'],
-                          Occupation: item['part1_zy'],
                           Disease: item['part1_zzd'],
+                          Date: item['part1_rysj'].substring(0, 10),
                           Staydays: item['part1_sjzyts'],
                       }
                   );
@@ -151,9 +151,10 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
 
 export interface PeriodicElement {
   PID: string;
+  HID: string;
   PatientName: string;
-  Occupation: string;
   Disease: string;
+  Date: string;
   Staydays: number;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
