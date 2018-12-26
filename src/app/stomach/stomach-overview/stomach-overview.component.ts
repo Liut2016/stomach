@@ -12,19 +12,21 @@ import { LocalConfigure} from '@app/shared/local-configure';
 })
 export class StomachOverviewComponent implements OnInit, AfterViewInit {
 
-  user;;
+  user;
+  patientID = '';
   patientName = '';
   startTime = '';
   endTime = '';
   idNumber = '';
-  DiseaseList = [ "乙状结肠恶性肿瘤","升结肠恶性肿瘤","降结肠恶性肿瘤","横结肠恶性肿瘤","直肠恶性肿瘤","直肠癌","十二指肠恶性肿瘤","回肠恶性肿瘤"];
+  Disease = '';
+  DiseaseList = [ '乙状结肠恶性肿瘤', '升结肠恶性肿瘤', '降结肠恶性肿瘤', '横结肠恶性肿瘤', '直肠恶性肿瘤', '直肠癌', '十二指肠恶性肿瘤', '回肠恶性肿瘤'];
   paginatorConfig = {
     length: 15,
     pageSize: 5
   };
     // MatPaginator Output
   pageEvent: PageEvent;
-  start=1;
+  start = 1;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   condictions = {
       'filter_dict': { },
@@ -125,7 +127,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
 
   getPageData() {
       const tableData = [];
-          this.service.getRecordList(this.start, this.paginatorConfig.pageSize).subscribe( (data) => {
+          this.service.getRecordList(this.start, this.paginatorConfig.pageSize, this.setCondition()).subscribe( (data) => {
               this.paginatorConfig.length = data.count_num;
               const recordList = data.data;
               for ( const item of recordList ) {
@@ -146,6 +148,15 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
   goToDetail(ele) {
     console.log(ele);
      this.router.navigate([`./detail`, ele.PID, ele.ZYH], {relativeTo: this.route});
+  }
+
+  setCondition() {
+    return {
+      timeRage: [this.startTime, this.endTime],
+      patientID: this.patientID,
+      patiendName: this.patientName,
+      Disease: this.Disease,
+    };
   }
 }
 

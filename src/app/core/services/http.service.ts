@@ -40,10 +40,11 @@ export class HttpService {
       .pipe( data => { return data; });
   }*/
 
-  getRecordList(pageindex: number, pagesize): Observable<any> {
+  getRecordList(pageindex: number, pagesize: number, condition: any): Observable<any> {
      const params = {
       'pageindex': pageindex,
-      'pagesize': pagesize
+      'pagesize': pagesize,
+      'condition': condition
     };
      return this.httpClient.post('http://202.117.54.45:8080/oa/patients1', JSON.stringify(params),
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
