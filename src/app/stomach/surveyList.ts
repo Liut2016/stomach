@@ -146,7 +146,7 @@ export const survey_list = [
   {
     step_description: '病程记录',
     items: [
-      { type : 'classified-lists', title : '分类列表', key_value: { _key: '病历', _value: '' },
+      { type : 'classified-lists', title : '医嘱', key_value: { _key: '病历', _value: '' },
         data : [
           {
             type: '嘱托长嘱',

@@ -38,3 +38,7 @@
   line-height: 20px;
   margin-left: 10px;
 }
+
+mat-grid-tile {
+  border: 1px solid #a8a8a8;
+}

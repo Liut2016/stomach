@@ -22,7 +22,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
   DiseaseList = [ '乙状结肠恶性肿瘤', '升结肠恶性肿瘤', '降结肠恶性肿瘤', '横结肠恶性肿瘤', '直肠恶性肿瘤', '直肠癌', '十二指肠恶性肿瘤', '回肠恶性肿瘤'];
   paginatorConfig = {
     length: 15,
-    pageSize: 5
+    pageSize: 10
   };
     // MatPaginator Output
   pageEvent: PageEvent;
@@ -35,7 +35,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
       'disease': 'hypertension',
       'follow': 0
   };
-  displayedColumns: string[] = ['PID', 'HID' , 'PatientName', 'Disease', 'Date', 'Staydays', 'operate'];
+  displayedColumns: string[] = ['PID' , 'PatientName', 'HID', 'Disease', 'Date', 'Staydays', 'operate'];
   PatientList = new MatTableDataSource(<PeriodicElement[]>(ELEMENT_DATA));
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
@@ -52,8 +52,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
   }
-  /*We are using the AfterViewInit lifecycle hook because we need to make sure 
-  that the paginator component queried via @ViewChild is already available.*/
   ngAfterViewInit() {
 
   }
@@ -75,7 +73,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
       this.patientName = '';
       this.endTime = '';
       this.startTime = '';
-      this.idNumber = '';
+      this.patientID = '';
+      this.Disease = '';
       this.search();
   }
   search() {
@@ -135,8 +134,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
                   tableData.push(
                       {
                           PID: item['part1_pid'],
-                          HID: item['part1_zylsh'],
                           PatientName: item['part1_xm'],
+                          HID: item['part1_zylsh'],
                           Disease: item['part1_zzd'],
                           Date: item['part1_rysj'].substring(0, 10),
                           Staydays: item['part1_sjzyts'],
@@ -153,9 +152,9 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
 
   setCondition() {
     return {
-      timeRage: [this.startTime, this.endTime],
+      // timeRage: [this.startTime, this.endTime],
       patientID: this.patientID,
-      patiendName: this.patientName,
+      patientName: this.patientName,
       Disease: this.Disease,
     };
   }
