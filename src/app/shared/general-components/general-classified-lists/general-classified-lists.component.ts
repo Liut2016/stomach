@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChildren,AfterViewInit,QueryList} from '@angular/core';
 import { ConfInterface } from '@app/shared/conf-interface';
+import { MatPaginator, MatTableDataSource,PageEvent} from '@angular/material';
+import { DataSource } from '@angular/cdk/table';
 
 export interface PeriodicElement {
   name: string;
@@ -30,18 +32,35 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 
-export class GeneralClassifiedListsComponent extends ConfInterface implements OnInit {
-
+export class GeneralClassifiedListsComponent extends ConfInterface implements OnInit,AfterViewInit {
+  length: number[] = [];
+  pageSize: 10;
+  pageEvent: PageEvent;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  dataSource: any[] = [];
+
+  @ViewChildren(MatPaginator) paginator= new QueryList<MatPaginator>();
+ 
   constructor() {
     super();
+   
   }
   keys: string[];
 
+
   ngOnInit() {
     this.keys = Object.keys(this.conf.data[0].data[0]);
-    this.displayedColumns = this.keys;
+    this.displayedColumns = this.keys; 
   }
 
+  ngAfterViewInit(){ 
+    for (let index = 0; index < this.conf.data.length; index++) {
+      this.dataSource.push([]);
+      this.dataSource[index]=new MatTableDataSource(this.conf.data[index].data);
+      this.dataSource[index].paginator = this.paginator.toArray()[index];
+      this.length[index]=this.conf.data[index].data.length;
+      }
+        console.log(this.dataSource)
+}
 }
