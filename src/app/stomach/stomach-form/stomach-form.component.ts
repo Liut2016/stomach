@@ -42,12 +42,19 @@ export class StomachFormComponent implements OnInit {
         const part1 = this.stomach_list[0].items[0]['layout'][i];
         if (part1.key_value) {
           part1.key_value._value = home_data[part1.key_value._key];
+          if(part1.key_value._key === 'part1_sr'||part1.key_value._key === 'part1_rysj'||part1.key_value._key === 'part1_cysj'||part1.key_value._key === 'part1_ssrq'){
+            part1.key_value._value = home_data[part1.key_value._key].substring(0,10);
+          }
         }
       }
       for ( let i = 0; i < this.stomach_list[5].items[0]['layout'].length; i++) {
         const part4 = this.stomach_list[5].items[0]['layout'][i];
         if (part4.key_value) {
           part4.key_value._value = mazui_data[part4.key_value._key];
+          if(part4.key_value._key === 'part4_ssrq'){
+            part4.key_value._value = mazui_data[part4.key_value._key].substring(0,10);
+          }
+          
         }
       }
       /*for(let j = 0;j < result_data.length;j++)
