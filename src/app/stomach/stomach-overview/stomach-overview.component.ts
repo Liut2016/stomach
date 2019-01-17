@@ -148,8 +148,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
     console.log(ele);
      this.router.navigate([`./detail`, ele.PID, ele.HID], {relativeTo: this.route});
   }
-}
 
+}
 export interface PeriodicElement {
   PID: string;
   HID: string;
@@ -160,5 +160,3 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [
 ];
-
-

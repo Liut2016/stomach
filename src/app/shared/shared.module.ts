@@ -22,6 +22,8 @@ import { GeneralSelectComponent } from '@app/shared/general-components/general-s
 import { GeneralExpansionPanelComponent } from '@app/shared/general-components/general-expansion-panel/general-expansion-panel.component';
 import { GeneralStepperComponent } from './general-components/general-stepper/general-stepper.component';
 import {GeneralClassifiedListsComponent} from '@app/shared/general-components/general-classified-lists/general-classified-lists.component';
+import { GeneralLisComponent } from './general-components/general-lis/general-lis.component';
+import { GeneralListComponent } from './general-components/general-list/general-list.component';
 
 
 
@@ -54,7 +56,9 @@ import {GeneralClassifiedListsComponent} from '@app/shared/general-components/ge
     GeneralSelectComponent,
     GeneralExpansionPanelComponent,
     GeneralStepperComponent,
-    GeneralClassifiedListsComponent
+    GeneralClassifiedListsComponent,
+    GeneralLisComponent,
+    GeneralListComponent
   ],
   exports: [
     AccordionAnchorDirective,

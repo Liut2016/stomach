@@ -1,7 +1,9 @@
+
 import { Component, OnInit ,ViewChildren,AfterViewInit,QueryList} from '@angular/core';
 import { ConfInterface } from '@app/shared/conf-interface';
 import { MatPaginator, MatTableDataSource,PageEvent} from '@angular/material';
 import { DataSource } from '@angular/cdk/table';
+
 
 export interface PeriodicElement {
   name: string;
@@ -23,22 +25,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
 
-
 @Component({
-  selector: 'app-general-classified-lists',
-  templateUrl: './general-classified-lists.component.html',
-  styleUrls: ['./general-classified-lists.component.css']
+  selector: 'app-general-lis',
+  templateUrl: './general-lis.component.html',
+  styleUrls: ['./general-lis.component.css']
 })
+export class GeneralLisComponent extends ConfInterface implements OnInit,AfterViewInit{
 
-
-
-export class GeneralClassifiedListsComponent extends ConfInterface implements OnInit,AfterViewInit {
   length: number[] = [];
   pageSize: 10;
   pageEvent: PageEvent;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource: any[] = [];
+  panelOpenState = false;
+  data_list : any[] = [];
 
   @ViewChildren(MatPaginator) paginator= new QueryList<MatPaginator>();
  
@@ -50,20 +51,19 @@ export class GeneralClassifiedListsComponent extends ConfInterface implements On
 
 
   ngOnInit() {
-    this.keys = Object.keys(this.conf.data[0].data[0]);
+    this.keys = Object.keys(this.conf.data[0].data[0].data[0]);
     this.displayedColumns = this.keys; 
   }
 
-  ngAfterViewInit(){ 
- setTimeout(() => {
-   for (let index = 0; index < this.conf.data.length; index++) {
+  ngAfterViewInit(){  
+    setTimeout(()=>{
+     for (let index = 0; index < this.conf.data.length; index++) {
+       this.data_list = this.conf.data;
+       console.log(this.data_list);
       this.dataSource.push([]);
-      this.dataSource[index]=new MatTableDataSource(this.conf.data[index].data);
+      this.dataSource[index]=new MatTableDataSource(this.conf.data.data.data[index]);
       this.dataSource[index].paginator = this.paginator.toArray()[index];
       this.length[index]=this.conf.data[index].data.length;
-      }
-        console.log(this.dataSource)
+      }},1000);
   }
- , 1000);
-}
 }

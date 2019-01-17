@@ -14,5 +14,18 @@ export const dictionary = {
     part2_yfmc: '用法名称',
     part2_kssj: '开始时间',
     part2_jssj: '结束时间'
+  },
+  part3_lis:{
+    part3_pid: '',
+    part3_hzxm: '患者姓名',
+    part3_zyh: '住院号',
+    part3_zylsh: '住院流水号',
+    part3_zycs: '住院次数',
+    part3_xmmc: '检查项目',
+    part3_xxmmc: '具体项目',
+    part3_sj: '检查时间',
+    part3_jg: '检查结果',
+    part3_ckfw: '参考范围',
+    part3_dw: '单位'
   }
 };
