@@ -19,7 +19,6 @@
           <mat-label>入院诊断</mat-label>
         </mat-form-field>
 
-        <br>
         <label *ngIf="user.role !== 'patient'" style="margin-right: 5px">入院时间：</label>
 
         <mat-form-field *ngIf="user.role !== 'patient'" style="max-width: 200px;">
@@ -38,6 +37,11 @@
         <button  *ngIf="user.role !== 'patient'" mat-raised-button color="primary" (click)="search()">查询</button>
         <button  *ngIf="user.role !== 'patient'" mat-raised-button color="primary" style="margin-left: 20px" (click)="clear()">清空</button>
 
+        
+        <mat-form-field  *ngIf="user.role !== 'patient'" style="max-width: 600px; margin-right: 30px">
+          <input  matInput placeholder="请输入关键字" [(ngModel)]="condition">
+        </mat-form-field>
+        <button  mat-raised-button color="primary" (click)="filter()">搜索</button>
 
       </mat-card>
       <mat-card style="width: 100%; margin-top: 20px">

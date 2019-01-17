@@ -64,11 +64,6 @@ export const survey_list = [
               { type: 'input', cols: 2, rows: 1,key_value: {_key: 'part1_qkdj', _value: ''} },
               { type: 'text', cols: 1, rows: 1, text: '麻醉方式 :' },
               { type: 'input', cols: 2, rows: 1, key_value: {_key: 'part1_mzfs', _value: ''}},
-             
-
-
-
-
             ]
           }
         ]
@@ -271,58 +266,28 @@ export const survey_list = [
     {
         step_description: '一般检查项目',
         items: [
-            {
-                type: 'table',
-                title: '一般检查项目',
-                required: false,
-                cols: 6,
-                layout:[
-                    { type: 'text',cols: 1,rows: 1,text: '血常规 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*109' },
-                    { type: 'text', cols: 1, rows: 1, text: '尿常规 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*110' },
-                    { type: 'text', cols: 1, rows: 1, text: '粪常规 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*111' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '生化 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*112' },
-                    { type: 'text', cols: 1, rows: 1, text: '肝肾功 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*113' },
-                    { type: 'text', cols: 1, rows: 1, text: '风湿免疫抗体 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*114' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '女性性激素 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*115' },
-                    { type: 'text', cols: 1, rows: 1, text: '凝血系列 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*116' },
-                    { type: 'text', cols: 1, rows: 1, text: '女性肿瘤标志物 :' },
-                    { type: 'text', cols: 1, rows: 1, text: '1.5*117' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '甲功八项 :' },
-                    { type: 'text', cols: 5, rows: 1, text: '1.5*118' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '胸片：' },
-                    { type: 'text', cols: 5, rows: 1, text: '无' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '心电图 :' },
-                    { type: 'text', cols: 5, rows: 1, text: '无' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '子宫B超 :' },
-                    { type: 'text', cols: 5, rows: 1, text: '无' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '胸部CT :' },
-                    { type: 'text', cols: 5, rows: 1, text: '无' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '脑部CT :' },
-                    { type: 'text', cols: 5, rows: 1, text: '无' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '腹部CT :' },
-                    { type: 'text', cols: 5, rows: 1, text: '无' },
-
-                    { type: 'text', cols: 1, rows: 1, text: '心脏彩超：' },
-                    { type: 'text', cols: 5, rows: 1, text: '无' },
+          { type : 'classified-lists', title : '分类列表', key_value: { _key: '病历', _value: '' },
+            data : [
+              {
+                type: '性激素序列',
+                data: [
+                  {
+                    "part3_pid": 24189,
+                    "part3_hzxm": "党欢萍",
+                    "part3_zyh": 1219881,
+                    "part3_zylsh": "ZY010001219881",
+                    "part3_zycs": 1,
+                    "part3_xmmc": "肝功十四项(复)+肾功六项",
+                    "part3_xxmmc": "白球比",
+                    "part3_sj": "2015-03-10 11:48:35.000",
+                    "part3_jg": "1.94",
+                    "part3_ckfw": "1-2.5",
+                    "part3_dw": null
+                  },
                 ]
-            }
+              },
+            ]
+          } 
         ]
     },
     {
@@ -393,6 +358,77 @@ export const survey_list = [
                 ]
             },
         ]
+    },
+    {
+      step_description:'手术记录',
+      items:[
+        {
+          type: 'table',
+          title:'手术记录',
+          required: false,
+          cols:4,
+          layout:[
+              {type: 'text',cols: 1,rows: 1,text:'住院流水号 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_zylsh', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'手术名称 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_ssmc', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'手术日期 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_ssrq', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'手术时间 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_sssj', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'体重 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_tz', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'ASA分级 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_ASAfj', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'出量 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_cl', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'尿量 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_nl', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'出血量 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_cxl', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'入量 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_rl', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'红细胞 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_hxb', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'血浆 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_xj', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'血小板 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_xxb', _value: ''}},
+              {type: 'text',cols: 1,rows: 1,text:'自体血 ：'},
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part4_ztx', _value: ''}},
+          ]
+        }
+      ]
+    },
+    {
+      step_description:'影像报告',
+      items:[
+        {
+                  type: 'panel-table',
+                  title: '信息输入',
+                  required: true,
+                  displayControl: { check: false },
+                  data:[],
+                  cols: 4,
+                  layout: [
+                    { type: 'text', cols: 1, rows: 1, text: '住院号：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_zyh', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '患者姓名：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_hzxm', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检查类别：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jclb', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检察部位：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jcbw', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检察时间：' }, 
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jcsj', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检察诊断：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jczd', _value: '' } },
+                    { type: 'text', cols: 1, rows: 3, text: '检查结果描述：' },
+                    { type: 'input', cols: 3, rows: 3, key_value: { _key: 'part5_jcjgms', _value: '' } },
+                   
+                  ]
+              },
+       ]
     },
     {
         step_description: '治疗方式',

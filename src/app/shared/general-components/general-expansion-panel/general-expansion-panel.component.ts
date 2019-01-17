@@ -10,13 +10,16 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
 
   panelOpenState = false;
 
-  data_list = [{'id': 1}, {'id': 2}];
+  data_list = [{}, {}];
 
   constructor() {
     super();
   }
 
   ngOnInit() {
+    for (let index = 0; index < this.conf.data.length; index++) {
+      this.data_list.push([]);
+      }
   }
 
   answerChange() { this.validator(); }

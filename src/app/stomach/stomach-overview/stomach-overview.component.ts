@@ -150,6 +150,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
      this.router.navigate([`./detail`, ele.PID, ele.HID], {relativeTo: this.route});
   }
 
+
   setCondition() {
     return {
       // timeRage: [this.startTime, this.endTime],
@@ -158,8 +159,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
       Disease: this.Disease,
     };
   }
-}
 
+}
 export interface PeriodicElement {
   PID: string;
   HID: string;
@@ -170,5 +171,3 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [
 ];
-
-

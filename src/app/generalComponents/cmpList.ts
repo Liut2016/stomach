@@ -32,6 +32,29 @@ export const components_list = [
             { type: 'select', title: '地址选择',key_value: { _key: '地址', _value: ''}, required: true, placeholder: '点击选择', options: ['陕西省', '山西省', '自定义输入1','自定义输入2'], target_value1:'自定义输入1',target_value2:'自定义输入2'},
         ]
     },
+    /*{   step_description: 'Expansion panel',
+        items: [
+            {
+                type: 'panel-table',
+                title: '信息输入',
+                required: true,
+                displayControl: { check: false },
+                cols: 4,
+                layout: [
+                    { type: 'text', cols: 1, rows: 1, text: '检查时间：' },
+                    { type: 'date', cols: 3, rows: 1, key_value: { _key: '皮质醇定量及昼夜节律检查时间', '_value': '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '时间点：' },
+                    { type: 'text', cols: 1, rows: 1, text: '8:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '16:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '00:00' },
+                    { type: 'text', cols: 1, rows: 1, text: '皮质醇' },
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇8:00', _value: ''}, disabled: false},
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇16:00', _value: ''}, disabled: false},
+                    { type: 'input_with_text', cols: 1, rows: 1, right_text: 'ug/dl', key_value: { _key: '皮质醇00:00', _value: ''}, disabled: false},
+                ]
+            },
+        ]
+    },*/
     {   step_description: 'Expansion panel',
         items: [
             {
@@ -39,6 +62,7 @@ export const components_list = [
                 title: '信息输入',
                 required: true,
                 displayControl: { check: false },
+                data:[],
                 cols: 4,
                 layout: [
                     { type: 'text', cols: 1, rows: 1, text: '检查时间：' },
@@ -261,5 +285,41 @@ export const components_list = [
             }
           ]}
       ]
+  },
+  {
+    step_description: 'Lis',
+    items:
+      [
+        { 
+            type : 'lis',
+            title : 'lis数据展示', 
+            data : [
+                {
+                    type: "肝功十四项(复)+肾功六项",
+                    data: [
+                    {
+                            type: "2015-03-10 11:48:35.000",
+                            data: [
+                            {
+                                "part3_pid": 24189,
+                                "part3_hzxm": "党欢萍",
+                                "part3_zyh": 1219881,
+                                "part3_zylsh": "ZY010001219881",
+                                "part3_zycs": 1,
+                                "part3_xmmc": "肝功十四项(复)+肾功六项",
+                                "part3_xxmmc": "白球比",
+                                "part3_sj": "2015-03-10 11:48:35.000",
+                                "part3_jg": "1.94",
+                                "part3_ckfw": "1-2.5",
+                                "part3_dw": null
+                            }, 
+                          ]  
+                     },
+                   
+                 ]
+             }  
+             ]
+         }
+        ]
   }
 ];
