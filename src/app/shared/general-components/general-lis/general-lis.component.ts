@@ -1,8 +1,9 @@
 
-import { Component, OnInit ,ViewChildren,AfterViewInit,QueryList} from '@angular/core';
+import { Component, OnInit , ViewChildren, AfterViewInit, QueryList} from '@angular/core';
 import { ConfInterface } from '@app/shared/conf-interface';
-import { MatPaginator, MatTableDataSource,PageEvent} from '@angular/material';
-import { DataSource } from '@angular/cdk/table';
+import { MatPaginator, MatTableDataSource, PageEvent} from '@angular/material';
+import { dictionary } from '@app/shared/config-items/dictionary-items';
+
 
 
 export interface PeriodicElement {
@@ -30,7 +31,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './general-lis.component.html',
   styleUrls: ['./general-lis.component.css']
 })
-export class GeneralLisComponent extends ConfInterface implements OnInit,AfterViewInit{
+export class GeneralLisComponent extends ConfInterface implements OnInit, AfterViewInit {
 
   length: number[] = [];
   pageSize: 10;
@@ -39,31 +40,39 @@ export class GeneralLisComponent extends ConfInterface implements OnInit,AfterVi
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource: any[] = [];
   panelOpenState = false;
-  data_list : any[] = [];
-
+  data_list: any[] = [];
+  dictionary: any;
   @ViewChildren(MatPaginator) paginator= new QueryList<MatPaginator>();
- 
+
   constructor() {
     super();
-   
   }
   keys: string[];
 
 
   ngOnInit() {
+    this.dictionary = dictionary.part3_lis;
     this.keys = Object.keys(this.conf.data[0].data[0].data[0]);
-    this.displayedColumns = this.keys; 
+    console.log(this.keys);
+    this.displayedColumns = this.keys;
+
+    for (let index = 0; index < this.conf.data.length; index++) {
+      this.dataSource.push([]);
+      this.conf.data[index].data.forEach((time_data, i) => {
+        this.dataSource[index].push([]);
+        this.dataSource[index][i] = new MatTableDataSource(this.conf.data[index].data[i].data);
+        // this.dataSource[index][i].paginator = this.paginator
+      });
+    }
   }
 
-  ngAfterViewInit(){  
-    setTimeout(()=>{
-     for (let index = 0; index < this.conf.data.length; index++) {
-       this.data_list = this.conf.data;
-       console.log(this.data_list);
-      this.dataSource.push([]);
-      this.dataSource[index]=new MatTableDataSource(this.conf.data.data.data[index]);
-      this.dataSource[index].paginator = this.paginator.toArray()[index];
-      this.length[index]=this.conf.data[index].data.length;
-      }},1000);
+  ngAfterViewInit() {
+    const paginators = this.paginator.toArray();
+    this.dataSource.forEach((item, index) => {
+      const part_paginators = paginators.splice(0, item.length);
+      item.forEach((date_item, i) => {
+        date_item.paginator = part_paginators[i];
+      });
+    });
   }
 }

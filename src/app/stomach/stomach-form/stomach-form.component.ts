@@ -29,12 +29,14 @@ export class StomachFormComponent implements OnInit {
       const home_data = res.data['home'][0];
       const mazui_data = res.data['mazui'][0];
       const result_data = res.data['results'][0];
+      const lis_data = res.data['lis'];
       console.log(res.data['advice']);
       this.stomach_list[2].items[0]['data'] = res.data['advice'];
       this.stomach_list[2].items[0]['dic'] = this.advice_dic;
       this.stomach_list[3].items[0]['data'] = res.data['lis'];
       this.stomach_list[3].items[0]['dic'] = this.lis_dic;
-      this.stomach_list[6].items[0]['data'] = res.data['results']
+      this.stomach_list[6].items[0]['data'] = res.data['results'];
+      this.stomach_list[3].items[0]['data'] = lis_data;
 
       for ( let i = 0; i < this.stomach_list[0].items[0]['layout'].length; i++) {
         const part1 = this.stomach_list[0].items[0]['layout'][i];

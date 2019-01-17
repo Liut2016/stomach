@@ -81,7 +81,9 @@ import { GeneralListComponent } from './general-components/general-list/general-
     GeneralSelectComponent,
     GeneralExpansionPanelComponent,
     GeneralStepperComponent,
-    GeneralClassifiedListsComponent
+    GeneralClassifiedListsComponent,
+    GeneralLisComponent,
+    GeneralListComponent
    ],
   providers: [ MenuItems ]
 })

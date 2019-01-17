@@ -41,29 +41,25 @@ export class GeneralClassifiedListsComponent extends ConfInterface implements On
   dataSource: any[] = [];
 
   @ViewChildren(MatPaginator) paginator= new QueryList<MatPaginator>();
- 
   constructor() {
     super();
-   
   }
   keys: string[];
 
 
   ngOnInit() {
     this.keys = Object.keys(this.conf.data[0].data[0]);
-    this.displayedColumns = this.keys; 
+    this.displayedColumns = this.keys;
+    for (let index = 0; index < this.conf.data.length; index++) {
+      this.dataSource.push([]);
+      this.dataSource[index] = new MatTableDataSource(this.conf.data[index].data);
+    }
+    console.log(this.dataSource);
   }
 
-  ngAfterViewInit(){ 
- setTimeout(() => {
-   for (let index = 0; index < this.conf.data.length; index++) {
-      this.dataSource.push([]);
-      this.dataSource[index]=new MatTableDataSource(this.conf.data[index].data);
-      this.dataSource[index].paginator = this.paginator.toArray()[index];
-      this.length[index]=this.conf.data[index].data.length;
-      }
-        console.log(this.dataSource)
+  ngAfterViewInit() {
+    this.dataSource.forEach((item, index) => {
+      item.paginator = this.paginator.toArray()[index];
+    });
   }
- , 1000);
-}
 }

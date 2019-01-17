@@ -9,24 +9,27 @@
       <mat-tab-group>
         <mat-tab *ngFor="let item of conf.data; let i = index" [label]="item.type" >
             <mat-accordion>
-                <mat-expansion-panel *ngFor="let sub of item" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel *ngFor="let sub of item.data; let date_num = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                     {{sub.type}} 
+                     {{sub.type.substr(0, 16)}}
+                    </mat-panel-title>
+                    <mat-panel-title>
+                      {{sub.reference}}
                     </mat-panel-title>
                     <mat-panel-description>
                       报告记录
                     </mat-panel-description>
                   </mat-expansion-panel-header>
-                          <table mat-table class="mat-elevation-z8" [dataSource]="dataSource[i]" style="width: 100%">
+                          <table mat-table class="mat-elevation-z8" [dataSource]="dataSource[i][date_num]" style="width: 100%">
                             <ng-container  *ngFor="let col of keys; let d = index" [matColumnDef]="col">
-                              <th mat-header-cell *matHeaderCellDef> {{conf.dic[col]}} </th>
+                              <th mat-header-cell *matHeaderCellDef> {{dictionary[col]}} </th>
                               <td mat-cell *matCellDef='let element'> {{element[col]}} </td>
                             </ng-container>
                             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                          </table>  
-                       <mat-paginator [length]="length[i]" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                          </table>
+                       <mat-paginator [length]="dataSource[i][date_num].length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
                 </mat-expansion-panel>
               </mat-accordion>
         </mat-tab>
