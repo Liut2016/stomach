@@ -3,13 +3,13 @@
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-       {{items.type}} 
+       {{items.part5_jclb}} 
       </mat-panel-title>
       <mat-panel-description>
-        报告记录
+        {{items.part5_jcsj.substr(0, 10)}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-card>
+    <mat-card >
       <mat-card-content>
         <mat-grid-list [cols]="conf.cols" rowHeight="80px">
           <mat-grid-tile *ngFor="let item of conf.layout" [colspan]="item.cols" [rowspan]="item.rows" style="border: 1px solid #020303">

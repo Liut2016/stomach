@@ -28,7 +28,7 @@ export class StomachFormComponent implements OnInit {
     this.initForm().subscribe((res) => {
       const home_data = res.data['home'][0];
       const mazui_data = res.data['mazui'][0];
-      const result_data = res.data['results'][0];
+      const result_data = res.data['results'];
       const lis_data = res.data['lis'];
       console.log(res.data['advice']);
       this.stomach_list[2].items[0]['data'] = res.data['advice'];
@@ -48,16 +48,19 @@ export class StomachFormComponent implements OnInit {
         const part4 = this.stomach_list[5].items[0]['layout'][i];
         if (part4.key_value) {
           part4.key_value._value = mazui_data[part4.key_value._key];
-          console.log(part4.key_value._value);
         }
       }
-      for ( let i = 0; i < this.stomach_list[6].items[0]['layout'].length; i++) {
+      /*for(let j = 0;j < result_data.length;j++)
+      {
+         for ( let i = 0; i < this.stomach_list[6].items[0]['layout'].length; i++) {
         const part5 = this.stomach_list[6].items[0]['layout'][i];
         if (part5.key_value) {
-          part5.key_value._value = result_data.data[part5.key_value._key];
+          part5.key_value._value = result_data[j][part5.key_value._key];
           console.log(part5.key_value._value);
         }
       }
+      }*/
+     
     });
   }
 

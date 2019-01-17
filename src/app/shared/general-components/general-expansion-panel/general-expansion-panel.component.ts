@@ -10,7 +10,7 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
 
   panelOpenState = false;
 
-  data_list = [{}, {}];
+  data_list = [];
 
   constructor() {
     super();
@@ -18,8 +18,19 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
 
   ngOnInit() {
     for (let index = 0; index < this.conf.data.length; index++) {
-      this.data_list.push([]);
+      this.data_list.push(this.conf.data[index]);
       }
+    console.log(this.data_list);
+    for(let j = 0;j < this.data_list.length;j++)
+    {
+       for ( let i = 0; i < this.conf['layout'].length; i++) {
+      const part5 = this.conf['layout'][i];
+      if (part5.key_value) {
+        part5.key_value._value = this.data_list[j][part5.key_value._key];
+        console.log(part5.key_value._value);
+      }
+    }
+    }
   }
 
   answerChange() { this.validator(); }
