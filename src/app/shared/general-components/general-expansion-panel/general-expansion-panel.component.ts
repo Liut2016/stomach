@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfInterface } from '@app/shared/conf-interface';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-general-expansion-panel',
@@ -9,29 +10,36 @@ import { ConfInterface } from '@app/shared/conf-interface';
 export class GeneralExpansionPanelComponent extends ConfInterface implements OnInit {
 
   panelOpenState = false;
-
   data_list = [];
+  layout_list = [];
 
   constructor() {
     super();
   }
 
   ngOnInit() {
+    console.log(this.conf.layout);
+    this.conf.data.forEach(part => {
+      const temp_layout = _.cloneDeep(this.conf.layout);
+      this.layout_list.push(temp_layout);
+    });
     for (let index = 0; index < this.conf.data.length; index++) {
       this.data_list.push(this.conf.data[index]);
       }
+    console.log(this.layout_list);
     console.log(this.data_list);
-    for(let j = 0;j < this.data_list.length;j++)
-    {
-       for ( let i = 0; i < this.conf['layout'].length; i++) {
-      const part5 = this.conf['layout'][i];
-      if (part5.key_value) {
-        part5.key_value._value = this.data_list[j][part5.key_value._key];
-        console.log(part5.key_value._value);
-      }
+    this.layout_list.forEach((part, index) => {
+      part.forEach(item => {
+        if (item.key_value) {
+          item.key_value._value = this.data_list[index][item.key_value._key];
+          console.log(index);
+          console.log(item.key_value._value);
+        }
+      });
+      console.log(part);
+    });
+    console.log(this.layout_list);
     }
-    }
-  }
 
   answerChange() { this.validator(); }
 
