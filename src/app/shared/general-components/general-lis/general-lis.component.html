@@ -14,11 +14,11 @@
                     <mat-panel-title>
                      {{sub.type.substr(0, 16)}}
                     </mat-panel-title>
-                    <mat-panel-title>
-                      {{sub.reference}}
+                    <mat-panel-title [ngStyle]="{'color':sub.reference === 'before' ? 'rebeccapurple' : '术后检查' }">
+                      {{sub.reference === 'before' ? '术前检查' : '术后检查'}}
                     </mat-panel-title>
                     <mat-panel-description>
-                      报告记录
+                      具体项目{{sub.data.length}}条，点击查看具体项目
                     </mat-panel-description>
                   </mat-expansion-panel-header>
                           <table mat-table class="mat-elevation-z8" [dataSource]="dataSource[i][date_num]" style="width: 100%">

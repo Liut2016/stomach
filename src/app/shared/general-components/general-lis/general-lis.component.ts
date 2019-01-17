@@ -53,7 +53,6 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
   ngOnInit() {
     this.dictionary = dictionary.part3_lis;
     this.keys = Object.keys(this.conf.data[0].data[0].data[0]);
-    console.log(this.keys);
     this.displayedColumns = this.keys;
 
     for (let index = 0; index < this.conf.data.length; index++) {
