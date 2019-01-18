@@ -54,7 +54,7 @@ export class StomachFormComponent implements OnInit {
           if(part4.key_value._key === 'part4_ssrq'){
             part4.key_value._value = mazui_data[part4.key_value._key].substring(0,10);
           }
-          
+
         }
       }
       /*for(let j = 0;j < result_data.length;j++)

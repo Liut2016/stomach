@@ -18,7 +18,6 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
   }
 
   ngOnInit() {
-    console.log(this.conf.layout);
     this.conf.data.forEach(part => {
       const temp_layout = _.cloneDeep(this.conf.layout);
       this.layout_list.push(temp_layout);
@@ -26,19 +25,15 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
     for (let index = 0; index < this.conf.data.length; index++) {
       this.data_list.push(this.conf.data[index]);
       }
-    console.log(this.layout_list);
-    console.log(this.data_list);
+
     this.layout_list.forEach((part, index) => {
       part.forEach(item => {
         if (item.key_value) {
-          item.key_value._value = this.data_list[index][item.key_value._key];
-          console.log(index);
-          console.log(item.key_value._value);
+          item.key_value._value = this.data_list[index][item.key_value._key];  
         }
       });
-      console.log(part);
+
     });
-    console.log(this.layout_list);
     }
 
   answerChange() { this.validator(); }
