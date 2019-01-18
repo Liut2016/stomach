@@ -5235,11 +5235,11 @@ export const survey_list = [
       ]
     },
     {
-      step_description:'影像报告',
+      step_description: '影像报告',
       items:[
         {
                   type: 'panel-table',
-                  title: '信息输入',
+                  title: '影像报告列表',
                   required: true,
                   displayControl: { check: false },
                   data:[],
