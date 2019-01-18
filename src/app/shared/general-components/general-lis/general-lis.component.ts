@@ -53,6 +53,7 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
   ngOnInit() {
     this.dictionary = dictionary.part3_lis;
     this.keys = Object.keys(this.conf.data[0].data[0].data[0]);
+    console.log(this.conf.data[0].data[0].data[0]);
     this.displayedColumns = this.keys;
 
     for (let index = 0; index < this.conf.data.length; index++) {
@@ -63,6 +64,18 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
         // this.dataSource[index][i].paginator = this.paginator
       });
     }
+    /*for(let n = 0; n < this.conf.data.length ; n++){
+      for(let m = 0; m < this.conf.data[n].data.length ; m++){
+        for(let k = 0; k < this.conf.data[n].data[m].length ; k++){
+           for(let i = 0; i < this.conf.data[n].data[m].data[k].length ; i++){
+             if(this.conf.data[n].data[m].data[k][i] === "part3_sj"){
+             console.log(this.conf.data[n].data[m].data[k][i]);
+             this.conf.data[n].data[m].data[k]["part3_sj"].substring(0,10);
+            }
+        }
+      } 
+     }
+    }*/
   }
 
   ngAfterViewInit() {

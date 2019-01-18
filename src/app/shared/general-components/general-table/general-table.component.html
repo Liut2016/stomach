@@ -79,7 +79,7 @@
 
             <mat-form-field *ngIf="item.type=='input'" style="max-width: 80%">
               <!--<mat-label *ngIf="item.left_text">{{item.left_text}}</mat-label>-->
-              <input matInput [(ngModel)]="item.key_value._value" [disabled]="item.disabled" >
+              <input matInput [(ngModel)]="item.key_value._value" disabled="disabled" style="color: #020303;">
               <mat-label *ngIf="item.right_text">{{item.right_text}}</mat-label>
             </mat-form-field>
 
