@@ -9,7 +9,7 @@
       <div>
         <mat-tab-group>
           <mat-tab *ngFor="let tab of stomach_list" [label]="tab.step_description">
-            <ng-template mat-tab-label style="font-size: large; color: #232a37">{{tab.step_description}}</ng-template>
+            <ng-template mat-tab-label style="font-size:medium;color: #232a37"><span class='mat-tab-label'>{{tab.step_description}}</span></ng-template>
             <ng-template matTabContent>
               <div *ngFor="let cmp of tab.items">
                 <div [ngSwitch]="cmp.type">
