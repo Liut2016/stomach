@@ -30,7 +30,11 @@ export const AppRoutes: Routes = [
   {
        path: 'components_list',
        loadChildren: './generalComponents/generalComponents.module#GeneralComponentsListModule'
-  }
+  },
+    {
+      path: 'vis',
+      loadChildren: './visualization/visualization.module#VisualizationModule'
+    }
   ]
 }, {
   path: '',

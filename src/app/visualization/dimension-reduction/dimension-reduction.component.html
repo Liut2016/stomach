@@ -1,0 +1,72 @@
+<!--     <label>
+      Random States
+    </label> -->
+<div style="width:50%;float: left;">
+    <mat-slider
+    [max]="500"
+    [min]="5"
+    [step]="1"
+    [thumbLabel]="true"
+    [(ngModel)]="dataProjectionConfiguration.tsneConfiguration.randomState"
+    color = "primary">
+    </mat-slider>
+    <label style="font-size:12px">
+      Perplexity
+    </label>
+    <mat-slider
+    [max]="300"
+    [min]="5"
+    [step]="1"
+    [thumbLabel]="true"
+    [(ngModel)]="dataProjectionConfiguration.tsneConfiguration.perplexity"
+    color = "primary">
+    </mat-slider>
+    <label style="font-size:12px; ">
+        Random States
+    </label>
+    <div style="float: right;">
+    <button mat-icon-button color="primary" (click)="freshDataProjection()" >
+        <mat-icon>autorenew</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" (click)="recoverDataProjection()" >
+        <mat-icon>restore</mat-icon>
+    </button>
+    </div>
+<div id = "dataChart" #dataTsne style="margin-top : 25px;"></div>
+</div>
+
+<div style="width: 50%; float: left;">
+    <mat-slider
+    [max]="500"
+    [min]="5"
+    [step]="1"
+    [thumbLabel]="true"
+    [(ngModel)]="dimensionProjectionConfiguration.tsneConfiguration.randomState"
+    color = "primary">
+    </mat-slider>
+  <label style="font-size:12px">
+      Perplexity
+    </label>
+    <mat-slider
+    [max]="300"
+    [min]="5"
+    [step]="1"
+    [thumbLabel]="true"
+    [(ngModel)]="dimensionProjectionConfiguration.tsneConfiguration.perplexity"
+    color = "primary">
+    </mat-slider>
+    <label style="font-size:12px">
+        Random States
+    </label>
+    <div style="float: right;">
+    <button mat-icon-button color="primary" (click)="freshDimensionProjection()" >
+        <mat-icon>autorenew</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" (click)="recoverDimensionProjection()" >
+        <mat-icon>restore</mat-icon>
+    </button>
+    </div>
+<div id = "dimensionChart" #dimTsne style="margin-top : 25px;"></div>
+</div>
+<!-- <button mat-raised-button (click)="drawScatterMatrx()">Draw Scatter Matrix</button>
+<div id="drResult" #drResult ></div> -->

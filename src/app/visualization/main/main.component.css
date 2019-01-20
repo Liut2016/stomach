@@ -1,0 +1,22 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  /*justify-content: space-between;*/
+  align-items: center;
+}
+.right{
+  /*width: 500px;*/
+  justify-content: flex-end
+}
+
+.search-input{
+  width: 20%;
+  margin: 0 10px;
+}
+
+.logic{
+  width: 10%;
+}

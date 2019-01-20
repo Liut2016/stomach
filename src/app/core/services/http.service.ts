@@ -52,6 +52,20 @@ export class HttpService {
       .pipe( data =>  data);
   }
 
+  getRFilterList(pageindex: number, pagesize: number, isAll: any, conditions: any, keys): Observable<any> {
+    const params = {
+      'pageindex': pageindex,
+      'pagesize': pagesize,
+      'isAll': isAll,
+      'conditions': conditions,
+      'keys': keys
+    };
+    return this.httpClient.post(this.baseUrl + 'oa/patients2/filter2', JSON.stringify(params),
+      // return this.httpClient.post(this.Url + 'oa/patients2/filter', JSON.stringify(params),
+      {headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .pipe( data =>  data);
+
+  }
   putRecord(params: any): Observable<any> {
     return this.httpClient.put( this.baseUrl + 'disease/recordop/', params)
       .pipe( data => {  return data; });

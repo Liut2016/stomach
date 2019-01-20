@@ -1,0 +1,96 @@
+ <div cdkDropListGroup>
+  <div class="left">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding
+                     cdkDropList
+                     [cdkDropListData]="[node.filename]"
+      >
+
+        <!--<button mat-icon-button disabled>xxx</button>-->
+        <div cdkDrag>
+          <div *ngIf="node.type === 'string' ">
+            <span class="type fa  fa-font" title="string"></span>
+            <span style="margin-left: 15px;">{{node.filename}}</span>
+          </div>
+          <div *ngIf="node.type === 'number'">
+            <span class="type fa  fa-hashtag" title="number"></span>
+            <span style="margin-left: 15px;">{{node.filename}}</span>
+          </div>
+          <div *ngIf="node.type === 'date'">
+            <span class="type fa  fa-calendar" title="date"></span>
+            <span style="margin-left: 15px;">{{node.filename}}</span>
+          </div>
+        </div>
+      </mat-tree-node>
+
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.filename">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <div>{{node.filename}} : {{node.type}}</div>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+
+  <div class="middle">
+    <mat-radio-group [(ngModel)]='mark'>
+      <mat-radio-button *ngFor="let item of markDic " value="{{item}}" class="radio">{{ChineseNames[item]}}</mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <mat-form-field class="example-full-width ">
+      <input matInput placeholder="宽" value="" [(ngModel)]="width" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="example-full-width ">
+      <input matInput placeholder="高" value="" [(ngModel)]="height" autocomplete="off">
+    </mat-form-field>
+    <br>
+    <div *ngFor="let item of settings, index as i">
+      <!--<input matInput placeholder="{{item.name}}" value="" [(ngModel)]="settings[0][val]">-->
+      <!-- <div [ngSwitch]="get(item.state[0])"  (click)="changeType(item)">
+        <span matPrefix class="type fa fa-font" title="nominal" *ngSwitchCase = "'nominal'"></span>
+        <span matPrefix class="type fa fa-hashtag" title="quantitative" *ngSwitchCase = "'quantitative'"></span>
+        <span matPrefix class="type fa fa-calendar" title="temporal" *ngSwitchCase = "'temporal'"></span>
+      </div> -->
+      <mat-form-field class="example-full-width">
+      <span matPrefix class="type fa fa-font" title="nominal" *ngIf = "getTypes(item.state[0]) === 'nominal'" (click)="changeType(item)"></span>
+      <span matPrefix class="type fa fa-hashtag" title="quantitative" *ngIf = "getTypes(item.state[0]) ==='quantitative'" (click)="changeType(item)"></span>
+      <span matPrefix class="type fa fa-calendar" title="temporal" *ngIf = "getTypes(item.state[0]) ==='temporal'" (click)="changeType(item)"></span>
+      <span matPrefix> &nbsp;</span>
+      <div
+      cdkDropList
+      [cdkDropListData]="item.state"
+      (cdkDropListDropped)="drop($event)">
+      <input matInput placeholder={{ChineseNames[item.name]}} value={{item.state[0]}} >
+      </div>
+      <button *ngIf="item.state[0]" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="delete(i)">
+          <mat-icon>close</mat-icon>
+      </button>
+        <!--<button *ngIf="item.state[0]" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="openDiag(item.state[0])">-->
+          <!--<mat-icon class="fa fa-filter"></mat-icon>-->
+      <!--</button>-->
+      </mat-form-field>
+      <mat-form-field class="example-full-width " *ngIf="getTypes(item.state[0]) === 'nominal'">
+            <mat-select placeholder="过滤" [(ngModel)]="item.filtered" multiple>
+              <mat-option *ngFor="let topping of filteredData[getKey(item.state[0])]" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width " *ngIf="getTypes(item.state[0]) === 'quantitative'">
+        <mat-select placeholder="{{ChineseNames[item.title]}}" [(ngModel)]="item.val">
+          <mat-option *ngFor="let op of item.ops" [value]="op">{{op}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width " *ngIf="item.name === 'color' && item.state[0]">
+        <mat-select placeholder="{{item.title}}" [(ngModel)]="item.val">
+          <mat-option *ngFor="let op of item.ops" [value]="op">{{op}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <br>
+    <button mat-raised-button (click)="clear()">重置</button>
+    <button mat-raised-button (click)="getJson()">绘图</button>
+    <button mat-raised-button (click)="showFilter()">过滤</button>
+  </div>
+</div>

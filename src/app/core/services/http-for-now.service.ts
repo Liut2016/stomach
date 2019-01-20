@@ -262,11 +262,78 @@ export class HttpForNowService {
     //     randomState: tsneConfiguration.randomState
     //   }
     // };
-    return this.http.post('http://59.110.52.133:3111/getDRResult', JSON.stringify(conf), {headers: this.headers}).toPromise()
-    .then(res => {
-      return res.json();
-    })
-    .catch(this.handleError);
+    // return this.http.post('http://59.110.52.133:3111/getDRResult', JSON.stringify(conf), {headers: this.headers}).toPromise()
+    return this.http.post('http://202.117.54.92:5000/getDRResult', JSON.stringify(conf), {headers: this.headers}).toPromise()
+      .then(res => {
+        return res.json();
+      })
+      .catch(this.handleError);
+  }
+
+  getDimsData(dims) {
+    console.log(dims);
+    const queryDims1 = dims.filter(function (s) {
+      if (!!s && s.includes('part1')) {
+        return s && s.trim(); // 注：IE9(不包含IE9)以下的版本没有trim()方法
+      }
+    });
+    const queryDims2 = dims.filter(function (s) {
+      if (!!s && s.includes('part2')) {
+        return s && s.trim(); // 注：IE9(不包含IE9)以下的版本没有trim()方法
+      }
+    });
+    if (queryDims1.length > 0) {
+      console.log(queryDims1);
+      const Query1 = this.http.get('http://202.117.54.92:8080/oa/patients2/SECOND_HOME/' + queryDims1).toPromise().then(res => {
+        return res.json();
+      })
+        .catch(this.handleError);
+      if (queryDims2.length > 0) {
+        const Query2 = this.http.get('http://202.117.54.92:8080/oa/patients2/SECOND_FEE/' + queryDims2).toPromise().then(res => {
+          return res.json();
+        })
+          .catch(this.handleError);
+        return Promise.all([Query1, Query2]).then(([res1, res2]) => {
+          console.log(res1);
+          console.log(res2);
+          const res = [];
+          for (let i = 0; i < res1.data.length; i++) {
+            res.push({...res1.data[i], ...res2.data[i]});
+          }
+          console.log(res);
+          return res;
+        });
+      }else {
+        return Promise.all([Query1]).then(([data1]) => {
+          console.log(data1);
+          return data1.data;
+        });
+      }
+    }else   {
+      if (queryDims2.length > 0) {
+        const Query2 = this.http.get('http://202.117.54.92:8080/oa/patients2/SECOND_FEE/' + queryDims2).toPromise().then(res => {
+          return res.json();
+        })
+          .catch(this.handleError);
+        return Promise.all([ Query2]).then(([data2]) => {
+          console.log(data2);
+          return data2.data;
+        });
+      }
+    }
+  }
+
+  getDimvals(dim) {
+    const params = {
+      'dim': dim
+    };
+    const opts = {headers: new Headers({'Content-Type': 'application/json'})};
+    // console.log(params);
+    return this.http.post('http://202.117.54.92:8080/oa/patients2/dim', JSON.stringify(params), opts).toPromise()
+      .then(res => {
+        return res.json();
+      })
+      .catch(this.handleError);
   }
 
   // --------------------------------------------- Email related API end ----------------------------------------------//

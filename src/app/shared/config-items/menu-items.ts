@@ -46,7 +46,13 @@ const MENUITEMS = [
         type: 'link',
         icon: 'category',
         rolesCannotSee: []
-    },
+    },  {
+    state: 'vis',
+    name: '可视分析',
+    type: 'link',
+    icon: 'dashboard',
+    rolesCannotSee: []
+  },
 ];
 
 @Injectable()

@@ -1,0 +1,7 @@
+ <div class="left" *ngFor="let item of test; let i = index" >
+    <div id="{{'test' + i}}"></div>
+    <!-- <img src="{{item}}" height="160px" width="200px"> -->
+    <button mat-raised-button (click)="select(item)" style="margin-left: 10px">show</button>
+   <button mat-button *ngIf="!item.isAdded" (click)="add2Shortlist(item)" style="margin-left: 10px"><span class="fa fa-star-o"></span></button>
+    <button mat-button *ngIf="item.isAdded" (click)="delete(item)" style="margin-left: 10px"><span class="fa fa-star"></span></button>
+  </div>

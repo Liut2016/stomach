@@ -1,0 +1,35 @@
+
+<!-- <ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="ids">
+    <div *nguCarouselDef="let item; let i = index; let ani = animate" class="carouselTile item" >
+      <div class="tile">
+        <div #div2vis>
+            {{i}}
+          </div>
+      </div>
+    </div>
+  
+    <button NguCarouselButton class="leftRs" (click)="myCarousel.slide(0)" [style.opacity]="myCarousel.isFirst ? 0.5:1">&lt;</button>
+    <button NguCarouselButton class="rightRs" (click)="myCarousel.slide(1)" [style.opacity]="myCarousel.isLast ? 0.5:1">&gt;</button>
+    <button id="rightButton" mat-raised-button></button>
+    <ul class="myPoint" NguCarouselPoint>
+      <li *ngFor="let i of myCarousel.pointNumbers; let i = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(i)"></li>
+    </ul>
+  </ngu-carousel> -->
+<ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="test">
+  <ngu-tile *nguCarouselDef="let item; let i = index; let ani = animate" [@slider]="ani">
+    <div class="tile" >
+      <div #div2vis></div>
+      <!-- <img src="{{item}}" height="160px" width="200px"> -->
+      <button mat-raised-button (click)="select(item)" style="margin-left: 10px">Select</button>
+      <button mat-raised-button *ngIf="!item.isAdded" (click)="add2Shortlist(item)" style="margin-left: 10px">Add to shortlist</button>
+      <button mat-raised-button *ngIf="item.isAdded" (click)="delete(item)" style="margin-left: 10px">Added to shortlist</button>
+    </div>
+  </ngu-tile>
+
+  <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1">&lt;</button>
+  <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1">&gt;</button>
+
+  <ul class="myPoint" NguCarouselPoint>
+    <li *ngFor="let i of myCarousel.pointNumbers; let i = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(i)"></li>
+  </ul>
+</ngu-carousel>

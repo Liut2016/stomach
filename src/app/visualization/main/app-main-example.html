@@ -1,0 +1,13 @@
+<div style="height: 800px;overflow: auto;">
+  <!--<button mat-icon-button color="primary" (click)="merge()" style="float: right">home</button>-->
+  <div *ngFor="let item of shortlistService.getShortlist; let i = index" style="float: left;">
+    <mat-card class="example-card">
+      <button mat-icon-button color="primary" (click)="delete(item)" style="float: right">
+          <mat-icon>clear</mat-icon>
+      </button>
+    <div #div2vis></div>
+  </mat-card>
+  </div>
+  <div id = "graphn" ></div>
+</div>
+

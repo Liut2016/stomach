@@ -1,0 +1,63 @@
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+                       [expanded]="step" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        数据降维和数据显示模块
+      </mat-panel-title>
+      <mat-panel-description class="right">
+          <!--点击可 {{panelOpenState ? '折叠' : '展开'}}此页面-->
+          <!--<mat-icon>{{panelOpenState ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>-->
+          <mat-icon>{{'keyboard_arrow_down'}}</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-grid-list cols="4" rowHeight="220px">
+      <!--<mat-grid-tile rowspan="2" colspan="2">-->
+          <app-dimension-reduction (data)="initRecommend()"></app-dimension-reduction>
+      <!--</mat-grid-tile>-->
+      <!--<mat-grid-tile rowspan="2" colspan="2">-->
+        <!--<app-recommend-list [data]="dataService.getVisArray()" (selected)="getData($event)"></app-recommend-list>-->
+        <!--<app-table [data]="dataService.getDataInit()"  ></app-table>-->
+        <!-- <app-view-pane style="margin-left:50px" [data]="dimData"></app-view-pane> -->
+      <!--</mat-grid-tile>-->
+      <mat-grid-list cols="4" rowHeight="220px">
+        <!--<mat-grid-tile rowspan="2" colspan="4">-->
+          <app-view-pane  [data]="dataService.getVisArray()" (selected)="getData($event)"></app-view-pane>
+        <!--</mat-grid-tile>-->
+      </mat-grid-list>
+    </mat-grid-list>
+  </mat-expansion-panel>
+</mat-accordion>
+<!--<mat-card style="margin-top: 500px">-->
+<!--<mat-card>-->
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false"
+                         [expanded]="step1" (opened)="setStep(1)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+         自定义可视化
+        </mat-panel-title>
+        <mat-panel-description  class="right">
+          <!--点击可 {{panelOpenState ? '折叠' : '展开'}}此页面-->
+          <mat-icon>{{'keyboard_arrow_down'}}</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+<mat-grid-list cols="2">
+  <mat-grid-tile rowspan="1">
+      <app-data-pane (json)="getData($event)" [setData]="data"></app-data-pane>
+  </mat-grid-tile>
+  <button mat-raised-button (click) = "openDialog()" style="float:right; margin: 10px; z-index: 1">
+    展示所有图表
+  </button>
+  <mat-grid-tile rowspan="1">
+    <!--<mat-card>-->
+    <app-plot-pane [data]="data" style="overflow: auto;margin: 20px;"></app-plot-pane>
+    <!--</mat-card>-->
+  </mat-grid-tile>
+</mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+<!--</mat-card>-->
+<!--<app-test-tree></app-test-tree>-->

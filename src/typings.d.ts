@@ -3,4 +3,4 @@ declare var module: NodeModule;
 interface NodeModule {
   id: string;
 }
-declare var TSNE, tf, tsne,d3,cql;
+declare var TSNE, tf, tsne, d3, cql, Hammer;
