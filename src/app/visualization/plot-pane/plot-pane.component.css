@@ -2,7 +2,7 @@
   float: right;
 }
 .right{
-  /*width: 500px;*/
-  margin-top: -20px;
-  float: right;
+  margin-top: -18px;
+  float: left;
+  margin-left: 100px;
 }

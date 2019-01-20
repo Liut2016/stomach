@@ -16,7 +16,8 @@ export const name = {
     'area': '流形图',
     'line': '折线图',
     'rect': '矩形图',
-    'functions': '聚合函数'
+    'functions': '聚合函数',
+    'records': '全部记录'
 };
 export const rxaData = {
   '住院病案首页提取信息': {
@@ -81,7 +82,7 @@ export const rxaData = {
 export const Types = ['quantitative', 'quantitative', 'quantitative', 'nominal', 'quantitative', 'nominal', 'nominal', 'quantitative'];
 
 export const getRxaData = () => {
-  return {...{'records': 'number'}, ...deepCopy(rxaData), ...newlis};
+  return {...{'全部记录': 'number'}, ...deepCopy(rxaData), ...newlis};
 };
 
 function deepCopy(obj) {

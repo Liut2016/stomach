@@ -13,6 +13,7 @@ import {BehaviorSubject, Observable, of as observableOf} from 'rxjs';
 import {getRxaData, getDimData, name} from '@app/visualization/shared/data';
 import {HttpForNowService} from '@app/core/services/http-for-now.service';
 import {FilterDiagComponent} from '@app/visualization/main/main.component';
+import { stateGroups1 } from '@app/visualization/shared/types';
 
 /**
  * File node data with nested structure.
@@ -99,6 +100,7 @@ export class FileDatabase {
   styleUrls: ['./data-pane.component.css']
 })
 export class DataPaneComponent implements OnInit, OnChanges {
+  conditions; filterFlag = false;
   data = carsData;
   filteredData = {};
   public mark: string;
@@ -360,6 +362,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
 
   // draw函数
   getJson() {
+    this.conditions = null;
     const dims = this.getDims();
     this.getData(dims);
   }
@@ -405,7 +408,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
         if (i === 0 || i === 1) {
           encode[key] = this.setXY(v);
         }
-        if (v.state[0] === 'records' || v.state[0] === '*') {
+        if (v.state[0] === '全部记录' || v.state[0] === '*') {
           encode[key] = {
             'aggregate': 'count',
             'field': '*',
@@ -477,7 +480,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
   getTypes(dim) {
     if (dim) {
       // console.log(dim);
-      if (dim === 'records') {
+      if (dim === '全部记录') {
         return 'quantitative';
       }
       // console.log(dim);
@@ -488,7 +491,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
 
   // 获取后端名称类型
   getKey(dim) {
-    if (dim === 'records') {
+    if (dim === '全部记录') {
       return '*';
     }
     const item = getDimData(dim);
@@ -569,7 +572,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
             if (v.name === key) {
               if (spec.encoding[key].field === '*') {
                 v.val = spec.encoding[key].aggregate;
-                v.state[0] = 'records';
+                v.state[0] = '全部记录';
               } else {
                 v.state[0] = this.getName(spec.encoding[key].field);
               }
@@ -621,15 +624,43 @@ export class DataPaneComponent implements OnInit, OnChanges {
   }
 
   showFilter() {
+    this.filterFlag = true;
     const dialogRef = this.dialog.open(FilterDiagComponent, {
       width: '1000px',
-      data: {keys: Array.from(new Set(this.getDims()))}
+      data: {keys: Array.from(new Set(this.getDims())), conditions: this.conditions}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       // console.log('The dialog was closed');
       console.log(result);
-      this.draw(result);
+      this.draw(result.data);
+      this.conditions = result.conditions;
+      if (result.conditions === [
+        {
+          isLogicRemove: false,
+          isAddRemove: true,
+          isClearRemove: false,
+          isNumber: false,
+          isNotNumber: true,
+          isTime: false,
+          isSelect: false,
+          stateGroupOptions: stateGroups1,
+          operators: [],
+          inputTypeValue: null,
+          selectedValue: null,
+          logicValue: null,
+          inputValue: null,
+          inputValue1: null,
+          inputValue2: null,
+          startTime: null,
+          endTime: null,
+          form_type: null,
+          databaseField: null
+        }
+      ]) {
+        this.filterFlag = false;
+        this.getJson();
+      }
     });
   }
 }

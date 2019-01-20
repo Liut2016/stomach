@@ -78,8 +78,9 @@
 }
 
 .middle {
-  margin-left:300px;
-  width:500px;
+  margin-left:20px;
+  width:30%;
+  float: left;
 }
 .node-filename {
   margin-left: 15px;
@@ -95,8 +96,8 @@
 }
 .mat-tree{
   overflow: auto;
-  min-width: 280px;
-  height: 800px;
+  min-width: 20%;
+  height: 750px;
 }
 
 .search-input{
@@ -106,6 +107,10 @@
 
 .logic{
   width: 10%;
+}
+
+button{
+  margin: 0 5px;
 }
 
 

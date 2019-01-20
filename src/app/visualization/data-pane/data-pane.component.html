@@ -72,11 +72,11 @@
           <!--<mat-icon class="fa fa-filter"></mat-icon>-->
       <!--</button>-->
       </mat-form-field>
-      <mat-form-field class="example-full-width " *ngIf="getTypes(item.state[0]) === 'nominal'">
-            <mat-select placeholder="过滤" [(ngModel)]="item.filtered" multiple>
-              <mat-option *ngFor="let topping of filteredData[getKey(item.state[0])]" [value]="topping">{{topping}}</mat-option>
-            </mat-select>
-      </mat-form-field>
+      <!--<mat-form-field class="example-full-width " *ngIf="getTypes(item.state[0]) === 'nominal'">-->
+            <!--<mat-select placeholder="过滤" [(ngModel)]="item.filtered" multiple>-->
+              <!--<mat-option *ngFor="let topping of filteredData[getKey(item.state[0])]" [value]="topping">{{topping}}</mat-option>-->
+            <!--</mat-select>-->
+      <!--</mat-form-field>-->
       <mat-form-field class="example-full-width " *ngIf="getTypes(item.state[0]) === 'quantitative'">
         <mat-select placeholder="{{ChineseNames[item.title]}}" [(ngModel)]="item.val">
           <mat-option *ngFor="let op of item.ops" [value]="op">{{op}}</mat-option>
@@ -92,5 +92,22 @@
     <button mat-raised-button (click)="clear()">重置</button>
     <button mat-raised-button (click)="getJson()">绘图</button>
     <button mat-raised-button (click)="showFilter()">过滤</button>
+    <div *ngIf = 'filterFlag'>
+      <p>过滤条件:</p>
+      <mat-chip-list style="bottom:20px; left:100px;position: relative;"  >
+        <div  *ngFor="let i of conditions">
+          <span >{{i.logicValue}}</span>
+          <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNotNumber">{{i.inputTypeValue}} <span>"{{i.selectedValue}}"</span>
+            <span *ngIf="i.isSelect!=true">{{i.inputValue}}</span>
+          </mat-chip>
+          <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNumber">{{i.inputTypeValue}}<span>{{i.inputValue1}}</span>
+            <span *ngIf="i.inputValue1!=null">~{{i.inputValue2}}</span>
+          </mat-chip>
+          <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isTime">{{i.inputTypeValue}}<span>{{i.startTime}}</span>
+            <span *ngIf="i.startTime!=null">~{{i.endTime}}</span>
+          </mat-chip>
+        </div>
+      </mat-chip-list>
+    </div>
   </div>
 </div>

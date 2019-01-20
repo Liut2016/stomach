@@ -1,9 +1,11 @@
- <mat-card>
-    <mat-card-header>
-      <mat-card-title ><h2 style="margin-left: 25px">数据过滤</h2></mat-card-title>
-    </mat-card-header>
+ <mat-card width="800px">
+    <!--<mat-card-header>-->
+      <!--<mat-card-title >-->
+        <h2 style="margin-left: 25px">数据过滤</h2>
+      <!--</mat-card-title>-->
+    <!--</mat-card-header>-->
 
-    <mat-card-content>
+    <!--<mat-card-content>-->
       <mat-card >
         <div  *ngFor="let i of conditions" >
 
@@ -66,7 +68,7 @@
         </div>
       </mat-card>
 
-      <mat-card style="width: 97%">
+      <mat-card>
         <mat-card-header><h3 style="margin-left: 25px">检索条件</h3>
           <button mat-raised-button color="primary" (click) = "searchRetrieval()"  style="margin-left: 70%; height: 36px;margin-top: 20px">查找</button>
         </mat-card-header>
@@ -92,7 +94,7 @@
         </mat-card-content>
       </mat-card>
 
-      <mat-card style="width: 97%; margin-top: 20px;height: 300px;overflow: auto">
+      <mat-card style="margin-top: 20px;height: 300px;overflow: auto">
         <table mat-table [dataSource]="PatientList" style="width: 100%">
 
           <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
@@ -106,7 +108,7 @@
         <!--<mat-paginator [length]="paginatorConfig.length" [pageSize]="paginatorConfig.pageSize" [pageSizeOptions]="[5, 10, 25, 100]"-->
                        <!--(page)="pageChanged($event)" showFirstLastButtons></mat-paginator>-->
       </mat-card>
-    </mat-card-content>
-   <button mat-raised-button (click)="onNoClick()" >关闭</button>
-   <button  mat-raised-button color="primary"  (click)="OK()" >确定</button>
+    <!--</mat-card-content>-->
   </mat-card>
+ <button mat-raised-button (click)="onNoClick()" style="float: right;margin: 0 10px">关闭</button>
+ <button  mat-raised-button color="primary"  (click)="OK()" style="float: right">确定</button>

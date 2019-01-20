@@ -13,6 +13,7 @@ export interface DialogData {
 export interface FilterData {
   keys: string[];
   res: any;
+  conditions: any;
 }
 
 
@@ -25,7 +26,7 @@ export class MainComponent implements OnInit {
 
   data;
 
-  step = null; step1 = null;
+  step = null; step1 = 1;
   panelOpenState = true;
 
   setStep(index: number) {
@@ -216,6 +217,12 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
     this.paginatorConfig.pageSize = 5;
     this.start = 1;
     this.condition_search = [];
+   if (this.data.conditions) {
+     this.conditions = this.data.conditions;
+     this.getPageData();
+   } else {
+     this.init(0);
+   }
     this.getPageData();
   }
 
@@ -228,7 +235,7 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
   }
   OK() {
     console.log(this.PatientList);
-    this.dialogRef.close(this.PatientList);
+    this.dialogRef.close({'data': this.PatientList, 'conditions': this.conditions});
   }
   delete(item) {
     this.shortlistService.deleteByIndex(item);
