@@ -104,7 +104,7 @@ export class HttpService {
     });
   }
   getViewList(): Observable<any> {
-    return this.httpClient.get('http://202.117.54.45:8080/oa/patients2/dashboard')
+    return this.httpClient.get('http://202.117.54.82:8080/oa/patients1/dashboard')
       .pipe( data => {
         return data; });
   }
