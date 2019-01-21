@@ -27,7 +27,6 @@ export class DashboardService {
   }
 // 将年龄排序并转化为年龄区间
   public resetData(data) {
-    console.log(data);
     for ( let i = 0; i < data.length ; i++) {
           for (let j = i ; j < data.length; j++) {
               if (data[j] < data [i]) {
@@ -37,7 +36,6 @@ export class DashboardService {
               }
           }
     }
-  console.log(data);
     const result = [];
     let temp1, temp2;
     data.forEach(ele => {
@@ -63,7 +61,6 @@ export class DashboardService {
 
   // 获得陕西省病人人数，包括下属区县的人数也计入相应市
   public getCity(data) {
-    console.log(data);
     const City = [];
     const result = [];
     const RegionName = [];
@@ -106,7 +103,6 @@ export class DashboardService {
             }
        });
   });
-  console.log(City);
   return City;
   }
 // 删除无效数据
@@ -118,6 +114,25 @@ export class DashboardService {
     });
     return data;
   }
+
+public getRegionName() {
+  const RegionName = [];
+  const Region = [
+    ['东北', [ '黑龙江', '吉林', '辽宁' ]],
+    ['华东', ['上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '台湾']],
+    ['华北', ['北京', '天津', '山西', '河北', '内蒙古']],
+    ['华中', ['河南', '湖北', '湖南']],
+    ['华南', ['广东', '广西', '海南', '香港', '澳门']],
+    ['西南', ['重庆', '四川' , '贵州' , '云南' , '西藏']],
+    ['西北', ['陕西', '甘肃', '青海', '宁夏', '新疆']]
+];
+  Region.forEach(element => {
+    for (let i = 0; i < element[1].length ; i++) {
+       RegionName.push(element[1][i]);
+    }
+});
+return RegionName;
+}
 
 // 获得全国各个区间内病人人数
   public getRegion(data) {
@@ -155,6 +170,19 @@ export class DashboardService {
    return result;
 }
 
+// 省数据处理
+public getProvinces(data) {
+  const result = [];
+  const provinceName = this.getRegionName();
+  data.forEach(element => {
+    provinceName.forEach(name => {
+       if (element === name) {
+          result.push(element);
+       }
+    });
+  });
+  return result;
+}
 
 // 对年龄进行分年龄段处理
 

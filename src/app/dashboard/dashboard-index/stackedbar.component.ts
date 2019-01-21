@@ -2,6 +2,7 @@ export class StackedBar {
     target: HTMLElement;
     pointsMatrix1;
     pointsMatrix2;
+    flag;
     svgWidth = 900;
     svgHeight = 610;
     margin = {
@@ -11,12 +12,14 @@ export class StackedBar {
         right: 100
     };
     stack = d3.stack();
-    constructor(target: HTMLElement, pointsMatrix1, pointsMatrix2 ) {
+    constructor(target: HTMLElement, pointsMatrix1, pointsMatrix2, flag ) {
         this.target = target;
         this.pointsMatrix1 = pointsMatrix1;
         this.pointsMatrix2 = pointsMatrix2;
+        this.flag = flag;
     }
     render() {
+        const med = this.flag;
         const width = this.svgWidth - this.margin.left - this.margin.right;
         const height = this.svgHeight - this.margin.top - this.margin.bottom;
         const data = this.buildArray(this.pointsMatrix2, this.pointsMatrix1);
@@ -105,7 +108,12 @@ export class StackedBar {
             .attr('y', 9)
             .attr('dy', '.35em')
             .style('text-anchor', 'start')
-            .text(function(d, i) { return cols[i]; });
+            .text(function(d, i) {
+              if (med === 0) {
+              return cols[i] + '天';
+            } else {
+              return cols[i] + '人';
+            }});
             const tooltip = svg.append('g')
               .attr('class', 'tooltip')
               .style('display', 'none');

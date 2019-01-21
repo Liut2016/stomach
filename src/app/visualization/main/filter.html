@@ -94,7 +94,7 @@
         </mat-card-content>
       </mat-card>
 
-      <mat-card style="margin-top: 20px;height: 300px;overflow: auto">
+      <mat-card style="margin-top: 20px;max-height: 300px;overflow: auto">
         <table mat-table [dataSource]="PatientList" style="width: 100%">
 
           <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">

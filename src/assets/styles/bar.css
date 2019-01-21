@@ -32,7 +32,7 @@
   width: 400px;
 }
 .mat-fab-class {
-  margin-right: 50px;
+  margin-right: 40px !important;
   margin-left: 10px;
 }
 .cardclass-3 {
@@ -55,6 +55,7 @@
 .provinceBar {
   position:relative;
   top: -170px;
+  width: 300px;
 }
 .viewCityBar {
   margin-top: -560px;
@@ -71,4 +72,9 @@ margin-left: 135px;
 .example-card-percent {
   width:360px;
   height:680px
+}
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3;
 }
