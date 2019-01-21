@@ -82,18 +82,14 @@
           <mat-option *ngFor="let op of item.ops" [value]="op">{{op}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="example-full-width " *ngIf="item.name === 'color' && item.state[0]">
-        <mat-select placeholder="{{item.title}}" [(ngModel)]="item.val">
-          <mat-option *ngFor="let op of item.ops" [value]="op">{{op}}</mat-option>
+      <mat-form-field class="example-full-width " *ngIf="item.name === 'color' && item.state[0] && getTypes(item.state[0]) !== 'quantitative' ">
+        <mat-select placeholder="{{ChineseNames[item.name]}}" [(ngModel)]="item.csVal">
+          <mat-option *ngFor="let op of item.color" [value]="op">{{op}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-    <br>
-    <button mat-raised-button (click)="clear()">重置</button>
-    <button mat-raised-button (click)="getJson()">绘图</button>
-    <button mat-raised-button (click)="showFilter()">过滤</button>
     <div *ngIf = 'filterFlag'>
-      <p>过滤条件:</p>
+      <p style="margin-bottom: -10px;">过滤条件:</p>
       <mat-chip-list style="bottom:20px; left:100px;position: relative;"  >
         <div  *ngFor="let i of conditions">
           <span >{{i.logicValue}}</span>
@@ -109,5 +105,9 @@
         </div>
       </mat-chip-list>
     </div>
+    <br>
+    <button mat-raised-button (click)="clear()">重置</button>
+    <button mat-raised-button (click)="getJson()">绘图</button>
+    <button mat-raised-button (click)="showFilter()">过滤</button>
   </div>
 </div>

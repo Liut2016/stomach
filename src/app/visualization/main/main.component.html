@@ -44,11 +44,11 @@
         <mat-icon>{{step1 ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <div style="min-height: 800px">
-    <!--<mat-grid-tile rowspan="1">-->
-    <button mat-raised-button (click)="openDialog()" style="float:right; margin: 10px; z-index: 1">
+    <button mat-raised-button (click)="openDialog()" style="float: right;margin: 10px;z-index: 1;position: absolute;right: 30px;top: 60px;">
       标记图表
     </button>
+    <div style="min-height: 800px">
+    <!--<mat-grid-tile rowspan="1">-->
     <app-data-pane (json)="getData($event)" [setData]="data" style="width: 50%"></app-data-pane>
     <!--</mat-grid-tile>-->
     <!--<mat-grid-tile rowspan="1">-->
