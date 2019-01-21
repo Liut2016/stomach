@@ -213,6 +213,7 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    console.log(this.data.conditions);
     this.user = this.settingService.user;
     this.paginatorConfig.pageSize = 5;
     this.start = 1;

@@ -2,104 +2,264 @@ export const stateGroups1 = [
   {
     medicalforms: '病案首页',
     medicalformsoptions: [
-      {   type: 'number', text:  '记录编码', _key: 'part1_pid'},
-      {   type: 'number', text:  '病案号', _key: 'part1_bah'},
-      // { type: 'string', text:  '住院号', _key: 'part1_bah'},
-      { type: 'number', text:  '住院次数', _key: 'part1_zycs'},
-      { type: 'string', text:  '医疗付款方式', _key: 'part1_ylfkfs'},  // 具体内容 数字查找
-      { type: 'string', text:  '姓名', _key: 'part1_xm'}, { type: 'time', text:  '出生日期', _key: 'part1_csrq'},
-      { type: 'number', text:  '年龄', _key: 'part1_nl'}, { type: 'string', text:  '体重', _key: 'part1_tz'},
-      { type: 'number', text:  '身高(病首)', _key: 'part1_sg'},
-      { type: 'ordinal', text:  '性别', _key: 'part1_xb'}, // 数字型
-      { type: 'string', text:  '现住址', _key: 'part1_xzz'}, { type: 'string', text:  '出生省份', _key: 'part1_cssf'},
-      { type: 'string', text:  '出生地市', _key: 'part1_csds'}, { type: 'string', text:  '出生地县', _key: 'part1_csdx'},
-      { type: 'string', text:  '职业', _key: 'part1_zy'}, { type: 'string', text:  '民族', _key: 'part1_mz'},
-      { type: 'string', text:  '患者联系电话', _key: 'part1_hzlxdh'}, { type: 'string', text:  '联系人姓名', _key: 'part1_lxrxm'},
-      { type: 'string', text:  '联系人电话', _key: 'part1_lxrdh'}, { type: 'select', text:  '入院病室', _key: ' part1_rybs'},
-      { type: 'time', text:  '入院时间', _key: ' part1_rysj'}, { type: 'string', text:  '入院诊断', _key: ' part1_ryzd'},
-      { type: 'time', text:  '出院时间', _key: 'part1_cysj'}, { type: 'string', text:  '出院诊断1', _key: 'part1_cyzd1'},
-      { type: 'string', text:  '出院诊断2', _key: 'part1_cyzd2'}, { type: 'string', text:  '出院诊断3', _key: 'part1_cyzd3'},
-      { type: 'number', text:  '实际住院天数', _key: 'part1_sjzyts'}, { type: 'string', text:  '病理号', _key: 'part1_blh'},
-      { type: 'string', text:  '病理诊断', _key: 'part1_blzd'}, { type: 'time', text:  '手术日期', _key: 'part1_ssrq'},
-      { type: 'string', text:  '手术名称', _key: 'part1_ssmc'}, { type: 'string', text:  '麻醉方式', _key: 'part1_mzfs'},
-
-      { type: 'number', text:  '住院总费用', _key: 'part2_zyzfy'}, { type: 'number', text:  '一般医疗服务费', _key: 'part2_ybylfwf'},
-      { type: 'number', text:  '一般治疗操作费', _key: 'part2_ybzlczf'}, { type: 'number', text:  '护理费', _key: 'part2_hlf'},
-      { type: 'number', text:  '综合医疗服务类其他费用', _key: 'part2_zhylfwlqtfy'}, { type: 'number', text:  '病理诊断费', _key: 'part2_blzdf'},
-      { type: 'number', text:  '实验室诊断费', _key: 'part2_syszdf'}, { type: 'number', text:  '影像学诊断费', _key: 'part2_yxxzdf'},
-      { type: 'number', text:  '临床诊断项目费', _key: 'part2_lczdxmf'}, { type: 'number', text:  '非手术治疗项目费', _key: 'part2_fsszlxmf'},
-      { type: 'number', text:  '手术治疗费', _key: 'part2_sszlf'}, { type: 'number', text:  '麻醉费', _key: 'part2_mzf'},
-      { type: 'number', text:  '手术费', _key: 'part2_ssf'}, { type: 'number', text:  '康复费', _key: 'part2_kff'},
-      { type: 'number', text:  '中医治疗费', _key: 'part2_zyzlf'}, { type: 'number', text:  '西药费', _key: 'part2_xyf'},
-      { type: 'number', text:  '抗菌药物费用', _key: 'part2_kjywf'}, { type: 'number', text:  '中成药费', _key: 'part2_zcyf'},
-      { type: 'number', text:  '检查用一次性医用材料费', _key: 'part2_jcyycxyyclf'},
-      { type: 'number', text:  '治疗用一次性医用材料费', _key: 'part2_zlyycxyyclf'},
-      { type: 'number', text:  '手术用一次性医用材料费', _key: 'part2_ssyycxyyclf'},
+      {
+        'text': '住院流水号',
+        '_key': 'part1_zylsh',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '住院号',
+        '_key': 'part1_zyh',
+        'belong': '病案首页',
+        'type': 'number'
+      },
+      {
+        'text': '姓名',
+        '_key': 'part1_xm',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '生日',
+        '_key': 'part1_sr',
+        'belong': '病案首页',
+        'type': 'time'
+      },
+      {
+        'text': '年龄',
+        '_key': 'part1_nl',
+        'belong': '病案首页',
+        'type': 'number'
+      },
+      {
+        'text': '性别',
+        '_key': 'part1_xb',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '现住址',
+        '_key': 'part1_xzz',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '出生地',
+        '_key': 'part1_csd',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '职业',
+        '_key': 'part1_zy',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '民族',
+        '_key': 'part1_mz',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '现住址电话',
+        '_key': 'part1_xzzdh',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '单位电话',
+        '_key': 'part1_dwdh',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '联系人姓名',
+        '_key': 'part1_lxrxm',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '联系人电话',
+        '_key': 'part1_lxrdh',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '入院时间',
+        '_key': 'part1_rysj',
+        'belong': '病案首页',
+        'type': 'time'
+      },
+      {
+        'text': '出院时间',
+        '_key': 'part1_cysj',
+        'belong': '病案首页',
+        'type': 'time'
+      },
+      {
+        'text': '实际住院天数',
+        '_key': 'part1_sjzyts',
+        'belong': '病案首页',
+        'type': 'number'
+      },
+      {
+        'text': '主诊断',
+        '_key': 'part1_zzd',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '主诊断编码',
+        '_key': 'part1_zzdbm',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '手术日期',
+        '_key': 'part1_ssrq',
+        'belong': '病案首页',
+        'type': 'time'
+      },
+      {
+        'text': '手术名称',
+        '_key': 'part1_ssmc',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '切口等级',
+        '_key': 'part1_qkdj',
+        'belong': '病案首页',
+        'type': 'string'
+      },
+      {
+        'text': '麻醉方式',
+        '_key': 'part1_mzfs',
+        'belong': '病案首页',
+        'type': 'string'
+      }
     ]
   },
   {
-    medicalforms: '入院病历',
-    medicalformsoptions: [{ type: 'string', text:  '主诉', _key: ''}, { type: 'string', text:  '现病史', _key: ''},
-      { type: 'string', text:  '治疗时间', _key: ''}, { type: 'number', text:  '治疗次数', _key: ''},
-      { type: 'string', text:  '治疗方式', _key: ''}, { type: 'string', text:  '靶向治疗', _key: ''},
-      { type: 'string', text:  '靶向治疗剂量', _key: ''},  { type: 'string', text:  '化疗方案', _key: ''},
-      { type: 'string', text:  '化疗剂量', _key: ''}, { type: 'number', text:  '血压', _key: ''},
-      { type: 'number', text:  '体重', _key: ''},  { type: 'number', text:  '身高', _key: ''},
-      { type: 'string', text:  '手术史', _key: ''},  { type: 'time', text:  '绝经日期', _key: ''},
-      { type: 'string', text:  '月经'}, { type: 'string', text:  '伴随疾病', _key: ''},
-      { type: 'string', text:  '家族史', _key: ''}, { type: 'string', text:  '专科体检', _key: ''},
-    ]
-  },
-  {
-    medicalforms: '一般检查项目',
-    medicalformsoptions: [{ type: 'string', text:  '血常规', _key: ''}, { type: 'string', text:  '尿常规', _key: ''},
-      { type: 'string', text:  '粪常规', _key: ''}, { type: 'string', text:  '生化', _key: ''}, { type: 'string', text:  '肝肾功', _key: ''},
-      { type: 'string', text:  '风湿免疫抗体', _key: ''}, { type: 'string', text:  '女性性激素', _key: ''}, { type: 'string', text:  '凝血系列', _key: ''},
-      { type: 'string', text:  '女性肿瘤标志物', _key: ''}, { type: 'string', text:  '甲功八项', _key: ''}, { type: 'string', text:  '胸片', _key: ''},
-      { type: 'string', text:  '心电图', _key: ''}, { type: 'string', text:  '子宫B超', _key: ''}, { type: 'string', text:  '胸部CT', _key: ''},
-      { type: 'string', text:  '脑部CT', _key: ''}, { type: 'string', text:  '腹部CT', _key: ''}, { type: 'string', text:  '心脏彩超', _key: ''}
-    ]
-
-  },
-  {
-    medicalforms: '特殊检查项目',
-    medicalformsoptions: [{ type: 'string', text:  '肿瘤位置', _key: ''}, { type: 'string', text:  '肿瘤大小', _key: ''},
-      { type: 'select', text:  '肿瘤大小(T)', _key: ''}, { type: 'number', text:  '淋巴结转移个数', _key: ''},
-      { type: 'select', text:  '淋巴结(N)', _key: ''}, { type: 'string', text:  '病理分期(pN)', _key: ''},
-      { type: 'select', text:  '远处转移(M)', _key: ''}, { type: 'select', text:  'tnm分期', _key: ''},
-      { type: 'string', text:  '临床分期', _key: ''}, { type: 'select', text:  '组织学分级', _key: ''},
-      { type: 'string', text:  '免疫组化', _key: ''}, { type: 'string', text:  '补充检查', _key: ''},
-      { type: 'time', text:  '检查日期(乳腺B超)', _key: ''},  { type: 'string', text:  '检查结果(乳腺B超)', _key: ''},
-      { type: 'time', text:  '检查日期(乳腺磁共振)', _key: ''},  { type: 'string', text:  '检查结果(乳腺磁共振)', _key: ''},
-      { type: 'time', text:  '检查日期(乳腺钼靶)', _key: ''},  { type: 'string', text:  '检查结果(乳腺钼靶)', _key: ''},
-      { type: 'time', text:  '检查日期(乳管镜)', _key: ''},  { type: 'string', text:  '检查结果(乳管镜)', _key: ''},
-      { type: 'time', text:  '检查日期(BRCA基因检测)', _key: ''},  { type: 'string', text:  '检查结果(BRCA基因检测)', _key: ''},
-      { type: 'time', text:  '检查日期(CTC循环肿瘤细胞检查)', _key: ''},  { type: 'string', text:  '检查结果(CTC循环肿瘤细胞检查)', _key: ''},
-    ]
-  },
-  {
-    medicalforms: '治疗方式',
+    medicalforms: '医嘱',
     medicalformsoptions: [
-      { type: 'string', text:  '化疗方案', _key: ''},
-      { type: 'string', text:  '化疗剂量', _key: ''},
-      { type: 'number', text:  '化疗次数', _key: ''},
+      {
+        'text': '医嘱类别',
+        '_key': 'part2_yzlb',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '项目名称',
+        '_key': 'part2_xmmc',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '项目总量',
+        '_key': 'part2_xmzl',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '每次剂量',
+        '_key': 'part2_mcjl',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '规格',
+        '_key': 'part2_gg',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '剂量单位',
+        '_key': 'part2_jldw',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '最小单位',
+        '_key': 'part2_zxdw',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '计价单位',
+        '_key': 'part2_jjdw',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '频次代码',
+        '_key': 'part2_pcdm',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '频次名称',
+        '_key': 'part2_pcmc',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '用法名称',
+        '_key': 'part2_yfmc',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '开始时间',
+        '_key': 'part2_kssj',
+        'belong': '医嘱',
+        'type': 'time'
+      },
+      {
+        'text': '结束时间',
+        '_key': 'part2_jssj',
+        'belong': '医嘱',
+        'type': 'time'
+      }
     ]
   },
   {
-    medicalforms: '随访一般项目',
-    medicalformsoptions: [ { type: 'time', text:  '随访时间', _key: ''}, { type: 'select', text:  '生存状态', _key: ''},
-      { type: 'string', text:  '近期治疗方式', _key: ''}, { type: 'time', text:  '近期治疗时间', _key: ''}, { type: 'string', text:  '新发疾病', _key: ''},
-      { type: 'string', text:  '病情转归', _key: ''}, { type: 'select', text:  '疾病进展', _key: ''}, { type: 'string', text:  '死亡原因', _key: ''},
-    ]
-  },
-  {
-    medicalforms: '出院记录',
-    medicalformsoptions: [{ type: 'string', text:  '主诉', _key: ''}, { type: 'string', text:  '入院查体', _key: ''},
-      { type: 'string', text:  '入院诊断', _key: ''}, { type: 'string', text:  '出院诊断', _key: ''},
-      { type: 'string', text:  '入院诊疗经过', _key: ''}, { type: 'string', text:  '出院医嘱', _key: ''},
+    medicalforms: '影像报告',
+    medicalformsoptions: [
+      {
+        'text': '检查类别',
+        '_key': 'part5_jclb',
+        'belong': '影像报告',
+        'type': 'string'
+      },
+      {
+        'text': '检查部位',
+        '_key': 'part5_jcbw',
+        'belong': '影像报告',
+        'type': 'string'
+      },
+      {
+        'text': '检查时间',
+        '_key': 'part5_jcsj',
+        'belong': '影像报告',
+        'type': 'time'
+      },
+      {
+        'text': '检查结果描述',
+        '_key': 'part5_jcjgms',
+        'belong': '影像报告',
+        'type': 'string'
+      },
+      {
+        'text': '检查诊断',
+        '_key': 'part5_jczd',
+        'belong': '影像报告',
+        'type': 'string'
+      }
     ]
   }
-
 ];
 
 export const lisjson = {

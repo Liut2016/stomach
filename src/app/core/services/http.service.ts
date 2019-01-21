@@ -79,7 +79,7 @@ export class HttpService {
       'conditions': conditions,
       'keys': keys
     };
-    return this.httpClient.post(this.baseUrl + 'oa/patients2/filter2', JSON.stringify(params),
+    return this.httpClient.post('http://202.117.54.92:8080/' + 'oa/patients1/filter', JSON.stringify(params),
       // return this.httpClient.post(this.Url + 'oa/patients2/filter', JSON.stringify(params),
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);
@@ -87,15 +87,15 @@ export class HttpService {
   }
   putRecord(params: any): Observable<any> {
     return this.httpClient.put( this.baseUrl + 'disease/recordop/', params)
-      .pipe( data => {  return data; });
+      .pipe( data =>  data);
   }
   deleteRecord(params: any): Observable<any> {
     return this.httpClient.delete<any> ( this.baseUrl + 'disease/recordop/', params)
-      .pipe( data => {  return data; });
+      .pipe( data =>  data);
   }
   getRecord(params: any): Observable<any> {
     return this.httpClient.get (this.baseUrl + 'disease/recordop/', { params: { q: JSON.stringify(params)}})
-      .pipe( data => { return data; });
+      .pipe( data => data);
   }
 
   getPatient(params: any, zyh: string): Observable<any> {

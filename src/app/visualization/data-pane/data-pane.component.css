@@ -57,7 +57,7 @@
   }
 
   .left{
-    /*width: 50%;*/
+    min-width: 12%;
     float: left;
   }
   .right{

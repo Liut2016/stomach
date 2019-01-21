@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {carsData, dimensions} from '../shared/cars';
-import {Query} from '../shared/data';
+import { Query } from '../shared/data';
 import {Subject} from 'rxjs';
 import {isNumber, isString} from 'vega-util';
 

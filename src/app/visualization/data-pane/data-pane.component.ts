@@ -10,7 +10,7 @@ import {isString, isNumber} from 'vega';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {BehaviorSubject, Observable, of as observableOf} from 'rxjs';
-import {getRxaData, getDimData, name} from '@app/visualization/shared/data';
+import {getRxaData, getDimData, name, getTxt} from '@app/visualization/shared/data';
 import {HttpForNowService} from '@app/core/services/http-for-now.service';
 import {FilterDiagComponent} from '@app/visualization/main/main.component';
 import { stateGroups1 } from '@app/visualization/shared/types';
@@ -116,10 +116,10 @@ export class DataPaneComponent implements OnInit, OnChanges {
   /*  array = this.transform(this.done, this.dropDic); */
   LIST_IDS = [];
   ChineseNames = name;
-  markDic = ['point', 'tick', 'bar', 'circle', 'area', 'line', 'rect'];
+  markDic = ['point', 'tick', 'bar', 'circle', 'rect'];
   // markDic = ['散点图', '跳动点图', '柱形图', '气泡图', '区域图', '折线图', '矩形图', 'rule'];
-  funs = ['', 'count', 'sum', 'average', 'max', 'min', 'mean', 'stdev', 'stdevp', 'stderr', 'variance', 'variancep'];
-  crs = ['', 'red,green,pink', 'red,blue', 'red,pink,yellow'];
+  funs = ['', 'count', 'sum', 'average', 'max', 'min', 'mean'];
+  crs = ['', 'accent', 'categroy10', 'category20', 'category20b', 'category20c', 'dark2', 'paired', 'tableau10', 'tableau20'];
   cr = this.crs[0];
   settings = [{
     'title': 'functions',
@@ -157,10 +157,12 @@ export class DataPaneComponent implements OnInit, OnChanges {
     'filter': ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'],
     'filtered': ''
   }, {
-    'title': 'color',
+    'title': 'functions',
     'name': 'color',
-    'ops': this.crs,
-    'val': this.crs[0],
+    'ops': this.funs,
+    'val': this.funs[0],
+    'color': this.crs,
+    'csVal': this.crs[0],
     'state': [''],
     'type': '',
     'filtered': ''
@@ -173,30 +175,30 @@ export class DataPaneComponent implements OnInit, OnChanges {
     'type': '',
     'filter': ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'],
     'filtered': ''
-  }, {
-    'title': 'functions',
-    'name': 'shape',
-    'ops': this.funs,
-    'val': this.funs[0],
-    'state': [''],
-    'type': '',
-    'filtered': ''
-  }, {
-    'title': 'functions',
-    'name': 'detail',
-    'ops': this.funs,
-    'val': this.funs[0],
-    'state': [''],
-    'type': '',
-    'filtered': ''
-  }, {
-    'title': 'functions',
-    'name': 'text',
-    'ops': this.funs,
-    'val': this.funs[0],
-    'state': [''],
-    'type': '',
-    'filtered': ''
+  // }, {
+  //   'title': 'functions',
+  //   'name': 'shape',
+  //   'ops': this.funs,
+  //   'val': this.funs[0],
+  //   'state': [''],
+  //   'type': '',
+  //   'filtered': ''
+  // }, {
+  //   'title': 'functions',
+  //   'name': 'detail',
+  //   'ops': this.funs,
+  //   'val': this.funs[0],
+  //   'state': [''],
+  //   'type': '',
+  //   'filtered': ''
+  // }, {
+  //   'title': 'functions',
+  //   'name': 'text',
+  //   'ops': this.funs,
+  //   'val': this.funs[0],
+  //   'state': [''],
+  //   'type': '',
+  //   'filtered': ''
   }];
 
   @Input() setData: any;
@@ -290,30 +292,30 @@ export class DataPaneComponent implements OnInit, OnChanges {
       'state': [''],
       'type': '',
       'filtered': ''
-    }, {
-      'title': 'functions',
-      'name': 'shape',
-      'ops': this.funs,
-      'val': this.funs[0],
-      'state': [''],
-      'type': '',
-      'filtered': ''
-    }, {
-      'title': 'functions',
-      'name': 'detail',
-      'ops': this.funs,
-      'val': this.funs[0],
-      'state': [''],
-      'type': '',
-      'filtered': ''
-    }, {
-      'title': 'functions',
-      'name': 'text',
-      'ops': this.funs,
-      'val': this.funs[0],
-      'state': [''],
-      'type': '',
-      'filtered': ''
+    // }, {
+    //   'title': 'functions',
+    //   'name': 'shape',
+    //   'ops': this.funs,
+    //   'val': this.funs[0],
+    //   'state': [''],
+    //   'type': '',
+    //   'filtered': ''
+    // }, {
+    //   'title': 'functions',
+    //   'name': 'detail',
+    //   'ops': this.funs,
+    //   'val': this.funs[0],
+    //   'state': [''],
+    //   'type': '',
+    //   'filtered': ''
+    // }, {
+    //   'title': 'functions',
+    //   'name': 'text',
+    //   'ops': this.funs,
+    //   'val': this.funs[0],
+    //   'state': [''],
+    //   'type': '',
+    //   'filtered': ''
     }];
     this.filteredData = {};
   }
@@ -332,16 +334,28 @@ export class DataPaneComponent implements OnInit, OnChanges {
     const spec1 = {
       '$schema': 'https://vega.github.io/schema/vega-lite/v3.json',
       'description': 'A simple bar chart with embedded data.',
-      'width': this.width,
-      'height': this.height,
+      'width': this.width ?  this.width : 600,
+      'height': this.height ? this.height : 500,
       'data': {
         // 'values': this.data
-        'values': data
+        'values': this.transKey2Tetx(data)
       },
       'mark': this.mark,
       'encoding': this.getEncoding(this.settings)
     };
     this.json.emit(spec1);
+  }
+
+  transKey2Tetx(data) {
+    return data.map( v => {
+      const item = {};
+      for (const key in v) {
+        if (v.hasOwnProperty(key)) {
+          item[getTxt(key)] = v[key];
+        }
+      }
+      return item;
+    });
   }
   // 从this.setting中得到dims
   getDims() {
@@ -363,6 +377,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
   // draw函数
   getJson() {
     this.conditions = null;
+    this.filterFlag = false;
     const dims = this.getDims();
     this.getData(dims);
   }
@@ -399,7 +414,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
         // console.log(v.state[0]);
         const key = v.name;
         encode[key] = {
-          'field': this.getKey(v.state[0]),
+          'field': v.state[0],
           'type': this.getTypes(v.state[0])
         };
         if (key === 'color') {
@@ -433,8 +448,8 @@ export class DataPaneComponent implements OnInit, OnChanges {
       event.container.data[event.currentIndex] =
         event.previousContainer.data[event.previousIndex];
     }
-    this.filterDimData(this.getKey(event.container.data[0]));
-    this.cdr.detectChanges();
+    // this.filterDimData(this.getKey(event.container.data[0]));
+    // this.cdr.detectChanges();
   }
 
   addId(i, j) {
@@ -574,7 +589,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
                 v.val = spec.encoding[key].aggregate;
                 v.state[0] = '全部记录';
               } else {
-                v.state[0] = this.getName(spec.encoding[key].field);
+                v.state[0] = spec.encoding[key].field;
               }
             }
           });
@@ -587,27 +602,23 @@ export class DataPaneComponent implements OnInit, OnChanges {
   }
 
   setColorScale(color) {
-    if (color.val.split(',').length > 0) {
-      return {
-        'field': this.getKey(color.state[0]),
-        // 'type': color.type,
-        'type': 'nominal',
-        'scale': {
-          'range': color.val.split(',') //  ['purple', '#ff0000', 'teal']
-        }
-      };
+    const type = this.getTypes(color.state[0]);
+    const item = {
+      'field': color.state[0],
+      'type': type,
+    };
+    if ( type === 'quantitative') {
+      return Object.assign(item, {'aggregate': color.val});
+    }else if (color.csVal) {
+      return Object.assign(item, {'scale': { 'scheme': color.csVal }});
     } else {
-      return {
-        'field': this.getKey(color.state[0]),
-        // 'type': color.type,
-        'type': 'nominal',
-      };
+      return item;
     }
   }
 
   setXY(xy) {
     return {
-      'field': this.getKey(xy.state[0]),
+      'field': xy.state[0],
       'type': this.getTypes(xy.state[0]),
       'aggregate': xy.val
     };
