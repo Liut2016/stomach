@@ -1,0 +1,260 @@
+<!-- <div style="position:relative;left:20px">
+    <h2 class="letter-spacing text-muted font-weight-normal">
+        整体数据的分布情况和统计结果
+    </h2>
+</div> -->
+<h2 class="title">数据的分布情况和统计结果</h2>
+<mat-grid-list cols="5" rowHeight="150px">
+  <mat-grid-tile>
+      <mat-card class="cardclass">
+          <mat-card-content>
+              <!-- Row -->
+              <div class="d-flex no-block">
+                  <!-- column -->
+                  <div class="m-r-10 no-shrink">
+                      <button mat-fab color="primary" class="mat-fab-class" >
+                          <mat-icon>people</mat-icon>
+                      </button>
+                  </div> 
+                  <!-- column -->
+                  <div>
+                      <h2 class="m-0">3696</h2>
+                      <h5 class="text-muted m-0">病人人数</h5>
+                  </div> 
+                  
+              </div>      
+          </mat-card-content>
+        </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+      <mat-card class="cardclass">
+          <mat-card-content>
+              <!-- Row -->
+              <div class="d-flex no-block">
+                  <!-- column -->
+                  <div class="m-r-10 no-shrink">
+                      <mat-progress-spinner
+                        class="example-margin"
+                        color="Primary"
+                        value="99"
+                        [diameter]="60"
+                        >
+                    </mat-progress-spinner>
+                  </div> 
+                  <!-- column -->
+                  <div>
+                      <h2 class="m-0">99.57%</h2>
+                      <h5 class="text-muted m-0">汉族百分比</h5>
+                  </div> 
+                  
+              </div>      
+          </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="cardclass">
+            <mat-card-content>
+                <!-- Row -->
+                <div class="d-flex no-block">
+                    <!-- column -->
+                    <div class="m-r-10 no-shrink">
+                            <button mat-fab color="primary" class="mat-fab-class">
+                            <mat-icon>format_list_numbered</mat-icon>
+                        </button>
+                    </div> 
+                    <!-- column -->
+                    <div>
+                        <h2 class="m-0">2.09</h2>
+                        <h5 class="text-muted m-0">平均住院次数</h5>
+                    </div> 
+                    
+                </div>      
+            </mat-card-content>
+          </mat-card>
+    </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card class="cardclass">
+              <mat-card-content>
+                  <!-- Row -->
+                  <div class="d-flex no-block">
+                      <!-- column -->
+                      <div class="m-r-10 no-shrink">
+                            <button mat-fab color="primary" class="mat-fab-class">
+                              <mat-icon>settings_system_daydream</mat-icon>
+                          </button>
+                      </div> 
+                      <!-- column -->
+                      <div>
+                          <h2 class="m-0">7.16</h2>
+                          <h5 class="text-muted m-0">平均住院天数</h5>
+                      </div> 
+                      
+                  </div>      
+              </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="cardclass">
+                <mat-card-content>
+                    <!-- Row -->
+                    <div class="d-flex no-block">
+                        <!-- column -->
+                        <div class="m-r-10 no-shrink">
+                                <button mat-fab color="primary" class="mat-fab-class">
+                                <mat-icon>face</mat-icon>
+                            </button>
+                        </div> 
+                        <!-- column -->
+                        <div>
+                            <h2 class="m-0">44.84</h2>
+                            <h5 class="text-muted m-0">病人平均年龄</h5>
+                        </div> 
+                        
+                    </div>      
+                </mat-card-content>
+              </mat-card>
+        </mat-grid-tile>
+</mat-grid-list>
+
+
+<mat-grid-list cols="5" rows="4" rowHeight="260px">
+    <mat-grid-tile rowspan = "2" colspan = "2">
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">attach_money</mat-icon></div>
+          <mat-card-title>支付方式</mat-card-title>
+          <mat-card-subtitle>8种不同支付方式下的患者人数统计图</mat-card-subtitle>
+        </mat-card-header><hr>
+        <mat-card-content>
+            <div #viewPaymentMethod></div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan = "3" colspan = "3">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">bar_chart</mat-icon></div>
+            <mat-card-title>治疗方式+支付方式</mat-card-title>
+            <mat-card-subtitle>患者在每种治疗方式下的不同支付方式情况统计图</mat-card-subtitle>
+          </mat-card-header><hr>
+          <mat-card-content>
+              <div #stackedbar1></div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan = "2" colspan = "2">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">person</mat-icon></div>
+              <mat-card-title>年龄</mat-card-title>
+              <mat-card-subtitle>患者在10个年龄段的人数分布统计图</mat-card-subtitle>
+            </mat-card-header><hr>
+            <mat-card-content>
+                <div #viewPatientAge></div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan = "3" colspan = "3">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">bar_chart</mat-icon></div>
+                <mat-card-title>治疗方式+年龄段</mat-card-title>
+                <mat-card-subtitle>患者在每种治疗方式下的不同年龄段分布统计图</mat-card-subtitle>
+              </mat-card-header><hr>
+              <mat-card-content>
+                  <div #stackedbar2></div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan="2" colspan = "2">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">local_hospital</mat-icon></div>
+                  <mat-card-title>治疗方式</mat-card-title>
+                  <mat-card-subtitle>28种不同治疗方式患者人数统计图</mat-card-subtitle>
+                </mat-card-header><hr>
+                <mat-card-content>
+                    <div #viewOperativeMethod></div>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <mat-grid-list cols="4" rows="3" rowHeight="360px">
+      <mat-grid-tile rowspan = "1" colspan = "1">
+        <mat-card class="example-card" class="cardclass-3" >
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">map-outline</mat-icon></div>
+            <mat-card-title>全国七大地区患者分布</mat-card-title>
+            <mat-card-subtitle>全国七大地区患者占比分布图</mat-card-subtitle>
+          </mat-card-header>
+          <div>
+            <google-chart *ngIf="chart" width="360"
+            [type]="chart.type"
+            [data]="chart.data"
+            [columnNames]="chart.columnNames"
+            [options]="chart.options">
+            </google-chart>
+            </div>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan = "2" colspan = "2">
+          <mat-card class="example-card-province">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">map</mat-icon></div>
+              <mat-card-title>全国省级分布</mat-card-title>
+              <mat-card-subtitle>全国各省患者人数统计分布图</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div #viewProvice></div>
+                <div #viewProviceBar class = "provinceBar"></div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan = "2" colspan = "1">
+            <mat-card class="example-card-percent">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">map-minus</mat-icon></div>
+                <mat-card-title>陕西省市级分布</mat-card-title>
+                <mat-card-subtitle>陕西省各市患者人数统计分布图</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                  <div #viewCity></div>
+                  <div #viewCityBar class="viewCityBar"></div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan = "1" colspan = "1">
+              <mat-card class="cardclass-3-1" >
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">account_circle</mat-icon></div>
+                  <mat-card-title>患者最多省份的占比</mat-card-title>
+                  <mat-card-subtitle>陕西省患者人数在总患者人数中的占比情况</mat-card-subtitle>
+                </mat-card-header>
+                <div class="progress-spinner">
+                    <mat-progress-spinner 
+                    class="example-margin"
+                    color="Primary"
+                    value="89.80"
+                    [diameter]="160">
+                   </mat-progress-spinner>
+                </div>
+                <div class="percentclass">
+                <h2 class="letter-spacing text-muted text-center font-weight-normal">
+                    89.80%
+                </h2>
+                </div>
+                 <h3 class="percentclass-text">陕西省</h3>
+              </mat-card>
+            </mat-grid-tile>
+    </mat-grid-list>
+<div #viewPathology></div>
+  
+<!-- <div #viewPaymentMethod></div>
+<div #viewPatientAge></div>
+<div #viewProvice></div>
+<div #viewOperativeMethod></div>
+<div #viewCity></div>
+<div #stackedbar1></div>
+<div #stackedbar2></div> -->

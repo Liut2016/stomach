@@ -31,6 +31,7 @@ export class HttpService {
   getChinaDivision(file_name) {
     return this.httpClient.get('assets/jsonData/' + file_name + '.json');
   }
+
   /*getRecordList(condictions): Observable<any> {
     return this.httpClient.post( this.baseUrl + 'disease/recordlist/', JSON.stringify(condictions))
       .pipe( data => { return data; });
@@ -83,5 +84,10 @@ export class HttpService {
     return this.httpClient.get(`${this.testUrl}oa/patient1/${params}/${zyh}`).pipe( data => {
       return data;
     });
+  }
+  getViewList(): Observable<any> {
+    return this.httpClient.get('http://202.117.54.45:8080/oa/patients2/dashboard')
+      .pipe( data => {
+        return data; });
   }
 }

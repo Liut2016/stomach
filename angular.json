@@ -35,7 +35,8 @@
               "src/assets/js/d3.lasso.min.js",
               "src/assets/js/d3.v4.min.js",
               "src/assets/js/compassql.js",
-              "node_modules/marked/lib/marked.js"
+              "node_modules/marked/lib/marked.js",
+              "src/assets/js/gstatic.js"
             ]
           },
           "configurations": {

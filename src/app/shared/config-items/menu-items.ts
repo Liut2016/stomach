@@ -26,6 +26,13 @@ export interface Menu {
 }
 
 const MENUITEMS = [
+  {
+    state: 'dashboard',
+    name: '数据总览',
+    type: 'link',
+    icon: 'dashboard',
+    rolesCannotSee: []
+  },
     {
         state: 'stomach',
         name: '结肠癌患者管理',
