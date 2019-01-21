@@ -8,7 +8,10 @@ import { el} from '@angular/platform-browser/testing/src/browser_util';
   styleUrls: ['./general-table.component.css']
 })
 export class GeneralTableComponent extends ConfInterface implements OnInit {
+
   displayControl = false;
+  isSpecial ;
+
   ngOnInit() {
     if ( this.conf.displayControl ) {
       if ( this.conf.displayControl.check === true ) { this.displayControl = true; } else { this.displayControl = false; }
@@ -34,6 +37,11 @@ export class GeneralTableComponent extends ConfInterface implements OnInit {
           options_tem.push((this_year - ago) + '年');
         }
         this.conf.layout[i].options = options_tem;
+      }
+      if (this.conf.layout[i].key_value ) {
+        this.isSpecial = false;
+      }else {
+        this.isSpecial = true;
       }
     }
   }

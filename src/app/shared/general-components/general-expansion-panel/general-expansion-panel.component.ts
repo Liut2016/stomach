@@ -12,7 +12,7 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
   panelOpenState = false;
   data_list = [];
   layout_list = [];
-
+  isSpecial;
   constructor() {
     super();
   }
