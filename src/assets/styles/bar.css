@@ -1,0 +1,74 @@
+.bar{
+    fill: steelblue;
+  }
+  .example-card {
+    max-width: 100%;
+  }
+  .example-header-image {
+  width: 40px;
+  height: 30px;
+  font-size: 45px;
+  }
+  .saleschart{
+    width: 100%;
+    
+}
+.title{
+  margin-left: 20px
+}
+.contactlist .mat-row{
+    padding: 10px 15px; 
+}
+.example-margin {
+ margin-right: 40px;
+  font-size: 50px;
+
+}
+.iconclass {
+  font-size:30px !important;
+  margin-top:10px;
+}
+.cardclass {
+  width: 400px;
+}
+.mat-fab-class {
+  margin-right: 50px;
+  margin-left: 10px;
+}
+.cardclass-3 {
+  width:400px;
+  height:320px
+}
+.cardclass-3-1 {
+  width:400px;
+  height:350px
+}
+.progress-spinner {
+  margin-left: 90px; 
+  margin-top: 35px
+}
+.percentclass {
+  position:relative;
+  top: -110px;
+  left:-20px
+}
+.provinceBar {
+  position:relative;
+  top: -170px;
+}
+.viewCityBar {
+  margin-top: -560px;
+  position: relative;
+}
+.percentclass-text {
+margin-top: -75px;
+margin-left: 135px;
+}
+.example-card-province {
+  width:790px;
+  height:680px;
+}
+.example-card-percent {
+  width:360px;
+  height:680px
+}
