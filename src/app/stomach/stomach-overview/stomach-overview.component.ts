@@ -1,16 +1,19 @@
-import { Component, OnInit, AfterViewInit , ViewChild, NgZone} from '@angular/core';
-import { MatPaginator, MatTableDataSource,PageEvent} from '@angular/material';
+import { Component, OnInit, AfterViewInit , ViewChild, NgZone, Pipe, PipeTransform} from '@angular/core';
+import { MatPaginator, MatTableDataSource, PageEvent} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { SettingsService} from '@app/core/services/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalConfigure} from '@app/shared/local-configure';
-
+import {dictionary} from '@app/shared/config-items/dictionary-items';
+@Pipe({
+  name: 'Html'
+})
 @Component({
   selector: 'app-stomach-overview',
   templateUrl: './stomach-overview.component.html',
   styleUrls: ['./stomach-overview.component.css']
 })
-export class StomachOverviewComponent implements OnInit, AfterViewInit {
+export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTransform {
 
   user;
   patientID = '';
@@ -28,6 +31,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
   pageEvent: PageEvent;
   start = 1;
   pageSizeOptions: number[] = [5, 10, 25, 100];
+  dictionary = dictionary.part1_home;
   condictions = {
       'filter_dict': { },
       'start': 0,
@@ -35,9 +39,12 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
       'disease': 'hypertension',
       'follow': 0
   };
-  displayedColumns: string[] = ['PID' , 'PatientName', 'HID', 'Disease', 'Date', 'Staydays', 'operate'];
-  PatientList = new MatTableDataSource(<PeriodicElement[]>(ELEMENT_DATA));
+  searchParam = '';
+  displayedColumns: string[] = [];
+  PatientList = new MatTableDataSource();
+  searchMode = 0;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(
       private service: HttpService,
       private settingService: SettingsService,
@@ -46,14 +53,15 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
       private zone: NgZone
   ) {
     this.user = this.settingService.user;
-    this.PatientList.paginator = this.paginator;
     this.roleControl();
-    this.getPageData();
   }
   ngOnInit() {
+    this.getPageData();
   }
   ngAfterViewInit() {
-
+    this.PatientList.paginator = this.paginator;
+  }
+  transform(value: any, ...args): any {
   }
   roleControl() {
       if (this.user.role === 'doctor') {
@@ -78,6 +86,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
       this.search();
   }
   search() {
+
       if (this.user.role === 'super') {
           this.condictions.filter_dict = {
               '身份证号': this.idNumber,
@@ -126,28 +135,31 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit {
   }
 
   getPageData() {
-      const tableData = [];
+    this.searchMode = 0;
           this.service.getRecordList(this.start, this.paginatorConfig.pageSize, this.setCondition()).subscribe( (data) => {
               this.paginatorConfig.length = data.count_num;
-              const recordList = data.data;
-              for ( const item of recordList ) {
-                  tableData.push(
-                      {
-                          PID: item['part1_pid'],
-                          PatientName: item['part1_xm'],
-                          HID: item['part1_zylsh'],
-                          Disease: item['part1_zzd'],
-                          Date: item['part1_rysj'].substring(0, 10),
-                          Staydays: item['part1_sjzyts'],
-                      }
-                  );
-              }
-              this.PatientList.data = tableData;
+              this.PatientList = new MatTableDataSource(data.data);
+            this.displayedColumns = Object.keys(data.data[0]);
+            this.displayedColumns.push('operate');
             });
-}
+  }
+  getSearchData(query) {
+    this.searchMode = 1;
+    if (!query) {
+      console.log('null query');
+    } else {
+      this.service.getElasticList(query).subscribe((data) => {
+        this.paginatorConfig.length = data.count_num;
+        this.PatientList = new MatTableDataSource(data.data);
+        this.displayedColumns = Object.keys(data.data[0]).slice(0, Object.keys(data.data[0]).length - 1);
+        this.displayedColumns.push('highlight');
+        this.displayedColumns.push('operate');
+      });
+    }
+  }
   goToDetail(ele) {
     console.log(ele);
-     this.router.navigate([`./detail`, ele.PID, ele.HID], {relativeTo: this.route});
+     this.router.navigate([`../detail`, ele.part1_pid, ele.part1_zylsh], {relativeTo: this.route});
   }
 
 

@@ -1,7 +1,14 @@
 mat-expansion-panel {
-  background-color: #dcdcdc63 !important;
+  background-color: #f0f0f063 !important;
+}
+.mat-expansion-panel-body{
+  padding: 0px !important;
 }
 
-mat-grid-tile {
-  border: 1px solid #a8a8a8 !important;
+::ng-deep .mat-grid-tile1 .mat-figure {
+  justify-content: center !important;
+}
+
+.textarea{
+  font-size: larger !important;
 }
