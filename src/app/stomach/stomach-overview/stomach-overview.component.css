@@ -6,3 +6,11 @@
 em {
   color: red !important;
 }
+
+.mat-tab-label{
+  font-size: larger;
+  color:rgb(0, 0, 0);
+  font-weight: 550;
+  min-width: 10px;
+
+}
