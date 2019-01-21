@@ -7,6 +7,8 @@ import { SharedModule } from '@app/shared/shared.module';
 import { StomachRoutes } from '@app/stomach/stomach.routing';
 import { StomachFormComponent } from '@app/stomach/stomach-form/stomach-form.component';
 import { StomachOverviewComponent } from '@app/stomach/stomach-overview/stomach-overview.component';
+import { StomachFilterComponent } from './stomach-filter/stomach-filter.component';
+import { MyPipePipe } from '@app/shared/pipe/html-pipe';
 
 
 @NgModule({
@@ -15,10 +17,10 @@ import { StomachOverviewComponent } from '@app/stomach/stomach-overview/stomach-
         RouterModule.forChild(StomachRoutes),
         FormsModule,
         ReactiveFormsModule,
-        DemoMaterialModule, 
+        DemoMaterialModule,
         SharedModule
     ],
-    declarations: [StomachFormComponent, StomachOverviewComponent],
+    declarations: [StomachFormComponent, StomachOverviewComponent, StomachFilterComponent, MyPipePipe],
 })
 
 export class StomachModule { }

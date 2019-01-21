@@ -40,5 +40,9 @@
 }
 
 mat-grid-tile {
-  border: 1px solid #a8a8a8;
+  border: none;
+}
+
+::ng-deep mat-grid-tile .mat-figure {
+  justify-content: flex-end !important;
 }
