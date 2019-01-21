@@ -42,6 +42,10 @@
           <input  matInput placeholder="请输入关键字" [(ngModel)]="searchParam">
         </mat-form-field>
         <button  mat-raised-button color="primary" (click)="getSearchData(searchParam)">搜索</button>
+        <!--<mat-radio-group [(ngModel)]="searchMode">
+          <mat-radio-button value="0">普通检索</mat-radio-button>
+          <mat-radio-button value="1">关键字搜索</mat-radio-button>
+        </mat-radio-group>-->
 
       </mat-card>
       <mat-card style="width: 100%; margin-top: 20px">

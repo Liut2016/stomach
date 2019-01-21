@@ -152,7 +152,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
         this.paginatorConfig.length = data.count_num;
         this.PatientList = new MatTableDataSource(data.data);
         this.displayedColumns = Object.keys(data.data[0]).slice(0, Object.keys(data.data[0]).length - 1);
-        console.log(this.displayedColumns);
         this.displayedColumns.push('highlight');
         this.displayedColumns.push('operate');
       });
