@@ -332,8 +332,8 @@ export class DataPaneComponent implements OnInit, OnChanges {
     const spec1 = {
       '$schema': 'https://vega.github.io/schema/vega-lite/v3.json',
       'description': 'A simple bar chart with embedded data.',
-      'width': this.width,
-      'height': this.height,
+      'width': this.width ?  this.width : 300,
+      'height': this.height ? this.height : 300,
       'data': {
         // 'values': this.data
         'values': data

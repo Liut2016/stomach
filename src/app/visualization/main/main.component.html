@@ -1,34 +1,34 @@
-<mat-accordion class="example-headers-align">
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false"
-                       [expanded]="step" (opened)="setStep(0)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        数据降维和数据显示模块
-      </mat-panel-title>
-      <mat-panel-description class="right">
-        <!--点击可 {{panelOpenState ? '折叠' : '展开'}}此页面-->
-        <!--<mat-icon>{{panelOpenState ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>-->
-        <mat-icon>{{step ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div style="overflow: auto;width: 100%;min-height: 800px">
-      <!--<mat-grid-tile rowspan="2" colspan="2">-->
-      <app-dimension-reduction (data)="initRecommend()"></app-dimension-reduction>
-      <!--</mat-grid-tile>-->
-      <!--<mat-grid-tile rowspan="2" colspan="2">-->
-      <!--<app-recommend-list [data]="dataService.getVisArray()" (selected)="getData($event)"></app-recommend-list>-->
-      <!--<app-table [data]="dataService.getDataInit()"  ></app-table>-->
-      <!-- <app-view-pane style="margin-left:50px" [data]="dimData"></app-view-pane> -->
-      <!--</mat-grid-tile>-->
-      <mat-grid-list cols="4" rowHeight="220px">
-        <!--<mat-grid-tile rowspan="2" colspan="4">-->
-        <app-view-pane [data]="dataService.getVisArray()" (selected)="getData($event)"></app-view-pane>
-        <!--</mat-grid-tile>-->
-      </mat-grid-list>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+<!--<mat-accordion class="example-headers-align">-->
+  <!--<mat-expansion-panel (opened)="panelOpenState = true"-->
+                       <!--(closed)="panelOpenState = false"-->
+                       <!--[expanded]="step" (opened)="setStep(0)" hideToggle>-->
+    <!--<mat-expansion-panel-header>-->
+      <!--<mat-panel-title>-->
+        <!--数据降维和数据显示模块-->
+      <!--</mat-panel-title>-->
+      <!--<mat-panel-description class="right">-->
+        <!--&lt;!&ndash;点击可 {{panelOpenState ? '折叠' : '展开'}}此页面&ndash;&gt;-->
+        <!--&lt;!&ndash;<mat-icon>{{panelOpenState ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>&ndash;&gt;-->
+        <!--<mat-icon>{{step ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>-->
+      <!--</mat-panel-description>-->
+    <!--</mat-expansion-panel-header>-->
+    <!--<div style="overflow: auto;width: 100%;min-height: 800px">-->
+      <!--&lt;!&ndash;<mat-grid-tile rowspan="2" colspan="2">&ndash;&gt;-->
+      <!--<app-dimension-reduction (data)="initRecommend()"></app-dimension-reduction>-->
+      <!--&lt;!&ndash;</mat-grid-tile>&ndash;&gt;-->
+      <!--&lt;!&ndash;<mat-grid-tile rowspan="2" colspan="2">&ndash;&gt;-->
+      <!--&lt;!&ndash;<app-recommend-list [data]="dataService.getVisArray()" (selected)="getData($event)"></app-recommend-list>&ndash;&gt;-->
+      <!--&lt;!&ndash;<app-table [data]="dataService.getDataInit()"  ></app-table>&ndash;&gt;-->
+      <!--&lt;!&ndash; <app-view-pane style="margin-left:50px" [data]="dimData"></app-view-pane> &ndash;&gt;-->
+      <!--&lt;!&ndash;</mat-grid-tile>&ndash;&gt;-->
+      <!--<mat-grid-list cols="4" rowHeight="220px">-->
+        <!--&lt;!&ndash;<mat-grid-tile rowspan="2" colspan="4">&ndash;&gt;-->
+        <!--<app-view-pane [data]="dataService.getVisArray()" (selected)="getData($event)"></app-view-pane>-->
+        <!--&lt;!&ndash;</mat-grid-tile>&ndash;&gt;-->
+      <!--</mat-grid-list>-->
+    <!--</div>-->
+  <!--</mat-expansion-panel>-->
+<!--</mat-accordion>-->
 <!--<mat-card style="margin-top: 500px">-->
 <!--<mat-card>-->
 <mat-accordion class="example-headers-align" >
@@ -47,7 +47,7 @@
     <div style="min-height: 800px">
     <!--<mat-grid-tile rowspan="1">-->
     <button mat-raised-button (click)="openDialog()" style="float:right; margin: 10px; z-index: 1">
-      展示所有图表
+      标记图表
     </button>
     <app-data-pane (json)="getData($event)" [setData]="data" style="width: 50%"></app-data-pane>
     <!--</mat-grid-tile>-->
