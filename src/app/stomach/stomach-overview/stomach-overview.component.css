@@ -3,6 +3,6 @@
   margin-right: 10px;
 }
 
-em {
+::ng-deep em {
   color: red !important;
 }
