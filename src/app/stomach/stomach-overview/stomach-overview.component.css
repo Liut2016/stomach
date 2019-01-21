@@ -3,3 +3,6 @@
   margin-right: 10px;
 }
 
+em {
+  color: red !important;
+}

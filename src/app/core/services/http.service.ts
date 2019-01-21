@@ -40,6 +40,19 @@ export class HttpService {
     return this.httpClient.get('http://202.117.54.92:8080/oa/patients1')
       .pipe( data => { return data; });
   }*/
+  getFilterList(pageindex: number, pagesize: number, isAll: any, conditions: any): Observable<any> {
+    const params = {
+      'pageindex': pageindex,
+      'pagesize': pagesize,
+      'isAll': isAll,
+      'conditions': conditions,
+    };
+    return this.httpClient.post(this.testUrl + 'oa/filter1', JSON.stringify(params),
+      // return this.httpClient.post(this.Url + 'oa/patients2/filter', JSON.stringify(params),
+      {headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .pipe( data =>  data);
+
+  }
 
   getRecordList(pageindex: number, pagesize: number, condition: any): Observable<any> {
      const params = {
@@ -48,6 +61,11 @@ export class HttpService {
       'condition': condition
     };
      return this.httpClient.post(`${this.testUrl}oa/patients1`, JSON.stringify(params),
+      {headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .pipe( data =>  data);
+  }
+  getElasticList(query: string): Observable<any> {
+    return this.httpClient.get(`${this.testUrl}oa/es_list/?query=${query}`,
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);
   }

@@ -22,8 +22,8 @@
       </mat-expansion-panel-header>
       <mat-card >
         <mat-card-content>
-          <mat-grid-list [cols]="conf.cols" rowHeight="80px">
-            <mat-grid-tile *ngFor="let item of layout_list[index]" [colspan]="item.cols" [rowspan]="item.rows" style="border: 1px solid #020303">
+          <mat-grid-list [cols]="conf.cols" rowHeight="80px" rowWeight="200px">
+            <mat-grid-tile  class="mat-grid-tile1" *ngFor="let item of layout_list[index]" [colspan]="item.cols" [rowspan]="item.rows" style="border-top-style: 1px solid #D3D3D3; width:25px;">
               <div *ngIf="item.type=='input_with_text'" style="max-width: 99%">
                 <label *ngIf="item.left_text" style="margin-right: 8px">{{item.left_text}}</label>
                 <mat-form-field style="max-width: 60px">
@@ -59,13 +59,15 @@
                 <label *ngIf="item.right_text" style="margin-left: 5px">{{item.right_text}}</label>
               </div>
 
-
             <mat-form-field *ngIf="item.type=='input'" style="max-width: 100%">
               <!--<mat-label *ngIf="item.left_text">{{item.left_text}}</mat-label>-->
-              <input matInput [(ngModel)]="item.key_value._value" [disabled]="item.disabled" >
+              <input matInput [(ngModel)]="item.key_value._value" [disabled]="item.disabled" style="font-size: medium">
               <mat-label *ngIf="item.right_text">{{item.right_text}}</mat-label>
             </mat-form-field>
 
+            <div *ngIf="item.type=='textarea'" style="max-width: 100%;font-size: medium">
+                <textarea class="textarea" rows="12" cols="106" font-size="medium">{{item.key_value._value}}</textarea>           
+             </div>
 
               <mat-radio-group *ngIf="item.type=='radio'" [(ngModel)]="item.key_value._value" (ngModelChange)="answerChange()" [disabled]="item.disabled">
                 <mat-label *ngIf="item.left_text">{{item.left_text}}</mat-label>
@@ -75,7 +77,7 @@
                 <mat-label *ngIf="item.right_text">{{item.right_text}}</mat-label>
               </mat-radio-group>
 
-              <mat-label *ngIf="item.type=='text'" style="color: #020303; font-size: large">{{item.text}}</mat-label>
+              <mat-label *ngIf="item.type=='text'" style="color: #020303; font-size: medium;max-width: 80%;">{{item.text}}</mat-label>
 
               <mat-select *ngIf="item.type=='option'" style="max-width: 80%" [(ngModel)]="item.key_value._value" (ngModelChange)="answerChange()"  placeholder="请点击选择" [disabled]="item.disabled">
                 <mat-option>--请点击选择--</mat-option>
