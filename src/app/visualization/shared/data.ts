@@ -1,4 +1,4 @@
-import { stateGroups1, lisjson, newlis } from '@app/visualization/shared/types';
+import { stateGroups1, newlis } from '@app/visualization/shared/types';
 export const name = {
     'x': 'X轴',
     'y': 'Y轴',
@@ -9,10 +9,10 @@ export const name = {
     'shape': '图标',
     'detail':  '细节',
     'text': '文字',
-    'point': '散点图',
+    'point': '气泡图',
     'tick': '跳动点图',
     'bar': '柱形图',
-    'circle': '气泡图',
+    'circle': '散点图',
     'area': '流形图',
     'line': '折线图',
     'rect': '矩形图',
@@ -82,7 +82,8 @@ export const rxaData = {
 export const Types = ['quantitative', 'quantitative', 'quantitative', 'nominal', 'quantitative', 'nominal', 'nominal', 'quantitative'];
 
 export const getRxaData = () => {
-  return {...{'全部记录': 'number'}, ...deepCopy(rxaData), ...newlis};
+  return getTree();
+  // return {...{'全部记录': 'number'}, ...deepCopy(stateGroups1)};
 };
 
 function deepCopy(obj) {
@@ -98,7 +99,28 @@ function deepCopy(obj) {
   }
   return result;
 }
-
+function getTree() {
+  const res = {};
+  stateGroups1.forEach((v) => {
+    for ( const key in v) {
+      if (v.hasOwnProperty(key)) {
+        res[v['medicalforms']] = {};
+        v['medicalformsoptions'].forEach((u) => {
+          if (u['type'] === 'select') {
+            res[v['medicalforms']][u['text']] = 'string';
+          } else if (u['type'] === 'time') {
+            res[v['medicalforms']][u['text']] = 'date';
+          } else {
+            res[v['medicalforms']][u['text']] = u['type'];
+          }
+        });
+        // console.log(v[key]);
+      }
+    }
+  });
+  console.log(res);
+  return res;
+}
 
 export const getDimData = (dim) => {
   let res = null ;

@@ -433,8 +433,8 @@ export class DataPaneComponent implements OnInit, OnChanges {
       event.container.data[event.currentIndex] =
         event.previousContainer.data[event.previousIndex];
     }
-    this.filterDimData(this.getKey(event.container.data[0]));
-    this.cdr.detectChanges();
+    // this.filterDimData(this.getKey(event.container.data[0]));
+    // this.cdr.detectChanges();
   }
 
   addId(i, j) {
