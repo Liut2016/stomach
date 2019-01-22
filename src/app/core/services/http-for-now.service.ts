@@ -284,12 +284,12 @@ export class HttpForNowService {
     });
     if (queryDims1.length > 0) {
       console.log(queryDims1);
-      const Query1 = this.http.get('http://202.117.54.92:8080/oa/patients1/' + queryDims1).toPromise().then(res => {
+      const Query1 = this.http.get('http://202.117.16.95:8080/oa/patients1/' + queryDims1).toPromise().then(res => {
         return res.json();
       })
         .catch(this.handleError);
       if (queryDims2.length > 0) {
-        const Query2 = this.http.get('http://202.117.54.92:8080/oa/patients1/' + queryDims2).toPromise().then(res => {
+        const Query2 = this.http.get('http://202.117.16.95:8080/oa/patients1/' + queryDims2).toPromise().then(res => {
           return res.json();
         })
           .catch(this.handleError);
@@ -311,7 +311,7 @@ export class HttpForNowService {
       }
     }else   {
       if (queryDims2.length > 0) {
-        const Query2 = this.http.get('http://202.117.54.92:8080/oa/patients1/' + queryDims2).toPromise().then(res => {
+        const Query2 = this.http.get('http://202.117.16.95:8080/oa/patients1/' + queryDims2).toPromise().then(res => {
           return res.json();
         })
           .catch(this.handleError);
@@ -329,7 +329,7 @@ export class HttpForNowService {
     };
     const opts = {headers: new Headers({'Content-Type': 'application/json'})};
     // console.log(params);
-    return this.http.post('http://202.117.54.92:8080/oa/patients2/dim', JSON.stringify(params), opts).toPromise()
+    return this.http.post('http://202.117.16.95:8080/oa/patients2/dim', JSON.stringify(params), opts).toPromise()
       .then(res => {
         return res.json();
       })

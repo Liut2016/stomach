@@ -228,10 +228,11 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
   TimeSelected(e) {
     const y = e.getFullYear();
     let m = e.getMonth() + 1;
-    // m = m < 10 ? ('0' + m) : m;
+     m = m < 10 ? ('0' + m) : m;
     let d = e.getDate();
+    d = d < 10 ? ('0' + d) : d;
     let ji = '日一二三四五六'.charAt(e.getDay());
-    return `${y}/${m}/${d} 星期${ji}`;
+    return `${y}-${m}-${d}`;
   }
 
 
@@ -356,6 +357,7 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
     const tableData = [];
     const isAll = false;
     this.service.getFilterList(this.start, this.paginatorConfig.pageSize, isAll, this.condition_search).subscribe( (data) => {
+      console.log(data);
       this.displayedColumns = [];
       this.columns = [];
       this.paginatorConfig.length = data.count_num;
@@ -363,52 +365,18 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
       recordList.forEach((element, index) => {
         tableData.push(Object.assign({}, element));
       });
-      console.log(recordList);
       this.PatientList = new MatTableDataSource(recordList);
-      console.log(data.data[0]);
       this.displayedColumns = Object.keys(data.data[0]);
       this.displayedColumns.push('operate');
-      /*for ( let i = 0; i < tableData.length; i++) {
-          let tdObj = tableData[i];
-          let plObj = {};
-          let tdObjKeys = Object.keys(tdObj);
-          for( let j = 0; j < tdObjKeys.length; j++) {
-              let tdObjKey = tdObjKeys[j];
-              for ( let k = 0; k < this.stateGroups.length; k++) {
-                  let sgObj = this.stateGroups[k];
-                  let medicalformsoptionsProperty = sgObj.medicalformsoptions;
-                  for (let m = 0; m < medicalformsoptionsProperty.length; m++) {
-                      let mfopObj = medicalformsoptionsProperty[m];
-                      let _key = mfopObj._key;
-                      let text = mfopObj.text;
-                      if (tdObjKey ===_key) {
-                          plObj[text] = tdObj[tdObjKey];
-                      }
-                      // if (tdObjKey === 'part1_pid') {
-                      //     plObj[tdObjKey] = tdObj[tdObjKey];
-                      // }
-                  }
-              }
-          }
-          this.PatientList[i] = plObj;
-      }*/
       console.log(this.PatientList);
-      /* this.columns = Object.keys(this.PatientList[0]);
-       this.displayedColumns.push('姓名', '病案号', '入院时间', '入院诊断');
-       this.columns.forEach(item => {
-           if ((item !== '姓名') && (item !== '病案号') && (item !== '入院时间') && (item !== '入院诊断') ) {
-               this.displayedColumns.push(item);
-           }
-       });*/
-      // this.displayedColumns.push('operate');
       console.log(this.displayedColumns);
 
     });
   }
 
 
-  goToDetail(pid) {
-    this.router.navigate([`../detail/${pid}`], {relativeTo: this.route});
+  goToDetail(pid, lsh) {
+    this.router.navigate([`../detail/${pid}/${lsh}`], {relativeTo: this.route});
   }
 
   deleteRecord(pid) {

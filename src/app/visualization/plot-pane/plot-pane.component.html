@@ -1,6 +1,6 @@
-<div style="height: 700px;overflow: auto">
-<div id="embed-view"></div>
-<div *ngIf="data">
+<div style="min-height: 700px;overflow: auto">
+<div id="embed-view" style="text-align: center"></div>
+<div *ngIf="data" class="right">
   <span *ngIf="!data.isAdded" (click)="add2Shortlist(data)" class="right fa fa-star-o"></span>
   <span *ngIf="data.isAdded" (click)="delete(data)" class="right fa fa-star"></span>
 </div>

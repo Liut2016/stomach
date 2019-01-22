@@ -79,7 +79,7 @@ export class HttpService {
       'conditions': conditions,
       'keys': keys
     };
-    return this.httpClient.post('http://202.117.54.92:8080/' + 'oa/patients1/filter', JSON.stringify(params),
+    return this.httpClient.post(this.testUrl + 'oa/patients1/filter', JSON.stringify(params),
       // return this.httpClient.post(this.Url + 'oa/patients2/filter', JSON.stringify(params),
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);
@@ -104,7 +104,7 @@ export class HttpService {
     });
   }
   getViewList(): Observable<any> {
-    return this.httpClient.get('http://202.117.54.82:8080/oa/patients1/dashboard')
+    return this.httpClient.get(this.testUrl + 'oa/dashboard_1')
       .pipe( data => {
         return data; });
   }

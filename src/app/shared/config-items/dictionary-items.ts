@@ -65,7 +65,7 @@ export const dictionary = {
             'type': 'string'
           },
           {
-            'text': '生日',
+            'text': '出生日期',
             '_key': 'part1_sr',
             'belong': '病案首页',
             'type': 'time'
@@ -103,30 +103,6 @@ export const dictionary = {
           {
             'text': '民族',
             '_key': 'part1_mz',
-            'belong': '病案首页',
-            'type': 'string'
-          },
-          {
-            'text': '现住址电话',
-            '_key': 'part1_xzzdh',
-            'belong': '病案首页',
-            'type': 'string'
-          },
-          {
-            'text': '单位电话',
-            '_key': 'part1_dwdh',
-            'belong': '病案首页',
-            'type': 'string'
-          },
-          {
-            'text': '联系人姓名',
-            '_key': 'part1_lxrxm',
-            'belong': '病案首页',
-            'type': 'string'
-          },
-          {
-            'text': '联系人电话',
-            '_key': 'part1_lxrdh',
             'belong': '病案首页',
             'type': 'string'
           },
@@ -186,7 +162,7 @@ export const dictionary = {
           }
         ]
       },
-      {
+     /* {
         medicalforms: '医嘱',
         medicalformsoptions: [
           {
@@ -208,36 +184,6 @@ export const dictionary = {
             'type': 'string'
           },
           {
-            'text': '每次剂量',
-            '_key': 'part2_mcjl',
-            'belong': '医嘱',
-            'type': 'string'
-          },
-          {
-            'text': '规格',
-            '_key': 'part2_gg',
-            'belong': '医嘱',
-            'type': 'string'
-          },
-          {
-            'text': '剂量单位',
-            '_key': 'part2_jldw',
-            'belong': '医嘱',
-            'type': 'string'
-          },
-          {
-            'text': '最小单位',
-            '_key': 'part2_zxdw',
-            'belong': '医嘱',
-            'type': 'string'
-          },
-          {
-            'text': '计价单位',
-            '_key': 'part2_jjdw',
-            'belong': '医嘱',
-            'type': 'string'
-          },
-          {
             'text': '频次代码',
             '_key': 'part2_pcdm',
             'belong': '医嘱',
@@ -246,12 +192,6 @@ export const dictionary = {
           {
             'text': '频次名称',
             '_key': 'part2_pcmc',
-            'belong': '医嘱',
-            'type': 'string'
-          },
-          {
-            'text': '用法名称',
-            '_key': 'part2_yfmc',
             'belong': '医嘱',
             'type': 'string'
           },
@@ -268,7 +208,7 @@ export const dictionary = {
             'type': 'time'
           }
         ]
-      },
+      },*/
        {
          medicalforms: '影像报告',
          medicalformsoptions: [
