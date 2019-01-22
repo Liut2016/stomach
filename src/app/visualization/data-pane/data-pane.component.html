@@ -101,8 +101,8 @@
           <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNumber">{{i.inputTypeValue}}<span>{{i.inputValue1}}</span>
             <span *ngIf="i.inputValue1!=null">~{{i.inputValue2}}</span>
           </mat-chip>
-          <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isTime">{{i.inputTypeValue}}<span>{{i.startTime}}</span>
-            <span *ngIf="i.startTime!=null">~{{i.endTime}}</span>
+          <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isTime">{{i.inputTypeValue}}<span>{{fmtDate(i.startTime)}}</span>
+            <span *ngIf="i.startTime!=null">~{{fmtDate(i.endTime)}}</span>
           </mat-chip>
         </div>
       </mat-chip-list>
