@@ -50,7 +50,7 @@
 }
 .percentclass {
   position:relative;
-  top: -110px;
+  top: -115px;
   left:-20px
 }
 .provinceBar {
@@ -64,7 +64,7 @@
 }
 .percentclass-text {
 margin-top: -75px;
-margin-left: 135px;
+margin-left: 140px;
 }
 .example-card-province {
   width:790px;
