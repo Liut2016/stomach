@@ -186,7 +186,7 @@ export const dictionary = {
           }
         ]
       },
-      {
+     /* {
         medicalforms: '医嘱',
         medicalformsoptions: [
           {
@@ -268,7 +268,7 @@ export const dictionary = {
             'type': 'time'
           }
         ]
-      },
+      },*/
        {
          medicalforms: '影像报告',
          medicalformsoptions: [
