@@ -77,12 +77,14 @@
               <!--<mat-option *ngFor="let topping of filteredData[getKey(item.state[0])]" [value]="topping">{{topping}}</mat-option>-->
             <!--</mat-select>-->
       <!--</mat-form-field>-->
-      <mat-form-field class="example-full-width " *ngIf="getTypes(item.state[0]) === 'quantitative'">
+      <mat-form-field class="example-full-width " *ngIf="getTypes(item.state[0]) === 'quantitative'" appearance="outline">
+        <mat-label>选择聚类函数</mat-label>
         <mat-select placeholder="{{ChineseNames[item.title]}}" [(ngModel)]="item.val">
           <mat-option *ngFor="let op of item.ops" [value]="op">{{op}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="example-full-width " *ngIf="item.name === 'color' && item.state[0] && getTypes(item.state[0]) !== 'quantitative' ">
+      <mat-form-field class="example-full-width " *ngIf="item.name === 'color' && item.state[0] && getTypes(item.state[0]) !== 'quantitative' " appearance="outline">
+        <mat-label>选择图例颜色</mat-label>
         <mat-select placeholder="{{ChineseNames[item.name]}}" [(ngModel)]="item.csVal">
           <mat-option *ngFor="let op of item.color" [value]="op">{{op}}</mat-option>
         </mat-select>
@@ -106,8 +108,8 @@
       </mat-chip-list>
     </div>
     <br>
-    <button mat-raised-button (click)="clear()">重置</button>
-    <button mat-raised-button (click)="getJson()">绘图</button>
-    <button mat-raised-button (click)="showFilter()">过滤</button>
+    <button mat-raised-button (click)="clear()" class="endbtn">  重 置  </button>
+    <button mat-raised-button (click)="getJson()" class="endbtn">绘图</button>
+    <button mat-raised-button (click)="showFilter()" class="endbtn">过滤</button>
   </div>
 </div>
