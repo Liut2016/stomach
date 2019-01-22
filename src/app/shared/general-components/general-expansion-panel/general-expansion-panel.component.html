@@ -6,19 +6,26 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-expansion-panel *ngFor="let items of data_list, let index = index" (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
+    <mat-expansion-panel *ngFor="let items of data_list, let index = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
-        <mat-panel-description>
-          {{items.part5_jcsj.substr(0, 10)}}
-        </mat-panel-description>
         <mat-panel-title>
           {{items.part5_zyh}}
         </mat-panel-title>
         <mat-panel-title>
+          {{items.part5_hzxm}}
+        </mat-panel-title>
+        <mat-panel-title>
+          {{items.part5_xb}}
+        </mat-panel-title>
+        <mat-panel-title>
+          {{items.part5_nl}}
+        </mat-panel-title>
+        <mat-panel-title>
           {{items.part5_jclb}}
         </mat-panel-title>
-
+        <mat-panel-description>
+          {{items.part5_jcsj.substr(0, 10) + items.reference}}
+        </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-card >
         <mat-card-content>

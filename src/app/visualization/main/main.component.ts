@@ -145,6 +145,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import {FormBuilder} from '@angular/forms';
 import { stateGroups1 } from '@app/visualization/shared/types';
+import {getTxt} from '@app/visualization/shared/data';
 
 @Component({
   selector: 'app-filter',
@@ -424,7 +425,6 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
     this.init(0);
   }
 
-
   searchRetrieval() {
     this.condition_search = [];
     console.log(this.conditions);
@@ -458,17 +458,6 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
     this.getPageData();
   }
 
-  pageChanged(e) {
-    alert(JSON.parse(e));
-    this.pageEvent = e;
-    this.paginatorConfig.pageSize = this.pageEvent.pageSize;
-    this.start = this.pageEvent.pageIndex * this.pageEvent.pageSize + 1;
-    this.searchRetrieval();
-    // this.getPageData();
-
-  }
-
-
   getPageData() {
     console.log(this.condition_search);
     const tableData = [];
@@ -484,7 +473,7 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
       this.displayedColumns = [];
       this.columns = [];
       this.paginatorConfig.length = data.count_num;
-      const recordList = data.data;
+      const recordList = this.transKey2Txt(data.data);
       recordList.forEach((element, index) => {
         tableData.push(Object.assign({}, element));
       });
@@ -499,5 +488,16 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
     });
   }
 
+  transKey2Txt(data) {
+    return data.map( v => {
+      const item = {};
+      for (const key in v) {
+        if (v.hasOwnProperty(key)) {
+          item[getTxt(key)] = v[key];
+        }
+      }
+      return item;
+    });
+  }
 }
 
