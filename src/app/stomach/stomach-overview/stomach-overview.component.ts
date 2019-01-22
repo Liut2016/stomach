@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit , ViewChild, NgZone, Pipe, PipeTransform} from '@angular/core';
-import { MatPaginator, MatTableDataSource, PageEvent} from '@angular/material';
+import { MatPaginator, MatTableDataSource, PageEvent,MatTabChangeEvent} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { SettingsService} from '@app/core/services/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -205,12 +205,22 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       });
     }
   } 
+
+  onLinkClick(event: MatTabChangeEvent) {
+    console.log('event => ', event);
+    console.log('index => ', event.index);
+    console.log('tab => ', event.tab);
+    this.clear();
+    this.cleaRetrieval();
+  }
+
   clear() {
       this.patientName = '';
       this.endTime = '';
       this.startTime = '';
       this.patientID = '';
       this.Disease = '';
+      this.searchParam='';
       this.search();
   }
   goToDetail(ele) {

@@ -4,7 +4,7 @@
       <mat-card-header><mat-card-title ><h3 style="margin-left: 25px">结肠癌患者数据管理</h3></mat-card-title></mat-card-header>
       <mat-card-content>
         <mat-card>
-            <mat-tab-group>
+            <mat-tab-group (selectedTabChange)="onLinkClick($event)">
                 <mat-tab *ngFor="let tab of searchModeList" [label]="tab">
                     <ng-template mat-tab-label style="font-size:large;color: #232a37"><span class='mat-tab-label'>{{tab}}</span></ng-template>
                     <ng-template matTabContent>
@@ -168,7 +168,7 @@
          </mat-card>
         <mat-card style="width: 100%; margin-top: 20px">
           <table mat-table [dataSource]="PatientList" style="width: 100%;">
-            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns.slice(0, searchMode === 0 ? displayedColumns.length - 1 : searchMode === 1 ? displayedColumns.length - 2 : displayedColumns.length - 1)">
+            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns.slice(0, searchMode === 0 ? displayedColumns.length - 1 : searchMode === 1 ? displayedColumns.length - 2 : displayedColumns.length -1)">
               <th mat-header-cell *matHeaderCellDef> {{dictionary[column]}} </th>
               <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
             </ng-container>
