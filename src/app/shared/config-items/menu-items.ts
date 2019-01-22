@@ -35,7 +35,7 @@ const MENUITEMS = [
   },
     {
         state: 'stomach',
-        name: '结肠癌患者管理',
+        name: '结直肠癌患者管理',
         type: 'sub',
         icon: 'airline_seat_flat_angled',
       children: [

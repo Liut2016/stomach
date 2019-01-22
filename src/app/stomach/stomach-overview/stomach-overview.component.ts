@@ -51,7 +51,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   displayedColumns: string[] = [];
   PatientList = new MatTableDataSource();
   searchMode = 0;
-  searchModeList : string[] = ['查找搜索','关键字搜索','全点位搜索'];
+  searchModeList: string[] = ['查找搜索', '关键字搜索', '全点位搜索'];
 
 
   listLenth = 200;
@@ -171,7 +171,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     this.paginatorConfig.pageSize = this.pageEvent.pageSize;
     this.start = this.pageEvent.pageIndex * this.pageEvent.pageSize + 1;
     console.log(e);
-    if(this.searchMode === 0){
+    if(this.searchMode === 0) {
         this.getPageData();
     }else if(this.searchMode === 1){
         this.getSearchData(this.searchParam);
@@ -195,7 +195,12 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     if (!query) {
       console.log('null query');
     } else {
-      this.service.getElasticList(query).subscribe((data) => {
+      const query_params = {
+        q: query,
+        pageindex: this.start,
+        pagesize: this.paginatorConfig.pageSize
+      };
+      this.service.getElasticList(query_params).subscribe((data) => {
         this.paginatorConfig.length = data.count_num;
         this.PatientList = new MatTableDataSource(data.data);
         this.displayedColumns = Object.keys(data.data[0]).slice(0, Object.keys(data.data[0]).length - 1);
@@ -204,7 +209,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
         this.displayedColumns.push('operate');
       });
     }
-  } 
+  }
 
   onLinkClick(event: MatTabChangeEvent) {
     console.log('event => ', event);
@@ -220,7 +225,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       this.startTime = '';
       this.patientID = '';
       this.Disease = '';
-      this.searchParam='';
+      this.searchParam = '';
       this.search();
   }
   goToDetail(ele) {

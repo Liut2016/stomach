@@ -116,7 +116,6 @@ export class DashboardService {
   }
 
 public getRegionName() {
-  const RegionName = [];
   const Region = [
     ['东北', [ '黑龙江', '吉林', '辽宁' ]],
     ['华东', ['上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '台湾']],
@@ -126,28 +125,15 @@ public getRegionName() {
     ['西南', ['重庆', '四川' , '贵州' , '云南' , '西藏']],
     ['西北', ['陕西', '甘肃', '青海', '宁夏', '新疆']]
 ];
-  Region.forEach(element => {
-    for (let i = 0; i < element[1].length ; i++) {
-       RegionName.push(element[1][i]);
-    }
-});
-return RegionName;
+return Region;
 }
 
 // 获得全国各个区间内病人人数
   public getRegion(data) {
     const resulttemp = [];
     const result = [];
-    const Region = [
-       ['东北', [ '黑龙江', '吉林', '辽宁' ]],
-       ['华东', ['上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '台湾']],
-       ['华北', ['北京', '天津', '山西', '河北', '内蒙古']],
-       ['华中', ['河南', '湖北', '湖南']],
-       ['华南', ['广东', '广西', '海南', '香港', '澳门']],
-       ['西南', ['重庆', '四川' , '贵州' , '云南' , '西藏']],
-       ['西北', ['陕西', '甘肃', '青海', '宁夏', '新疆']]
-   ];
-   const RegionName = Region.map( (eleName, i) => {
+    const Region = this.getRegionName();
+    Region.map( (eleName, i) => {
        result.push([eleName[0], 0]);
        return eleName[0];
    });
@@ -172,8 +158,14 @@ return RegionName;
 
 // 省数据处理
 public getProvinces(data) {
+  const RegionName = this.getRegionName();
   const result = [];
-  const provinceName = this.getRegionName();
+  const provinceName = [];
+  RegionName.forEach(element => {
+    for (let i = 0; i < element[1].length ; i++) {
+       provinceName.push(element[1][i]);
+    }
+  });
   data.forEach(element => {
     provinceName.forEach(name => {
        if (element === name) {

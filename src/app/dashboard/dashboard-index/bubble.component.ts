@@ -42,10 +42,9 @@ export class Bubble {
             .attr('transform', 'translate(0,' + this.height + ')')
             .call(xAxis);
         this.svg.append('text')
-            .attr('x', this.width)
-            .attr('y', this.height + 35)
+            .attr('x', this.width + 20)
+            .attr('y', this.height + 10)
             .attr('class', 'textXclass')
-            .style('text-anchor', 'end')
             .text('住院天数');
         const gY = this.svg.append('g')
             .attr('class', 'axis2')
@@ -78,7 +77,7 @@ export class Bubble {
             .attr('cy', (d) => {
                 return yAxisScale(d.y); })
             .attr('r', (d) => {
-                return 3;
+                return 4;
             })
             .attr('fill', 'steelblue' )
             .on('mouseover', function() { tooltip.style('display', null); })

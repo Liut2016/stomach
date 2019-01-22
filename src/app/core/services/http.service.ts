@@ -65,8 +65,8 @@ export class HttpService {
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);
   }
-  getElasticList(query: string): Observable<any> {
-    return this.httpClient.get(`${this.testUrl}oa/es_list/?query=${query}`,
+  getElasticList(query: any): Observable<any> {
+    return this.httpClient.post(`${this.testUrl}oa/es_list/`, JSON.stringify(query),
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);
   }
@@ -108,4 +108,5 @@ export class HttpService {
       .pipe( data => {
         return data; });
   }
+
 }
