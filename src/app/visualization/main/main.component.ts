@@ -473,7 +473,13 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
     console.log(this.condition_search);
     const tableData = [];
     const isAll = true;
-    const keys = this.data.keys.filter((v) => v );
+    const keys = this.data.keys.filter((v) => {
+      if (v === '*') {
+        return false;
+      } else {
+        return v;
+      }
+    } );
     this.service.getRFilterList(this.start, this.paginatorConfig.pageSize, isAll, this.condition_search, keys).subscribe((data) => {
       this.displayedColumns = [];
       this.columns = [];
@@ -483,8 +489,10 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
         tableData.push(Object.assign({}, element));
       });
       this.PatientList = tableData;
-      this.columns = Object.keys(this.PatientList[0]);
-      this.displayedColumns = this.columns;
+      if (this.PatientList.length > 0) {
+        this.columns = Object.keys(this.PatientList[0]);
+        this.displayedColumns = this.columns;
+      }
       console.log(this.PatientList);
       console.log(this.displayedColumns);
 

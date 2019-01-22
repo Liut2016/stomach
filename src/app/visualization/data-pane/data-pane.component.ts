@@ -116,10 +116,10 @@ export class DataPaneComponent implements OnInit, OnChanges {
   /*  array = this.transform(this.done, this.dropDic); */
   LIST_IDS = [];
   ChineseNames = name;
-  markDic = ['point', 'tick', 'bar', 'circle', 'rect'];
+  markDic = ['circle', 'tick', 'bar', 'point', 'rect'];
   // markDic = ['散点图', '跳动点图', '柱形图', '气泡图', '区域图', '折线图', '矩形图', 'rule'];
   funs = ['', 'count', 'sum', 'average', 'max', 'min', 'mean'];
-  crs = ['', 'accent', 'categroy10', 'category20', 'category20b', 'category20c', 'dark2', 'paired', 'tableau10', 'tableau20'];
+  crs = ['', 'accent', 'category10', 'category20', 'category20b', 'category20c', 'dark2', 'paired', 'tableau10', 'tableau20'];
   cr = this.crs[0];
   settings = [{
     'title': 'functions',
@@ -250,7 +250,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
       'val': this.funs[0],
       'state': [''],
       'type': '',
-
+      'filter': ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'],
       'filtered': ''
     }, {
       'title': 'functions',
@@ -259,6 +259,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
       'val': this.funs[0],
       'state': [''],
       'type': '',
+      'filter': ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'],
       'filtered': ''
     }, {
       'title': 'functions',
@@ -275,12 +276,15 @@ export class DataPaneComponent implements OnInit, OnChanges {
       'val': this.funs[0],
       'state': [''],
       'type': '',
+      'filter': ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'],
       'filtered': ''
     }, {
-      'title': 'color',
+      'title': 'functions',
       'name': 'color',
-      'ops': this.crs,
-      'val': this.crs[0],
+      'ops': this.funs,
+      'val': this.funs[0],
+      'color': this.crs,
+      'csVal': this.crs[0],
       'state': [''],
       'type': '',
       'filtered': ''
@@ -291,33 +295,36 @@ export class DataPaneComponent implements OnInit, OnChanges {
       'val': this.funs[0],
       'state': [''],
       'type': '',
+      'filter': ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'],
       'filtered': ''
-    // }, {
-    //   'title': 'functions',
-    //   'name': 'shape',
-    //   'ops': this.funs,
-    //   'val': this.funs[0],
-    //   'state': [''],
-    //   'type': '',
-    //   'filtered': ''
-    // }, {
-    //   'title': 'functions',
-    //   'name': 'detail',
-    //   'ops': this.funs,
-    //   'val': this.funs[0],
-    //   'state': [''],
-    //   'type': '',
-    //   'filtered': ''
-    // }, {
-    //   'title': 'functions',
-    //   'name': 'text',
-    //   'ops': this.funs,
-    //   'val': this.funs[0],
-    //   'state': [''],
-    //   'type': '',
-    //   'filtered': ''
+      // }, {
+      //   'title': 'functions',
+      //   'name': 'shape',
+      //   'ops': this.funs,
+      //   'val': this.funs[0],
+      //   'state': [''],
+      //   'type': '',
+      //   'filtered': ''
+      // }, {
+      //   'title': 'functions',
+      //   'name': 'detail',
+      //   'ops': this.funs,
+      //   'val': this.funs[0],
+      //   'state': [''],
+      //   'type': '',
+      //   'filtered': ''
+      // }, {
+      //   'title': 'functions',
+      //   'name': 'text',
+      //   'ops': this.funs,
+      //   'val': this.funs[0],
+      //   'state': [''],
+      //   'type': '',
+      //   'filtered': ''
     }];
     this.filteredData = {};
+    this.filterFlag = false;
+    this.conditions = null;
   }
 
   // 重新获取数据，并输入json配置文件
@@ -331,14 +338,17 @@ export class DataPaneComponent implements OnInit, OnChanges {
   }
 
   draw(data) {
+    if (!this.mark) {
+      this.mark = this.markDic[0];
+    }
     const spec1 = {
       '$schema': 'https://vega.github.io/schema/vega-lite/v3.json',
       'description': 'A simple bar chart with embedded data.',
-      'width': this.width ?  this.width : 600,
-      'height': this.height ? this.height : 500,
+      'width': this.width ?  this.width : 800,
+      'height': this.height ? this.height : 600,
       'data': {
         // 'values': this.data
-        'values': this.transKey2Tetx(data)
+        'values': this.transKey2Txt(data)
       },
       'mark': this.mark,
       'encoding': this.getEncoding(this.settings)
@@ -346,7 +356,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
     this.json.emit(spec1);
   }
 
-  transKey2Tetx(data) {
+  transKey2Txt(data) {
     return data.map( v => {
       const item = {};
       for (const key in v) {
