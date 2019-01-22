@@ -22,6 +22,7 @@ export class Bubble {
         this.pointsMatrix = newMatrix;
     }
     render() {
+        console.log(this.SortXAxis(this.pointsMatrix));
         this.svg = d3.select(this.target).append('svg')
             .attr('width', this.svgWidth)
             .attr('height', this.svgHeight)
@@ -40,18 +41,32 @@ export class Bubble {
             .attr('class' , 'axis1')
             .attr('transform', 'translate(0,' + this.height + ')')
             .call(xAxis);
+        this.svg.append('text')
+            .attr('x', this.width)
+            .attr('y', this.height + 35)
+            .attr('class', 'textXclass')
+            .style('text-anchor', 'end')
+            .text('住院天数');
         const gY = this.svg.append('g')
             .attr('class', 'axis2')
             .attr('transform', 'translate(' + 0 + ',' + 0 + ')')
             .call(yAxis);
-       /*  const line = d3.line()
-            .x(function(d, i) { return xAxisScale(i); }) // set the x values for the line generator
-            .y(function(d) { return yAxisScale(d.y); }) // set the y values for the line generator
-            .curve(d3.curveMonotoneX);
+        this.svg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('y', 6)
+            .attr('dy', '.71em')
+            .attr('class', 'textYclass')
+            .text('患者人数');
+        /* const valueline = d3.line()
+            .x( d => {
+                return xAxisScale(d.x); })
+            .y( d => {
+                return yAxisScale(d.y);
+            });
         this.svg.append('path')
-            .datum(this.pointsMatrix) // 10. Binds data to the line
-            .attr('class', 'line') // Assign a class for styling
-            .attr('d', line); */
+            .data([this.SortXAxis(this.pointsMatrix)])
+            .attr('class', 'line')
+            .attr('d', valueline); */
         const circles = this.svg
             .selectAll('circle')
             .data(this.pointsMatrix)
@@ -89,4 +104,17 @@ export class Bubble {
             .attr('font-size', '12px')
             .attr('font-weight', 'bold');
     }
+
+    SortXAxis(data) {
+        for (let i = 0 ; i < data.length; i ++ ) {
+               for (let j = i ; j < data.length ; j ++) {
+                   if ( data[j].x < data[i].x) {
+                   const temp = data[i];
+                   data [i] = data [j];
+                   data [j] = temp;
+               }
+        }
+    }
+    return data;
+}
 }

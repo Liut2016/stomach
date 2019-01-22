@@ -2,6 +2,3 @@
 @import './assets/styles/angular-tree-component.css';
 @import './assets/styles/circles.css';
 @import './assets/styles/bar.css';
-.button {
-    margin-right: 50px !important;
-  }

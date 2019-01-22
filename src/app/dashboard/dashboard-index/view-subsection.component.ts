@@ -5,8 +5,8 @@ export class ViewSubsection {
     svgHeight = 350;
     margin = {
         top: 5,
-        bottom: 60,
-        left: 120,
+        bottom: 50,
+        left: 50,
         right: 100
     };
     svg;
@@ -29,9 +29,6 @@ export class ViewSubsection {
         const xAxisScale = d3.scaleLinear()
             .rangeRound([0, this.width])
             .domain([0 , 100]);
-        /* const xAxisScale = d3.scaleLinear()
-            .domain([0, 1])
-            .range([0, this.width]); */
         const yAxisScale = d3.scaleLinear()
             .rangeRound([this.height, 0])
             .domain([0, d3.max(data, d => d.y)]);
@@ -42,17 +39,29 @@ export class ViewSubsection {
             .attr('class' , 'axis1')
             .attr('transform', 'translate(0,' + this.height + ')')
             .call(xAxis);
+        this.svg.append('text')
+            .attr('x', this.width)
+            .attr('y', this.height + 40)
+            .style('text-anchor', 'end')
+            .attr('class', 'textXclass')
+            .text('年龄');
         const gY = this.svg.append('g')
             .attr('class', 'axis2')
             .attr('transform', 'translate(' + 0 + ',' + 0 + ')')
             .call(yAxis);
+        this.svg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('y', 6)
+            .attr('dy', '.71em')
+            .attr('class', 'textYclass')
+            .text('患者人数');
         this.svg.selectAll('bar')
             .data(data)
             .enter().append('rect')
             .attr('class', 'bar')
             .attr('x', (d) => xAxisScale(d.x))
             .attr('y', (d) => yAxisScale(d.y))
-            .attr('width', 30)
+            .attr('width', 40)
             .attr('height', (d) => this.height - yAxisScale(d.y))
             .on('mouseover', function() { tooltip.style('display', null); })
             .on('mouseout', function() { tooltip.style('display', 'none'); })

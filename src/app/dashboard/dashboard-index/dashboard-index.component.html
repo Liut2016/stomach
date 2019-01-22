@@ -120,71 +120,6 @@
         </mat-grid-tile>
 </mat-grid-list>
 
-
-<mat-grid-list cols="5" rows="4" rowHeight="260px">
-    <mat-grid-tile rowspan = "2" colspan = "2">
-      <mat-card>
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">cloud</mat-icon></div>
-          <mat-card-title>住院天数</mat-card-title>
-          <mat-card-subtitle>住院天数统计分布图</mat-card-subtitle>
-        </mat-card-header><hr>
-        <mat-card-content>
-            <div #viewPaymentMethod></div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile rowspan = "3" colspan = "3">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">bar_chart</mat-icon></div>
-            <mat-card-title>主诊断+住院天数</mat-card-title>
-            <mat-card-subtitle>患者在每种诊断下住院天数的分布情况</mat-card-subtitle>
-          </mat-card-header><hr>
-          <mat-card-content>
-              <div #stackedbar1></div>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile rowspan = "2" colspan = "2">
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">person</mat-icon></div>
-              <mat-card-title>年龄</mat-card-title>
-              <mat-card-subtitle>患者在10个年龄段的人数分布统计图</mat-card-subtitle>
-            </mat-card-header><hr>
-            <mat-card-content>
-                <div #viewPatientAge></div>
-            </mat-card-content>
-          </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile rowspan = "3" colspan = "3">
-            <mat-card class="example-card">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">bar_chart</mat-icon></div>
-                <mat-card-title>主诊断+年龄段</mat-card-title>
-                <mat-card-subtitle>患者在每种诊断下的不同年龄段分布情况</mat-card-subtitle>
-              </mat-card-header><hr>
-              <mat-card-content>
-                  <div #stackedbar2></div>
-              </mat-card-content>
-            </mat-card>
-          </mat-grid-tile>
-          <mat-grid-tile rowspan="2" colspan = "2">
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">local_hospital</mat-icon></div>
-                  <mat-card-title>治疗方式</mat-card-title>
-                  <mat-card-subtitle>28种不同治疗方式患者人数统计图</mat-card-subtitle>
-                </mat-card-header><hr>
-                <mat-card-content>
-                    <div #viewOperativeMethod></div>
-                </mat-card-content>
-              </mat-card>
-            </mat-grid-tile>
-  </mat-grid-list>
-
-
   <mat-grid-list cols="4" rows="3" rowHeight="360px">
       <mat-grid-tile rowspan = "1" colspan = "1">
         <mat-card class="example-card" class="cardclass-3" >
@@ -253,6 +188,69 @@
               </mat-card>
             </mat-grid-tile>
     </mat-grid-list>
+    <mat-grid-list cols="5" rows="4" rowHeight="260px">
+        <mat-grid-tile rowspan = "2" colspan = "2">
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">cloud</mat-icon></div>
+              <mat-card-title>住院天数</mat-card-title>
+              <mat-card-subtitle>住院天数统计分布图</mat-card-subtitle>
+            </mat-card-header><hr>
+            <mat-card-content>
+                <div #viewPaymentMethod></div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan = "3" colspan = "3">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">bar_chart</mat-icon></div>
+                <mat-card-title>主诊断+住院天数</mat-card-title>
+                <mat-card-subtitle>患者在每种诊断下住院天数的分布情况</mat-card-subtitle>
+              </mat-card-header><hr>
+              <mat-card-content>
+                  <div #stackedbar1></div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan = "2" colspan = "2">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">person</mat-icon></div>
+                  <mat-card-title>年龄</mat-card-title>
+                  <mat-card-subtitle>患者在10个年龄段的人数分布统计图</mat-card-subtitle>
+                </mat-card-header><hr>
+                <mat-card-content>
+                    <div #viewPatientAge></div>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan = "3" colspan = "3">
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">bar_chart</mat-icon></div>
+                    <mat-card-title>主诊断+年龄段</mat-card-title>
+                    <mat-card-subtitle>患者在每种诊断下的不同年龄段分布情况</mat-card-subtitle>
+                  </mat-card-header><hr>
+                  <mat-card-content>
+                      <div #stackedbar2></div>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile rowspan="2" colspan = "2">
+                  <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"><mat-icon class="iconclass">local_hospital</mat-icon></div>
+                      <mat-card-title>主诊断</mat-card-title>
+                      <mat-card-subtitle>各种诊断方式患者人数统计图</mat-card-subtitle>
+                    </mat-card-header><hr>
+                    <mat-card-content>
+                        <div #viewOperativeMethod></div>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+      </mat-grid-list>
+    
 <!-- <div #viewPathology></div> -->
   
 <!-- <div #viewPaymentMethod></div>
