@@ -434,31 +434,33 @@ export const survey_list = [
       step_description: '影像报告',
       items:[
         {
-                  type: 'panel-table',
-                  title: '影像报告列表',
-                  required: true,
-                  displayControl: { check: false },
-                  data:[],
-                  cols: 4,
-                  layout: [
-                    { type: 'text', cols: 1, rows: 1, text: '住院号：' },
-                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_zyh', _value: '' } },
-                    { type: 'text', cols: 1, rows: 1, text: '患者姓名：' },
-                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_hzxm', _value: '' } },
-                    { type: 'text', cols: 1, rows: 1, text: '检查类别：' },
-                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jclb', _value: '' } }, 
-                    { type: 'text', cols: 1, rows: 1, text: '检察时间：' }, 
-                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jcsj', _value: '' } },
-                    { type: 'text', cols: 1, rows: 1, text: '检察部位：' },
-                    { type: 'input', cols: 3, rows: 1, key_value: { _key: 'part5_jcbw', _value: '' } },
-                   
-                    { type: 'text', cols: 1, rows: 1, text: '检察诊断：' },
-                    { type: 'input', cols: 3, rows: 1, key_value: { _key: 'part5_jczd', _value: '' } },
-                    { type: 'text', cols: 1, rows: 3, text: '检查结果描述：' },
-                    { type: 'textarea', cols: 3, rows: 3, key_value: { _key: 'part5_jcjgms', _value: '' } },
-                   
-                  ]
-              },
+          type: 'panel-table',
+          title: '影像报告列表',
+          required: true,
+          displayControl: { check: false },
+          data:[],
+          cols: 6,
+          layout: [
+            { type: 'text', cols: 1, rows: 1, text: '住院号：' },
+            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_zyh', _value: '' } },
+            { type: 'text', cols: 1, rows: 1, text: '患者姓名：' },
+            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_hzxm', _value: '' } },
+            { type: 'text', cols: 1, rows: 1, text: '性别：' },
+            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_xb', _value: '' } },
+            { type: 'text', cols: 1, rows: 1, text: '年龄：' },
+            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_nl', _value: '' } },
+            { type: 'text', cols: 1, rows: 1, text: '检查类别：' },
+            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jclb', _value: '' } },
+            { type: 'text', cols: 1, rows: 1, text: '检察时间：' },
+            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jcsj', _value: '' } },
+            { type: 'text', cols: 1, rows: 1, text: '检察部位：' },
+            { type: 'input', cols: 5, rows: 1, key_value: { _key: 'part5_jcbw', _value: '' } },
+            { type: 'text', cols: 1, rows: 3, text: '检查结果描述：' },
+            { type: 'textarea', cols: 5, rows: 3, key_value: { _key: 'part5_jcjgms', _value: '' } },
+            { type: 'text', cols: 1, rows: 3, text: '检察诊断：' },
+            { type: 'textarea', cols: 5, rows: 3, key_value: { _key: 'part5_jczd', _value: '' } },
+          ]
+        },
        ]
     },
     {
