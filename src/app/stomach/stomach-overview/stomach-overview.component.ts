@@ -349,10 +349,10 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   TimeSelected(e) {
     const y = e.getFullYear();
     let m = e.getMonth() + 1;
-    // m = m < 10 ? ('0' + m) : m;
+     m = m < 10 ? ('0' + m) : m;
     let d = e.getDate();
-    let ji = '日一二三四五六'.charAt(e.getDay());
-    return `${y}/${m}/${d} 星期${ji}`;
+     d = d < 10 ? ('0' + d) : d;
+    return `${y}-${m}-${d}`;
   }
 
 
