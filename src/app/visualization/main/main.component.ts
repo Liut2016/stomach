@@ -14,6 +14,7 @@ export interface FilterData {
   keys: string[];
   res: any;
   conditions: any;
+  clearFlag: boolean;
 }
 
 
@@ -26,7 +27,8 @@ export class MainComponent implements OnInit {
 
   data;
 
-  step = null; step1 = 1;
+  step = null;
+  step1 = 1;
   panelOpenState = true;
 
   setStep(index: number) {
@@ -67,6 +69,7 @@ export class MainComponent implements OnInit {
 }
 
 import {ViewChildren, QueryList, ElementRef, AfterViewInit} from '@angular/core';
+
 // import {DataLoadService} from "@app/visualization/shared/data-load.service";
 
 @Component({
@@ -139,12 +142,9 @@ export class MainComponentDialogComponent implements AfterViewInit {
 
 }
 
-import { HttpService} from '@app/core/services/http.service';
-import { SettingsService} from '@app/core/services/settings.service';
-import { ActivatedRoute, Router } from '@angular/router';
-
-import {FormBuilder} from '@angular/forms';
-import { stateGroups1 } from '@app/visualization/shared/types';
+import {HttpService} from '@app/core/services/http.service';
+import {SettingsService} from '@app/core/services/settings.service';
+import {stateGroups1} from '@app/visualization/shared/types';
 import {getTxt} from '@app/visualization/shared/data';
 
 @Component({
@@ -169,6 +169,7 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
   PatientList = [];
   columns = [];
   keys;
+  clearFlag = false;
 
   logic: string;
   logics: string[] = ['AND', 'OR', 'NOT'];
@@ -203,10 +204,6 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
   constructor(
     private service: HttpService,
     private settingService: SettingsService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private zone: NgZone,
-    private fb: FormBuilder,
     public dialogRef: MatDialogRef<MainComponentDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FilterData,
     public shortlistService: ShortlistService
@@ -219,26 +216,28 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
     this.paginatorConfig.pageSize = 5;
     this.start = 1;
     this.condition_search = [];
-   if (this.data.conditions) {
-     this.conditions = this.data.conditions;
-     this.getPageData();
-   } else {
-     this.init(0);
-   }
-    this.getPageData();
+    if (this.data.conditions) {
+      this.conditions = this.data.conditions;
+      this.searchRetrieval();
+    } else {
+      this.init(0);
+    }
   }
 
   ngAfterViewInit() {
     console.log(this.data.keys);
+    this.getPageData();
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+
   OK() {
     console.log(this.PatientList);
-    this.dialogRef.close({'data': this.PatientList, 'conditions': this.conditions});
+    this.dialogRef.close({'data': this.PatientList, 'conditions': this.conditions, 'flag': this.clearFlag});
   }
+
   delete(item) {
     this.shortlistService.deleteByIndex(item);
     item.isAdded = false;
@@ -423,6 +422,7 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
     this.conditions.splice(1, this.conditions.length - 1);
     this.displayedColumns = [];
     this.init(0);
+    this.clearFlag = true;
   }
 
   searchRetrieval() {
@@ -468,7 +468,7 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
       } else {
         return v;
       }
-    } );
+    });
     this.service.getRFilterList(this.start, this.paginatorConfig.pageSize, isAll, this.condition_search, keys).subscribe((data) => {
       this.displayedColumns = [];
       this.columns = [];
@@ -489,7 +489,7 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
   }
 
   transKey2Txt(data) {
-    return data.map( v => {
+    return data.map(v => {
       const item = {};
       for (const key in v) {
         if (v.hasOwnProperty(key)) {
@@ -499,5 +499,14 @@ export class FilterDiagComponent implements OnInit, AfterViewInit {
       return item;
     });
   }
+
+  fmtDate(obj) {
+    const date = new Date(obj);
+    const y = 1900 + date.getYear();
+    const m = '0' + (date.getMonth() + 1);
+    const d = '0' + date.getDate();
+    return y + '-' + m.substring(m.length - 2, m.length) + '-' + d.substring(d.length - 2, d.length);
+  }
+
 }
 
