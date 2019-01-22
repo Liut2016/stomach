@@ -52,6 +52,19 @@ export class View {
             .attr('transform', 'translate(0,' + this.height + ')')
             .call(xAxis);
         }
+        if (this.flag[7] === 1) {
+        this.svg.append('text')
+            .attr('x', this.width + 10)
+            .attr('y', this.height)
+            .attr('class', 'textXclass')
+            .text('主诊断');
+        this.svg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('y', 6)
+            .attr('dy', '.71em')
+            .attr('class', 'textYclass')
+            .text('患者人数');
+        }
         const gY = this.svg.append('g')
             .attr('class', 'axis2')
             .attr('transform', 'translate(' + 0 + ',' + 0 + ')')

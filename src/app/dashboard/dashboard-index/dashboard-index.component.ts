@@ -59,7 +59,7 @@ ngOnInit() {
     console.log(this.gender, this.PatientAge, this.OperativeMethod, this.diagnosis, this.treatDays, this.Provice, this.City);
      this.ViewForPaymentMethod = new Bubble(this.viewPaymentMethod.nativeElement, this.treatDays);
      this.ViewForPaymentMethod.render();
-     this.ViewForOperativeMethod = new View(this.viewOperativeMethod.nativeElement, this.diagnosis, [580, 350 , 5, 100, 120, 100, 1]);
+     this.ViewForOperativeMethod = new View(this.viewOperativeMethod.nativeElement, this.diagnosis, [580, 350 , 5, 100, 50, 100, 1, 1]);
      this.ViewForOperativeMethod.render();
      this.ViewForPatientAge = new ViewSubsection(this.viewPatientAge.nativeElement, this.serviceDashboard.resetAge(this.PatientAge));
      this.ViewForPatientAge.render();
@@ -68,16 +68,16 @@ ngOnInit() {
      this.ViewForCity = new MapCity(this.viewCity.nativeElement, this.City);
      this.ViewForCity.render();
      this.ViewForStacked1 = new StackedBar(
-                            this.stackedbar1.nativeElement, this.serviceDashboard.resetData(data.treatDays), data.diagnosis, 0);
+         this.stackedbar1.nativeElement, this.serviceDashboard.resetData(data.treatDays), data.diagnosis, 0);
      this.ViewForStacked1.render();
      this.ViewForStacked2 = new StackedBar(this.stackedbar2.nativeElement, this.serviceDashboard.resetData(data.age), data.diagnosis, 1);
      this.ViewForStacked2.render();
      this.ViewForPie = new Pie(this.serviceDashboard.getRegion(this.Provice));
      this.chart = this.ViewForPie.render();
      this.ViewForProviceBar = new View(this.viewProviceBar.nativeElement,
-         this.serviceDashboard.Statistics(this.serviceDashboard.getProvinces(data.provinces)) , [360, 200 , 5, 50, 40, 5, 1]);
+         this.serviceDashboard.Statistics(this.serviceDashboard.getProvinces(data.provinces)) , [360, 200 , 5, 50, 40, 5, 1, 0]);
      this.ViewForProviceBar.render();
-     this.ViewForCityBar = new View(this.viewCityBar.nativeElement, this.City , [220, 150 , 5, 50, 40, 5, 1]);
+     this.ViewForCityBar = new View(this.viewCityBar.nativeElement, this.City , [220, 180 , 5, 50, 40, 5, 1, 0]);
      this.ViewForCityBar.render();
      console.log(this.serviceDashboard.Statistics(this.serviceDashboard.getProvinces(data.provinces)));
  });

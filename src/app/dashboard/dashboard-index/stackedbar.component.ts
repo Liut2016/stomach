@@ -70,6 +70,18 @@ export class StackedBar {
               .attr('class', 'axis2')
               .attr('transform', 'translate(' + 0 + ',' + 0 + ')')
               .call(yAxis);
+          svg.append('text')
+              .attr('x', width + 10)
+              .attr('y', height)
+              .style('fill', 'black')
+              .text('主诊断');
+          svg.append('text')
+              .attr('transform', 'rotate(-90)')
+              .attr('y', 6)
+              .attr('dy', '.71em')
+              .style('text-anchor', 'end')
+              .style('fill', 'black')
+              .text('患者人数');
           // Create groups for each series, rects for each segment
           const groups = svg.selectAll('g.cost')
             .data(dataset)

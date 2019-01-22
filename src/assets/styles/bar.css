@@ -40,8 +40,9 @@
   height:320px
 }
 .cardclass-3-1 {
-  width:400px;
-  height:350px
+  width: 380px;
+  height: 340px;
+  margin-top: 0px !important;
 }
 .progress-spinner {
   margin-left: 90px; 
@@ -58,7 +59,7 @@
   width: 300px;
 }
 .viewCityBar {
-  margin-top: -560px;
+  margin-top: -580px;
   position: relative;
 }
 .percentclass-text {
@@ -76,5 +77,14 @@ margin-left: 135px;
 .line {
   fill: none;
   stroke: steelblue;
-  stroke-width: 3;
+  stroke-width: 2;
+}
+.textXclass {
+  fill: black;
+  font-size: 12px;
+}
+.textYclass {
+  fill: black;
+  font-size: 12px;
+  text-anchor: end;
 }
