@@ -217,6 +217,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     console.log('tab => ', event.tab);
     this.clear();
     this.cleaRetrieval();
+    this.paginator.pageIndex=0;
   }
 
   clear() {
@@ -463,9 +464,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       });
       this.PatientList = new MatTableDataSource(recordList);
       this.displayedColumns = Object.keys(data.data[0]);
-      console.log(this.displayedColumns);
-      console.log(recordList);
-      console.log(this.PatientList);
       this.displayedColumns.push('operate');
     });
   }
