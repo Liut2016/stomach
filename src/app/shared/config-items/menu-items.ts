@@ -40,7 +40,6 @@ const MENUITEMS = [
         icon: 'airline_seat_flat_angled',
       children: [
         {state: 'overview', name: '患者数据管理'},
-        {state: 'filter', name: '患者数据全点位搜索'},
       ],
         rolesCannotSee: []
   },
