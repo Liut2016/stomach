@@ -2,7 +2,5 @@
   float: right;
 }
 .right{
-  margin-top: -18px;
-  float: left;
-  margin-left: 100px;
+ text-align: center;
 }
