@@ -50,7 +50,7 @@
 }
 .percentclass {
   position:relative;
-  top: -110px;
+  top: -115px;
   left:-20px
 }
 .provinceBar {
@@ -59,12 +59,12 @@
   width: 300px;
 }
 .viewCityBar {
-  margin-top: -580px;
+  margin-top: -170px;
   position: relative;
 }
 .percentclass-text {
 margin-top: -75px;
-margin-left: 135px;
+margin-left: 140px;
 }
 .example-card-province {
   width:790px;
