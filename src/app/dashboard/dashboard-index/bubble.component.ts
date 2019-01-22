@@ -56,7 +56,7 @@ export class Bubble {
             .attr('dy', '.71em')
             .attr('class', 'textYclass')
             .text('患者人数');
-        /* const valueline = d3.line()
+        const valueline = d3.line()
             .x( d => {
                 return xAxisScale(d.x); })
             .y( d => {
@@ -65,7 +65,7 @@ export class Bubble {
         this.svg.append('path')
             .data([this.SortXAxis(this.pointsMatrix)])
             .attr('class', 'line')
-            .attr('d', valueline); */
+            .attr('d', valueline);
         const circles = this.svg
             .selectAll('circle')
             .data(this.pointsMatrix)
@@ -77,7 +77,7 @@ export class Bubble {
             .attr('cy', (d) => {
                 return yAxisScale(d.y); })
             .attr('r', (d) => {
-                return 4;
+                return 3;
             })
             .attr('fill', 'steelblue' )
             .on('mouseover', function() { tooltip.style('display', null); })
