@@ -38,7 +38,7 @@ export const dictionary = {
     'part1_nl': '年龄',
     'part1_cysj': '出院时间',
     'part1_xb': '性别',
-    'highlight': '',
+    'highlight': '关键字',
     'part1_zyh': '住院号',
     'part1_zylsh': '住院流水号',
   },
@@ -234,7 +234,8 @@ export const dictionary = {
             'text': '检查结果描述',
             '_key': 'part5_jcjgms',
             'belong': '影像报告',
-            'type': 'string'
+            'type': 'string',
+            'elastic': true
           },
           {
             'text': '检查诊断',
