@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit , ViewChild, NgZone, Pipe, PipeTransform} from '@angular/core';
-import { MatPaginator, MatTableDataSource, PageEvent,MatTabChangeEvent} from '@angular/material';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { MatPaginator, MatTableDataSource, PageEvent, MatTabChangeEvent} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { SettingsService} from '@app/core/services/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +12,13 @@ import {startWith, map} from 'rxjs/operators';
 import { IfStmt } from '@angular/compiler';
 import { dictionary } from '@app/shared/config-items/dictionary-items';
 import { MyPipePipe } from '@app/shared/pipe/html-pipe';
+import { MatChipInputEvent } from '@angular/material';
 import _ from 'lodash';
+
+export interface Keyword {
+  name: string;
+}
+
 
 @Pipe({
   name: 'Html'
@@ -22,8 +29,12 @@ import _ from 'lodash';
   templateUrl: './stomach-overview.component.html',
   styleUrls: ['./stomach-overview.component.css']
 })
+
+
+
 export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTransform {
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   user;
   patientID = '';
   patientName = '';
@@ -53,8 +64,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   PatientList = new MatTableDataSource();
   searchMode = 1;
   searchModeList: string[] = ['全点位搜索'];
-
-
+  selectedConditions = [
+  ];
   listLenth = 200;
   columns = [];
   columnsInterface ;
@@ -87,9 +98,19 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     }
   ];
 
+  /*key worlds related*/
+  searchField = '影像报告';
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  keywords: Keyword[] = [
+  ];
 
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
 
   constructor(
       private service: HttpService,
@@ -125,6 +146,32 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       }
   }
 
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our Keyword
+    if ((value || '').trim()) {
+      this.keywords.push({name: `${this.searchField}: ${value.trim()}`});
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(keyword: Keyword, field: any): void {
+    const index = field.indexOf(keyword);
+
+    if (index >= 0) {
+      field.splice(index, 1);
+    }
+  }
+
+  addFilterCondition(item: any) {
+    this.selectedConditions.push(item.text);
+  }
 
   search() {
 

@@ -9,6 +9,7 @@ import { StomachFormComponent } from '@app/stomach/stomach-form/stomach-form.com
 import { StomachOverviewComponent } from '@app/stomach/stomach-overview/stomach-overview.component';
 import { StomachFilterComponent } from './stomach-filter/stomach-filter.component';
 import { MyPipePipe } from '@app/shared/pipe/html-pipe';
+import { PopoverModule } from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MyPipePipe } from '@app/shared/pipe/html-pipe';
         FormsModule,
         ReactiveFormsModule,
         DemoMaterialModule,
-        SharedModule
+        SharedModule,
+      PopoverModule
     ],
     declarations: [StomachFormComponent, StomachOverviewComponent, StomachFilterComponent, MyPipePipe],
 })
