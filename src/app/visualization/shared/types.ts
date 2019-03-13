@@ -142,124 +142,124 @@ export const stateGroups1 = [
       }
     ]
   },
-  // {
-  //   medicalforms: '医嘱',
-  //   medicalformsoptions: [
-  //     {
-  //       'text': '医嘱类别',
-  //       '_key': 'part2_yzlb',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '项目名称',
-  //       '_key': 'part2_xmmc',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '项目总量',
-  //       '_key': 'part2_xmzl',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '每次剂量',
-  //       '_key': 'part2_mcjl',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '规格',
-  //       '_key': 'part2_gg',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '剂量单位',
-  //       '_key': 'part2_jldw',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '最小单位',
-  //       '_key': 'part2_zxdw',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '计价单位',
-  //       '_key': 'part2_jjdw',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '频次代码',
-  //       '_key': 'part2_pcdm',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '频次名称',
-  //       '_key': 'part2_pcmc',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '用法名称',
-  //       '_key': 'part2_yfmc',
-  //       'belong': '医嘱',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '开始时间',
-  //       '_key': 'part2_kssj',
-  //       'belong': '医嘱',
-  //       'type': 'time'
-  //     },
-  //     {
-  //       'text': '结束时间',
-  //       '_key': 'part2_jssj',
-  //       'belong': '医嘱',
-  //       'type': 'time'
-  //     }
-  //   ]
-  // },
-  // {
-  //   medicalforms: '影像报告',
-  //   medicalformsoptions: [
-  //     {
-  //       'text': '检查类别',
-  //       '_key': 'part5_jclb',
-  //       'belong': '影像报告',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '检查部位',
-  //       '_key': 'part5_jcbw',
-  //       'belong': '影像报告',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '检查时间',
-  //       '_key': 'part5_jcsj',
-  //       'belong': '影像报告',
-  //       'type': 'time'
-  //     },
-  //     {
-  //       'text': '检查结果描述',
-  //       '_key': 'part5_jcjgms',
-  //       'belong': '影像报告',
-  //       'type': 'string'
-  //     },
-  //     {
-  //       'text': '检查诊断',
-  //       '_key': 'part5_jczd',
-  //       'belong': '影像报告',
-  //       'type': 'string'
-  //     }
-  //   ]
-  // }
+  {
+    medicalforms: '医嘱',
+    medicalformsoptions: [
+      {
+        'text': '医嘱类别',
+        '_key': 'part2_yzlb',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '项目名称',
+        '_key': 'part2_xmmc',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '项目总量',
+        '_key': 'part2_xmzl',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '每次剂量',
+        '_key': 'part2_mcjl',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '规格',
+        '_key': 'part2_gg',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '剂量单位',
+        '_key': 'part2_jldw',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '最小单位',
+        '_key': 'part2_zxdw',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '计价单位',
+        '_key': 'part2_jjdw',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '频次代码',
+        '_key': 'part2_pcdm',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '频次名称',
+        '_key': 'part2_pcmc',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '用法名称',
+        '_key': 'part2_yfmc',
+        'belong': '医嘱',
+        'type': 'string'
+      },
+      {
+        'text': '开始时间',
+        '_key': 'part2_kssj',
+        'belong': '医嘱',
+        'type': 'time'
+      },
+      {
+        'text': '结束时间',
+        '_key': 'part2_jssj',
+        'belong': '医嘱',
+        'type': 'time'
+      }
+    ]
+  },
+  {
+    medicalforms: '影像报告',
+    medicalformsoptions: [
+      {
+        'text': '检查类别',
+        '_key': 'part5_jclb',
+        'belong': '影像报告',
+        'type': 'string'
+      },
+      {
+        'text': '检查部位',
+        '_key': 'part5_jcbw',
+        'belong': '影像报告',
+        'type': 'string'
+      },
+      {
+        'text': '检查时间',
+        '_key': 'part5_jcsj',
+        'belong': '影像报告',
+        'type': 'time'
+      },
+      {
+        'text': '检查结果描述',
+        '_key': 'part5_jcjgms',
+        'belong': '影像报告',
+        'type': 'string'
+      },
+      {
+        'text': '检查诊断',
+        '_key': 'part5_jczd',
+        'belong': '影像报告',
+        'type': 'string'
+      }
+    ]
+  }
 ];
 
 export const lisjson = {

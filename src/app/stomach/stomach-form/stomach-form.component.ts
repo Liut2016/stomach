@@ -16,7 +16,9 @@ export class StomachFormComponent implements OnInit {
   zyh;
   advice_dic = dictionary.part2_yz;
   lis_dic = dictionary.part3_lis;
+  result_dic=dictionary.part5_result;
   home_data = [];
+
  sex = {
     '1': '男',
     '2': '女'
@@ -44,6 +46,7 @@ export class StomachFormComponent implements OnInit {
       this.stomach_list[3].items[0]['data'] = res.data['lis'];
       this.stomach_list[3].items[0]['dic'] = this.lis_dic;
       this.stomach_list[6].items[0]['data'] = res.data['results'];
+      this.stomach_list[6].items[0]['dic'] = this.result_dic;
       this.stomach_list[3].items[0]['data'] = lis_data;
 
       for ( let i = 0; i < this.stomach_list[0].items[0]['layout'].length; i++) {

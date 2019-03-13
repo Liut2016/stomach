@@ -77,8 +77,8 @@ export class MapCity {
         }
         function update(geojson) {
           const projection = d3.geoMercator()
-            .center([108.6, 34.5])
-            .scale(2200)
+            .center([108, 37])
+            .scale(2400)
             .translate([width / 2, height / 2]);
           const geoGenerator = d3.geoPath()
             .projection(projection);

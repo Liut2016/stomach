@@ -116,7 +116,7 @@ export class DataPaneComponent implements OnInit, OnChanges {
   /*  array = this.transform(this.done, this.dropDic); */
   LIST_IDS = [];
   ChineseNames = name;
-  markDic = ['circle', 'tick', 'bar', 'point', 'rect', 'line'];
+  markDic = ['circle', 'tick', 'bar', 'point', 'rect'];
   // markDic = ['散点图', '跳动点图', '柱形图', '气泡图', '区域图', '折线图', '矩形图', 'rule'];
   funs = ['', 'count', 'sum', 'average', 'max', 'min', 'mean'];
   crs = ['', 'accent', 'category10', 'category20', 'category20b', 'category20c', 'dark2', 'paired', 'tableau10', 'tableau20'];
@@ -677,18 +677,11 @@ export class DataPaneComponent implements OnInit, OnChanges {
           endTime: null,
           form_type: null,
           databaseField: null
-        }] || result.flag ) {
+        }
+      ]) {
         this.filterFlag = false;
         this.getJson();
       }
     });
-  }
-
-  fmtDate(obj) {
-    const date = new Date(obj);
-    const y =  date.getFullYear();
-    const m = '0' + (date.getMonth() + 1);
-    const d = '0' + date.getDate();
-    return y + '-' + m.substring(m.length - 2, m.length) + '-' + d.substring(d.length - 2, d.length);
   }
 }

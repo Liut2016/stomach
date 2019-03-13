@@ -6,7 +6,7 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-expansion-panel *ngFor="let items of data_list, let index = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel *ngFor="let items of data_list, let index = index" (opened)="setStep(index)" (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]="step === index" >
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{items.part5_zyh}}
@@ -119,6 +119,14 @@
               </div>
             </mat-grid-tile>
           </mat-grid-list>
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">
+              上一条
+            </button>
+            <button mat-button color="primary" (click)="nextStep()">
+              下一条
+            </button>
+          </mat-action-row>
         </mat-card-content>
       </mat-card>
 

@@ -10,7 +10,9 @@ const httpOptions = {
 @Injectable()
 export class HttpService {
   baseUrl = 'http://59.110.52.133:9010/';
-  testUrl = url;
+  //testUrl = 'http://202.117.54.13:8080/';
+  //testUrl = 'http://202.117.54.92:8080/';
+  testUrl = 'http://localhost:8080/';
 
   constructor(
     private httpClient: HttpClient,
@@ -108,5 +110,4 @@ export class HttpService {
       .pipe( data => {
         return data; });
   }
-
 }

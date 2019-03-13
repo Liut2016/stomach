@@ -24,6 +24,8 @@ import { GeneralStepperComponent } from './general-components/general-stepper/ge
 import {GeneralClassifiedListsComponent} from '@app/shared/general-components/general-classified-lists/general-classified-lists.component';
 import { GeneralLisComponent } from './general-components/general-lis/general-lis.component';
 import { GeneralListComponent } from './general-components/general-list/general-list.component';
+import { GeneralFormDialogComponent } from './general-components/general-form-dialog/general-form-dialog.component';
+import {  DialogOverviewData } from '@app/shared/general-components/general-form-dialog/general-form-dialog.component';
 
 
 
@@ -58,7 +60,10 @@ import { GeneralListComponent } from './general-components/general-list/general-
     GeneralStepperComponent,
     GeneralClassifiedListsComponent,
     GeneralLisComponent,
-    GeneralListComponent
+    GeneralListComponent,
+    GeneralFormDialogComponent,
+    GeneralFormDialogComponent,
+    DialogOverviewData,
   ],
   exports: [
     AccordionAnchorDirective,
@@ -83,14 +88,16 @@ import { GeneralListComponent } from './general-components/general-list/general-
     GeneralStepperComponent,
     GeneralClassifiedListsComponent,
     GeneralLisComponent,
-    GeneralListComponent
-   ],
+    GeneralListComponent,
+    GeneralFormDialogComponent,
+    
+   ], 
+   entryComponents: [
+    GeneralFormDialogComponent,
+    DialogOverviewData, 
+  ],
   providers: [ MenuItems ]
 })
+
 export class SharedModule { }
-
-
-
-
-
 

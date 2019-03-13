@@ -11,7 +11,6 @@ import {startWith, map} from 'rxjs/operators';
 import { IfStmt } from '@angular/compiler';
 import { dictionary } from '@app/shared/config-items/dictionary-items';
 import { MyPipePipe } from '@app/shared/pipe/html-pipe';
-import _ from 'lodash';
 
 @Pipe({
   name: 'Html'
@@ -51,8 +50,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   searchParam = '';
   displayedColumns: string[] = [];
   PatientList = new MatTableDataSource();
-  searchMode = 1;
-  searchModeList: string[] = ['全点位搜索'];
+  searchMode = 0;
+  searchModeList: string[] = ['查找搜索', '关键字搜索', '全点位搜索'];
 
 
   listLenth = 200;
@@ -297,7 +296,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
           }
 
           if (e === item.text && item.type === 'string') {
-            console.log(selectedItem);
             selectedItem.isNumber = false;
             selectedItem.isNotNumber = true;
             selectedItem.isTime = false;
@@ -305,9 +303,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
             selectedItem.operators = [ '包含', '等于'];
             selectedItem.form_type = ft;
             selectedItem.databaseField = item._key;
-            if (item.elastic) {
-              selectedItem.elastic = true;
-            }
           }
 
           if (e === item.text && item.type === 'select') {
@@ -355,10 +350,10 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   TimeSelected(e) {
     const y = e.getFullYear();
     let m = e.getMonth() + 1;
-     m = m < 10 ? ('0' + m) : m;
+    // m = m < 10 ? ('0' + m) : m;
     let d = e.getDate();
-     d = d < 10 ? ('0' + d) : d;
-    return `${y}-${m}-${d}`;
+    let ji = '日一二三四五六'.charAt(e.getDay());
+    return `${y}/${m}/${d} 星期${ji}`;
   }
 
 
@@ -377,7 +372,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     this.conditions[i].endTime = null;
     this.conditions[i].form_type = null;
     this.conditions[i].databaseField = null;
-    this.conditions[i].elastic = null;
     this.paginatorConfig.pageSize = 5;
     this.start = 1;
     this.condition_search = [];
@@ -455,10 +449,11 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
           inputValue:  element.inputValue, inputValue1: element.inputValue1,
           inputValue2: element.inputValue2, logicValue: element.logicValue,
           startTime:  startTime1 , endTime: endTime1,
-          selectedValue: element.selectedValue, selectedInt: selectedInt,
-          isElastic: element.elastic
+          selectedValue: element.selectedValue, selectedInt: selectedInt
         }));
     });
+
+    this.searchMode=2;
     const tableData = [];
     const isAll = false;
     this.service.getFilterList(this.start, this.paginatorConfig.pageSize, isAll, this.condition_search).subscribe( (data) => {
@@ -470,12 +465,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       this.PatientList = new MatTableDataSource(recordList);
       this.displayedColumns = Object.keys(data.data[0]);
       this.displayedColumns.push('operate');
-      if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
-        this.searchMode = 2;
-      } else {
-        this.searchMode = 1;
-      }
-      console.log(this.displayedColumns);
     });
   }
 

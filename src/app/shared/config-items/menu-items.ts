@@ -50,18 +50,17 @@ const MENUITEMS = [
     icon: 'perm_contact_calendar',
     rolesCannotSee: ['patient']
   },
-  /*{
+  {
         state: 'components_list',
         name: '医疗表单组件',
         type: 'link',
         icon: 'category',
         rolesCannotSee: []
-    },*/
-  {
+    },  {
     state: 'vis',
     name: '可视分析',
     type: 'link',
-    icon: 'category',
+    icon: 'dashboard',
     rolesCannotSee: []
   },
 ];

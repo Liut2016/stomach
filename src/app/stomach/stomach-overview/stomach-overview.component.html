@@ -168,19 +168,13 @@
          </mat-card>
         <mat-card style="width: 100%; margin-top: 20px">
           <table mat-table [dataSource]="PatientList" style="width: 100%;">
-            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns.slice(0, searchMode === 2 ? displayedColumns.length - 2 : displayedColumns.length - 1)">
+            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns.slice(0, searchMode === 0 ? displayedColumns.length - 1 : searchMode === 1 ? displayedColumns.length - 2 : displayedColumns.length -1)">
               <th mat-header-cell *matHeaderCellDef> {{dictionary[column]}} </th>
               <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
             </ng-container>
             <ng-container matColumnDef="highlight" >
-              <th mat-header-cell *matHeaderCellDef>关键字</th>
-              <td mat-cell *matCellDef="let element" style="max-width: 100px">
-                <span> <a style="color: #1E88E5">
-                  <button mat-icon-button [matTooltip]="element['highlight']" color="accent">
-                    <mat-icon>subject</mat-icon>
-                  </button> </a>
-                </span>
-              </td>
+              <th mat-header-cell *matHeaderCellDef>  </th>
+              <td mat-cell *matCellDef="let element" style="max-width: 300px" [innerHTML]="element['highlight'] | Html"></td>
             </ng-container>
             <ng-container matColumnDef="operate" style="max-width: 200px">
               <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 操作 </th>

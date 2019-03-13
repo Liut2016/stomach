@@ -77,7 +77,7 @@ ngOnInit() {
      this.ViewForProviceBar = new View(this.viewProviceBar.nativeElement,
          this.serviceDashboard.Statistics(this.serviceDashboard.getProvinces(data.provinces)) , [360, 200 , 5, 50, 40, 5, 1, 0]);
      this.ViewForProviceBar.render();
-     this.ViewForCityBar = new View(this.viewCityBar.nativeElement, this.City , [220, 190 , 5, 50, 40, 5, 1, 0]);
+     this.ViewForCityBar = new View(this.viewCityBar.nativeElement, this.City , [220, 180 , 5, 50, 40, 5, 1, 0]);
      this.ViewForCityBar.render();
      console.log(this.serviceDashboard.Statistics(this.serviceDashboard.getProvinces(data.provinces)));
  });
