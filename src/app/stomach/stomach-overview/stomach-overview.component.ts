@@ -146,6 +146,10 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       }
   }
 
+  /**
+   * 这是关键字输入框添加关键字的函数，可以根据当前选择的field来生成对应的关键字chip
+   * @param event
+   */
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -161,6 +165,11 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     }
   }
 
+  /**
+   * 删除chip的函数，根据field的值不同，可以选择是删除关键字输入框中的，还是删除下面过滤框的
+   * @param keyword
+   * @param field 关键字or过滤条件
+   */
   remove(keyword: Keyword, field: any): void {
     const index = field.indexOf(keyword);
 
@@ -169,6 +178,10 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     }
   }
 
+  /**
+   * 添加过滤条件
+   * @param item
+   */
   addFilterCondition(item: any) {
     this.selectedConditions.push(item.text);
   }
