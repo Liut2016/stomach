@@ -7,15 +7,15 @@
     </mat-card-header>
     <mat-card-content>
       <mat-tab-group>
-        <mat-tab *ngFor="let item of conf.data; let i = index" [label]="item.type" >
+        <mat-tab  *ngFor="let item of conf.data; let i = index" [label]="item.type" style="font-size:medium;color: #232a37">
             <mat-accordion>
                 <mat-expansion-panel *ngFor="let sub of item.data; let date_num = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                   <mat-expansion-panel-header>
                     <mat-panel-title>
                      {{sub.type.substr(0, 16)}}
                     </mat-panel-title>
-                    <mat-panel-title [ngStyle]="{'color':sub.reference === 'before' ? 'rebeccapurple' : '术后检查' }">
-                      {{sub.reference === 'before' ? '术前检查' : '术后检查'}}
+                    <mat-panel-title>
+                      {{sub.data[0].part3_sj.substr(0,10)}}
                     </mat-panel-title>
                     <mat-panel-description>
                       具体项目{{sub.data.length}}条，点击查看具体项目

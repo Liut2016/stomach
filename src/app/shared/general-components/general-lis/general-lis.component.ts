@@ -58,11 +58,12 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
 
     for (let index = 0; index < this.conf.data.length; index++) {
       this.dataSource.push([]);
-      this.conf.data[index].data.forEach((time_data, i) => {
+        this.conf.data[index].data.forEach((time_data, i) => {
         this.dataSource[index].push([]);
         this.dataSource[index][i] = new MatTableDataSource(this.conf.data[index].data[i].data);
         // this.dataSource[index][i].paginator = this.paginator
       });
+      
     }
     /*for(let n = 0; n < this.conf.data.length ; n++){
       for(let m = 0; m < this.conf.data[n].data.length ; m++){
