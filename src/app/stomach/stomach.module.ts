@@ -6,7 +6,7 @@ import { DemoMaterialModule } from '@app/demo-material-module';
 import { SharedModule } from '@app/shared/shared.module';
 import { StomachRoutes } from '@app/stomach/stomach.routing';
 import { StomachFormComponent } from '@app/stomach/stomach-form/stomach-form.component';
-import { StomachOverviewComponent } from '@app/stomach/stomach-overview/stomach-overview.component';
+import { StomachOverviewComponent, FilterDialogComponent } from '@app/stomach/stomach-overview/stomach-overview.component';
 import { StomachFilterComponent } from './stomach-filter/stomach-filter.component';
 import { MyPipePipe } from '@app/shared/pipe/html-pipe';
 import { PopoverModule } from 'angular-bootstrap-md';
@@ -22,7 +22,8 @@ import { PopoverModule } from 'angular-bootstrap-md';
         SharedModule,
       PopoverModule
     ],
-    declarations: [StomachFormComponent, StomachOverviewComponent, StomachFilterComponent, MyPipePipe],
+    declarations: [StomachFormComponent, StomachOverviewComponent, StomachFilterComponent, MyPipePipe, FilterDialogComponent],
+    entryComponents: [FilterDialogComponent],
 })
 
 export class StomachModule { }

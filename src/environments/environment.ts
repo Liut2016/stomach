@@ -8,4 +8,4 @@ export const environment = {
   hmr: false
 };
 
-export const url = 'http://202.117.54.45:8080/';
+export const url = 'http://202.117.54.82:8080/';

@@ -1,203 +1,224 @@
 
+
 <div>
-    <mat-card style="width: 97%">
-      <mat-card-header><mat-card-title ><h3 style="margin-left: 25px">结直肠癌患者数据管理</h3></mat-card-title></mat-card-header>
-      <mat-card-content>
-        <mat-card>
-            <mat-tab-group (selectedTabChange)="onLinkClick($event)">
-                <mat-tab *ngFor="let tab of searchModeList" [label]="tab">
-                    <ng-template mat-tab-label style="font-size:large;color: #232a37"><span class='mat-tab-label'>{{tab}}</span></ng-template>
-                    <ng-template matTabContent>
-      <div *ngIf="tab === '全点位搜索'">
-                <mat-card style="width: 97%">
-                  <div>
-                    <mat-form-field class="example-chip-list">
-                   <mat-icon matSuffix>search</mat-icon>
-                    <mat-chip-list #chipList>
-                      <mat-chip *ngFor="let keyword of keywords" [selectable]="selectable"
-                                [removable]="removable" (removed)="remove(keyword, keywords)">
-                        {{keyword.name}}
-                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                      </mat-chip>
-                        <input matInput placeholder="搜索关键字..."
-                               [matChipInputFor]="chipList"
-                               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                               [matChipInputAddOnBlur]="addOnBlur"
-                               (matChipInputTokenEnd)="add($event)">
-                    </mat-chip-list>
-                    </mat-form-field>
-                  </div>
-                  <div style="margin-left: 1%; margin-top: -10px">
-                    <mat-radio-group [(ngModel)]="searchField">
-                      <mat-radio-button value="影像报告">影像报告</mat-radio-button>
-                      <mat-radio-button value="病理">病理</mat-radio-button>
-                    </mat-radio-group>
-                  </div>
-                  <div class="filter-panel">
-                    <mat-expansion-panel>
-                      <mat-expansion-panel-header>
-                        <mat-panel-title>
-                          <mat-icon>filter_list</mat-icon>
-                          过滤条件
-                        </mat-panel-title>
-                        <mat-panel-description>
-                          <mat-chip-list>
-                            <mat-chip *ngFor="let item of selectedConditions" [removable]="removable" (removed)="remove(item, selectedConditions)">
-                              {{item}}
+  <mat-card style="width: 97%">
+    <mat-card-header><mat-card-title ><h3 style="margin-left: 25px">结直肠癌患者数据管理</h3></mat-card-title></mat-card-header>
+    <mat-card-content>
+      <mat-card>
+          <mat-tab-group (selectedTabChange)="onLinkClick($event)">
+              <mat-tab *ngFor="let tab of searchModeList" [label]="tab">
+                  <ng-template mat-tab-label style="font-size:large;color: #232a37"><span class='mat-tab-label'>{{tab}}</span></ng-template>
+                  <ng-template matTabContent>
+    <div *ngIf="tab === '全点位搜索'">
+              <mat-card style="width: 97%">
+                <div>
+                  <mat-form-field class="example-chip-list">
+                 <mat-icon matSuffix>search</mat-icon>
+                  <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let keyword of keywords" [selectable]="selectable"
+                              [removable]="removable" (removed)="remove(keyword, keywords)">
+                      {{keyword.name}}
+                      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                      <input matInput placeholder="搜索关键字..."
+                             [matChipInputFor]="chipList"
+                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                             [matChipInputAddOnBlur]="addOnBlur"
+                             (matChipInputTokenEnd)="add($event)">
+                  </mat-chip-list>
+                  </mat-form-field>
+                </div>
+                <div style="margin-left: 1%; margin-top: -10px">
+                  <mat-radio-group [(ngModel)]="searchField">
+                    <mat-radio-button value="影像报告">影像报告</mat-radio-button>
+                    <mat-radio-button value="病理">病理</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="filter-panel">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <mat-icon>filter_list</mat-icon>
+                        过滤条件
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        <mat-chip-list>
+                          <!-- <mat-chip *ngFor="let item of conditions"  [removable]="removable" (click)="openDialog(item)" >
+                            {{item.text}}{{item.inputValue}}
+                            <mat-icon matChipRemove (click)="remove(item, conditions)">cancel</mat-icon>
+
+                          </mat-chip> -->
+
+
+
+                          <!-- <mat-chip *ngFor="let item of conditions"  [removable]="removable" (removed)="remove(item, conditions)" >
+                              {{item.text}}
                               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                            </mat-chip>
-                          </mat-chip-list>
-                        </mat-panel-description>
-                      </mat-expansion-panel-header>
-                      <mat-tab-group>
-                        <mat-tab label="病案首页">
-                          <button mat-button *ngFor="let item of stateGroups[0].medicalformsoptions" (click)="addFilterCondition(item)">
-                            {{item.text}}
-                          </button>
-                        </mat-tab>
-                        <mat-tab label="检验化验"> Content 2 </mat-tab>
-                        <mat-tab label="手术麻醉"> Content 3 </mat-tab>
-                      </mat-tab-group>
-                    </mat-expansion-panel>
-                  </div>
-                      <!--<div  *ngFor="let i of conditions" >
-                        <div>
-                           <span style="position: relative;left: 70px;">
-                              <mat-form-field *ngIf="i.isLogicRemove"   appearance="outline"  style="max-width: 80px; margin-right: 30px;">
-                                <mat-select placeholder=" " [(ngModel)]="i.logicValue" name="logicValue">
-                                  <mat-option *ngFor="let logic of logics" [value]="logic">
-                                      {{logic}}
-                                  </mat-option>
-                                </mat-select>
-                              </mat-form-field>
-                            </span>
+  
+                            </mat-chip> -->
 
-                          <span style="position: relative;margin-left: 70px;margin-right: 20px;">
-                              <mat-form-field   appearance="outline" style="max-width: 200px; margin-right: 30px;height: 10px;" >
-                                 &lt;!&ndash; <input type="text" matInput placeholder="输入选择条件"  (ngModelChange)="selectChange($event,i)"
-                                    required [matAutocomplete]="autoGroup"   [(ngModel)]="i.inputTypeValue" > &ndash;&gt;
-                                <input type="text" required matInput placeholder="请输入或者选择检索字段" [matAutocomplete]="autoGroup"  (ngModelChange)="selectChange($event,i)"  [(ngModel)]="i.inputTypeValue">
-                                  <mat-autocomplete #autoGroup="matAutocomplete"  >
-                                   <mat-optgroup *ngFor="let group of i.stateGroupOptions" [label]="group. medicalforms">
-                                      <mat-option *ngFor="let name of group.medicalformsoptions" [value]="name.text">
-                                           {{name.text}}
-                                      </mat-option>
-                                    </mat-optgroup>
-                                  </mat-autocomplete>
-                              </mat-form-field>
+                           <span  *ngFor="let i of conditions" >
+                              <mat-chip color="accent"  *ngIf="i.isNotNumber" (click)="openDialog(i)">{{i.text}} <span>"{{i.selectedValue}}"</span>
+                                <span *ngIf="i.isSelect!=true">{{i.inputValue}}</span>
+                                <mat-icon matChipRemove  (click)="remove(i, conditions)">cancel</mat-icon>
+                              </mat-chip>
+                              <mat-chip color="accent" *ngIf="i.isNumber" (click)="openDialog(i)">{{i.text}}<span>{{i.inputValue1}}</span>
+                                <span *ngIf="i.inputValue1!=null">~{{i.inputValue2}}</span>
+                                <mat-icon matChipRemove  (click)="remove(i, conditions)">cancel</mat-icon>
+                              </mat-chip>
+                              <mat-chip color="accent"  *ngIf="i.isTime" (click)="openDialog(i)">{{i.text}}<span>{{i.startTime  | date:'yyyy/MM/dd'}}</span>
+                                <span *ngIf="i.endTime!=null">~{{i.endTime | date:'yyyy/MM/dd'}}</span>
+                                <mat-icon matChipRemove  (click)="remove(i, conditions)">cancel</mat-icon>
+                              </mat-chip>
+                            </span>   
 
-                              <mat-form-field *ngIf="i.isNumber"   appearance="outline"  style="max-width: 180px; margin-right: 30px" >
-                                  <input matInput placeholder=""  [(ngModel)]="i.inputValue1" type="number">
-                               </mat-form-field>
-                               <span *ngIf="i.isNumber" style=" margin-right: 20px">-&#45;&#45;</span>
-                               <mat-form-field *ngIf="i.isNumber"  appearance="outline"  style="max-width: 180px; margin-right: 30px">
-                                  <input matInput placeholder=""  [(ngModel)]="i.inputValue2" type="number">
-                               </mat-form-field>
 
-                              <mat-form-field *ngIf="i.isNotNumber" appearance="outline" style="max-width: 200px; margin-right: 30px"  >
-                                <mat-select placeholder="" [(value)]="i.selectedValue"  name="operator" >
-                                  <mat-option *ngFor="let operator of i.operators" [value]="operator" >
-                                      {{operator}}
-                                  </mat-option>
-                                </mat-select>
-                              </mat-form-field>
-                              <mat-form-field *ngIf="i.isNotNumber&&i.isSelect!=true"  appearance="outline" style="max-width: 200px; margin-right: 30px;" >
-                                <mat-label>输入查找内容</mat-label>
-                                <input matInput placeholder=""  [(ngModel)]="i.inputValue">
-                              </mat-form-field>
-
-                              <mat-form-field *ngIf="i.isTime"  appearance="outline" style="max-width: 180px; margin-right: 30px;">
-                                  <input matInput [matDatepicker]="picker" placeholder="选择日期" [(ngModel)]="i.startTime" >
-                                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                  <mat-datepicker #picker></mat-datepicker>
-                              </mat-form-field>
-                              <span *ngIf="i.isTime" style=" margin-right: 20px">~~</span>
-                              <mat-form-field *ngIf="i.isTime"  appearance="outline" style="max-width: 180px; margin-right: 30px;">
-                                <input matInput [matDatepicker]="picker" placeholder="选择日期" [(ngModel)]="i.endTime"  >
+                        </mat-chip-list>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-tab-group>
+                      <mat-tab label="病案首页">
+                        <button mat-button *ngFor="let item of stateGroups[0].medicalformsoptions" (click)="addFilterCondition(item)">
+                          {{item.text}}
+                        </button>
+                      </mat-tab>
+                      <mat-tab label="检验化验"> Content 2 </mat-tab>
+                      <mat-tab label="手术麻醉"> Content 3 </mat-tab>
+                    </mat-tab-group>
+                  </mat-expansion-panel>
+                </div>
+                    <!--<div  *ngFor="let i of conditions" >
+                      <div>
+                         <span style="position: relative;left: 70px;">
+                            <mat-form-field *ngIf="i.isLogicRemove"   appearance="outline"  style="max-width: 80px; margin-right: 30px;">
+                              <mat-select placeholder=" " [(ngModel)]="i.logicValue" name="logicValue">
+                                <mat-option *ngFor="let logic of logics" [value]="logic">
+                                    {{logic}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </span>
+                        <span style="position: relative;margin-left: 70px;margin-right: 20px;">
+                            <mat-form-field   appearance="outline" style="max-width: 200px; margin-right: 30px;height: 10px;" >
+                               &lt;!&ndash; <input type="text" matInput placeholder="输入选择条件"  (ngModelChange)="selectChange($event,i)"
+                                  required [matAutocomplete]="autoGroup"   [(ngModel)]="i.inputTypeValue" > &ndash;&gt;
+                              <input type="text" required matInput placeholder="请输入或者选择检索字段" [matAutocomplete]="autoGroup"  (ngModelChange)="selectChange($event,i)"  [(ngModel)]="i.inputTypeValue">
+                                <mat-autocomplete #autoGroup="matAutocomplete"  >
+                                 <mat-optgroup *ngFor="let group of i.stateGroupOptions" [label]="group. medicalforms">
+                                    <mat-option *ngFor="let name of group.medicalformsoptions" [value]="name.text">
+                                         {{name.text}}
+                                    </mat-option>
+                                  </mat-optgroup>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                            <mat-form-field *ngIf="i.isNumber"   appearance="outline"  style="max-width: 180px; margin-right: 30px" >
+                                <input matInput placeholder=""  [(ngModel)]="i.inputValue1" type="number">
+                             </mat-form-field>
+                             <span *ngIf="i.isNumber" style=" margin-right: 20px">-&#45;&#45;</span>
+                             <mat-form-field *ngIf="i.isNumber"  appearance="outline"  style="max-width: 180px; margin-right: 30px">
+                                <input matInput placeholder=""  [(ngModel)]="i.inputValue2" type="number">
+                             </mat-form-field>
+                            <mat-form-field *ngIf="i.isNotNumber" appearance="outline" style="max-width: 200px; margin-right: 30px"  >
+                              <mat-select placeholder="" [(value)]="i.selectedValue"  name="operator" >
+                                <mat-option *ngFor="let operator of i.operators" [value]="operator" >
+                                    {{operator}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <mat-form-field *ngIf="i.isNotNumber&&i.isSelect!=true"  appearance="outline" style="max-width: 200px; margin-right: 30px;" >
+                              <mat-label>输入查找内容</mat-label>
+                              <input matInput placeholder=""  [(ngModel)]="i.inputValue">
+                            </mat-form-field>
+                            <mat-form-field *ngIf="i.isTime"  appearance="outline" style="max-width: 180px; margin-right: 30px;">
+                                <input matInput [matDatepicker]="picker" placeholder="选择日期" [(ngModel)]="i.startTime" >
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
-                              </mat-form-field>
-
-                              <span style="max-width: 200px; margin-right: 30px;" *ngIf="i.isClearRemove" >
-                                  &lt;!&ndash; <img src="../../../assets/images/trash.png" alt="删除" (click)="clearSingleRetrieval(i)"
-                                    style=" width: 28px; height: 28px;position: absolute;left: 700px;margin-top: 20px"/> &ndash;&gt;
-                                  <mat-icon  (click)="clearSingleRetrieval(i)"
-                                             style=" width: 28px; height: 28px;position: absolute;left: 700px;margin-top: 20px;font-size: 36px;cursor: pointer;">
-                                     remove_circle_outline
-                                  </mat-icon>
-                              </span>
+                            </mat-form-field>
+                            <span *ngIf="i.isTime" style=" margin-right: 20px">~~</span>
+                            <mat-form-field *ngIf="i.isTime"  appearance="outline" style="max-width: 180px; margin-right: 30px;">
+                              <input matInput [matDatepicker]="picker" placeholder="选择日期" [(ngModel)]="i.endTime"  >
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <span style="max-width: 200px; margin-right: 30px;" *ngIf="i.isClearRemove" >
+                                &lt;!&ndash; <img src="../../../assets/images/trash.png" alt="删除" (click)="clearSingleRetrieval(i)"
+                                  style=" width: 28px; height: 28px;position: absolute;left: 700px;margin-top: 20px"/> &ndash;&gt;
+                                <mat-icon  (click)="clearSingleRetrieval(i)"
+                                           style=" width: 28px; height: 28px;position: absolute;left: 700px;margin-top: 20px;font-size: 36px;cursor: pointer;">
+                                   remove_circle_outline
+                                </mat-icon>
                             </span>
-                       </div>
-
-                        <div class="example-button-row" style="position: absolute;left: 880px;top: 10px;" *ngIf="i.isAddRemove">
-                          <mat-icon  (click) = "addRetrieval($event,i)" style="font-size: 36px;cursor: pointer;">add_circle_outline</mat-icon>
-                        </div>
-                      </div>-->
-
-                      <div class="example-button-row">
-                        <button mat-raised-button color="primary" (click) = "searchRetrieval()">查找</button>
-                        <button mat-raised-button color="primary" (click) = "cleaRetrieval()">清空</button>
+                          </span>
+                     </div>
+                      <div class="example-button-row" style="position: absolute;left: 880px;top: 10px;" *ngIf="i.isAddRemove">
+                        <mat-icon  (click) = "addRetrieval($event,i)" style="font-size: 36px;cursor: pointer;">add_circle_outline</mat-icon>
                       </div>
-                </mat-card>
-      </div>
+                    </div>-->
 
-           </ng-template>
-           </mat-tab>
-         </mat-tab-group>
-          <div><h4 style="margin-left: 25px">检索条件</h4></div>
-          <mat-chip-list style="bottom:20px; left:100px;position: relative;"  >
-            <div  *ngFor="let i of conditions">
-              <span >{{i.logicValue}}</span>
-              <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNotNumber">{{i.inputTypeValue}} <span>"{{i.selectedValue}}"</span>
-                <span *ngIf="i.isSelect!=true">{{i.inputValue}}</span>
-                <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
-              </mat-chip>
-              <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNumber">{{i.inputTypeValue}}<span>{{i.inputValue1}}</span>
-                <span *ngIf="i.inputValue1!=null">~{{i.inputValue2}}</span>
-                <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
-              </mat-chip>
-              <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isTime">{{i.inputTypeValue}}<span>{{i.startTime | date:'yyyy/MM/dd'}}</span>
-                <span *ngIf="i.startTime!=null">~{{i.endTime | date:'yyyy/MM/dd'}}</span>
-                <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
-              </mat-chip>
-            </div>
-          </mat-chip-list>
-         </mat-card>
-        <mat-card style="width: 100%; margin-top: 20px">
-          <table mat-table [dataSource]="PatientList" style="width: 100%;">
-            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns.slice(0, searchMode === 2 ? displayedColumns.length - 2 : displayedColumns.length - 1)">
-              <th mat-header-cell *matHeaderCellDef> {{dictionary[column]}} </th>
-              <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-            </ng-container>
-            <ng-container matColumnDef="highlight" >
-              <th mat-header-cell *matHeaderCellDef>关键字</th>
-              <td mat-cell *matCellDef="let element" style="max-width: 100px">
-                <span> <a style="color: #1E88E5">
-                  <ng-template #popTemplate><div [innerHTML]="element['highlight']"></div></ng-template>
-                  <button mat-icon-button color="accent" [mdbPopover]="popTemplate" mdbWavesEffect>
-                    <mat-icon>subject</mat-icon>
-                  </button> </a>
-                </span>
-              </td>
-            </ng-container>
-            <ng-container matColumnDef="operate" style="max-width: 200px">
-              <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 操作 </th>
-              <td mat-cell *matCellDef="let element">
-                <span> <a (click)="goToDetail(element)"  style="color: #1E88E5">
-                  <button mat-icon-button color="accent">
-                    <mat-icon>search</mat-icon>查看
-                  </button> </a>
-                </span>
-                <!--<span> <a href="#" style="color: #1E88E5"> |导出 </a> </span>-->
-              </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: rgba(0, 0, 0, 0.08)"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+                    <div class="example-button-row">
+                      <button mat-raised-button color="primary" (click) = "searchRetrieval()">查找</button>
+                      <button mat-raised-button color="primary" (click) = "cleaRetrieval()">清空</button>
+                    </div>
+              </mat-card>
+    </div>
 
-          <mat-paginator [length]="paginatorConfig.length" [pageSize]="paginatorConfig.pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
-          (page)="pageChanged($event)" showFirstLastButtons></mat-paginator>
-        </mat-card>
-      </mat-card-content>
-    </mat-card>
-  </div>
+         </ng-template>
+         </mat-tab>
+       </mat-tab-group>
+        <div><h4 style="margin-left: 25px">检索条件</h4></div>
+        <mat-chip-list style="bottom:20px; left:100px;position: relative;"  >
+          <div  *ngFor="let i of conditions">
+            <span >{{i.logicValue}}</span>
+            <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNotNumber">{{i.inputTypeValue}} <span>"{{i.selectedValue}}"</span>
+              <span *ngIf="i.isSelect!=true">{{i.inputValue}}</span>
+              <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
+            </mat-chip>
+            <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNumber">{{i.inputTypeValue}}<span>{{i.inputValue1}}</span>
+              <span *ngIf="i.inputValue1!=null">~{{i.inputValue2}}</span>
+              <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
+            </mat-chip>
+            <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isTime">{{i.inputTypeValue}}<span>{{i.startTime | date:'yyyy/MM/dd'}}</span>
+              <span *ngIf="i.startTime!=null">~{{i.endTime | date:'yyyy/MM/dd'}}</span>
+              <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
+            </mat-chip>
+          </div>
+        </mat-chip-list>
+       </mat-card>
+      <mat-card style="width: 100%; margin-top: 20px">
+        <table mat-table [dataSource]="PatientList" style="width: 100%;">
+          <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns.slice(0, searchMode === 2 ? displayedColumns.length - 2 : displayedColumns.length - 1)">
+            <th mat-header-cell *matHeaderCellDef> {{dictionary[column]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+          </ng-container>
+          <ng-container matColumnDef="highlight" >
+            <th mat-header-cell *matHeaderCellDef>关键字</th>
+            <td mat-cell *matCellDef="let element" style="max-width: 100px">
+              <span> <a style="color: #1E88E5">
+                <ng-template #popTemplate><div [innerHTML]="element['highlight']"></div></ng-template>
+                <button mat-icon-button color="accent" [mdbPopover]="popTemplate" mdbWavesEffect>
+                  <mat-icon>subject</mat-icon>
+                </button> </a>
+              </span>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="operate" style="max-width: 200px">
+            <th mat-header-cell *matHeaderCellDef style="font-size: medium"> 操作 </th>
+            <td mat-cell *matCellDef="let element">
+              <span> <a (click)="goToDetail(element)"  style="color: #1E88E5">
+                <button mat-icon-button color="accent">
+                  <mat-icon>search</mat-icon>查看
+                </button> </a>
+              </span>
+              <!--<span> <a href="#" style="color: #1E88E5"> |导出 </a> </span>-->
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" style="background-color: rgba(0, 0, 0, 0.08)"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="paginatorConfig.length" [pageSize]="paginatorConfig.pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="pageChanged($event)" showFirstLastButtons></mat-paginator>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>

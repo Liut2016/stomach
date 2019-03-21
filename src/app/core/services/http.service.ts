@@ -41,11 +41,10 @@ export class HttpService {
     return this.httpClient.get('http://202.117.54.92:8080/oa/patients1')
       .pipe( data => { return data; });
   }*/
-  getFilterList(pageindex: number, pagesize: number, isAll: any, conditions: any): Observable<any> {
+  getFilterList(pageindex: number, pagesize: number, conditions: any): Observable<any> {
     const params = {
       'pageindex': pageindex,
       'pagesize': pagesize,
-      'isAll': isAll,
       'conditions': conditions,
     };
     return this.httpClient.post(this.testUrl + 'oa/filter1', JSON.stringify(params),

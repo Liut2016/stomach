@@ -356,7 +356,7 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
     console.log(this.condition_search);
     const tableData = [];
     const isAll = false;
-    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, isAll, this.condition_search).subscribe( (data) => {
+    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, this.condition_search).subscribe( (data) => {
       console.log(data);
       this.displayedColumns = [];
       this.columns = [];

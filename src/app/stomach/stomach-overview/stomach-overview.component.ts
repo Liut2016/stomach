@@ -1,10 +1,11 @@
-import { Component, OnInit, AfterViewInit , ViewChild, NgZone, Pipe, PipeTransform} from '@angular/core';
+import { Component, OnInit, AfterViewInit , ViewChild, NgZone, Pipe, PipeTransform, Inject} from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatPaginator, MatTableDataSource, PageEvent, MatTabChangeEvent} from '@angular/material';
 import { HttpService} from '@app/core/services/http.service';
 import { SettingsService} from '@app/core/services/settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalConfigure} from '@app/shared/local-configure';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
@@ -52,51 +53,18 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   start = 1;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   dictionary = dictionary.part1_home;
-  condictions = {
-      'filter_dict': { },
-      'start': 0,
-      'offset': this.paginatorConfig.length,
-      'disease': 'hypertension',
-      'follow': 0
-  };
+
   searchParam = '';
   displayedColumns: string[] = [];
   PatientList = new MatTableDataSource();
   searchMode = 1;
   searchModeList: string[] = ['全点位搜索'];
-  selectedConditions = [
-  ];
   listLenth = 200;
   columns = [];
   columnsInterface ;
-  logic: string;
-  logics: string[] = ['AND', 'OR'];
   stateGroups =  dictionary.filter_keys;
   condition_search = [];
-  conditions: any = [
-    {
-      isLogicRemove: false,
-      isAddRemove: true,
-      isClearRemove: false,
-      isNumber: false,
-      isNotNumber: true,
-      isTime: false,
-      isSelect: false,
-      stateGroupOptions: this.stateGroups,
-      operators: [],
-      inputTypeValue: null,
-      selectedValue: null,
-      logicValue: null,
-      inputValue: null,
-      inputValue1: null,
-      inputValue2: null,
-      startTime: null,
-      endTime: null,
-      form_type: null,
-      databaseField: null
-
-    }
-  ];
+  conditions: any = [];
 
   /*key worlds related*/
   searchField = '影像报告';
@@ -105,10 +73,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  keywords: Keyword[] = [
-  ];
-
-
+  keywords: Keyword[] = [];
+  indexCondition = -1;
 
 
 
@@ -117,35 +83,24 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       private settingService: SettingsService,
       private route: ActivatedRoute,
       private router: Router,
-      private zone: NgZone
+      private zone: NgZone,
+      public dialog: MatDialog
   ) {
     this.user = this.settingService.user;
-    this.roleControl();
+
   }
   ngOnInit() {
     this.start = 1;
     this.condition_search = [];
     this.getPageData();
+    console.log(this.conditions);
+    console.log(this.indexCondition);
   }
   ngAfterViewInit() {
     this.PatientList.paginator = this.paginator;
   }
   transform(value: any, ...args): any {
   }
-  roleControl() {
-      if (this.user.role === 'doctor') {
-          this.condictions.filter_dict = { complete_by: this.user.name, community: this.user.community};
-      } else if (this.user.role === 'community') {
-          this.condictions.filter_dict = { community: this.user.community };
-      } else if (this.user.role === 'patient') {
-          if ( typeof (this.user.idNumber) === 'undefined' ) {
-              this.condictions.filter_dict = { '身份证号': this.user.idNumber };
-          } else {
-              this.condictions.filter_dict = { '身份证号': this.user.idNumber };
-          }
-      }
-  }
-
   /**
    * 这是关键字输入框添加关键字的函数，可以根据当前选择的field来生成对应的关键字chip
    * @param event
@@ -176,6 +131,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     if (index >= 0) {
       field.splice(index, 1);
     }
+    console.log(this.conditions);
   }
 
   /**
@@ -183,60 +139,39 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
    * @param item
    */
   addFilterCondition(item: any) {
-    this.selectedConditions.push(item.text);
+    this.indexCondition = this.conditions.length;
+    this.addRetrieval(item);
+
   }
 
-  search() {
+  openDialog(selectedItem) {
+    this.indexCondition = this.conditions.indexOf(selectedItem);
+    const dialogRef = this.dialog.open(FilterDialogComponent, {
+      width: '620px',
+      data: { singleCondition: this.conditions[this.indexCondition]}
+    });
 
-      if (this.user.role === 'super') {
-          this.condictions.filter_dict = {
-              '身份证号': this.idNumber,
-              'submit_time': [this.startTime, this.endTime],
-              '姓名': this.patientName
-          };
-          this.getPageData();
-      }
-      if (this.user.role === 'community') {this.paginatorConfig
-          this.condictions.filter_dict = {
-              '身份证号': this.idNumber,
-              'submit_time': [this.startTime, this.endTime],
-              '姓名': this.patientName,
-          };
-          this.getPageData();
-      }
-      if (this.user.role === 'doctor') {
-          this.condictions.filter_dict = {
-              '身份证号': this.idNumber,
-              'submit_time': [this.startTime, this.endTime],
-              '姓名': this.patientName
-          };
-      }
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log('The dialog was closed');
+      // this.conditions[this.indexCondition] = result.return;
+    });
+    console.log(this.conditions[this.indexCondition]);
+    console.log(this.conditions);
+
   }
-  deleteRecord(pid) {
-      pid = pid + '';
-      const deleteID = {
-          PID: pid,
-          follow: 0,
-          FID: 0
-      };
-      const deleteParam = {
-          body: deleteID
-      };
-      this.service.deleteRecord(deleteParam).subscribe(res => {
-          this.getPageData();
-      });
-  }
+
+
 
   pageChanged(e) {
     this.pageEvent = e;
     this.paginatorConfig.pageSize = this.pageEvent.pageSize;
     this.start = this.pageEvent.pageIndex * this.pageEvent.pageSize + 1;
     console.log(e);
-    if(this.searchMode === 0) {
+    if (this.searchMode === 0) {
         this.getPageData();
-    }else if(this.searchMode === 1){
+    }else if (this.searchMode === 1) {
         this.getSearchData(this.searchParam);
-    }else{
+    }else {
         this.searchRetrieval();
     }
   }
@@ -276,20 +211,10 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     console.log('event => ', event);
     console.log('index => ', event.index);
     console.log('tab => ', event.tab);
-    this.clear();
     this.cleaRetrieval();
-    this.paginator.pageIndex=0;
+    this.paginator.pageIndex = 0;
   }
 
-  clear() {
-      this.patientName = '';
-      this.endTime = '';
-      this.startTime = '';
-      this.patientID = '';
-      this.Disease = '';
-      this.searchParam = '';
-      this.search();
-  }
   goToDetail(ele) {
     console.log(ele);
      this.router.navigate([`../detail`, ele.part1_pid, ele.part1_zylsh], {relativeTo: this.route});
@@ -298,117 +223,118 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
 
   setCondition() {
     return {
-      // timeRage: [this.startTime, this.endTime],
+      timeRage: [this.startTime, this.endTime],
       patientID: this.patientID,
       patientName: this.patientName,
       Disease: this.Disease,
     };
   }
 
-  selectChange(e, selectedItem) {
-    const arr = this.stateGroups;
-    const tempSelectVals = [];
-    const groupOptions = this.stateGroups;
-    for (let i = 0; i < groupOptions.length; i++) {
-      const groupObj = groupOptions[i];
-      const medicalforms = groupObj.medicalforms;
-      const medicalformsoptions = groupObj.medicalformsoptions;
-      const tempArray = [];
+  addRetrieval(selectedItem) {
+    this.conditions.push({
+      isTime: false,
+      isNumber: false,
+      isNotNumber: true,
+      isSelect: false,
+      stateGroupOptions: null,
+      operators: [],
+      inputTypeValue: null,
+      selectedValue: null,
+      inputValue: null,
+      inputValue1: null,
+      inputValue2: null,
+      startTime: null,
+      endTime: null,
+      form_type: null,
+      databaseField: null,
+      text: null
+    });
+    this.conditions[this.conditions.length - 1].stateGroupOptions = this.stateGroups;
+    this.selectChange(selectedItem);
+  }
 
-      for ( let j = 0; j < medicalformsoptions.length; j++) {
-        const medicalObj = medicalformsoptions[j];
-        const text = medicalObj.text;
-        if (text.indexOf(e) !== -1) {
-          tempArray.push(medicalObj);
-        }
-      }
-      if ( tempArray.length > 0) {
-        tempSelectVals.push({medicalforms: medicalforms, medicalformsoptions: tempArray});
-      }
-    }
-    if ( tempSelectVals.length > 0) {
-      selectedItem.stateGroupOptions = tempSelectVals;
-    }
+  selectChange(selectedItem) {
+    const e = selectedItem.text;
+    const arr = this.stateGroups;
+    this.conditions[this.indexCondition].text = selectedItem.text;
     for (let i = 0; i < arr.length; i++) {
       const obj = arr[i];
-      for (let m in obj) {
-        // const medicalforms = obj.medicalforms;
-        //selectedItem.form_type = obj.medicalforms;
-        const ft = obj.medicalforms;
-        const medicalformsoptions = obj.medicalformsoptions;//medicalformsoptions是数组
-        for (let j = 0; j < medicalformsoptions.length; j++) {
-          const item = medicalformsoptions[j];
-          if (e === item.text && item.type === 'number') {
-            selectedItem.isNumber = true;
-            selectedItem.isNotNumber = false;
-            selectedItem.isTime = false;
-            selectedItem.isSelect = false;
-            selectedItem.form_type = ft;
-            selectedItem.databaseField = item._key;
-          }
-
-          if (e === item.text && item.type === 'time') {
-            selectedItem.isNumber = false;
-            selectedItem.isNotNumber = false;
-            selectedItem.isTime=true;
-            selectedItem.isSelect = false;
-            selectedItem.form_type = ft;
-            selectedItem.databaseField = item._key;
-          }
-
-          if (e === item.text && item.type === 'string') {
-            console.log(selectedItem);
-            selectedItem.isNumber = false;
-            selectedItem.isNotNumber = true;
-            selectedItem.isTime = false;
-            selectedItem.isSelect = false;
-            selectedItem.operators = [ '包含', '等于'];
-            selectedItem.form_type = ft;
-            selectedItem.databaseField = item._key;
-            if (item.elastic) {
-              selectedItem.elastic = true;
+      for (const m in obj) {
+        if (obj.hasOwnProperty(m)) {
+          const ft = obj.medicalforms;
+          const medicalformsoptions = obj.medicalformsoptions; // medicalformsoptions是数组;
+          for (let j = 0; j < medicalformsoptions.length; j++) {
+            const item = medicalformsoptions[j];
+            if (e === item.text && item.type === 'number') {
+              this.conditions[this.indexCondition].isNumber = true;
+              this.conditions[this.indexCondition].isNotNumber = false;
+              this.conditions[this.indexCondition].isTime = false;
+              this.conditions[this.indexCondition].isSelect = false;
+              this.conditions[this.indexCondition].form_type = ft;
+              this.conditions[this.indexCondition].databaseField = item._key;
             }
-          }
-
-          if (e === item.text && item.type === 'select') {
-            selectedItem.isNumber = false;
-            selectedItem.isNotNumber = true;
-            selectedItem.isTime = false;
-            selectedItem.isSelect = true;
-            selectedItem.form_type = ft;
-            selectedItem.databaseField = item._key;
-            if(e.indexOf('性别')!=-1){
-              selectedItem.operators = [ '男', '女'];
+            if (e === item.text && item.type === 'time') {
+              this.conditions[this.indexCondition].isNumber = false;
+              this.conditions[this.indexCondition].isNotNumber = false;
+              this.conditions[this.indexCondition].isTime = true;
+              this.conditions[this.indexCondition].isSelect = false;
+              this.conditions[this.indexCondition].form_type = ft;
+              this.conditions[this.indexCondition].databaseField = item._key;
             }
-            if(e.indexOf('入院病室')!=-1){
-              selectedItem.operators = [ '肿瘤科VIP病区', '肿瘤一病区', '肿瘤二病区', '肿瘤四病区'];
+            if (e === item.text && item.type === 'string') {
+              this.conditions[this.indexCondition].isNumber = false;
+              this.conditions[this.indexCondition].isNotNumber = true;
+              this.conditions[this.indexCondition].isTime = false;
+              this.conditions[this.indexCondition].isSelect = false;
+              this.conditions[this.indexCondition].operators = [ '包含', '等于'];
+              this.conditions[this.indexCondition].form_type = ft;
+              this.conditions[this.indexCondition].databaseField = item._key;
+              if (item.elastic) {
+                this.conditions[this.indexCondition].elastic = true;
+              }
             }
-            if(e.indexOf('肿瘤大小(T)')!=-1){
-              selectedItem.operators = [ 'T0','Tis','Tis(DCIS)','Tis(LCIS)','Tis(Pagets)','T1a','T1b','T1c','T2','T3','T4a','T4b','T1c','T1d'];
+            if (e === item.text && item.type === 'select') {
+              this.conditions[this.indexCondition].isNumber = false;
+              this.conditions[this.indexCondition].isNotNumber = true;
+              this.conditions[this.indexCondition].isTime = false;
+              this.conditions[this.indexCondition].isSelect = true;
+              this.conditions[this.indexCondition].form_type = ft;
+              this.conditions[this.indexCondition].databaseField = item._key;
+              if ( e.indexOf('性别') !== -1 ) {
+                this.conditions[this.indexCondition].operators = [ '男', '女'];
+              }
+              if (e.indexOf('入院病室') !== -1) {
+                this.conditions[this.indexCondition].operators = [ '肿瘤科VIP病区', '肿瘤一病区', '肿瘤二病区', '肿瘤四病区'];
+              }
+              if (e.indexOf('肿瘤大小(T)') !== -1 ) {
+                this.conditions[this.indexCondition].operators = [ 'T0', 'Tis', 'Tis(DCIS)', 'Tis(LCIS)', 'Tis(Pagets)', 'T1a', 'T1b',
+                          'T1c', 'T2', 'T3', 'T4a', 'T4b', 'T1c', 'T1d'];
+              }
+              if (e.indexOf('淋巴结(N)') !== -1) {
+                this.conditions[this.indexCondition].operators = [ 'Nx', 'N0', 'N1', 'N2a', 'N2b', 'N3a', 'N3b', 'N3c'];
+              }
+              if (e.indexOf('远处转移(M)') !== -1) {
+                this.conditions[this.indexCondition].operators = [ 'M0', 'M1'];
+              }
+              if (e.indexOf('tnm分期') !== -1) {
+                this.conditions[this.indexCondition].operators = [ 'T0', 'Tis', 'Tis(DCIS)', 'Tis(LCIS)', 'Tis(Pagets)', 'T1a',
+                                           'T1b', 'T1c', 'T2', 'T3', 'T4a', 'T4b', 'T1c', 'T1d'];
+              }
+              if (e.indexOf('组织学分级') !== -1) {
+                this.conditions[this.indexCondition].operators = [ '低分化', '中分化', '高分化'];
+              }
+              if (e.indexOf('生存状态') !== -1) {
+                this.conditions[this.indexCondition].operators = [ '生存', '死亡', '缓解'];
+              }
+              if (e.indexOf('疾病进展') !== -1) {
+                this.conditions[this.indexCondition].operators = [ '脑转移', '肺转移', '骨转移'];
+              }
             }
-            if(e.indexOf('淋巴结(N)')!=-1){
-              selectedItem.operators = [ 'Nx','N0','N1','N2a','N2b','N3a','N3b','N3c'];
-            }
-            if(e.indexOf('远处转移(M)')!=-1){
-              selectedItem.operators = [ 'M0','M1'];
-            }
-            if(e.indexOf('tnm分期')!=-1){
-              selectedItem.operators = [ 'T0','Tis','Tis(DCIS)','Tis(LCIS)','Tis(Pagets)','T1a','T1b','T1c','T2','T3','T4a','T4b','T1c','T1d'];
-            }
-            if(e.indexOf('组织学分级')!=-1){
-              selectedItem.operators = [ '低分化','中分化','高分化'];
-            }
-            if(e.indexOf('生存状态')!=-1){
-              selectedItem.operators = [ '生存','死亡','缓解'];
-            }
-            if(e.indexOf('疾病进展')!=-1){
-              selectedItem.operators = [ '脑转移','肺转移','骨转移'];
-            }
-
           }
         }
       }
     }
+    this.openDialog(this.conditions[this.indexCondition]);
   }
 
 
@@ -435,56 +361,23 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     this.conditions[i].inputValue2 = null;
     this.conditions[i].startTime = null;
     this.conditions[i].endTime = null;
+    this.conditions[i].operators = [],
     this.conditions[i].form_type = null;
     this.conditions[i].databaseField = null;
     this.conditions[i].elastic = null;
-    this.paginatorConfig.pageSize = 5;
-    this.start = 1;
-    this.condition_search = [];
-    this.getPageData();
+    this.conditions[i].text = null;
+    // this.paginatorConfig.pageSize = 5;
+    // this.start = 1;
+    // this.condition_search = [];
+    // this.getPageData();
   }
 
 
-  addRetrieval(e, selectedItem) {
-    this.conditions.push({
-      isLogicRemove: true,
-      isAddRemove: false,
-      isClearRemove: true,
-      isNumber: false,
-      isNotNumber: true,
-      isSelect: false,
-      stateGroupOptions: null,
-      operators: [],
-      inputTypeValue: null,
-      selectedValue: null,
-      logicValue: 'AND',
-      inputValue: null,
-      inputValue1: null,
-      inputValue2: null,
-      form_type: null,
-      databaseField: null
-    });
-    this.conditions[this.conditions.length - 1].stateGroupOptions = this.stateGroups;
-    this.selectChange(e, selectedItem);
-  }
 
-  clearSingleRetrieval(selectedItem) {
-    let index = 0;
-    for (let i = 0; i < this.conditions.length; i++) {
-      if (selectedItem === this.conditions[i]) {
-        if (i === 0) {
-          this.cleaRetrieval();
-
-        }else {
-          index = i;
-          this.conditions.splice(index, 1);
-        }
-      }
-    }
-  }
 
   cleaRetrieval() {
-    this.conditions.splice(1, this.conditions.length - 1);
+    this.conditions = [];
+    this.keywords = [];
     this.displayedColumns = [];
     this.init(0);
   }
@@ -509,19 +402,14 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
         selectedInt = 2;
       }
       this.condition_search.push(Object.assign({},
-        {  isNotNumber: element.isNotNumber, isNumber: element.isNumber,
-          isSelect: element.isSelect, isTime: element.isTime,
-          form_type:  element.form_type , databaseField: element.databaseField,
-          inputValue:  element.inputValue, inputValue1: element.inputValue1,
-          inputValue2: element.inputValue2, logicValue: element.logicValue,
-          startTime:  startTime1 , endTime: endTime1,
-          selectedValue: element.selectedValue, selectedInt: selectedInt,
-          isElastic: element.elastic
+        {  isNotNumber: element.isNotNumber, isNumber: element.isNumber, isSelect: element.isSelect, isTime: element.isTime,
+          form_type:  element.form_type , databaseField: element.databaseField, inputValue:  element.inputValue,
+          inputValue1: element.inputValue1, inputValue2: element.inputValue2, startTime:  startTime1 , endTime: endTime1,
+          selectedValue: element.selectedValue, selectedInt: selectedInt, isElastic: element.elastic
         }));
     });
     const tableData = [];
-    const isAll = false;
-    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, isAll, this.condition_search).subscribe( (data) => {
+    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, this.condition_search).subscribe( (data) => {
       this.paginatorConfig.length = data.count_num;
       const recordList = data.data;
       recordList.forEach((element, index) => {
@@ -551,3 +439,44 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [
 ];
+
+
+export interface FilterData {
+  singleCondition: any;
+}
+
+
+
+@Component({
+  selector: 'app-filter-dialog',
+  templateUrl: 'filter-dialog.html',
+})
+export class FilterDialogComponent implements OnInit, AfterViewInit {
+
+  constructor(
+    public dialogRef: MatDialogRef<FilterDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: FilterData) {
+
+  }
+
+
+
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    console.log();
+  }
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  OK() {
+    console.log( this.data.singleCondition);
+    this.dialogRef.close({'return': this.data.singleCondition});
+  }
+
+
+}
