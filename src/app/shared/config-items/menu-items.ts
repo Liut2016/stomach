@@ -63,6 +63,16 @@ const MENUITEMS = [
     icon: 'dashboard',
     rolesCannotSee: []
   },
+  {
+    state: 'configuration',
+    name: '设置',
+    type: 'sub',
+    icon: 'airline_seat_flat_angled',
+    children: [
+      {state: 'export', name: '导出设置'},
+    ],
+    rolesCannotSee: []
+  },
 ];
 
 @Injectable()

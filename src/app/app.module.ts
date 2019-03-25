@@ -31,6 +31,7 @@ import { SettingComponent } from '@app/setting/setting.component';
 import { LocalStorage } from '@app/shared/local.storage';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MarkdownModule } from 'ngx-markdown';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -64,6 +65,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ReactiveFormsModule,
     DragDropModule,
     MarkdownModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     LocalStorage,

@@ -49,6 +49,17 @@ export const dictionary = {
     'highlight': '',
     'part1_zyh': '住院号',
     'part1_zylsh': '住院流水号',
+    'part1_sr': '出生日期',
+    'part1_xzz': '现住址',
+    'part1_csd': '出生地',
+    'part1_zy': '职业',
+    'part1_mz': '民族',
+    'part1_zzdbm': '主诊断编码',
+    'part1_ssrq': '手术日期',
+    'part1_ssmc': '手术名称',
+    'part1_qkdj': '切口等级',
+    'part1_mzfs': '麻醉方式',
+
   },
   filter_keys: [
      {

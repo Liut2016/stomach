@@ -63,7 +63,6 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
         this.dataSource[index][i] = new MatTableDataSource(this.conf.data[index].data[i].data);
         // this.dataSource[index][i].paginator = this.paginator
       });
-      
     }
     /*for(let n = 0; n < this.conf.data.length ; n++){
       for(let m = 0; m < this.conf.data[n].data.length ; m++){
@@ -74,7 +73,7 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
              this.conf.data[n].data[m].data[k]["part3_sj"].substring(0,10);
             }
         }
-      } 
+      }
      }
     }*/
   }
