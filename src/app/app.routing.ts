@@ -38,6 +38,10 @@ export const AppRoutes: Routes = [
     {
       path: 'vis',
       loadChildren: './visualization/visualization.module#VisualizationModule'
+    },
+    {
+      path: 'configuration',
+      loadChildren: './configuration/configuration.module#ConfigurationModule'
     }
   ]
 }, {
