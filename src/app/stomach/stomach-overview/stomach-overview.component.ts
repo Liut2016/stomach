@@ -92,9 +92,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   ngOnInit() {
     this.start = 1;
     this.condition_search = [];
-    this.getPageData();
-    console.log(this.conditions);
-    console.log(this.indexCondition);
+    this.searchRetrieval();
   }
   ngAfterViewInit() {
     this.PatientList.paginator = this.paginator;
@@ -167,17 +165,11 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     this.paginatorConfig.pageSize = this.pageEvent.pageSize;
     this.start = this.pageEvent.pageIndex * this.pageEvent.pageSize + 1;
     console.log(e);
-    if (this.searchMode === 0) {
-        this.getPageData();
-    }else if (this.searchMode === 1) {
-        this.getSearchData(this.searchParam);
-    }else {
-        this.searchRetrieval();
-    }
+    this.searchRetrieval();
   }
 
   getPageData() {
-    this.searchMode = 0;
+    // this.searchMode = 0;
           this.service.getRecordList(this.start, this.paginatorConfig.pageSize, this.setCondition()).subscribe( (data) => {
               this.paginatorConfig.length = data.count_num;
               this.PatientList = new MatTableDataSource(data.data);
@@ -289,9 +281,9 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
               this.conditions[this.indexCondition].operators = [ '包含', '等于'];
               this.conditions[this.indexCondition].form_type = ft;
               this.conditions[this.indexCondition].databaseField = item._key;
-              if (item.elastic) {
-                this.conditions[this.indexCondition].elastic = true;
-              }
+              // if (item.elastic) {
+              //   this.conditions[this.indexCondition].elastic = true;
+              // }
             }
             if (e === item.text && item.type === 'select') {
               this.conditions[this.indexCondition].isNumber = false;
@@ -405,24 +397,30 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
         {  isNotNumber: element.isNotNumber, isNumber: element.isNumber, isSelect: element.isSelect, isTime: element.isTime,
           form_type:  element.form_type , databaseField: element.databaseField, inputValue:  element.inputValue,
           inputValue1: element.inputValue1, inputValue2: element.inputValue2, startTime:  startTime1 , endTime: endTime1,
-          selectedValue: element.selectedValue, selectedInt: selectedInt, isElastic: element.elastic
+          selectedValue: element.selectedValue, selectedInt: selectedInt,
         }));
     });
+    console.log(this.start, this.paginatorConfig.pageSize, this.keywords, this.condition_search);
     const tableData = [];
-    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, this.condition_search).subscribe( (data) => {
+    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, this.keywords, this.condition_search).subscribe( (data) => {
       this.paginatorConfig.length = data.count_num;
       const recordList = data.data;
       recordList.forEach((element, index) => {
+        if (element.hasOwnProperty('part1_sr')) {
+          element.part1_sr = element.part1_sr.split(' ')[0];
+        }
         tableData.push(Object.assign({}, element));
       });
       this.PatientList = new MatTableDataSource(recordList);
+      console.log('data1', data);
+      console.log('data', data.data[0]);
       this.displayedColumns = Object.keys(data.data[0]);
       this.displayedColumns.push('operate');
-      if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
-        this.searchMode = 2;
-      } else {
-        this.searchMode = 1;
-      }
+      // if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
+      //   this.searchMode = 2;
+      // } else {
+      //   this.searchMode = 1;
+      // }
       console.log(this.displayedColumns);
     });
   }
