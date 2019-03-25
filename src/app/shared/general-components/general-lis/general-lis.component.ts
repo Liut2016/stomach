@@ -36,7 +36,7 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
   length: number[] = [];
   pageSize: 10;
   pageEvent: PageEvent;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  pageSizeOptions: number[] = [10, 25, 100];
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource: any[] = [];
   panelOpenState = false;

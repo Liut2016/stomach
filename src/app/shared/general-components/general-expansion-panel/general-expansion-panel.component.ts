@@ -13,6 +13,7 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
   data_list = [];
   layout_list = [];
   isSpecial;
+  step = 0;
   constructor() {
     super();
   }
@@ -29,7 +30,7 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
     this.layout_list.forEach((part, index) => {
       part.forEach(item => {
         if (item.key_value) {
-          item.key_value._value = this.data_list[index][item.key_value._key];  
+          item.key_value._value = this.data_list[index][item.key_value._key];
         }
       });
 
@@ -49,14 +50,13 @@ export class GeneralExpansionPanelComponent extends ConfInterface implements OnI
   }
 
 
-  step = 0;
 
   setStep(index: number) {
     this.step = index;
   }
 
   nextStep() {
-   this.step++; 
+   this.step++;
   }
 
   prevStep() {
