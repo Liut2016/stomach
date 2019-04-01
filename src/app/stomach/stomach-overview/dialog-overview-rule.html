@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-content>
+        <mat-selection-list label="导出规则" #rules>
+            <mat-list-option *ngFor="let item of data.exportrules" [(ngModel)]="data.selectrules">
+                {{item}}
+            </mat-list-option>
+        </mat-selection-list>
+        <p>
+           已选中的导出规则 : {{rules.selectedOptions.selected.length}}
+        </p>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data.selectrules" style="margin-left: 300px">确定</button>
+    </mat-card-content>
+  </mat-card>

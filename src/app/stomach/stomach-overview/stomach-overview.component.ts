@@ -20,6 +20,11 @@ export interface Keyword {
   name: string;
 }
 
+export interface DialogData {
+  confs: any[];
+  exportrules: any[];
+  selectrules:any[];
+}
 
 @Pipe({
   name: 'Html'
@@ -76,7 +81,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   keywords: Keyword[] = [];
   indexCondition = -1;
 
-
+  exportrules = ['导出规则1', '导出规则2', '导出规则3', '导出规则4'];
+  seletrules:[];
 
   constructor(
       private service: HttpService,
@@ -139,7 +145,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   addFilterCondition(item: any) {
     this.indexCondition = this.conditions.length;
     this.addRetrieval(item);
-
   }
 
   openDialog(selectedItem) {
@@ -158,7 +163,36 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
 
   }
 
+  openRuleDialog(element): void {
 
+    const dialogRef = this.dialog.open(DialogOverviewRule, {
+      width: '500px',
+      data: {
+        confs: [],
+        exportrules: this.exportrules,
+        seletrules:this.seletrules
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.seletrules = result;
+      console.log(this.seletrules);
+      this.downloadFile();
+    });
+  }
+
+
+    downloadFile() {
+      const params = {
+          rules: this.seletrules,
+          follow: '0',
+      };
+      this.service.downloadFile( params, 'AllHypertensionData.csv' );
+    }
+
+    downloadAllFile(ruleid) {
+      this.service.downloadAllFile(ruleid,'AllStomochData.csv' );
+    }
 
   pageChanged(e) {
     this.pageEvent = e;
@@ -175,6 +209,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
               this.PatientList = new MatTableDataSource(data.data);
             this.displayedColumns = Object.keys(data.data[0]);
             this.displayedColumns.push('operate');
+            this.displayedColumns.push('export');
             });
   }
 
@@ -195,6 +230,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
         console.log(this.PatientList);
         this.displayedColumns.push('highlight');
         this.displayedColumns.push('operate');
+        this.displayedColumns.push('export');
       });
     }
   }
@@ -416,6 +452,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       console.log('data', data.data[0]);
       this.displayedColumns = Object.keys(data.data[0]);
       this.displayedColumns.push('operate');
+      this.displayedColumns.push('export');
+      //this.displayedColumns.push('export');
       // if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
       //   this.searchMode = 2;
       // } else {
@@ -470,5 +508,22 @@ export class FilterDialogComponent implements OnInit, AfterViewInit {
   OK() {
     console.log( this.data.singleCondition);
     this.dialogRef.close({'return': this.data.singleCondition});
+  }
+}
+
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'dialog-overview-rule',
+  templateUrl: 'dialog-overview-rule.html',
+})
+// tslint:disable-next-line:component-class-suffix
+export class DialogOverviewRule {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewRule>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

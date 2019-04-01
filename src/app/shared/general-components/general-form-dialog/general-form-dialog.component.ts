@@ -1,14 +1,14 @@
-import { Component, OnInit,Inject, AfterViewInit , ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit , ViewChild } from '@angular/core';
 import { ConfInterface } from '@app/shared/conf-interface';
-import { MatPaginator, MatTableDataSource, PageEvent,MatTabChangeEvent} from '@angular/material';
+import { MatPaginator, MatTableDataSource, PageEvent, MatTabChangeEvent} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import * as _ from 'lodash';
 
 export interface DialogData {
   confs: any[];
-  cols:number;
-  layout_values:any[],
-  indexs:number
+  cols: number;
+  layout_values: any[];
+  indexs: number;
 }
 
 @Component({
@@ -17,7 +17,7 @@ export interface DialogData {
   styleUrls: ['./general-form-dialog.component.css']
 })
 
-export class GeneralFormDialogComponent extends ConfInterface implements OnInit,AfterViewInit {
+export class GeneralFormDialogComponent extends ConfInterface implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -28,21 +28,21 @@ export class GeneralFormDialogComponent extends ConfInterface implements OnInit,
   pageEvent: PageEvent;
   start = 1;
   pageSizeOptions: number[] = [5, 10, 25, 100];
-  displayedColumns = ['no','part5_zyh', 'part5_hzxm','part5_jclb','part5_jcsj','reference','operate'];
-  dataSource = new MatTableDataSource();;
-  keys:string[];
+  displayedColumns = ['no', 'part5_zyh', 'part5_hzxm', 'part5_jclb', 'part5_jcsj', 'reference', 'operate'];
+  dataSource = new MatTableDataSource();
+  keys: string[];
 
   data_list = [];
   layout_list = [];
-  position:number[];
+  position: number[];
 
-  confs:any[];
-  layout:any[];
-  cols:number;
-  layout_values:any[];
+  confs: any[];
+  layout: any[];
+  cols: number;
+  layout_values: any[];
 
   constructor(
-    public dialog:MatDialog,
+    public dialog: MatDialog,
   ) {
     super();
   }
@@ -52,8 +52,8 @@ export class GeneralFormDialogComponent extends ConfInterface implements OnInit,
   ngOnInit() {
     console.log(this.conf.data);
     this.length = this.conf.data.length;
-    this.layout=this.conf.layout;
-    this.cols=this.conf.cols;
+    this.layout = this.conf.layout;
+    this.cols = this.conf.cols;
     this.dataSource = new MatTableDataSource(this.conf.data);
 
     this.conf.data.forEach(part => {
@@ -67,22 +67,22 @@ export class GeneralFormDialogComponent extends ConfInterface implements OnInit,
     this.layout_list.forEach((part, index) => {
       part.forEach(item => {
         if (item.key_value) {
-          item.key_value._value = this.data_list[index][item.key_value._key];  
+          item.key_value._value = this.data_list[index][item.key_value._key];
         }
       });
     });
-    this.layout_values=this.layout_list;
+    this.layout_values = this.layout_list;
     console.log(this.layout_values);
     }
 
-  openDialog(indexs:number): void {
+  openDialog(indexs: number): void {
 
     const dialogRef = this.dialog.open(DialogOverviewData, {
       width: '1100px',
       data: {
         confs: this.layout,
         cols : this.cols,
-        layout_values:this.layout_values,
+        layout_values: this.layout_values,
         indexs: indexs
       }
     });
@@ -99,9 +99,11 @@ export class GeneralFormDialogComponent extends ConfInterface implements OnInit,
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'dialog-overview-data',
   templateUrl: 'dialog-overview-data.html',
 })
+// tslint:disable-next-line:component-class-suffix
 export class DialogOverviewData {
 
   constructor(

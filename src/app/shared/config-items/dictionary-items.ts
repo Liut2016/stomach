@@ -36,6 +36,13 @@ export const dictionary = {
     part5_jcsj: '检查时间',
     reference: '手术前后',
   },
+  part5_dicresult: {
+    'part5_jclb':'检查类别',
+    'part5_jcbw': '检查部位',
+    'part5_jcsj': '检查时间',
+    'part5_jcjgms': '检查结果描述',
+    'part5_jczd': '检查诊断',
+  },
   part1_home: {
     'part1_pid': '',
     'part1_bah': '病案号',

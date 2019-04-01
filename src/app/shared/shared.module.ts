@@ -26,6 +26,8 @@ import { GeneralLisComponent } from './general-components/general-lis/general-li
 import { GeneralListComponent } from './general-components/general-list/general-list.component';
 import { GeneralFormDialogComponent } from './general-components/general-form-dialog/general-form-dialog.component';
 import {  DialogOverviewData } from '@app/shared/general-components/general-form-dialog/general-form-dialog.component';
+// tslint:disable-next-line:max-line-length
+import { GeneralButtonDialogComponent, DialogOverviewRule } from './general-components/general-button-dialog/general-button-dialog.component';
 
 
 
@@ -64,6 +66,8 @@ import {  DialogOverviewData } from '@app/shared/general-components/general-form
     GeneralFormDialogComponent,
     GeneralFormDialogComponent,
     DialogOverviewData,
+    GeneralButtonDialogComponent,
+    DialogOverviewRule
   ],
   exports: [
     AccordionAnchorDirective,
@@ -90,11 +94,13 @@ import {  DialogOverviewData } from '@app/shared/general-components/general-form
     GeneralLisComponent,
     GeneralListComponent,
     GeneralFormDialogComponent,
-    
-   ], 
+    GeneralButtonDialogComponent
+   ],
    entryComponents: [
     GeneralFormDialogComponent,
-    DialogOverviewData, 
+    GeneralButtonDialogComponent,
+    DialogOverviewData,
+    DialogOverviewRule,
   ],
   providers: [ MenuItems ]
 })

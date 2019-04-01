@@ -59,11 +59,11 @@ export const survey_list = [
               { type: 'text', cols: 1, rows: 1, text: '手术名称 :' },
               { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part1_ssmc', _value: ''}}, 
               { type: 'text', cols: 1, rows: 1, text: '切口等级' },
-              { type: 'input', cols: 1, rows: 1,key_value: {_key: 'part1_qkdj', _value: ''} },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part1_qkdj', _value: ''} },
               { type: 'text', cols: 1, rows: 1, text: '麻醉方式 :' },
               { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part1_mzfs', _value: ''}},
             ]
-          }
+          },
         ]
       },
     {
@@ -514,7 +514,7 @@ export const survey_list = [
                     { type: 'textarea', cols: 3, rows: 3, key_value: { _key: 'part5_jcjgms', _value: '' } },
                    
                   ]
-        }
+        },
         ]
     },
 

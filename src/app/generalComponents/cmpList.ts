@@ -161,6 +161,13 @@ export const components_list = [
         ]
     },
     {
+      step_description: 'Button-Dialog',
+      items:
+      [
+         { type : 'button-dialog', title : '导出按钮', key_value: { _key: '病历', _value: '' }}
+      ]
+  },
+    {
       step_description: 'Form-Dialog',
       items: [
         {

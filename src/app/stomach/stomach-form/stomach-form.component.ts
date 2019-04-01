@@ -16,15 +16,15 @@ export class StomachFormComponent implements OnInit {
   zyh;
   advice_dic = dictionary.part2_yz;
   lis_dic = dictionary.part3_lis;
-  result_dic=dictionary.part5_result;
+  result_dic = dictionary.part5_result;
   home_data = [];
 
  sex = {
     '1': '男',
     '2': '女'
-  }
+  };
 
-  datainfo='';
+  datainfo = '';
   constructor(
     private http: HttpService,
     private router: ActivatedRoute,
@@ -36,7 +36,8 @@ export class StomachFormComponent implements OnInit {
    this.zyh = this.router.params['value']['ZYH'];
     this.initForm().subscribe((res) => {
       this.home_data = res.data['home'][0];
-      this.datainfo=`住院号：${this.home_data['part1_zyh']}  姓名：${this.home_data['part1_xm']}  年龄：${this.home_data['part1_nl']}岁  性别：${this.sex[this.home_data['part1_xb']]}  主诊断：${this.home_data['part1_zzd']}`;
+      // tslint:disable-next-line:max-line-length
+      this.datainfo = `住院号：${this.home_data['part1_zyh']}  姓名：${this.home_data['part1_xm']}  年龄：${this.home_data['part1_nl']}岁  性别：${this.sex[this.home_data['part1_xb']]}  主诊断：${this.home_data['part1_zzd']}`;
       const mazui_data = res.data['mazui'][0];
       const result_data = res.data['results'];
       const lis_data = res.data['lis'];
@@ -53,8 +54,9 @@ export class StomachFormComponent implements OnInit {
         const part1 = this.stomach_list[0].items[0]['layout'][i];
         if (part1.key_value) {
           part1.key_value._value = this.home_data[part1.key_value._key];
-          if(part1.key_value._key === 'part1_sr'||part1.key_value._key === 'part1_rysj'||part1.key_value._key === 'part1_cysj'||part1.key_value._key === 'part1_ssrq'){
-            part1.key_value._value = this.home_data[part1.key_value._key].substring(0,10);
+          // tslint:disable-next-line:max-line-length
+          if ( part1.key_value._key === 'part1_sr' || part1.key_value._key === 'part1_rysj' || part1.key_value._key === 'part1_cysj' || part1.key_value._key === 'part1_ssrq') {
+            part1.key_value._value = this.home_data[part1.key_value._key].substring(0, 10);
           }
         }
       }
@@ -62,8 +64,8 @@ export class StomachFormComponent implements OnInit {
         const part4 = this.stomach_list[5].items[0]['layout'][i];
         if (part4.key_value) {
           part4.key_value._value = mazui_data[part4.key_value._key];
-          if(part4.key_value._key === 'part4_ssrq'){
-            part4.key_value._value = mazui_data[part4.key_value._key].substring(0,10);
+          if (part4.key_value._key === 'part4_ssrq') {
+            part4.key_value._value = mazui_data[part4.key_value._key].substring(0, 10);
           }
 
         }
@@ -78,9 +80,8 @@ export class StomachFormComponent implements OnInit {
         }
       }
       }*/
-     
+
     });
-    
   }
 
   initForm() {
