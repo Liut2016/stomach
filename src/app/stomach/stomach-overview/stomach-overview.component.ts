@@ -41,9 +41,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   patientName = '';
   startTime = '';
   endTime = '';
-  idNumber = '';
   Disease = '';
-  DiseaseList = [ '乙状结肠恶性肿瘤', '升结肠恶性肿瘤', '降结肠恶性肿瘤', '横结肠恶性肿瘤', '直肠恶性肿瘤', '直肠癌', '十二指肠恶性肿瘤', '回肠恶性肿瘤'];
   paginatorConfig = {
     length: 15,
     pageSize: 10
@@ -56,12 +54,13 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
 
   searchParam = '';
   displayedColumns: string[] = [];
+  historyColumns = ['检索条件', '查询时间'];
+
   PatientList = new MatTableDataSource();
+  HistoryList = new MatTableDataSource();
   searchMode = 1;
-  searchModeList: string[] = ['全点位搜索'];
-  listLenth = 200;
+  searchModeList: string[] = ['全点位搜索', '历史记录'];
   columns = [];
-  columnsInterface ;
   stateGroups =  dictionary.filter_keys;
   condition_search = [];
   conditions: any = [];
@@ -92,6 +91,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   ngOnInit() {
     this.start = 1;
     this.condition_search = [];
+    // this.getPageData();
     this.searchRetrieval();
   }
   ngAfterViewInit() {
@@ -200,11 +200,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   }
 
   onLinkClick(event: MatTabChangeEvent) {
-    console.log('event => ', event);
-    console.log('index => ', event.index);
-    console.log('tab => ', event.tab);
-    this.cleaRetrieval();
-    this.paginator.pageIndex = 0;
+
   }
 
   goToDetail(ele) {
@@ -358,10 +354,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     this.conditions[i].databaseField = null;
     this.conditions[i].elastic = null;
     this.conditions[i].text = null;
-    // this.paginatorConfig.pageSize = 5;
-    // this.start = 1;
-    // this.condition_search = [];
-    // this.getPageData();
   }
 
 
@@ -400,9 +392,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
           selectedValue: element.selectedValue, selectedInt: selectedInt,
         }));
     });
-    console.log(this.start, this.paginatorConfig.pageSize, this.keywords, this.condition_search);
     const tableData = [];
-    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, this.keywords, this.condition_search).subscribe( (data) => {
+    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, this.keywords, this.condition_search, this.generateHistory(this.keywords, this.conditions)).subscribe( (data) => {
       this.paginatorConfig.length = data.count_num;
       const recordList = data.data;
       recordList.forEach((element, index) => {
@@ -416,17 +407,48 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       console.log('data', data.data[0]);
       this.displayedColumns = Object.keys(data.data[0]);
       this.displayedColumns.push('operate');
-      // if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
-      //   this.searchMode = 2;
-      // } else {
-      //   this.searchMode = 1;
-      // }
+       if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
+         this.searchMode = 2;
+       } else {
+         this.searchMode = 1;
+       }
       console.log(this.displayedColumns);
     });
   }
 
+  generateHistory(keywords, conditions) {
+    let history_text;
+    if (keywords.length > 0 && conditions.length > 0) {
+      history_text = this.generateKeywords(keywords) + ' and ' + this.generateConditions(conditions);
+    } else {
+      history_text = this.generateKeywords(keywords) + this.generateConditions(conditions);
+    }
+    return history_text;
+  }
 
+  generateKeywords(keywords) {
+    keywords = keywords.map(item => {
+      const temp_item = item.name.split(':');
+      return `${temp_item[0]}中包含'${temp_item[1]}'`;
+    });
+    return keywords.join(' and ');
+  }
+
+  generateConditions(conditions) {
+    conditions = conditions.map(item => {
+      if (item.isNotNumber) {
+        return `${item.text}"${item.selectedValue}"${item.isSelect ? '' : item.inputValue}`;
+      } else if (item.isNumber) {
+        return `${item.text}${item.inputValue1}${item.inputValue1 ? '~' + item.inputValue2 : ''}`;
+      } else if (item.isTime) {
+        return `${item.text}${item.startTime}${item.startTime ? '~' + item.endTime : ''}`;
+      }
+    });
+    return (conditions.join(' and '));
+  }
 }
+
+
 export interface PeriodicElement {
   PID: string;
   HID: string;

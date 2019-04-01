@@ -6,10 +6,10 @@
     <mat-card-content>
       <mat-card>
           <mat-tab-group (selectedTabChange)="onLinkClick($event)">
-              <mat-tab *ngFor="let tab of searchModeList" [label]="tab">
-                  <ng-template mat-tab-label style="font-size:large;color: #232a37"><span class='mat-tab-label'>{{tab}}</span></ng-template>
+              <mat-tab>
+                  <ng-template mat-tab-label style="font-size:large;color: #232a37"><span class='mat-tab-label'>数据检索</span></ng-template>
                   <ng-template matTabContent>
-    <div *ngIf="tab === '全点位搜索'">
+                  <div>
               <mat-card style="width: 97%">
                 <div>
                   <mat-form-field class="example-chip-list">
@@ -31,7 +31,7 @@
                 <div style="margin-left: 1%; margin-top: -10px">
                   <mat-radio-group [(ngModel)]="searchField">
                     <mat-radio-button value="影像报告">影像报告</mat-radio-button>
-                    <mat-radio-button value="病理">病理</mat-radio-button>
+                    <mat-radio-button value="病理" disabled>病理</mat-radio-button>
                   </mat-radio-group>
                 </div>
                 <div class="filter-panel">
@@ -43,20 +43,6 @@
                       </mat-panel-title>
                       <mat-panel-description>
                         <mat-chip-list>
-                          <!-- <mat-chip *ngFor="let item of conditions"  [removable]="removable" (click)="openDialog(item)" >
-                            {{item.text}}{{item.inputValue}}
-                            <mat-icon matChipRemove (click)="remove(item, conditions)">cancel</mat-icon>
-
-                          </mat-chip> -->
-
-
-
-                          <!-- <mat-chip *ngFor="let item of conditions"  [removable]="removable" (removed)="remove(item, conditions)" >
-                              {{item.text}}
-                              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-  
-                            </mat-chip> -->
-
                            <span  *ngFor="let i of conditions" >
                               <mat-chip color="accent"  *ngIf="i.isNotNumber" (click)="openDialog(i)">{{i.text}} <span>"{{i.selectedValue}}"</span>
                                 <span *ngIf="i.isSelect!=true">{{i.inputValue}}</span>
@@ -70,7 +56,7 @@
                                 <span *ngIf="i.endTime!=null">~{{i.endTime | date:'yyyy/MM/dd'}}</span>
                                 <mat-icon matChipRemove  (click)="remove(i, conditions)">cancel</mat-icon>
                               </mat-chip>
-                            </span>   
+                            </span>
 
 
                         </mat-chip-list>
@@ -82,8 +68,8 @@
                           {{item.text}}
                         </button>
                       </mat-tab>
-                      <mat-tab label="检验化验"> Content 2 </mat-tab>
-                      <mat-tab label="手术麻醉"> Content 3 </mat-tab>
+                      <mat-tab label="检验化验"> 开发中 </mat-tab>
+                      <mat-tab label="手术麻醉"> 开发中 </mat-tab>
                     </mat-tab-group>
                   </mat-expansion-panel>
                 </div>
@@ -161,25 +147,44 @@
                     </div>
               </mat-card>
     </div>
-
-         </ng-template>
-         </mat-tab>
+                  </ng-template>
+              </mat-tab>
+             <mat-tab>
+               <ng-template mat-tab-label style="font-size:large;color: #232a37"><span class='mat-tab-label'>检索历史</span></ng-template>
+               <ng-template matTabContent>
+               <div>
+                 <mat-card>
+                   <div>
+                     <table mat-table [dataSource]="HistoryList" style="width: 100%;">
+                       <ng-container [matColumnDef]="column" *ngFor="let column of historyColumns">
+                         <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                         <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                       </ng-container>
+                       <tr mat-header-row *matHeaderRowDef="historyColumns" style="background-color: rgba(0, 0, 0, 0.08)"></tr>
+                       <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                     </table>
+                   </div>
+                 </mat-card>
+               </div>
+               </ng-template>
+             </mat-tab>
        </mat-tab-group>
+
         <div><h4 style="margin-left: 25px">检索条件</h4></div>
         <mat-chip-list style="bottom:20px; left:100px;position: relative;"  >
           <div  *ngFor="let i of conditions">
             <span >{{i.logicValue}}</span>
-            <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNotNumber">{{i.inputTypeValue}} <span>"{{i.selectedValue}}"</span>
+            <mat-chip color="accent" selected *ngIf="i.inputTypeValue !== null && i.isNotNumber">{{i.inputTypeValue}} <span>"{{i.selectedValue}}"</span>
               <span *ngIf="i.isSelect!=true">{{i.inputValue}}</span>
-              <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
+              <mat-icon matChipRemove> cancel </mat-icon>
             </mat-chip>
-            <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isNumber">{{i.inputTypeValue}}<span>{{i.inputValue1}}</span>
+            <mat-chip color="accent" selected *ngIf="i.inputTypeValue !== null && i.isNumber">{{i.inputTypeValue}}<span>{{i.inputValue1}}</span>
               <span *ngIf="i.inputValue1!=null">~{{i.inputValue2}}</span>
-              <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
+              <mat-icon matChipRemove> cancel </mat-icon>
             </mat-chip>
-            <mat-chip color="accent" selected *ngIf="i.inputTypeValue!=null&&i.isTime">{{i.inputTypeValue}}<span>{{i.startTime | date:'yyyy/MM/dd'}}</span>
+            <mat-chip color="accent" selected *ngIf="i.inputTypeValue !== null && i.isTime">{{i.inputTypeValue}}<span>{{i.startTime | date:'yyyy/MM/dd'}}</span>
               <span *ngIf="i.startTime!=null">~{{i.endTime | date:'yyyy/MM/dd'}}</span>
-              <mat-icon matChipRemove  (click)="clearSingleRetrieval(i)">cancel</mat-icon>
+              <mat-icon matChipRemove> cancel </mat-icon>
             </mat-chip>
           </div>
         </mat-chip-list>
