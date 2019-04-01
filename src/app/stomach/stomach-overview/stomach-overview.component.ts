@@ -81,8 +81,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   keywords: Keyword[] = [];
   indexCondition = -1;
 
-  exportrules = ['导出规则1', '导出规则2', '导出规则3', '导出规则4'];
-  seletrules:[];
+  exportrules = [];
+  seletrules = [];
 
   constructor(
       private service: HttpService,
@@ -164,30 +164,45 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   }
 
   openRuleDialog(element): void {
-
+    this.exportrules=[];
+    this.seletrules=[];
+    this.service.getRuleList().subscribe(res => {
+      console.log(res);
+      this.paginatorConfig.length = res.length;
+      res.data.forEach(n => {
+        // console.log(n.date_joined);
+        /*this.exportrules.push({
+          id: n.part6_pid,
+          name: n.part6_name,
+        });*/
+       this.exportrules.push(n);
+      });
+      console.log(this.exportrules);
+    });
     const dialogRef = this.dialog.open(DialogOverviewRule, {
       width: '500px',
       data: {
-        confs: [],
         exportrules: this.exportrules,
         seletrules:this.seletrules
       }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.seletrules = result;
+      if(result){
+        this.seletrules = result;
       console.log(this.seletrules);
-      this.downloadFile();
+      this.downloadFile(element.pid,this.seletrules);
+      }     
     });
   }
 
 
-    downloadFile() {
+    downloadFile(pid,rules) {
       const params = {
-          rules: this.seletrules,
-          follow: '0',
+        pid:pid,
+        rules:rules,
       };
-      this.service.downloadFile( params, 'AllHypertensionData.csv' );
+      this.service.downloadFile( params, 'SinglepatientData.csv' );
     }
 
     downloadAllFile(ruleid) {

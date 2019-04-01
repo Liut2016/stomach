@@ -13,7 +13,7 @@ export class HttpService {
   //testUrl = 'http://202.117.54.13:8080/';
   testUrl = 'http://202.117.54.92:8080/';
   //testUrl = 'http://localhost:8080/';
-  //testUrl ='http://202.117.54.45:8080/'
+  testfilterUrl ='http://202.117.54.45:8080/'
   
   constructor(
     private httpClient: HttpClient,
@@ -24,7 +24,7 @@ export class HttpService {
     return '12345';
   }
   downloadFile(params, filename) {
-    this.httpClient.post(this.testUrl + 'oa/patients1/exportrule/get', params, {
+    this.httpClient.post(this.testUrl + 'oa/patients1/exportdata/get', params, {
       responseType: 'blob',
       observe: 'response'
     })
@@ -134,7 +134,7 @@ export class HttpService {
       'keywords': keywords,
       'condition_search': condition_search,
     };
-    return this.httpClient.post(this.testUrl + 'oa/filter1', JSON.stringify(params),
+    return this.httpClient.post(this.testfilterUrl + 'oa/filter1', JSON.stringify(params),
       // return this.httpClient.post(this.Url + 'oa/patients2/filter', JSON.stringify(params),
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);
@@ -165,7 +165,7 @@ export class HttpService {
       'conditions': conditions,
       'keys': keys
     };
-    return this.httpClient.post(this.testUrl + 'oa/patients1/filter', JSON.stringify(params),
+    return this.httpClient.post(this.testfilterUrl + 'oa/patients1/filter', JSON.stringify(params),
       // return this.httpClient.post(this.Url + 'oa/patients2/filter', JSON.stringify(params),
       {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .pipe( data =>  data);

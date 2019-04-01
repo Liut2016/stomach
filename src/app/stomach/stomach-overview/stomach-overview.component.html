@@ -237,7 +237,7 @@
           <button *ngIf="user.role === 'doctor'" mat-fab style="margin: 15px;" routerLink="../hypertension">
             <mat-icon aria-label="add a new survey">add</mat-icon>
           </button>
-          <button *ngIf="user.role === 'super'" mat-fab (click)="downloadAllFile(ruleid)">
+          <button *ngIf="user.role === 'super'" mat-fab (click)="openRuleDialog()">
             <mat-icon aria-label="add a new survey">file_download</mat-icon>
           </button>
           <label *ngIf="user.role === 'super'" style="margin-left: 5px">导出所有患者记录</label>
