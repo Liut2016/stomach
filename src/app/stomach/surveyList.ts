@@ -59,11 +59,11 @@ export const survey_list = [
               { type: 'text', cols: 1, rows: 1, text: '手术名称 :' },
               { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part1_ssmc', _value: ''}}, 
               { type: 'text', cols: 1, rows: 1, text: '切口等级' },
-              { type: 'input', cols: 1, rows: 1,key_value: {_key: 'part1_qkdj', _value: ''} },
+              { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part1_qkdj', _value: ''} },
               { type: 'text', cols: 1, rows: 1, text: '麻醉方式 :' },
               { type: 'input', cols: 1, rows: 1, key_value: {_key: 'part1_mzfs', _value: ''}},
             ]
-          }
+          },
         ]
       },
     {
@@ -262,7 +262,7 @@ export const survey_list = [
     ]
   },
     {
-        step_description: '实验室检查',
+      step_description: '实验室检查',
       items: [
         {
           type : 'lis',
@@ -430,39 +430,94 @@ export const survey_list = [
         }
       ]
     },
-    {
+    /*{
       step_description: '影像报告',
       items:[
         {
-          type: 'panel-table',
-          title: '影像报告列表',
-          required: true,
-          displayControl: { check: false },
-          data:[],
-          cols: 6,
-          layout: [
-            { type: 'text', cols: 1, rows: 1, text: '住院号：' },
-            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_zyh', _value: '' } },
-            { type: 'text', cols: 1, rows: 1, text: '患者姓名：' },
-            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_hzxm', _value: '' } },
-            { type: 'text', cols: 1, rows: 1, text: '性别：' },
-            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_xb', _value: '' } },
-            { type: 'text', cols: 1, rows: 1, text: '年龄：' },
-            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_nl', _value: '' } },
-            { type: 'text', cols: 1, rows: 1, text: '检查类别：' },
-            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jclb', _value: '' } },
-            { type: 'text', cols: 1, rows: 1, text: '检察时间：' },
-            { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jcsj', _value: '' } },
-            { type: 'text', cols: 1, rows: 1, text: '检察部位：' },
-            { type: 'input', cols: 5, rows: 1, key_value: { _key: 'part5_jcbw', _value: '' } },
-            { type: 'text', cols: 1, rows: 3, text: '检查结果描述：' },
-            { type: 'textarea', cols: 5, rows: 3, key_value: { _key: 'part5_jcjgms', _value: '' } },
-            { type: 'text', cols: 1, rows: 3, text: '检察诊断：' },
-            { type: 'textarea', cols: 5, rows: 3, key_value: { _key: 'part5_jczd', _value: '' } },
-          ]
-        },
+                  type: 'panel-table',
+                  title: '影像报告列表',
+                  required: true,
+                  displayControl: { check: false },
+                  data:[],
+                  cols: 4,
+                  layout: [
+                    { type: 'text', cols: 1, rows: 1, text: '住院号：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_zyh', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '患者姓名：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_hzxm', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检查类别：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jclb', _value: '' } }, 
+                    { type: 'text', cols: 1, rows: 1, text: '检察时间：' }, 
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jcsj', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检察部位：' },
+                    { type: 'input', cols: 3, rows: 1, key_value: { _key: 'part5_jcbw', _value: '' } },
+                   
+                    { type: 'text', cols: 1, rows: 1, text: '检察诊断：' },
+                    { type: 'input', cols: 3, rows: 1, key_value: { _key: 'part5_jczd', _value: '' } },
+                    { type: 'text', cols: 1, rows: 3, text: '检查结果描述：' },
+                    { type: 'textarea', cols: 3, rows: 3, key_value: { _key: 'part5_jcjgms', _value: '' } },
+                   
+                  ]
+              },
        ]
+    },*/
+    {
+      step_description: '影像报告',
+      items: [
+        {
+          type : 'form-dialog',
+          title : '影像报告',
+          data : [
+            {
+              "part5_pid": 15776,
+              "part5_zyh": 1333880,
+              "part5_hzxm": "房焕荣",
+              "part5_jclb": "超声",
+              "part5_jcbw": "[彩色多普勒超声常规检查]",
+              "part5_jcsj": "2016-08-20 11:04",
+              "part5_jcjgms": "腹腔肠袢间可探及液性暗区，较深处约34mm。\n肝周肝下间隙可探及液性暗区，较宽处约8mm。\n膈下未探及明显液性暗区。",
+              "part5_jczd": "肝周、腹腔积液",
+              "part5_xb": "男",
+              "part5_nl": 57,
+              "reference": "术后"
+          },
+          {
+              "part5_pid": 15777,
+              "part5_zyh": 1333880,
+              "part5_hzxm": "房焕荣",
+              "part5_jclb": "超声",
+              "part5_jcbw": "[心动超声[复]]",
+              "part5_jcsj": "2016-08-12 13:10",
+              "part5_jcjgms": "二维测值：\n右室流出道内径：            21mm    主动脉内径：                26mm\n左房前后径：                25mm    右室前后径：                17mm\n室间隔厚度/运动幅度：     8/8mm     左室后壁厚度/运动幅度：   5/11mm\n左室前后径（舒张/收缩）：38/25mm     肺动脉内径：             17mm\n右房长/横径：             27/18mm     右室长/横径：         39/38mm\n左房长/横径：              41/29mm     左室长/横径：         39/26mm\n二尖瓣血流速度（E/A）：   64/54cm/s    主动脉瓣环内径：       20mm\n三尖瓣血流速度：          37cm/s    主动脉瓣血流速度：        74cm/s\n肺动脉瓣血流速度：        83cm/s    每搏量                      39ml\n射血分值：        64%             小轴缩短率：                34%    \n\n\n1.各房室腔内径正常；大血管位置及内径正常。\n2.室间隔及左室游离壁厚度正常，室壁运动未见异常，房室间隔连续性好。心尖略圆钝。\n3.CDFI示三尖瓣可见反流束，反流面积约1.2c㎡，反流速度约224cm/s；二尖瓣可见小反流束，各瓣膜厚度、活动度良好。\n4.心包厚度正常，未见心包积液。\n5.左室收缩功能正常。",
+              "part5_jczd": "三尖瓣轻度关闭不全\n二维超声心动图大致正常\n",
+              "part5_xb": "男",
+              "part5_nl": 57,
+              "reference": "术后"
+          },
+          ],
+          cols: 4,
+          layout: [
+                    { type: 'text', cols: 1, rows: 1, text: '住院号：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_zyh', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '患者姓名：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_hzxm', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检查类别：' },
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jclb', _value: '' } }, 
+                    { type: 'text', cols: 1, rows: 1, text: '检察时间：' }, 
+                    { type: 'input', cols: 1, rows: 1, key_value: { _key: 'part5_jcsj', _value: '' } },
+                    { type: 'text', cols: 1, rows: 1, text: '检察部位：' },
+                    { type: 'input', cols: 3, rows: 1, key_value: { _key: 'part5_jcbw', _value: '' } },
+                   
+                    { type: 'text', cols: 1, rows: 1, text: '检察诊断：' },
+                    { type: 'input', cols: 3, rows: 1, key_value: { _key: 'part5_jczd', _value: '' } },
+                    { type: 'text', cols: 1, rows: 3, text: '检查结果描述：' },
+                    { type: 'textarea', cols: 3, rows: 3, key_value: { _key: 'part5_jcjgms', _value: '' } },
+                   
+                  ]
+        },
+        ]
     },
+
     {
         step_description: '治疗方式',
         items: [

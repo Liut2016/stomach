@@ -123,7 +123,6 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
   }
 
   selectChange(e, selectedItem) {
-    console.log(e, selectedItem);
     const arr = this.stateGroups;
     const tempSelectVals = [];
     const groupOptions = this.stateGroups;
@@ -150,8 +149,10 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
     for (let i = 0; i < arr.length; i++) {
       const obj = arr[i];
       for (let m in obj) {
+        // const medicalforms = obj.medicalforms;
+        //selectedItem.form_type = obj.medicalforms;
         const ft = obj.medicalforms;
-        const medicalformsoptions = obj.medicalformsoptions;
+        const medicalformsoptions = obj.medicalformsoptions;//medicalformsoptions是数组
         for (let j = 0; j < medicalformsoptions.length; j++) {
           const item = medicalformsoptions[j];
           if (e === item.text && item.type === 'number') {
@@ -166,7 +167,7 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
           if (e === item.text && item.type === 'time') {
             selectedItem.isNumber = false;
             selectedItem.isNotNumber = false;
-            selectedItem.isTime = true;
+            selectedItem.isTime=true;
             selectedItem.isSelect = false;
             selectedItem.form_type = ft;
             selectedItem.databaseField = item._key;
@@ -180,7 +181,6 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
             selectedItem.operators = [ '包含', '等于'];
             selectedItem.form_type = ft;
             selectedItem.databaseField = item._key;
-
           }
 
           if (e === item.text && item.type === 'select') {
@@ -190,10 +190,10 @@ export class StomachFilterComponent implements OnInit, AfterViewInit, PipeTransf
             selectedItem.isSelect = true;
             selectedItem.form_type = ft;
             selectedItem.databaseField = item._key;
-            if (e.indexOf('性别') !== -1) {
+            if(e.indexOf('性别')!=-1){
               selectedItem.operators = [ '男', '女'];
             }
-            if (e.indexOf('入院病室') !== -1) {
+            if(e.indexOf('入院病室')!=-1){
               selectedItem.operators = [ '肿瘤科VIP病区', '肿瘤一病区', '肿瘤二病区', '肿瘤四病区'];
             }
             if(e.indexOf('肿瘤大小(T)')!=-1){

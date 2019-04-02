@@ -54,8 +54,8 @@ export class View {
         }
         if (this.flag[7] === 1) {
         this.svg.append('text')
-            .attr('x', this.width + 20)
-            .attr('y', this.height + 10)
+            .attr('x', this.width + 10)
+            .attr('y', this.height)
             .attr('class', 'textXclass')
             .text('主诊断');
         this.svg.append('text')

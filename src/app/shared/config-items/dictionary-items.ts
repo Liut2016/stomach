@@ -28,6 +28,21 @@ export const dictionary = {
     part3_ckfw: '参考范围',
     part3_dw: '单位'
   },
+  part5_result: {
+    no:'序号',
+    part5_zyh: '住院号',
+    part5_hzxm: '姓名',
+    part5_jclb: '检查类别',
+    part5_jcsj: '检查时间',
+    reference: '手术前后',
+  },
+  part5_dicresult: {
+    'part5_jclb':'检查类别',
+    'part5_jcbw': '检查部位',
+    'part5_jcsj': '检查时间',
+    'part5_jcjgms': '检查结果描述',
+    'part5_jczd': '检查诊断',
+  },
   part1_home: {
     'part1_pid': '',
     'part1_bah': '病案号',
@@ -38,7 +53,7 @@ export const dictionary = {
     'part1_nl': '年龄',
     'part1_cysj': '出院时间',
     'part1_xb': '性别',
-    'highlight': '关键字',
+    'highlight': '',
     'part1_zyh': '住院号',
     'part1_zylsh': '住院流水号',
     'part1_sr': '出生日期',
@@ -51,7 +66,10 @@ export const dictionary = {
     'part1_ssmc': '手术名称',
     'part1_qkdj': '切口等级',
     'part1_mzfs': '麻醉方式',
-
+  },
+  history: {
+    'history_pid': '',
+    'history_text': '检索条件'
   },
   filter_keys: [
      {
@@ -245,8 +263,7 @@ export const dictionary = {
             'text': '检查结果描述',
             '_key': 'part5_jcjgms',
             'belong': '影像报告',
-            'type': 'string',
-            'elastic': true
+            'type': 'string'
           },
           {
             'text': '检查诊断',

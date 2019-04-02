@@ -40,8 +40,9 @@ export class ViewSubsection {
             .attr('transform', 'translate(0,' + this.height + ')')
             .call(xAxis);
         this.svg.append('text')
-            .attr('x', this.width + 20)
-            .attr('y', this.height + 10)
+            .attr('x', this.width)
+            .attr('y', this.height + 40)
+            .style('text-anchor', 'end')
             .attr('class', 'textXclass')
             .text('年龄');
         const gY = this.svg.append('g')

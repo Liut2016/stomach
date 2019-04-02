@@ -1,0 +1,60 @@
+<div class="filter-panel">
+    <mat-dialog-content>
+    <mat-card>
+      <mat-card-header>
+        <mat-icon>filter_list</mat-icon>
+        可选字段
+      </mat-card-header>
+    <mat-tab-group>
+      <mat-tab label="病案首页">
+        <button mat-button *ngFor="let item of stateGroups[0].medicalformsoptions" (click)="addFilterCondition1(item)">
+          {{item.text}}
+        </button>
+      </mat-tab>
+      <mat-tab label="影像报告"> 
+       <button mat-button *ngFor="let item of stateGroups[1].medicalformsoptions" (click)="addFilterCondition2(item)">
+          {{item.text}}
+       </button>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+  <mat-card>
+    <mat-card-header><mat-icon>bar_chart</mat-icon>
+      已选字段
+    </mat-card-header>
+   <mat-chip-list>
+      <span  *ngIf="key_list1.length>0" >病案首页已选：</span>
+      <span  *ngFor="let key of key_list1" >
+        <mat-chip color="accent" >{{dic1[key]}}
+          <mat-icon matChipRemove  (click)="remove(key, key_list1)">cancel</mat-icon>
+        </mat-chip>
+      </span>
+    </mat-chip-list>
+
+    <mat-chip-list>
+     <span  *ngIf="key_list2.length>0" >影像报告已选：</span>
+      <span  *ngFor="let key of key_list2" >
+        <mat-chip color="accent" >{{dic5[key]}}
+          <mat-icon matChipRemove  (click)="remove(key, key_list2)">cancel</mat-icon>
+        </mat-chip>
+      </span>
+    </mat-chip-list>
+  </mat-card>
+  <mat-card>
+      <mat-card-header><mat-icon>edit</mat-icon>
+        输入信息
+      </mat-card-header>
+     <span style="position: relative;left: 50px;"> 
+      <mat-form-field   appearance="outline"  style="max-width: 200px; margin-right: 20px;">
+       <mat-label>规则名称</mat-label>
+        <input matInput placeholder=" " [(ngModel)]="name">
+      </mat-form-field>
+     </span>
+  </mat-card>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions>
+      <button mat-raised-button (click)="sure()" style="color:royalblue,margin-left=10px">确定</button>
+      <button mat-raised-button (click)="cancel()" style="color:royalblue,margin-left=10px">取消</button>
+  </mat-dialog-actions>    
+  </div>

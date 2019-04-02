@@ -36,7 +36,7 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
   length: number[] = [];
   pageSize: 10;
   pageEvent: PageEvent;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  pageSizeOptions: number[] = [10, 25, 100];
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource: any[] = [];
   panelOpenState = false;
@@ -58,7 +58,7 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
 
     for (let index = 0; index < this.conf.data.length; index++) {
       this.dataSource.push([]);
-      this.conf.data[index].data.forEach((time_data, i) => {
+        this.conf.data[index].data.forEach((time_data, i) => {
         this.dataSource[index].push([]);
         this.dataSource[index][i] = new MatTableDataSource(this.conf.data[index].data[i].data);
         // this.dataSource[index][i].paginator = this.paginator
@@ -73,7 +73,7 @@ export class GeneralLisComponent extends ConfInterface implements OnInit, AfterV
              this.conf.data[n].data[m].data[k]["part3_sj"].substring(0,10);
             }
         }
-      } 
+      }
      }
     }*/
   }

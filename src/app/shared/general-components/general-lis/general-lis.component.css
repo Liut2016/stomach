@@ -2,3 +2,13 @@ mat-expansion-panel {
   background-color: #f5f5f5 !important;
   margin-top: 5px !important;
 }
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0 !important;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between !important;
+  align-items: center !important;
+}

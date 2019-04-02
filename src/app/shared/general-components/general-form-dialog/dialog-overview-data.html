@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-content>
+    <mat-grid-list [cols]="data.cols" rowHeight="80px">
+      <mat-grid-tile *ngFor="let item of data.layout_values[data.indexs]" [colspan]="item.cols" [rowspan]="item.rows" style="border: 1px solid #020303">
+          <mat-form-field *ngIf="item.type=='input'" style="max-width: 80%">
+              <input matInput [(ngModel)]="item.key_value._value" [disabled]="item.disabled" >
+          </mat-form-field>
+          <mat-label *ngIf="item.type=='text'" style="color: #020303; font-size: large">{{item.text}}</mat-label>
+          <div *ngIf="item.type=='textarea'" style="max-width: 100%;font-size: medium">
+            <textarea class="textarea" rows="12" cols="106" font-size="medium">{{item.key_value._value}}</textarea>           
+          </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+
+

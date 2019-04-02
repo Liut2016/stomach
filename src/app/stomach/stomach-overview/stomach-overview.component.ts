@@ -20,6 +20,11 @@ export interface Keyword {
   name: string;
 }
 
+export interface DialogData {
+  confs: any[];
+  exportrules: any[];
+  selectrules: any[];
+}
 
 @Pipe({
   name: 'Html'
@@ -54,7 +59,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
 
   searchParam = '';
   displayedColumns: string[] = [];
-  historyColumns = ['检索条件', '查询时间'];
+  historyColumns = ['history_text', 'operate'];
+  historyMap = dictionary.history;
 
   PatientList = new MatTableDataSource();
   HistoryList = new MatTableDataSource();
@@ -75,7 +81,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   keywords: Keyword[] = [];
   indexCondition = -1;
 
-
+  exportrules = [];
+  seletrules = [];
 
   constructor(
       private service: HttpService,
@@ -139,7 +146,6 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   addFilterCondition(item: any) {
     this.indexCondition = this.conditions.length;
     this.addRetrieval(item);
-
   }
 
   openDialog(selectedItem) {
@@ -158,7 +164,51 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
 
   }
 
+  openRuleDialog(element): void {
+    this.exportrules = [];
+    this.seletrules = [];
+    this.service.getRuleList().subscribe(res => {
+      console.log(res);
+      this.paginatorConfig.length = res.length;
+      res.data.forEach(n => {
+        // console.log(n.date_joined);
+        /*this.exportrules.push({
+          id: n.part6_pid,
+          name: n.part6_name,
+        });*/
+       this.exportrules.push(n);
+      });
+      console.log(this.exportrules);
+    });
+    const dialogRef = this.dialog.open(DialogOverviewRule, {
+      width: '500px',
+      data: {
+        exportrules: this.exportrules,
+        seletrules: this.seletrules
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        this.seletrules = result;
+      console.log(this.seletrules);
+      this.downloadFile(element.pid, this.seletrules);
+      }
+    });
+  }
 
+
+    downloadFile(pid, rules) {
+      const params = {
+        pid: pid,
+        rules: rules,
+      };
+      this.service.downloadFile( params, 'SinglepatientData.csv' );
+    }
+
+    downloadAllFile(ruleid) {
+      this.service.downloadAllFile(ruleid, 'AllStomochData.csv' );
+    }
 
   pageChanged(e) {
     this.pageEvent = e;
@@ -175,6 +225,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
               this.PatientList = new MatTableDataSource(data.data);
             this.displayedColumns = Object.keys(data.data[0]);
             this.displayedColumns.push('operate');
+            this.displayedColumns.push('export');
             });
   }
 
@@ -195,12 +246,13 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
         console.log(this.PatientList);
         this.displayedColumns.push('highlight');
         this.displayedColumns.push('operate');
+        this.displayedColumns.push('export');
       });
     }
   }
 
   onLinkClick(event: MatTabChangeEvent) {
-
+    this.getHistory();
   }
 
   goToDetail(ele) {
@@ -328,11 +380,11 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
 
   TimeSelected(e) {
     const y = e.getFullYear();
-    let m = e.getMonth() + 1;
-     m = m < 10 ? ('0' + m) : m;
-    let d = e.getDate();
-     d = d < 10 ? ('0' + d) : d;
-    return `${y}-${m}-${d}`;
+    const m = e.getMonth() + 1;
+    // m = m < 10 ? ('0' + m) : m;
+    const d = e.getDate();
+    const ji = '日一二三四五六'.charAt(e.getDay());
+    return `${y}/${m}/${d} 星期${ji}`;
   }
 
 
@@ -392,30 +444,60 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
           selectedValue: element.selectedValue, selectedInt: selectedInt,
         }));
     });
-    const tableData = [];
-    this.service.getFilterList(this.start, this.paginatorConfig.pageSize, this.keywords, this.condition_search, this.generateHistory(this.keywords, this.conditions)).subscribe( (data) => {
+    this.doSearch(
+      this.start,
+      this.paginatorConfig.pageSize,
+      this.keywords,
+      this.condition_search,
+      this.generateHistory(this.keywords, this.conditions)
+    );
+    this.getHistory();
+  }
+
+  doSearch(start, pagesize, keywords, conditions, history) {
+    this.service.getFilterList(
+      start,
+      pagesize,
+      keywords,
+      conditions,
+      history
+    ).subscribe( (data) => {
       this.paginatorConfig.length = data.count_num;
       const recordList = data.data;
       recordList.forEach((element, index) => {
         if (element.hasOwnProperty('part1_sr')) {
           element.part1_sr = element.part1_sr.split(' ')[0];
         }
-        tableData.push(Object.assign({}, element));
       });
       this.PatientList = new MatTableDataSource(recordList);
-      console.log('data1', data);
-      console.log('data', data.data[0]);
       this.displayedColumns = Object.keys(data.data[0]);
       this.displayedColumns.push('operate');
-       if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
-         this.searchMode = 2;
-       } else {
-         this.searchMode = 1;
-       }
-      console.log(this.displayedColumns);
+      this.displayedColumns.push('export');
+      if (_.indexOf(this.displayedColumns, 'highlight') > 0) {
+        this.searchMode = 2;
+      } else {
+        this.searchMode = 1;
+      }
     });
   }
 
+  historySearch(element) {
+    console.log(element);
+    const set = JSON.parse(element.history_set);
+    this.doSearch(
+      this.start,
+      this.paginatorConfig.pageSize,
+      set.keywords,
+      set.conditions,
+      element.history_text
+    );
+  }
+
+  getHistory() {
+    this.service.getHistory().subscribe(data => {
+      this.HistoryList = new MatTableDataSource(data.data);
+    });
+  }
   generateHistory(keywords, conditions) {
     let history_text;
     if (keywords.length > 0 && conditions.length > 0) {
@@ -429,7 +511,7 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
   generateKeywords(keywords) {
     keywords = keywords.map(item => {
       const temp_item = item.name.split(':');
-      return `${temp_item[0]}中包含'${temp_item[1]}'`;
+      return `${temp_item[0]}中包含 ${temp_item[1]}`;
     });
     return keywords.join(' and ');
   }
@@ -479,8 +561,6 @@ export class FilterDialogComponent implements OnInit, AfterViewInit {
 
   }
 
-
-
   ngOnInit() {
   }
 
@@ -497,6 +577,22 @@ export class FilterDialogComponent implements OnInit, AfterViewInit {
     console.log( this.data.singleCondition);
     this.dialogRef.close({'return': this.data.singleCondition});
   }
+}
+
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'dialog-overview-rule',
+  templateUrl: 'dialog-overview-rule.html',
+})
+// tslint:disable-next-line:component-class-suffix
+export class DialogOverviewRule {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewRule>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
