@@ -18,12 +18,13 @@ const confirmPassword = new FormControl('', CustomValidators.equalTo(password));
 export class ExportDialogComponent implements OnInit {
 
   public form: FormGroup;
-  stateGroups =  dictionary.filter_keys;
+  stateGroups =  dictionary.rule_keys;
   dic1 = dictionary.part1_home;
   dic5 = dictionary.part5_dicresult;
   key_list = {};
   key_list1 = [];
   key_list2 = [];
+  key_list3 = [];
   key:string;
   name:string;
   creator:string;
@@ -40,6 +41,10 @@ export class ExportDialogComponent implements OnInit {
     this.key_list2.push(item._key);
   }
 
+  addFilterCondition3(item: any) {
+    console.log(item);
+    this.key_list3.push(item.text);
+  }
 
   remove(key:any, keys: any): void {
     const index = keys.indexOf(key);
@@ -57,6 +62,7 @@ export class ExportDialogComponent implements OnInit {
     public httpService:HttpService, 
     public settings: SettingsService,
     ){
+    
     if(data){
       this.httpService.getRule(data.id).subscribe(res => {
         console.log(res);

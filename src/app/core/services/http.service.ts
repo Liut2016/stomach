@@ -23,8 +23,8 @@ export class HttpService {
   getDemo() {
     return '12345';
   }
-  downloadFile(params, filename) {
-    this.httpClient.post(this.testUrl + 'oa/patients1/exportdata/get', params, {
+  downloadFile(params, filename) {  
+    this.httpClient.post(this.testUrl + 'oa/patients1/exportdata', params, {
       responseType: 'blob',
       observe: 'response'
     })
@@ -33,8 +33,8 @@ export class HttpService {
       });
   }
 
-  downloadAllFile(ruleid,filename) {
-    this.httpClient.get(this.testUrl + 'oa/patients1/exportrule'+ruleid, {
+  downloadAllFile(params,filename) {
+    this.httpClient.post(this.testUrl + 'oa/patients1/exportdata',params, {
       responseType: 'blob',
       observe: 'response'
     })

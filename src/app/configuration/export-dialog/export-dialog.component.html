@@ -16,6 +16,11 @@
           {{item.text}}
        </button>
       </mat-tab>
+      <mat-tab label="实验室检查"> 
+        <button mat-button *ngFor="let item of stateGroups[2].medicalformsoptions" (click)="addFilterCondition3(item)">
+           {{item.text}}
+        </button>
+       </mat-tab>
     </mat-tab-group>
   </mat-card>
   <mat-card>
@@ -39,6 +44,15 @@
         </mat-chip>
       </span>
     </mat-chip-list>
+
+    <mat-chip-list>
+      <span  *ngIf="key_list3.length>0" >实验室检查已选：</span>
+       <span  *ngFor="let key of key_list3" >
+         <mat-chip color="accent" >{{key}}
+           <mat-icon matChipRemove  (click)="remove(key, key_list3)">cancel</mat-icon>
+         </mat-chip>
+       </span>
+     </mat-chip-list>
   </mat-card>
   <mat-card>
       <mat-card-header><mat-icon>edit</mat-icon>

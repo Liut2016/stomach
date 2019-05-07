@@ -10,6 +10,7 @@ import { StomachOverviewComponent, FilterDialogComponent,DialogOverviewRule } fr
 import { StomachFilterComponent } from './stomach-filter/stomach-filter.component';
 import { MyPipePipe } from '@app/shared/pipe/html-pipe';
 import { PopoverModule } from 'angular-bootstrap-md';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PopoverModule } from 'angular-bootstrap-md';
         ReactiveFormsModule,
         DemoMaterialModule,
         SharedModule,
-      PopoverModule
+      PopoverModule,
+      NgxPaginationModule
     ],
     declarations: [StomachFormComponent, StomachOverviewComponent, StomachFilterComponent, MyPipePipe, FilterDialogComponent,DialogOverviewRule],
     entryComponents: [FilterDialogComponent,DialogOverviewRule],

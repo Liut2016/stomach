@@ -1,9 +1,10 @@
 <mat-card>
     <mat-card-content>
         <mat-selection-list label="导出规则" [(ngModel)]="data.selectrules" ngDefaultControl #rules>
-            <mat-list-option *ngFor="let item of data.exportrules"  [value]="item.part6_pid">
+            <mat-list-option *ngFor="let item of data.exportrules | paginate:{ itemsPerPage: 5,currentPage:p}; let index = index"  [value]="item.part6_pid">
                 {{item.part6_name}}
             </mat-list-option>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls> 
         </mat-selection-list>
         <p>
            已选中的导出规则 : {{rules.selectedOptions.selected.length}}

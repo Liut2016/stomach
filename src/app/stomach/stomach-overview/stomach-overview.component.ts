@@ -191,22 +191,71 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       if(result){
         this.seletrules = result;
       console.log(this.seletrules);
-      this.downloadFile(element.pid,this.seletrules);
+      this.downloadFile(element.part1_zylsh,this.seletrules);
+      }     
+    });
+  }
+
+  openRuleDialogAll(): void {
+    this.exportrules=[];
+    this.seletrules=[];
+    this.service.getRuleList().subscribe(res => {
+      console.log(res);
+      this.paginatorConfig.length = res.length;
+      res.data.forEach(n => {
+        // console.log(n.date_joined);
+        /*this.exportrules.push({
+          id: n.part6_pid,
+          name: n.part6_name,
+        });*/
+       this.exportrules.push(n);
+      });
+      console.log(this.exportrules);
+    });
+    const dialogRef = this.dialog.open(DialogOverviewRule, {
+      width: '500px',
+      data: {
+        exportrules: this.exportrules,
+        seletrules:this.seletrules
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(result){
+        this.seletrules = result;
+      console.log(this.seletrules);
+      this.downloadAllFile(this.seletrules);
       }     
     });
   }
 
 
-    downloadFile(pid,rules) {
+
+    /*downloadFile(pid,rules) {
       const params = {
-        pid:pid,
-        rules:rules,
+        ruleId:rules,
+        patients:pid,      
+        isAll:0
       };
       this.service.downloadFile( params, 'SinglepatientData.csv' );
+    }*/
+
+    downloadFile(pid,rules) {
+      const params = {
+        "ruleId":rules.id,
+        "patients":[pid],
+        "isAll":0
+      }
+      this.service.downloadFile( params, 'SinglepatientData.zip' );
     }
 
-    downloadAllFile(ruleid) {
-      this.service.downloadAllFile(ruleid,'AllStomochData.csv' );
+    downloadAllFile(rules) {
+      const params = {
+        "ruleId":rules.id,
+        "patients":[],     
+        "isAll":1
+      };
+      this.service.downloadFile(params,'AllStomochData.zip' );
     }
 
   pageChanged(e) {

@@ -269,6 +269,299 @@ export const dictionary = {
             'type': 'string'
           }
         ]
-      }
-  ]
+      },
+  ],
+  rule_keys: [
+    {
+       medicalforms: '病案首页',
+       medicalformsoptions: [
+         {
+           'text': '住院流水号',
+           '_key': 'part1_zylsh',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '住院号',
+           '_key': 'part1_zyh',
+           'belong': '病案首页',
+           'type': 'number'
+         },
+         {
+           'text': '姓名',
+           '_key': 'part1_xm',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '出生日期',
+           '_key': 'part1_sr',
+           'belong': '病案首页',
+           'type': 'time'
+         },
+         {
+           'text': '年龄',
+           '_key': 'part1_nl',
+           'belong': '病案首页',
+           'type': 'number'
+         },
+         {
+           'text': '性别',
+           '_key': 'part1_xb',
+           'belong': '病案首页',
+           'type': 'select'
+         },
+         {
+           'text': '现住址',
+           '_key': 'part1_xzz',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '出生地',
+           '_key': 'part1_csd',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '职业',
+           '_key': 'part1_zy',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '民族',
+           '_key': 'part1_mz',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '入院时间',
+           '_key': 'part1_rysj',
+           'belong': '病案首页',
+           'type': 'time'
+         },
+         {
+           'text': '出院时间',
+           '_key': 'part1_cysj',
+           'belong': '病案首页',
+           'type': 'time'
+         },
+         {
+           'text': '实际住院天数',
+           '_key': 'part1_sjzyts',
+           'belong': '病案首页',
+           'type': 'number'
+         },
+         {
+           'text': '主诊断',
+           '_key': 'part1_zzd',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '主诊断编码',
+           '_key': 'part1_zzdbm',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '手术日期',
+           '_key': 'part1_ssrq',
+           'belong': '病案首页',
+           'type': 'time'
+         },
+         {
+           'text': '手术名称',
+           '_key': 'part1_ssmc',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '切口等级',
+           '_key': 'part1_qkdj',
+           'belong': '病案首页',
+           'type': 'string'
+         },
+         {
+           'text': '麻醉方式',
+           '_key': 'part1_mzfs',
+           'belong': '病案首页',
+           'type': 'string'
+         }
+       ]
+     },
+    /* {
+       medicalforms: '医嘱',
+       medicalformsoptions: [
+         {
+           'text': '医嘱类别',
+           '_key': 'part2_yzlb',
+           'belong': '医嘱',
+           'type': 'string'
+         },
+         {
+           'text': '项目名称',
+           '_key': 'part2_xmmc',
+           'belong': '医嘱',
+           'type': 'string'
+         },
+         {
+           'text': '项目总量',
+           '_key': 'part2_xmzl',
+           'belong': '医嘱',
+           'type': 'string'
+         },
+         {
+           'text': '频次代码',
+           '_key': 'part2_pcdm',
+           'belong': '医嘱',
+           'type': 'string'
+         },
+         {
+           'text': '频次名称',
+           '_key': 'part2_pcmc',
+           'belong': '医嘱',
+           'type': 'string'
+         },
+         {
+           'text': '开始时间',
+           '_key': 'part2_kssj',
+           'belong': '医嘱',
+           'type': 'time'
+         },
+         {
+           'text': '结束时间',
+           '_key': 'part2_jssj',
+           'belong': '医嘱',
+           'type': 'time'
+         }
+       ]
+     },*/
+      {
+        medicalforms: '影像报告',
+        medicalformsoptions: [
+         {
+           'text': '检查类别',
+           '_key': 'part5_jclb',
+           'belong': '影像报告',
+           'type': 'string'
+         },
+         {
+           'text': '检查部位',
+           '_key': 'part5_jcbw',
+           'belong': '影像报告',
+           'type': 'string'
+         },
+         {
+           'text': '检查时间',
+           '_key': 'part5_jcsj',
+           'belong': '影像报告',
+           'type': 'time'
+         },
+         {
+           'text': '检查结果描述',
+           '_key': 'part5_jcjgms',
+           'belong': '影像报告',
+           'type': 'string'
+         },
+         {
+           'text': '检查诊断',
+           '_key': 'part5_jczd',
+           'belong': '影像报告',
+           'type': 'string'
+         }
+       ]
+     },
+     {
+       medicalforms: '实验室检查',
+       medicalformsoptions: [
+        {
+          'text': '总蛋白',
+          'belong': '平诊肝功十四项',
+          'type': 'string'
+        },
+        {
+         'text': '球蛋白',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '白球比',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '白蛋白',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': 'a-l岩藻糖苷酶',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': 'γ谷氨酰氨转肽酶',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '碱性磷酸酶',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '总胆红素',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '谷草转氨酶',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '谷丙转氨酶',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '间接胆红素',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '前白蛋白',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '总胆汁酸',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '谷草/谷丙',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '总胆固醇',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '直接胆红素',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+       {
+         'text': '超氧化物歧化酶',
+         'belong': '平诊肝功十四项',
+         'type': 'string'
+       },
+      ]
+    }
+ ]
 };
