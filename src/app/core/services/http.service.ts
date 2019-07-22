@@ -11,9 +11,9 @@ const httpOptions = {
 export class HttpService {
   baseUrl = 'http://59.110.52.133:9010/';
   // testUrl = 'http://202.117.54.13:8080/';
-  testUrl = 'http://202.117.54.45:8080/';
+  testUrl = 'http://202.117.16.95:8080/';
   // testUrl = 'http://localhost:8080/';
-  testfilterUrl = 'http://202.117.54.45:8080/'
+  testfilterUrl = 'http://202.117.16.95:8080/'
   constructor(
     private httpClient: HttpClient,
     private http: Http,
