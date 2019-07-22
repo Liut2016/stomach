@@ -191,8 +191,8 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
       console.log('The dialog was closed');
       if (result) {
         this.seletrules = result;
-      console.log(this.seletrules);
-      this.downloadFile(element.pid, this.seletrules);
+      console.log(this.seletrules[0]);
+      this.downloadFile(element.part1_zylsh, this.seletrules[0]);
       }
     });
   }
@@ -200,10 +200,12 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
 
     downloadFile(pid, rules) {
       const params = {
-        pid: pid,
-        rules: rules,
+        patients: [pid],
+        ruleId: rules,
+        isAll: 0
       };
-      this.service.downloadFile( params, 'SinglepatientData.csv' );
+      console.log(params);
+      this.service.downloadFile( params, 'SinglepatientData.zip' );
     }
 
     downloadAllFile(ruleid) {

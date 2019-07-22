@@ -23,7 +23,7 @@ export class HttpService {
     return '12345';
   }
   downloadFile(params, filename) {
-    this.httpClient.post(this.testUrl + 'oa/patients1/exportdata/get', params, {
+    this.httpClient.post(this.testUrl + 'oa/patients1/exportdata', params, {
       responseType: 'blob',
       observe: 'response'
     })

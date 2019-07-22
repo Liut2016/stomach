@@ -69,8 +69,8 @@ export class ExportDialogComponent implements OnInit {
         }else{
           this.key_list1=[];
         }
-        if(this.key_list["FIRST_RESULT"]){
-           this.key_list2=this.key_list["FIRST_RESULT"];  
+        if(this.key_list["FIRST_RESULTS"]){
+           this.key_list2=this.key_list["FIRST_RESULTS"];  
         }else{
           this.key_list2=[];
         }
@@ -102,7 +102,7 @@ export class ExportDialogComponent implements OnInit {
       this.key_list['FIRST_HOME']=this.key_list1;
     }
     if(this.key_list2.length>0){
-      this.key_list['FIRST_RESULT']=this.key_list2;
+      this.key_list['FIRST_RESULTS']=this.key_list2;
     }
     console.log(this.key_list);
     this.httpService.initRule(this.name,this.key_list,this.username)
