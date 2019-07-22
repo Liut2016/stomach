@@ -15,6 +15,7 @@ import { dictionary } from '@app/shared/config-items/dictionary-items';
 import { MyPipePipe } from '@app/shared/pipe/html-pipe';
 import { MatChipInputEvent } from '@angular/material';
 import _ from 'lodash';
+import { getLocaleExtraDayPeriodRules } from '@angular/common';
 
 export interface Keyword {
   name: string;
@@ -197,6 +198,39 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     });
   }
 
+  openRuleDialog2(): void {
+    this.exportrules = [];
+    this.seletrules = [];
+    this.service.getRuleList().subscribe(res => {
+      console.log(res);
+      this.paginatorConfig.length = res.length;
+      res.data.forEach(n => {
+        // console.log(n.date_joined);
+        /*this.exportrules.push({
+          id: n.part6_pid,
+          name: n.part6_name,
+        });*/
+       this.exportrules.push(n);
+      });
+      console.log(this.exportrules);
+    });
+    const dialogRef = this.dialog.open(DialogOverviewRule, {
+      width: '500px',
+      data: {
+        exportrules: this.exportrules,
+        seletrules: this.seletrules
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        this.seletrules = result;
+      console.log(this.seletrules[0]);
+      this.downloadAllFile(this.seletrules[0]);
+      }
+    });
+  }
+
 
     downloadFile(pid, rules) {
       const params = {
@@ -209,7 +243,12 @@ export class StomachOverviewComponent implements OnInit, AfterViewInit, PipeTran
     }
 
     downloadAllFile(ruleid) {
-      this.service.downloadAllFile(ruleid, 'AllStomochData.csv' );
+      const params = {
+        patients: [],
+        ruleId: ruleid,
+        isAll: 1
+      };
+      this.service.downloadFile(params, 'AllStomochData.zip' );
     }
 
   pageChanged(e) {
