@@ -265,7 +265,7 @@ export const survey_list = [
       step_description: '实验室检查',
       items: [
         {
-          type : 'lis',
+          type : 'lism',
           title : '检查项目',
           data : [
             {

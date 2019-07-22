@@ -1,51 +1,52 @@
 <div>
-  <mat-card>
-    <mat-card-header>
-      <h3>
-        表单组件一览
-      </h3>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
-        <mat-tab-group (selectedTabChange)="changeTab($event)">
-          <mat-tab *ngFor="let tab of components_list" [label]="tab.step_description">
-            <ng-template mat-tab-label style="font-size: large; color: #232a37">{{tab.step_description}}</ng-template>
-            <ng-template matTabContent>
-              <div *ngFor="let cmp of tab.items">
-                <div [ngSwitch]="cmp.type">
-                  <app-dc-general-selector        *ngSwitchCase="'selector'"        [conf]="cmp" ></app-dc-general-selector>
-                  <app-dc-general-input *ngSwitchCase="'input'" [conf]="cmp"></app-dc-general-input>
-                  <app-dc-general-radio *ngSwitchCase="'radio'" [conf]="cmp"></app-dc-general-radio>
-                  <app-dc-general-checkbox *ngSwitchCase="'checkbox'" [conf]="cmp"></app-dc-general-checkbox>
-                  <app-dc-general-table           *ngSwitchCase="'table'"           [conf]="cmp"></app-dc-general-table>
-                  <app-dc-general-date            *ngSwitchCase="'date'"            [conf]="cmp" ></app-dc-general-date>
-                  <app-dc-general-date-year       *ngSwitchCase="'date-year'"       [conf]="cmp" ></app-dc-general-date-year>
-                  <app-dc-general-date-year-month *ngSwitchCase="'date-year-month'" [conf]="cmp" ></app-dc-general-date-year-month>
-                  <app-dc-general-card-group      *ngSwitchCase="'card-group'"      [conf]="cmp" ></app-dc-general-card-group>
-                  <app-dc-general-address         *ngSwitchCase="'address'"         [conf]="cmp" ></app-dc-general-address>
-                  <app-dc-dynamic-row-table       *ngSwitchCase="'dynamic-row-table'" [conf]="cmp" ></app-dc-dynamic-row-table>
-                  <app-general-select *ngSwitchCase="'select'" [conf]="cmp"></app-general-select>
-                  <app-general-expansion-panel *ngSwitchCase="'panel-table'" [conf]="cmp"></app-general-expansion-panel>
-                  <app-general-stepper *ngSwitchCase="'stepper'" [conf]="cmp"></app-general-stepper>
-                  <app-general-classified-lists *ngSwitchCase="'classified-lists'" [conf]="cmp"></app-general-classified-lists>
-                  <app-general-lis *ngSwitchCase="'lis'" [conf]="cmp"></app-general-lis>
-                  <app-general-form-dialog *ngSwitchCase="'form-dialog'" [conf]="cmp"></app-general-form-dialog>
-                  <app-general-button-dialog *ngSwitchCase="'button-dialog'" [conf]="cmp"></app-general-button-dialog>
-                </div>
-              </div>
-              <div class="source-button">
-                <button  mat-icon-button (click)="showSource()">
+    <mat-card>
+        <mat-card-header>
+            <h3>
+                表单组件一览
+            </h3>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-tab-group (selectedTabChange)="changeTab($event)">
+                    <mat-tab *ngFor="let tab of components_list" [label]="tab.step_description">
+                        <ng-template mat-tab-label style="font-size: large; color: #232a37">{{tab.step_description}}</ng-template>
+                        <ng-template matTabContent>
+                            <div *ngFor="let cmp of tab.items">
+                                <div [ngSwitch]="cmp.type">
+                                    <app-dc-general-selector *ngSwitchCase="'selector'" [conf]="cmp"></app-dc-general-selector>
+                                    <app-dc-general-input *ngSwitchCase="'input'" [conf]="cmp"></app-dc-general-input>
+                                    <app-dc-general-radio *ngSwitchCase="'radio'" [conf]="cmp"></app-dc-general-radio>
+                                    <app-dc-general-checkbox *ngSwitchCase="'checkbox'" [conf]="cmp"></app-dc-general-checkbox>
+                                    <app-dc-general-table *ngSwitchCase="'table'" [conf]="cmp"></app-dc-general-table>
+                                    <app-dc-general-date *ngSwitchCase="'date'" [conf]="cmp"></app-dc-general-date>
+                                    <app-dc-general-date-year *ngSwitchCase="'date-year'" [conf]="cmp"></app-dc-general-date-year>
+                                    <app-dc-general-date-year-month *ngSwitchCase="'date-year-month'" [conf]="cmp"></app-dc-general-date-year-month>
+                                    <app-dc-general-card-group *ngSwitchCase="'card-group'" [conf]="cmp"></app-dc-general-card-group>
+                                    <app-dc-general-address *ngSwitchCase="'address'" [conf]="cmp"></app-dc-general-address>
+                                    <app-dc-dynamic-row-table *ngSwitchCase="'dynamic-row-table'" [conf]="cmp"></app-dc-dynamic-row-table>
+                                    <app-general-select *ngSwitchCase="'select'" [conf]="cmp"></app-general-select>
+                                    <app-general-expansion-panel *ngSwitchCase="'panel-table'" [conf]="cmp"></app-general-expansion-panel>
+                                    <app-general-stepper *ngSwitchCase="'stepper'" [conf]="cmp"></app-general-stepper>
+                                    <app-general-classified-lists *ngSwitchCase="'classified-lists'" [conf]="cmp"></app-general-classified-lists>
+                                    <app-general-lis *ngSwitchCase="'lis'" [conf]="cmp"></app-general-lis>
+                                    <app-general-lis-multi *ngSwitchCase="'lism'" [conf]="cmp"></app-general-lis-multi>
+                                    <app-general-form-dialog *ngSwitchCase="'form-dialog'" [conf]="cmp"></app-general-form-dialog>
+                                    <app-general-button-dialog *ngSwitchCase="'button-dialog'" [conf]="cmp"></app-general-button-dialog>
+                                </div>
+                            </div>
+                            <div class="source-button">
+                                <button mat-icon-button (click)="showSource()">
                   <mat-icon>code</mat-icon>
                 </button>
-              </div>
+                            </div>
 
-              <mat-card style="border-top: 1px solid gainsboro" *ngIf="show_source">
-                <ngx-json-viewer [json]="source_code"></ngx-json-viewer>
-              </mat-card>
-            </ng-template>
-          </mat-tab>
-        </mat-tab-group>
-      </div>
-    </mat-card-content>
-  </mat-card>
+                            <mat-card style="border-top: 1px solid gainsboro" *ngIf="show_source">
+                                <ngx-json-viewer [json]="source_code"></ngx-json-viewer>
+                            </mat-card>
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </mat-card-content>
+    </mat-card>
 </div>

@@ -28,6 +28,16 @@ export const dictionary = {
     part3_ckfw: '参考范围',
     part3_dw: '单位'
   },
+  part3_lis_multi: {
+    key0: '具体项目',
+    key1: '检查结果',
+    key2: '参考范围',
+    key3: '单位',
+    key4: '具体项目',
+    key5: '检查结果',
+    key6: '参考范围',
+    key7: '单位',
+  },
   part5_result: {
     no:'序号',
     part5_zyh: '住院号',

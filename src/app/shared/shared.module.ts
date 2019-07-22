@@ -23,6 +23,7 @@ import { GeneralExpansionPanelComponent } from '@app/shared/general-components/g
 import { GeneralStepperComponent } from './general-components/general-stepper/general-stepper.component';
 import {GeneralClassifiedListsComponent} from '@app/shared/general-components/general-classified-lists/general-classified-lists.component';
 import { GeneralLisComponent } from './general-components/general-lis/general-lis.component';
+import { GeneralLisMultiComponent } from './general-components/general-lis-multi/general-lis-multi.component';
 import { GeneralListComponent } from './general-components/general-list/general-list.component';
 import { GeneralFormDialogComponent } from './general-components/general-form-dialog/general-form-dialog.component';
 import {  DialogOverviewData } from '@app/shared/general-components/general-form-dialog/general-form-dialog.component';
@@ -61,7 +62,7 @@ import { GeneralButtonDialogComponent, DialogOverviewRule } from './general-comp
     GeneralExpansionPanelComponent,
     GeneralStepperComponent,
     GeneralClassifiedListsComponent,
-    GeneralLisComponent,
+    GeneralLisComponent, GeneralLisMultiComponent,
     GeneralListComponent,
     GeneralFormDialogComponent,
     GeneralFormDialogComponent,
@@ -91,7 +92,7 @@ import { GeneralButtonDialogComponent, DialogOverviewRule } from './general-comp
     GeneralExpansionPanelComponent,
     GeneralStepperComponent,
     GeneralClassifiedListsComponent,
-    GeneralLisComponent,
+    GeneralLisComponent, GeneralLisMultiComponent,
     GeneralListComponent,
     GeneralFormDialogComponent,
     GeneralButtonDialogComponent

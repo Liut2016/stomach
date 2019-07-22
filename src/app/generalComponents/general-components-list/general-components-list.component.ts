@@ -1,8 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import {components_list  } from '../cmpList';
-import {NestedTreeControl} from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material';
-import { BehaviorSubject } from 'rxjs';
 
 
 @Component({

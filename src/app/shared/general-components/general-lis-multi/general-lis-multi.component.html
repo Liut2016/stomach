@@ -1,0 +1,39 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                {{conf.title}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-tab-group>
+                <mat-tab *ngFor="let item of conf.data; let i = index" [label]="item.type" style="font-size:medium;color: #232a37">
+                    <mat-accordion class="example-headers-align">
+                        <mat-expansion-panel *ngFor="let sub of item.data; let date_num = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    {{sub.type}}
+                                </mat-panel-title>
+                                <mat-panel-title>
+                                    {{sub.data[0].part3_sj.substr(0,10)}}
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    具体项目{{sub.data.length}}条，点击查看具体项目
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <table mat-table class="mat-elevation-z8" [dataSource]="dataSource[i][date_num]" style="width: 100%">
+                                <ng-container *ngFor="let col of keys; let d = index" [matColumnDef]="col">
+                                    <th mat-header-cell *matHeaderCellDef> {{dictionary[col]}} </th>
+                                    <td mat-cell *matCellDef='let element'> {{element[col]}} </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                            <mat-paginator [length]="dataSource[i][date_num].length" [pageSize]="pageSize" [pageSizeOptions]="[10,20,30]" showFirstLastButtons></mat-paginator>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+</div>
