@@ -53,6 +53,13 @@ export class ExportComponent implements OnInit,AfterViewInit {
  createtime:string;
  updatetime:string;
 
+ // for prod 
+ startDateSelected(e) {}
+ endDateSelected(e) {}
+ sortData(e) {}
+
+
+
  paginatorConfig = {
    length: 15,
    pageSize: 5

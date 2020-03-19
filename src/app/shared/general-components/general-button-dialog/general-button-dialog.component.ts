@@ -55,7 +55,7 @@ export class GeneralButtonDialogComponent extends ConfInterface implements OnIni
   ngOnInit() {
   }
 
-  openDialog(indexs: number): void {
+  openDialog(): void {
 
     const dialogRef = this.dialog.open(DialogOverviewRule, {
       width: '500px',
@@ -88,6 +88,10 @@ export class GeneralButtonDialogComponent extends ConfInterface implements OnIni
 })
 // tslint:disable-next-line:component-class-suffix
 export class DialogOverviewRule {
+  
+  // for prod
+  exportData(e) {}
+
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewRule>,

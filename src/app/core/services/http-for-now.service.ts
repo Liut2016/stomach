@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HttpForNowService {
-  private localUrl = 'http://59.110.52.133:9010/';
+  private localUrl = 'http://123.56.247.133:9010/';
   // private localUrl = 'http://202.117.54.88:9000/';
   private headers = new Headers({'Content-Type': 'application/json'});
 

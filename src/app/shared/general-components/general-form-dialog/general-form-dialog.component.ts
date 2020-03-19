@@ -40,6 +40,7 @@ export class GeneralFormDialogComponent extends ConfInterface implements OnInit,
   layout: any[];
   cols: number;
   layout_values: any[];
+  dataSourceLength: number;
 
   constructor(
     public dialog: MatDialog,
@@ -55,6 +56,9 @@ export class GeneralFormDialogComponent extends ConfInterface implements OnInit,
     this.layout = this.conf.layout;
     this.cols = this.conf.cols;
     this.dataSource = new MatTableDataSource(this.conf.data);
+    //this.dataSource.length = this.conf.data.length;
+    this.dataSourceLength = this.conf.data.length;
+
 
     this.conf.data.forEach(part => {
       const temp_layout = _.cloneDeep(this.conf.layout);

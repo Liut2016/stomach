@@ -3,17 +3,23 @@ import { Injectable, Injector } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Observable} from 'rxjs/Observable';
 import { saveAs} from 'file-saver';
-import { url } from '@app/../environments/environment';
+//import { url } from '@app/../environments/environment';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 @Injectable()
 export class HttpService {
-  baseUrl = 'http://59.110.52.133:9010/';
+  baseUrl = 'http://123.56.247.133:8084/';
   // testUrl = 'http://202.117.54.13:8080/';
-  testUrl = 'http://202.117.16.95:8080/';
+
+  // testUrl = 'http://202.117.16.95:8080/';
   // testUrl = 'http://localhost:8080/';
-  testfilterUrl = 'http://202.117.16.95:8080/'
+  // testfilterUrl = 'http://202.117.16.95:8080/'
+
+  testUrl = 'http://123.56.247.133:8082/';
+  // testUrl = 'http://localhost:8080/';
+  testfilterUrl = 'http://123.56.247.133:8082/'
+
   constructor(
     private httpClient: HttpClient,
     private http: Http,

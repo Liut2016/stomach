@@ -8,7 +8,7 @@ var express = require("express"),
     compression = require("compression");
 app.use(compression({level: 9}));//express compression to support gzip
 
-app.set("port", process.env.PORT || 8200);
+app.set("port", process.env.PORT || 8081);
 app.use(express.static(path.join(__dirname, "dist")));
 
 // angular启动页
