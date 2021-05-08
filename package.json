@@ -63,7 +63,7 @@
     "vega-embed": "3.24.2",
     "vega-lite": "3.0.0-rc8",
     "vega-typings": "0.3.51",
-    "vega-util": "1.7.0",
+    "vega-util": "1.13.1",
     "zone.js": "*0.8.26"
   },
   "devDependencies": {
